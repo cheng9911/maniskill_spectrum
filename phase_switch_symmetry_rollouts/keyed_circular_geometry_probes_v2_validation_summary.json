@@ -1,0 +1,30 @@
+{
+  "trajectory": "phase_switch_symmetry_rollouts/keyed_circular_geometry_probes_v2.h5",
+  "episodes": 7,
+  "conditions": 6,
+  "selected_valid_probes": 6,
+  "matched_clearance_m": [
+    0.008009139448404312,
+    0.006446141749620438
+  ],
+  "mismatched_clearance_m": [
+    -0.027997810393571854,
+    -0.028112825006246567
+  ],
+  "mismatched_contact_force_N": [
+    48.061281923632244,
+    49.68651594748534
+  ],
+  "postclear_final_yaw_deg": [
+    -30.00174627761328,
+    30.02240768672564
+  ],
+  "checks": {
+    "all_probe_conditions_validated": true,
+    "matched_key_clears": true,
+    "mismatched_key_blocked_by_contact": true,
+    "postclear_arbitrary_yaw_succeeds": true,
+    "postclear_yaw_is_physically_realized": true,
+    "no_post_terminal_actions": true
+  }
+}

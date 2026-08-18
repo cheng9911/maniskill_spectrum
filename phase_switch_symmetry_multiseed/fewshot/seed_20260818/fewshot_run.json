@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "seed": 20260818,
+  "dataset": "phase_switch_symmetry_multiseed/rollouts/seed_20260818.h5",
+  "dataset_sha256": "1fc05000cb046fb4215fef6a865caa3e39cbe6bfa0c26181786bf8f39c8ab473",
+  "experiment_sha256": "316e109d2e0a92fce9aaab7459ab54e99869f5bc2cc945a9827d668e3caac998",
+  "subset_manifest_sha256": "212b4362d0e3b997eba2c3ea730983eff23f32385934755987834e94a659f982",
+  "source_sha256": "65a9595f9ee4880a823d694450296671c03d50ebb43df878fd4f9fcaab79c538",
+  "models": [
+    "Pdiag finite",
+    "Full operator",
+    "Generic RBF"
+  ],
+  "fit_count": 363,
+  "fit_failure_count": 0,
+  "generic_rbf_cv_rule": "min(5, N) episode-grouped folds; otherwise frozen implementation"
+}

@@ -1,0 +1,167 @@
+{
+  "conditions": [
+    {
+      "probe_type": "matched_preclear",
+      "socket_yaw_deg": -30.0,
+      "keyed_yaw_deg": -30.0,
+      "post_clear_yaw_deg": 0.0,
+      "stop_after_phase": "enter_key"
+    },
+    {
+      "probe_type": "mismatched_preclear",
+      "socket_yaw_deg": -30.0,
+      "keyed_yaw_deg": 0.0,
+      "post_clear_yaw_deg": 0.0,
+      "stop_after_phase": "enter_key"
+    },
+    {
+      "probe_type": "matched_preclear",
+      "socket_yaw_deg": 30.0,
+      "keyed_yaw_deg": 30.0,
+      "post_clear_yaw_deg": 0.0,
+      "stop_after_phase": "enter_key"
+    },
+    {
+      "probe_type": "mismatched_preclear",
+      "socket_yaw_deg": 30.0,
+      "keyed_yaw_deg": 0.0,
+      "post_clear_yaw_deg": 0.0,
+      "stop_after_phase": "enter_key"
+    },
+    {
+      "probe_type": "arbitrary_postclear_yaw",
+      "socket_yaw_deg": 0.0,
+      "keyed_yaw_deg": 0.0,
+      "post_clear_yaw_deg": -30.0,
+      "stop_after_phase": null
+    },
+    {
+      "probe_type": "arbitrary_postclear_yaw",
+      "socket_yaw_deg": 0.0,
+      "keyed_yaw_deg": 0.0,
+      "post_clear_yaw_deg": 30.0,
+      "stop_after_phase": null
+    }
+  ],
+  "episodes": [
+    {
+      "episode_id": 0,
+      "condition_id": 0,
+      "attempt_id": 0,
+      "episode_seed": 20260819,
+      "probe_type": "matched_preclear",
+      "socket_yaw_deg": -30.0,
+      "keyed_yaw_deg": -30.0,
+      "post_clear_yaw_deg": 0.0,
+      "stop_after_phase": "enter_key",
+      "steps": 335,
+      "success": false,
+      "final_key_clearance_m": 0.008009139448404312,
+      "max_contact_force_N": 0.0,
+      "stop_reason": "solver_returned",
+      "solver_error": null
+    },
+    {
+      "episode_id": 1,
+      "condition_id": 1,
+      "attempt_id": 0,
+      "episode_seed": 20261828,
+      "probe_type": "mismatched_preclear",
+      "socket_yaw_deg": -30.0,
+      "keyed_yaw_deg": 0.0,
+      "post_clear_yaw_deg": 0.0,
+      "stop_after_phase": "enter_key",
+      "steps": 349,
+      "success": false,
+      "final_key_clearance_m": -0.027997810393571854,
+      "max_contact_force_N": 48.061281923632244,
+      "stop_reason": "solver_returned",
+      "solver_error": null
+    },
+    {
+      "episode_id": 2,
+      "condition_id": 2,
+      "attempt_id": 0,
+      "episode_seed": 20262837,
+      "probe_type": "matched_preclear",
+      "socket_yaw_deg": 30.0,
+      "keyed_yaw_deg": 30.0,
+      "post_clear_yaw_deg": 0.0,
+      "stop_after_phase": "enter_key",
+      "steps": 269,
+      "success": false,
+      "final_key_clearance_m": 0.006446141749620438,
+      "max_contact_force_N": 0.0,
+      "stop_reason": "solver_returned",
+      "solver_error": null
+    },
+    {
+      "episode_id": 3,
+      "condition_id": 3,
+      "attempt_id": 0,
+      "episode_seed": 20263846,
+      "probe_type": "mismatched_preclear",
+      "socket_yaw_deg": 30.0,
+      "keyed_yaw_deg": 0.0,
+      "post_clear_yaw_deg": 0.0,
+      "stop_after_phase": "enter_key",
+      "steps": 314,
+      "success": false,
+      "final_key_clearance_m": -0.028112825006246567,
+      "max_contact_force_N": 49.68651594748534,
+      "stop_reason": "solver_returned",
+      "solver_error": null
+    },
+    {
+      "episode_id": 4,
+      "condition_id": 4,
+      "attempt_id": 0,
+      "episode_seed": 20264855,
+      "probe_type": "arbitrary_postclear_yaw",
+      "socket_yaw_deg": 0.0,
+      "keyed_yaw_deg": 0.0,
+      "post_clear_yaw_deg": -30.0,
+      "stop_after_phase": null,
+      "steps": 157,
+      "success": false,
+      "final_key_clearance_m": 0.0683930516242981,
+      "max_contact_force_N": 0.0,
+      "stop_reason": "solver_exception",
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 5,
+      "condition_id": 4,
+      "attempt_id": 1,
+      "episode_seed": 20264856,
+      "probe_type": "arbitrary_postclear_yaw",
+      "socket_yaw_deg": 0.0,
+      "keyed_yaw_deg": 0.0,
+      "post_clear_yaw_deg": -30.0,
+      "stop_after_phase": null,
+      "steps": 401,
+      "success": true,
+      "final_key_clearance_m": 0.010308515280485153,
+      "max_contact_force_N": 0.0,
+      "stop_reason": "terminated",
+      "solver_error": null
+    },
+    {
+      "episode_id": 6,
+      "condition_id": 5,
+      "attempt_id": 0,
+      "episode_seed": 20265864,
+      "probe_type": "arbitrary_postclear_yaw",
+      "socket_yaw_deg": 0.0,
+      "keyed_yaw_deg": 0.0,
+      "post_clear_yaw_deg": 30.0,
+      "stop_after_phase": null,
+      "steps": 401,
+      "success": true,
+      "final_key_clearance_m": 0.010452751070261002,
+      "max_contact_force_N": 0.0,
+      "stop_reason": "terminated",
+      "solver_error": null
+    }
+  ]
+}

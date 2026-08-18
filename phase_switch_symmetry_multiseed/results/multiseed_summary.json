@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "analysis_source_sha256": "e70ac838ab5270abf7adfb1e0fb8dc9ccefe7cab72f99a56c57775aa6da0e24e",
+  "experiment": "phase_switch_symmetry_multiseed/experiment.json",
+  "experiment_sha256": "316e109d2e0a92fce9aaab7459ab54e99869f5bc2cc945a9827d668e3caac998",
+  "context_manifest_sha256": "3751db801cf49ce698c9b5a74ce36cf0b39897d967ddf2959846a3965b8bd653",
+  "seeds": [
+    20260818,
+    20270818,
+    20280818,
+    20290818,
+    20300818
+  ],
+  "dataset_sha256": {
+    "20260818": "1fc05000cb046fb4215fef6a865caa3e39cbe6bfa0c26181786bf8f39c8ab473",
+    "20270818": "1ae166a3da7821afe99ab6265229a7716aa7afdf9a6a32682ad209f62b8aa3ff",
+    "20280818": "44dffb096c4a6689fcaaa80b7a01173631c26b4299b9e05150777f7fb0ccc63d",
+    "20290818": "5574d30236eaebcf6fc2725076f56860da10124d1e48ebe296f97f860966a5cf",
+    "20300818": "dca00b3455ab228df928a1df3327ded07cfdeeb79c3b9627e31245c862e5db54"
+  },
+  "benchmark_summary_sha256": {
+    "20260818": "28709a40945c8066fb762cc483817f48196e48f145a5981e50955365f82802cd",
+    "20270818": "8c0467b29d2aa1293437c490afb614c9f7498b046744a1d9c72fc9f8e86f22e9",
+    "20280818": "3efc50acc97907c0ede9ade1c04c795af021ce65f75dd4eae6ccd8ac305dc252",
+    "20290818": "7a2988b997389405379705a09598cfed90beaa48ab1600c3ad32fe868abe0dcc",
+    "20300818": "c1f5f5490b06fa2cf2ea31efe0daf9abf22b153839d4fc868854cfd3e990a736"
+  },
+  "all_physics_checks_pass": true,
+  "all_preregistered_seed_criteria_pass": true,
+  "criteria_pass_count": {
+    "translation_pass": 5,
+    "pre_yaw_pass": 5,
+    "final_yaw_pass": 5,
+    "switch_pass": 5,
+    "improvement_pass": 5
+  },
+  "task_error_improvement_mm_equiv": {
+    "mean_over_seeds": 1.7576254802439046,
+    "sample_sd_over_seeds": 0.4653371867126883,
+    "hierarchical_seed_condition_bootstrap_95ci": [
+      1.2963666754247452,
+      2.2295442712903957
+    ],
+    "positive_seed_count": 5
+  },
+  "pdiag_profiles": {
+    "g_translation_final_mean": 0.9862411429726473,
+    "g_translation_final_sd": 0.006770156587632398,
+    "g_yaw_preclear_mean": 0.997833344278205,
+    "g_yaw_preclear_sd": 0.0015890140173374038,
+    "g_yaw_final_mean": 0.025793708371645095,
+    "g_yaw_final_sd": 0.0019492421056038467,
+    "switch_error_mean": 0.005429811299944731,
+    "switch_error_max": 0.009609234280453793
+  },
+  "finite_vs_competitors": {
+    "TP-GMM SE(2)": {
+      "competitor_minus_pdiag_by_seed": [
+        0.6085891025687986,
+        0.6568902079080527,
+        0.8363437420962931,
+        0.8827764266780456,
+        0.5649698320289962
+      ],
+      "pdiag_wins": 5
+    },
+    "Generic RBF": {
+      "competitor_minus_pdiag_by_seed": [
+        2.373268993564221,
+        -0.24829757518249118,
+        1.7096936528441882,
+        2.4351576729291544,
+        -0.049470622718246426
+      ],
+      "pdiag_wins": 3
+    },
+    "Full operator": {
+      "competitor_minus_pdiag_by_seed": [
+        1.5114644786081715,
+        -0.2585386736813233,
+        0.7694685122748952,
+        1.527447298971543,
+        -0.10275919380084253
+      ],
+      "pdiag_wins": 3
+    }
+  },
+  "tp_gmm_diagnostics": {
+    "additive_cv_boundary_seeds": [
+      20270818,
+      20290818
+    ],
+    "formal_se2_cv_boundary_seeds": []
+  },
+  "interpretation": "Seed-level replication supports robustness of the frozen finite Pdiag law relative to shared scalar relevance. Generic RBF and the full operator remain competitive and are not claimed to be dominated."
+}

@@ -1,0 +1,225 @@
+baseline,episode,condition_id,generator,metric,baseline_minus_pdiag_mm_equiv
+Frame-weighted,episode_0,0,yaw,response_error_mm_equiv,3.8538876899261485
+Frame-weighted,episode_1,1,yaw,response_error_mm_equiv,2.1005413568009152
+Frame-weighted,episode_3,3,yaw,response_error_mm_equiv,3.330288864239394
+Frame-weighted,episode_4,4,yaw,response_error_mm_equiv,5.38546800137121
+Frame-weighted,episode_5,5,translation,response_error_mm_equiv,3.2902885103759325
+Frame-weighted,episode_7,6,translation,response_error_mm_equiv,3.621817011468224
+Frame-weighted,episode_9,7,translation,response_error_mm_equiv,2.9092495684595363
+Frame-weighted,episode_10,8,translation,response_error_mm_equiv,3.1740585440211815
+Frame-weighted,episode_0,0,yaw,response_endpoint_error_mm_equiv,7.607311928215562
+Frame-weighted,episode_1,1,yaw,response_endpoint_error_mm_equiv,3.485712778227332
+Frame-weighted,episode_3,3,yaw,response_endpoint_error_mm_equiv,4.89813474089721
+Frame-weighted,episode_4,4,yaw,response_endpoint_error_mm_equiv,9.162208274013382
+Frame-weighted,episode_5,5,translation,response_endpoint_error_mm_equiv,5.946699601147634
+Frame-weighted,episode_7,6,translation,response_endpoint_error_mm_equiv,5.982470529375014
+Frame-weighted,episode_9,7,translation,response_endpoint_error_mm_equiv,5.818344548002533
+Frame-weighted,episode_10,8,translation,response_endpoint_error_mm_equiv,6.252934422320264
+Frame-weighted,episode_0,0,yaw,task_error_mm_equiv,0.9452796089043136
+Frame-weighted,episode_1,1,yaw,task_error_mm_equiv,0.7620853005075552
+Frame-weighted,episode_3,3,yaw,task_error_mm_equiv,1.432152173695064
+Frame-weighted,episode_4,4,yaw,task_error_mm_equiv,1.8096784640745023
+Frame-weighted,episode_5,5,translation,task_error_mm_equiv,3.275400014277218
+Frame-weighted,episode_7,6,translation,task_error_mm_equiv,3.60683128956851
+Frame-weighted,episode_9,7,translation,task_error_mm_equiv,2.893878966826382
+Frame-weighted,episode_10,8,translation,task_error_mm_equiv,3.1601393373836357
+Frame-weighted,episode_0,0,yaw,task_endpoint_error_mm_equiv,-0.19838876126499705
+Frame-weighted,episode_1,1,yaw,task_endpoint_error_mm_equiv,-0.14278056967052047
+Frame-weighted,episode_3,3,yaw,task_endpoint_error_mm_equiv,0.056235110453988574
+Frame-weighted,episode_4,4,yaw,task_endpoint_error_mm_equiv,0.15752092768350595
+Frame-weighted,episode_5,5,translation,task_endpoint_error_mm_equiv,5.909575716179931
+Frame-weighted,episode_7,6,translation,task_endpoint_error_mm_equiv,5.94446257032243
+Frame-weighted,episode_9,7,translation,task_endpoint_error_mm_equiv,5.779602446667086
+Frame-weighted,episode_10,8,translation,task_endpoint_error_mm_equiv,6.216454501127846
+Phase scalar GP,episode_0,0,yaw,response_error_mm_equiv,3.8993565796370113
+Phase scalar GP,episode_1,1,yaw,response_error_mm_equiv,2.1131904327042332
+Phase scalar GP,episode_3,3,yaw,response_error_mm_equiv,3.3284298150421474
+Phase scalar GP,episode_4,4,yaw,response_error_mm_equiv,5.388152807754798
+Phase scalar GP,episode_5,5,translation,response_error_mm_equiv,3.313235426778307
+Phase scalar GP,episode_7,6,translation,response_error_mm_equiv,3.628936077519223
+Phase scalar GP,episode_9,7,translation,response_error_mm_equiv,2.9325430305159985
+Phase scalar GP,episode_10,8,translation,response_error_mm_equiv,3.1877716377129977
+Phase scalar GP,episode_0,0,yaw,response_endpoint_error_mm_equiv,7.626791253349154
+Phase scalar GP,episode_1,1,yaw,response_endpoint_error_mm_equiv,3.49461172209319
+Phase scalar GP,episode_3,3,yaw,response_endpoint_error_mm_equiv,4.910384078649339
+Phase scalar GP,episode_4,4,yaw,response_endpoint_error_mm_equiv,9.185043889967138
+Phase scalar GP,episode_5,5,translation,response_endpoint_error_mm_equiv,5.926407449177974
+Phase scalar GP,episode_7,6,translation,response_endpoint_error_mm_equiv,5.962940381434437
+Phase scalar GP,episode_9,7,translation,response_endpoint_error_mm_equiv,5.798459518091972
+Phase scalar GP,episode_10,8,translation,response_endpoint_error_mm_equiv,6.2329958821169225
+Phase scalar GP,episode_0,0,yaw,task_error_mm_equiv,0.9908651105373452
+Phase scalar GP,episode_1,1,yaw,task_error_mm_equiv,0.7747799109448867
+Phase scalar GP,episode_3,3,yaw,task_error_mm_equiv,1.4303669104013519
+Phase scalar GP,episode_4,4,yaw,task_error_mm_equiv,1.8125266553646968
+Phase scalar GP,episode_5,5,translation,task_error_mm_equiv,3.298352618110167
+Phase scalar GP,episode_7,6,translation,task_error_mm_equiv,3.61395344216685
+Phase scalar GP,episode_9,7,translation,task_error_mm_equiv,2.9171749359938324
+Phase scalar GP,episode_10,8,translation,task_error_mm_equiv,3.173851718183096
+Phase scalar GP,episode_0,0,yaw,task_endpoint_error_mm_equiv,-0.19850375029680045
+Phase scalar GP,episode_1,1,yaw,task_endpoint_error_mm_equiv,-0.14316172453405282
+Phase scalar GP,episode_3,3,yaw,task_endpoint_error_mm_equiv,0.055956388728859996
+Phase scalar GP,episode_4,4,yaw,task_endpoint_error_mm_equiv,0.15731358700898035
+Phase scalar GP,episode_5,5,translation,task_endpoint_error_mm_equiv,5.888983535307533
+Phase scalar GP,episode_7,6,translation,task_endpoint_error_mm_equiv,5.924624168356066
+Phase scalar GP,episode_9,7,translation,task_endpoint_error_mm_equiv,5.759399332620865
+Phase scalar GP,episode_10,8,translation,task_endpoint_error_mm_equiv,6.196220696101405
+TP-GMM additive,episode_0,0,yaw,response_error_mm_equiv,3.9073881196433913
+TP-GMM additive,episode_1,1,yaw,response_error_mm_equiv,2.94029035139862
+TP-GMM additive,episode_3,3,yaw,response_error_mm_equiv,3.0936501551969497
+TP-GMM additive,episode_4,4,yaw,response_error_mm_equiv,3.088506543425229
+TP-GMM additive,episode_5,5,translation,response_error_mm_equiv,2.555892700632762
+TP-GMM additive,episode_7,6,translation,response_error_mm_equiv,2.7305484037921404
+TP-GMM additive,episode_9,7,translation,response_error_mm_equiv,2.3107333532946406
+TP-GMM additive,episode_10,8,translation,response_error_mm_equiv,1.4849888486090652
+TP-GMM additive,episode_0,0,yaw,response_endpoint_error_mm_equiv,0.32773012749632235
+TP-GMM additive,episode_1,1,yaw,response_endpoint_error_mm_equiv,0.060500399807477734
+TP-GMM additive,episode_3,3,yaw,response_endpoint_error_mm_equiv,0.5940543124669404
+TP-GMM additive,episode_4,4,yaw,response_endpoint_error_mm_equiv,0.9901291968910678
+TP-GMM additive,episode_5,5,translation,response_endpoint_error_mm_equiv,0.20262586867449262
+TP-GMM additive,episode_7,6,translation,response_endpoint_error_mm_equiv,-0.2338653432259231
+TP-GMM additive,episode_9,7,translation,response_endpoint_error_mm_equiv,0.10563274985704096
+TP-GMM additive,episode_10,8,translation,response_endpoint_error_mm_equiv,-0.09184336681008437
+TP-GMM additive,episode_0,0,yaw,task_error_mm_equiv,3.18836851581909
+TP-GMM additive,episode_1,1,yaw,task_error_mm_equiv,2.6371364552245393
+TP-GMM additive,episode_3,3,yaw,task_error_mm_equiv,2.717767879650739
+TP-GMM additive,episode_4,4,yaw,task_error_mm_equiv,2.491652058208408
+TP-GMM additive,episode_5,5,translation,task_error_mm_equiv,2.45541145112022
+TP-GMM additive,episode_7,6,translation,task_error_mm_equiv,2.561468716347173
+TP-GMM additive,episode_9,7,translation,task_error_mm_equiv,2.2893695716148783
+TP-GMM additive,episode_10,8,translation,task_error_mm_equiv,1.4601941433817913
+TP-GMM additive,episode_0,0,yaw,task_endpoint_error_mm_equiv,-0.1642431248988196
+TP-GMM additive,episode_1,1,yaw,task_endpoint_error_mm_equiv,-0.08126525544683068
+TP-GMM additive,episode_3,3,yaw,task_endpoint_error_mm_equiv,-0.023743145202512986
+TP-GMM additive,episode_4,4,yaw,task_endpoint_error_mm_equiv,0.0735988232001121
+TP-GMM additive,episode_5,5,translation,task_endpoint_error_mm_equiv,-0.32021035351505817
+TP-GMM additive,episode_7,6,translation,task_endpoint_error_mm_equiv,-0.31941180688917487
+TP-GMM additive,episode_9,7,translation,task_endpoint_error_mm_equiv,-0.09647636326078968
+TP-GMM additive,episode_10,8,translation,task_endpoint_error_mm_equiv,-0.11786458484558265
+TP-GMM SE(2),episode_0,0,yaw,response_error_mm_equiv,1.326743139774373
+TP-GMM SE(2),episode_1,1,yaw,response_error_mm_equiv,1.0813622883927745
+TP-GMM SE(2),episode_3,3,yaw,response_error_mm_equiv,1.4194487997595613
+TP-GMM SE(2),episode_4,4,yaw,response_error_mm_equiv,0.7317090149696006
+TP-GMM SE(2),episode_5,5,translation,response_error_mm_equiv,1.1163827137873756
+TP-GMM SE(2),episode_7,6,translation,response_error_mm_equiv,1.2372788151343257
+TP-GMM SE(2),episode_9,7,translation,response_error_mm_equiv,0.8234603449293223
+TP-GMM SE(2),episode_10,8,translation,response_error_mm_equiv,0.8753061342648767
+TP-GMM SE(2),episode_0,0,yaw,response_endpoint_error_mm_equiv,0.1443999307472188
+TP-GMM SE(2),episode_1,1,yaw,response_endpoint_error_mm_equiv,-0.020730384997539875
+TP-GMM SE(2),episode_3,3,yaw,response_endpoint_error_mm_equiv,0.42930456247679205
+TP-GMM SE(2),episode_4,4,yaw,response_endpoint_error_mm_equiv,0.6984847474027417
+TP-GMM SE(2),episode_5,5,translation,response_endpoint_error_mm_equiv,0.1002164920005294
+TP-GMM SE(2),episode_7,6,translation,response_endpoint_error_mm_equiv,-0.24628242684117138
+TP-GMM SE(2),episode_9,7,translation,response_endpoint_error_mm_equiv,0.04967214606610021
+TP-GMM SE(2),episode_10,8,translation,response_endpoint_error_mm_equiv,-0.11740388652122397
+TP-GMM SE(2),episode_0,0,yaw,task_error_mm_equiv,0.8504788467514912
+TP-GMM SE(2),episode_1,1,yaw,task_error_mm_equiv,0.8623887846351064
+TP-GMM SE(2),episode_3,3,yaw,task_error_mm_equiv,1.1657590785291374
+TP-GMM SE(2),episode_4,4,yaw,task_error_mm_equiv,0.39960897745443535
+TP-GMM SE(2),episode_5,5,translation,task_error_mm_equiv,1.03726180026194
+TP-GMM SE(2),episode_7,6,translation,task_error_mm_equiv,1.0888987544608062
+TP-GMM SE(2),episode_9,7,translation,task_error_mm_equiv,0.8076267882342538
+TP-GMM SE(2),episode_10,8,translation,task_error_mm_equiv,0.8501883830971924
+TP-GMM SE(2),episode_0,0,yaw,task_endpoint_error_mm_equiv,-0.09684633849065927
+TP-GMM SE(2),episode_1,1,yaw,task_endpoint_error_mm_equiv,-0.07369498139414293
+TP-GMM SE(2),episode_3,3,yaw,task_endpoint_error_mm_equiv,0.03937933678141339
+TP-GMM SE(2),episode_4,4,yaw,task_endpoint_error_mm_equiv,0.15415507643529652
+TP-GMM SE(2),episode_5,5,translation,task_endpoint_error_mm_equiv,-0.33562650726799054
+TP-GMM SE(2),episode_7,6,translation,task_endpoint_error_mm_equiv,-0.317761129920074
+TP-GMM SE(2),episode_9,7,translation,task_endpoint_error_mm_equiv,-0.11298472649532249
+TP-GMM SE(2),episode_10,8,translation,task_endpoint_error_mm_equiv,-0.13506993165805808
+Generic RBF,episode_0,0,yaw,response_error_mm_equiv,0.9415012446393036
+Generic RBF,episode_1,1,yaw,response_error_mm_equiv,1.4711803360785685
+Generic RBF,episode_3,3,yaw,response_error_mm_equiv,2.5381791031655343
+Generic RBF,episode_4,4,yaw,response_error_mm_equiv,2.830180701906511
+Generic RBF,episode_5,5,translation,response_error_mm_equiv,4.157315548703826
+Generic RBF,episode_7,6,translation,response_error_mm_equiv,1.4781731571364833
+Generic RBF,episode_9,7,translation,response_error_mm_equiv,4.703157990219342
+Generic RBF,episode_10,8,translation,response_error_mm_equiv,1.1057843051383047
+Generic RBF,episode_0,0,yaw,response_endpoint_error_mm_equiv,1.4780390811844624
+Generic RBF,episode_1,1,yaw,response_endpoint_error_mm_equiv,2.1166129052132288
+Generic RBF,episode_3,3,yaw,response_endpoint_error_mm_equiv,2.694364026831285
+Generic RBF,episode_4,4,yaw,response_endpoint_error_mm_equiv,2.7824364133039254
+Generic RBF,episode_5,5,translation,response_endpoint_error_mm_equiv,1.177901255267062
+Generic RBF,episode_7,6,translation,response_endpoint_error_mm_equiv,3.2505594880142406
+Generic RBF,episode_9,7,translation,response_endpoint_error_mm_equiv,2.346182650029779
+Generic RBF,episode_10,8,translation,response_endpoint_error_mm_equiv,2.6494683445501788
+Generic RBF,episode_0,0,yaw,task_error_mm_equiv,0.9595054990858565
+Generic RBF,episode_1,1,yaw,task_error_mm_equiv,1.4656201798298203
+Generic RBF,episode_3,3,yaw,task_error_mm_equiv,2.582178742967998
+Generic RBF,episode_4,4,yaw,task_error_mm_equiv,3.032296775635139
+Generic RBF,episode_5,5,translation,task_error_mm_equiv,4.156219807101079
+Generic RBF,episode_7,6,translation,task_error_mm_equiv,1.4767577397168625
+Generic RBF,episode_9,7,translation,task_error_mm_equiv,4.703288585996406
+Generic RBF,episode_10,8,translation,task_error_mm_equiv,1.1053940531000732
+Generic RBF,episode_0,0,yaw,task_endpoint_error_mm_equiv,1.598806307900011
+Generic RBF,episode_1,1,yaw,task_endpoint_error_mm_equiv,2.181666545574047
+Generic RBF,episode_3,3,yaw,task_endpoint_error_mm_equiv,2.828835461938758
+Generic RBF,episode_4,4,yaw,task_endpoint_error_mm_equiv,3.0950168705352943
+Generic RBF,episode_5,5,translation,task_endpoint_error_mm_equiv,1.1784362712262948
+Generic RBF,episode_7,6,translation,task_endpoint_error_mm_equiv,3.252111128346699
+Generic RBF,episode_9,7,translation,task_endpoint_error_mm_equiv,2.346997921901104
+Generic RBF,episode_10,8,translation,task_endpoint_error_mm_equiv,2.651142333241186
+Full operator,episode_0,0,yaw,response_error_mm_equiv,0.3176467792091291
+Full operator,episode_1,1,yaw,response_error_mm_equiv,0.7496725312091717
+Full operator,episode_3,3,yaw,response_error_mm_equiv,1.3118884613519906
+Full operator,episode_4,4,yaw,response_error_mm_equiv,1.4587562772727276
+Full operator,episode_5,5,translation,response_error_mm_equiv,3.6922537786661027
+Full operator,episode_7,6,translation,response_error_mm_equiv,0.26025052614778765
+Full operator,episode_9,7,translation,response_error_mm_equiv,3.8725953829127384
+Full operator,episode_10,8,translation,response_error_mm_equiv,0.34987918041479027
+Full operator,episode_0,0,yaw,response_endpoint_error_mm_equiv,-0.27708380909296465
+Full operator,episode_1,1,yaw,response_endpoint_error_mm_equiv,-0.20612793912786043
+Full operator,episode_3,3,yaw,response_endpoint_error_mm_equiv,-0.10643829323334303
+Full operator,episode_4,4,yaw,response_endpoint_error_mm_equiv,-0.14300994039878068
+Full operator,episode_5,5,translation,response_endpoint_error_mm_equiv,-0.3050760619586005
+Full operator,episode_7,6,translation,response_endpoint_error_mm_equiv,-0.43085760442005544
+Full operator,episode_9,7,translation,response_endpoint_error_mm_equiv,-0.17323425920149765
+Full operator,episode_10,8,translation,response_endpoint_error_mm_equiv,-0.17105514113857295
+Full operator,episode_0,0,yaw,task_error_mm_equiv,0.35037357388233104
+Full operator,episode_1,1,yaw,task_error_mm_equiv,0.740172843678367
+Full operator,episode_3,3,yaw,task_error_mm_equiv,1.3562602777407502
+Full operator,episode_4,4,yaw,task_error_mm_equiv,1.6024337481112791
+Full operator,episode_5,5,translation,task_error_mm_equiv,3.691597400646361
+Full operator,episode_7,6,translation,task_error_mm_equiv,0.2587309224587968
+Full operator,episode_9,7,translation,task_error_mm_equiv,3.872508156251651
+Full operator,episode_10,8,translation,task_error_mm_equiv,0.3475014690028111
+Full operator,episode_0,0,yaw,task_endpoint_error_mm_equiv,-0.1563416487105873
+Full operator,episode_1,1,yaw,task_endpoint_error_mm_equiv,-0.1419479557002622
+Full operator,episode_3,3,yaw,task_endpoint_error_mm_equiv,0.0279577402216582
+Full operator,episode_4,4,yaw,task_endpoint_error_mm_equiv,0.16887774499890568
+Full operator,episode_5,5,translation,task_endpoint_error_mm_equiv,-0.3045556812889782
+Full operator,episode_7,6,translation,task_endpoint_error_mm_equiv,-0.42951306070264644
+Full operator,episode_9,7,translation,task_endpoint_error_mm_equiv,-0.1725419555850839
+Full operator,episode_10,8,translation,task_endpoint_error_mm_equiv,-0.16941944880159043
+Pdiag pointwise,episode_0,0,yaw,response_error_mm_equiv,0.6021158066380603
+Pdiag pointwise,episode_1,1,yaw,response_error_mm_equiv,0.5960095626971418
+Pdiag pointwise,episode_3,3,yaw,response_error_mm_equiv,1.504018129628951
+Pdiag pointwise,episode_4,4,yaw,response_error_mm_equiv,1.886587612449306
+Pdiag pointwise,episode_5,5,translation,response_error_mm_equiv,0.9830141736252593
+Pdiag pointwise,episode_7,6,translation,response_error_mm_equiv,0.9426193433120731
+Pdiag pointwise,episode_9,7,translation,response_error_mm_equiv,1.5082486038033687
+Pdiag pointwise,episode_10,8,translation,response_error_mm_equiv,1.1660773780648803
+Pdiag pointwise,episode_0,0,yaw,response_endpoint_error_mm_equiv,-0.3282845761965582
+Pdiag pointwise,episode_1,1,yaw,response_endpoint_error_mm_equiv,-0.208357046518932
+Pdiag pointwise,episode_3,3,yaw,response_endpoint_error_mm_equiv,-0.13749170644811612
+Pdiag pointwise,episode_4,4,yaw,response_endpoint_error_mm_equiv,-0.20076980633792557
+Pdiag pointwise,episode_5,5,translation,response_endpoint_error_mm_equiv,-0.337140313801636
+Pdiag pointwise,episode_7,6,translation,response_endpoint_error_mm_equiv,-0.45848036885283017
+Pdiag pointwise,episode_9,7,translation,response_endpoint_error_mm_equiv,-0.16456890909662958
+Pdiag pointwise,episode_10,8,translation,response_endpoint_error_mm_equiv,-0.17759782678442454
+Pdiag pointwise,episode_0,0,yaw,task_error_mm_equiv,0.6413997796061042
+Pdiag pointwise,episode_1,1,yaw,task_error_mm_equiv,0.586170164393474
+Pdiag pointwise,episode_3,3,yaw,task_error_mm_equiv,1.5514133373787766
+Pdiag pointwise,episode_4,4,yaw,task_error_mm_equiv,2.030481562593276
+Pdiag pointwise,episode_5,5,translation,task_error_mm_equiv,0.983207979599299
+Pdiag pointwise,episode_7,6,translation,task_error_mm_equiv,0.942824516882796
+Pdiag pointwise,episode_9,7,translation,task_error_mm_equiv,1.508358549101617
+Pdiag pointwise,episode_10,8,translation,task_error_mm_equiv,1.1666716206050145
+Pdiag pointwise,episode_0,0,yaw,task_endpoint_error_mm_equiv,-0.20753089911316208
+Pdiag pointwise,episode_1,1,yaw,task_endpoint_error_mm_equiv,-0.14431598060393053
+Pdiag pointwise,episode_3,3,yaw,task_endpoint_error_mm_equiv,-0.0031425332763887204
+Pdiag pointwise,episode_4,4,yaw,task_endpoint_error_mm_equiv,0.11084634670479404
+Pdiag pointwise,episode_5,5,translation,task_endpoint_error_mm_equiv,-0.3366733906685597
+Pdiag pointwise,episode_7,6,translation,task_endpoint_error_mm_equiv,-0.4582122264091193
+Pdiag pointwise,episode_9,7,translation,task_endpoint_error_mm_equiv,-0.16378863081646333
+Pdiag pointwise,episode_10,8,translation,task_endpoint_error_mm_equiv,-0.17602916192239804

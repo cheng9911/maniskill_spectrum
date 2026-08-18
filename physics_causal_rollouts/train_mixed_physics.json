@@ -1,0 +1,1359 @@
+{
+  "env_id": "PlugChargerCausalPhysics-v1",
+  "base_task": "PlugCharger-v1",
+  "split": "train_mixed",
+  "source_type": "motionplanning_causal_physics",
+  "source_desc": "Exact causal reset states + official PlugCharger motion planner + real ManiSkill/PhysX pd_joint_pos execution. No waypoint interpolation.",
+  "episodes": [
+    {
+      "episode_id": 0,
+      "sample_id": 0,
+      "causal_delta": [
+        0.002739233746429086,
+        -0.004604265724722594,
+        -0.12017285041710514
+      ],
+      "steps": 152,
+      "success": true,
+      "max_contact_force_N": 27.48478783585841,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001829537213779986,
+        "obj_to_goal_angle": 0.0012657243059948087,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 1,
+      "sample_id": 1,
+      "causal_delta": [
+        -0.009669447289429419,
+        0.006265404784005448,
+        0.10805915744199204
+      ],
+      "steps": 162,
+      "success": true,
+      "max_contact_force_N": 0.2938811182975769,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0011821463704109192,
+        "obj_to_goal_angle": 0.002358045196160674,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 2,
+      "sample_id": 2,
+      "causal_delta": [
+        0.002132715515343598,
+        0.004589931219679969,
+        0.011420996058390837
+      ],
+      "steps": 158,
+      "success": false,
+      "max_contact_force_N": 33.80887589213591,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.017028866335749626,
+        "obj_to_goal_angle": 0.18719780445098877,
+        "success": false
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 3,
+      "sample_id": 3,
+      "causal_delta": [
+        0.008701448475755364,
+        0.006317071082430644,
+        -0.13018275623154207
+      ],
+      "steps": 150,
+      "success": true,
+      "max_contact_force_N": 26.67936186965505,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0017711779801174998,
+        "obj_to_goal_angle": 0.004297986626625061,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 4,
+      "sample_id": 4,
+      "causal_delta": [
+        0.007148085531751386,
+        -0.009328288493890714,
+        0.06012365528009972
+      ],
+      "steps": 161,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001555158174596727,
+        "obj_to_goal_angle": 0.002317284932360053,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 5,
+      "sample_id": 5,
+      "causal_delta": [
+        -0.00648688758794882,
+        0.007263578446997732,
+        0.010854522078617895
+      ],
+      "steps": 157,
+      "success": true,
+      "max_contact_force_N": 0.1397157874999257,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0013078495394438505,
+        "obj_to_goal_angle": 0.0018930824007838964,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 5.960464477539063e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 6,
+      "sample_id": 6,
+      "causal_delta": [
+        -0.004005762189252304,
+        -0.0015462555760468316,
+        -0.12348562133101926
+      ],
+      "steps": 155,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0015370069304481149,
+        "obj_to_goal_angle": 0.0010199618991464376,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 7,
+      "sample_id": 7,
+      "causal_delta": [
+        -0.007514334470008721,
+        0.003412488293872607,
+        0.0385341240205945
+      ],
+      "steps": 156,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0013520072679966688,
+        "obj_to_goal_angle": 0.002565353410318494,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 8,
+      "sample_id": 8,
+      "causal_delta": [
+        0.0023077022296250777,
+        -0.002326448914762331,
+        0.13016925679726984
+      ],
+      "steps": 163,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0013210814213380218,
+        "obj_to_goal_angle": 0.001334486179985106,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 9,
+      "sample_id": 9,
+      "causal_delta": [
+        0.0096167067755246,
+        0.0037108396896138943,
+        0.03939014641561739
+      ],
+      "steps": 162,
+      "success": true,
+      "max_contact_force_N": 0.025073790922760963,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001622867421247065,
+        "obj_to_goal_angle": 0.001644947798922658,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 4.2146848510894035e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 10,
+      "sample_id": 10,
+      "causal_delta": [
+        0.003768934611418801,
+        -0.0022215715204179243,
+        -0.09553151159090273
+      ],
+      "steps": 151,
+      "success": true,
+      "max_contact_force_N": 25.539647782335262,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.002878520404919982,
+        "obj_to_goal_angle": 0.02549162320792675,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 11,
+      "sample_id": 11,
+      "causal_delta": [
+        0.004429766803881635,
+        0.000507086449514518,
+        -0.04967856080858021
+      ],
+      "steps": 152,
+      "success": false,
+      "max_contact_force_N": 24.591250691660708,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0053503671661019325,
+        "obj_to_goal_angle": 0.058650318533182144,
+        "success": false
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 12,
+      "sample_id": 12,
+      "causal_delta": [
+        -0.00028329282336421804,
+        0.007789756686980004,
+        0.1136323267555365
+      ],
+      "steps": 168,
+      "success": true,
+      "max_contact_force_N": 4.310250610072966,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0013235440710559487,
+        "obj_to_goal_angle": 0.001429709722287953,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 13,
+      "sample_id": 13,
+      "causal_delta": [
+        -0.0028440960658185953,
+        0.0014305966145952195,
+        -0.04663448436460804
+      ],
+      "steps": 152,
+      "success": true,
+      "max_contact_force_N": 28.53363782610082,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.002493227832019329,
+        "obj_to_goal_angle": 0.005238192621618509,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 14,
+      "sample_id": 14,
+      "causal_delta": [
+        0.0018860006039939353,
+        -0.003241775489857335,
+        -0.028374079310787323
+      ],
+      "steps": 157,
+      "success": false,
+      "max_contact_force_N": 34.28485171107541,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.01684999279677868,
+        "obj_to_goal_angle": 0.18741224706172943,
+        "success": false
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 15,
+      "sample_id": 15,
+      "causal_delta": [
+        0.007805487040095848,
+        -0.005456848129332405,
+        0.03225031906353115
+      ],
+      "steps": 156,
+      "success": false,
+      "max_contact_force_N": 25.415131670612162,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.008418181911110878,
+        "obj_to_goal_angle": 0.1022513136267662,
+        "success": false
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 16,
+      "sample_id": 16,
+      "causal_delta": [
+        -0.008319693128352304,
+        0.006652882953067955,
+        0.07516216113870927
+      ],
+      "steps": 161,
+      "success": true,
+      "max_contact_force_N": 6.4622703201450316,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0012040698202326894,
+        "obj_to_goal_angle": 0.0016319946153089404,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 17,
+      "sample_id": 17,
+      "causal_delta": [
+        -0.005212611140140957,
+        0.007529684616214076,
+        -0.11556661824297555
+      ],
+      "steps": 148,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001658899593167007,
+        "obj_to_goal_angle": 0.0036056311801075935,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 4.2146848510894035e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 18,
+      "sample_id": 18,
+      "causal_delta": [
+        -0.0032776587890867926,
+        -0.006994410662103219,
+        -0.013001123408934695
+      ],
+      "steps": 159,
+      "success": false,
+      "max_contact_force_N": 33.55394958695641,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.017281465232372284,
+        "obj_to_goal_angle": 0.19137199223041534,
+        "success": false
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 2.9802322387695312e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 19,
+      "sample_id": 19,
+      "causal_delta": [
+        0.005926485405745885,
+        -0.0053871558201250514,
+        -0.11728054912839703
+      ],
+      "steps": 154,
+      "success": true,
+      "max_contact_force_N": 30.703534660676503,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0016970711294561625,
+        "obj_to_goal_angle": 0.003169741714373231,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 20,
+      "sample_id": 20,
+      "causal_delta": [
+        -0.0019089632035694352,
+        -0.006029739109814893,
+        -0.10714060211558031
+      ],
+      "steps": 152,
+      "success": true,
+      "max_contact_force_N": 28.604022360858618,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001971980556845665,
+        "obj_to_goal_angle": 0.002002157038077712,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 2.9802322387695312e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 21,
+      "sample_id": 21,
+      "causal_delta": [
+        0.001606647719737014,
+        -0.004026077343621548,
+        0.04502815375356431
+      ],
+      "steps": 162,
+      "success": true,
+      "max_contact_force_N": 0.5021406412124634,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001369020901620388,
+        "obj_to_goal_angle": 0.0016328379279002547,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 4.2146848510894035e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 22,
+      "sample_id": 22,
+      "causal_delta": [
+        -0.006009691120635734,
+        0.008842262210129957,
+        -0.035314075373834145
+      ],
+      "steps": 151,
+      "success": false,
+      "max_contact_force_N": 36.68895501976015,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.01670096069574356,
+        "obj_to_goal_angle": 0.2123567909002304,
+        "success": false
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 2.9802322387695312e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 23,
+      "sample_id": 23,
+      "causal_delta": [
+        -0.00789009440859541,
+        0.002582163030794185,
+        0.11182880048878696
+      ],
+      "steps": 168,
+      "success": true,
+      "max_contact_force_N": 22.340596568267852,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0011607484193518758,
+        "obj_to_goal_angle": 0.0014397791819646955,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 24,
+      "sample_id": 24,
+      "causal_delta": [
+        -0.0011924569056843207,
+        0.009091809873814744,
+        -2.7275912791058232e-05
+      ],
+      "steps": 152,
+      "success": true,
+      "max_contact_force_N": 23.725829749538082,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0025257396046072245,
+        "obj_to_goal_angle": 0.004706450738012791,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 25,
+      "sample_id": 25,
+      "causal_delta": [
+        -0.0014954275030184885,
+        0.0024042690403075564,
+        0.1296159619721062
+      ],
+      "steps": 163,
+      "success": true,
+      "max_contact_force_N": 1.2709712409122633,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001258199685253203,
+        "obj_to_goal_angle": 0.0013563658576458693,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 2.9802322387695312e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 26,
+      "sample_id": 26,
+      "causal_delta": [
+        0.008978873498755308,
+        -0.0007990972138180782,
+        0.06747325391989237
+      ],
+      "steps": 162,
+      "success": true,
+      "max_contact_force_N": 0.0010833354899659753,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001635130262002349,
+        "obj_to_goal_angle": 0.0023197426926344633,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 27,
+      "sample_id": 27,
+      "causal_delta": [
+        -5.154609024762141e-05,
+        0.0005862432039354087,
+        0.07481852148862575
+      ],
+      "steps": 160,
+      "success": true,
+      "max_contact_force_N": 0.0010833354899659753,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0013245521113276482,
+        "obj_to_goal_angle": 0.001557559473440051,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 28,
+      "sample_id": 28,
+      "causal_delta": [
+        -0.0017068830128865835,
+        0.004689671435774588,
+        0.055277076195867
+      ],
+      "steps": 156,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0014291839906945825,
+        "obj_to_goal_angle": 0.002437228336930275,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 2.9802322387695312e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 29,
+      "sample_id": 29,
+      "causal_delta": [
+        0.008641193732267566,
+        -0.007701347334381896,
+        0.059956017447328314
+      ],
+      "steps": 161,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0016001529293134809,
+        "obj_to_goal_angle": 0.0023150474298745394,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 30,
+      "sample_id": 30,
+      "causal_delta": [
+        0.008548478572491197,
+        0.009358523798492927,
+        -0.12704959226285342
+      ],
+      "steps": 154,
+      "success": true,
+      "max_contact_force_N": 0.06191562327214809,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0016740747960284352,
+        "obj_to_goal_angle": 0.0018031725194305182,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 31,
+      "sample_id": 31,
+      "causal_delta": [
+        0.0072728018049115165,
+        0.009623900801326886,
+        0.1196973451176894
+      ],
+      "steps": 159,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0015846556052565575,
+        "obj_to_goal_angle": 0.0021491944789886475,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 2.9802322387695312e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 32,
+      "sample_id": 32,
+      "causal_delta": [
+        -0.007024719755350042,
+        0.009452576276459101,
+        0.1020848897687534
+      ],
+      "steps": 161,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0012070548254996538,
+        "obj_to_goal_angle": 0.0015392657369375229,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 33,
+      "sample_id": 33,
+      "causal_delta": [
+        0.006447476550861407,
+        -0.0004002415238433567,
+        -0.07006460579690402
+      ],
+      "steps": 152,
+      "success": true,
+      "max_contact_force_N": 22.96547095020512,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.002420209813863039,
+        "obj_to_goal_angle": 0.004259193316102028,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 34,
+      "sample_id": 34,
+      "causal_delta": [
+        0.006037611574366159,
+        0.008470603195669392,
+        -0.06122695153863157
+      ],
+      "steps": 151,
+      "success": true,
+      "max_contact_force_N": 21.935014277068248,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.003122214460745454,
+        "obj_to_goal_angle": 0.023486074060201645,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 35,
+      "sample_id": 35,
+      "causal_delta": [
+        0.0007786881524437378,
+        -0.0011449434205093693,
+        0.1128400694546989
+      ],
+      "steps": 161,
+      "success": true,
+      "max_contact_force_N": 2.058828592300415,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0013328790664672852,
+        "obj_to_goal_angle": 0.0021900120191276073,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 36,
+      "sample_id": 36,
+      "causal_delta": [
+        -0.009189785776231307,
+        0.004640123913131216,
+        0.02994284603184824
+      ],
+      "steps": 157,
+      "success": true,
+      "max_contact_force_N": 0.07436724235190005,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0012363262940198183,
+        "obj_to_goal_angle": 0.0018165636574849486,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 37,
+      "sample_id": 37,
+      "causal_delta": [
+        -0.009432692697729578,
+        0.004384395456534806,
+        -0.12671306890045397
+      ],
+      "steps": 147,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0016080406494438648,
+        "obj_to_goal_angle": 0.00386868161149323,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 38,
+      "sample_id": 38,
+      "causal_delta": [
+        0.005159020047128562,
+        0.00025517446524156093,
+        0.11233922230668725
+      ],
+      "steps": 161,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0014369870768859982,
+        "obj_to_goal_angle": 0.0021663194056600332,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 2.9802322387695312e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 39,
+      "sample_id": 39,
+      "causal_delta": [
+        -0.008678350065518505,
+        0.006826345592247663,
+        -0.11344029043202765
+      ],
+      "steps": 148,
+      "success": true,
+      "max_contact_force_N": 27.759592099473988,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.004003316629678011,
+        "obj_to_goal_angle": 0.04679521918296814,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 40,
+      "sample_id": 40,
+      "causal_delta": [
+        -0.0031138004239174965,
+        -0.0013940253610433342,
+        0.12201476742566728
+      ],
+      "steps": 164,
+      "success": true,
+      "max_contact_force_N": 2.8738187812567264,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0012182154459878802,
+        "obj_to_goal_angle": 0.0013667646562680602,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 41,
+      "sample_id": 41,
+      "causal_delta": [
+        0.0012446368445691407,
+        -0.004822708136581355,
+        -0.06762913990375292
+      ],
+      "steps": 152,
+      "success": true,
+      "max_contact_force_N": 27.633348017736267,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0024052620865404606,
+        "obj_to_goal_angle": 0.004494060296565294,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 42,
+      "sample_id": 42,
+      "causal_delta": [
+        0.007762366413183596,
+        -0.0054826114316535125,
+        -0.09829134816439433
+      ],
+      "steps": 151,
+      "success": true,
+      "max_contact_force_N": 22.632124539463216,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.002916554221883416,
+        "obj_to_goal_angle": 0.024537963792681694,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 43,
+      "sample_id": 43,
+      "causal_delta": [
+        -0.004233384859848448,
+        0.001722461296254656,
+        0.014160860354710092
+      ],
+      "steps": 157,
+      "success": true,
+      "max_contact_force_N": 1.9168598651885986,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0013173263287171721,
+        "obj_to_goal_angle": 0.0018353303894400597,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 44,
+      "sample_id": 44,
+      "causal_delta": [
+        0.006194215518255554,
+        0.001209519040123716,
+        -0.0553911965331966
+      ],
+      "steps": 152,
+      "success": true,
+      "max_contact_force_N": 23.56761387880921,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.004839726723730564,
+        "obj_to_goal_angle": 0.0485849529504776,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 45,
+      "sample_id": 45,
+      "causal_delta": [
+        -0.0017420731463821462,
+        0.006362419419418208,
+        0.033119314414127576
+      ],
+      "steps": 156,
+      "success": false,
+      "max_contact_force_N": 34.24550442722979,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.01693502999842167,
+        "obj_to_goal_angle": 0.19315922260284424,
+        "success": false
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 46,
+      "sample_id": 46,
+      "causal_delta": [
+        0.009181552853948843,
+        -0.0026119117781663826,
+        0.013773661245661512
+      ],
+      "steps": 157,
+      "success": true,
+      "max_contact_force_N": 23.513042534374563,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0016039077891036868,
+        "obj_to_goal_angle": 0.0016738149570301175,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 47,
+      "sample_id": 47,
+      "causal_delta": [
+        0.0018784840322633653,
+        0.0069658241655012,
+        -0.09281481066136452
+      ],
+      "steps": 152,
+      "success": true,
+      "max_contact_force_N": 26.267893682757553,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001999894855543971,
+        "obj_to_goal_angle": 0.0018755963537842035,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 48,
+      "sample_id": 48,
+      "causal_delta": [
+        -0.0018697932650374675,
+        0.008199179233245939,
+        -0.11962480883800466
+      ],
+      "steps": 148,
+      "success": true,
+      "max_contact_force_N": 0.46284282207489014,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.0016777882119640708,
+        "obj_to_goal_angle": 0.003787999739870429,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 0.0,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    },
+    {
+      "episode_id": 49,
+      "sample_id": 49,
+      "causal_delta": [
+        0.006454125603630038,
+        -0.0016923192525755068,
+        0.08634248143952697
+      ],
+      "steps": 159,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "solver_error": null,
+      "final_info": {
+        "obj_to_goal_dist": 0.001540639204904437,
+        "obj_to_goal_angle": 0.002232191152870655,
+        "success": true
+      },
+      "restore_checks": {
+        "receptacle_pos_err_m": 0.0,
+        "receptacle_rot_err_rad": 2.9802322387695312e-08,
+        "charger_pos_err_m": 0.0,
+        "charger_rot_err_rad": 0.0,
+        "tcp_pos_err_m": 0.0,
+        "tcp_rot_err_rad": 0.0,
+        "qpos_max_err": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "analysis_source_sha256": "b154f28fbc81168c16d2d6487e121ce483b7fd5ac959feb36ee65866800e42be",
+  "experiment_sha256": "316e109d2e0a92fce9aaab7459ab54e99869f5bc2cc945a9827d668e3caac998",
+  "subset_manifest_sha256": "212b4362d0e3b997eba2c3ea730983eff23f32385934755987834e94a659f982",
+  "seeds": [
+    20260818,
+    20270818,
+    20280818,
+    20290818,
+    20300818
+  ],
+  "run_sha256": {
+    "20260818": "3c8d8c78245caf068cada089b3b4db987680f9ca67a101287bcbd54004697fed",
+    "20270818": "92ea988e195fbdd6bfa3d8a937f81fe67a4466263765678025f6815646cc50d4",
+    "20280818": "6b4e65e47a76f0ad667bed36eee16bed1fdc569eb3a6e5c36423f8a9357cbdc1",
+    "20290818": "ab9c5cc4096789c50cf377113d3c6f0a8382c8675c936dfa93f2a97f652e54f6",
+    "20300818": "afe76c71a2b4aafe003eb097a2afb8059a5fbd4c3b1001d0f7c24de79ff6d106"
+  },
+  "result_sha256": {
+    "20260818": "2935a9c55e1eb6926ebfcab2b0dd4343b7eb2e75602c5c31ad413429dd3f78ad",
+    "20270818": "47cf94bc8948bfe799d296af1af3b506b727633006e6da15359adcf1c0c84be1",
+    "20280818": "5e7a0aa55de4c38dd9d7d2098e60ea77312de96d06b709530f7c4a1ba868942c",
+    "20290818": "778dac5995ab81d8c00e3d186885b3fa91708da4d36c1eb737ad06334de35ea7",
+    "20300818": "bb39534103ea7539639d7e882bef07e2ea1c635ea1d233502463ad1c79d378c6"
+  },
+  "fit_count": 1815,
+  "fit_failure_count": 0,
+  "pdiag_optimization_audit": {
+    "fit_count": 605,
+    "success_count": 604,
+    "success_fraction": 0.9983471074380166,
+    "max_profile_reproduction_error": 0.0
+  },
+  "all_failed_fits_retained": true,
+  "uncertainty_definition": "Figure bands are sample SD across five seed-level means after averaging frozen subsets; paired intervals resample seed then subset.",
+  "n3_identifiability": {
+    "random_subset_count": 10,
+    "rank3_fraction": 1.0,
+    "augmented_intercept_rank4_fraction": 0.0,
+    "note": "N=3 can excite the three generator columns but cannot identify an unconstrained affine intercept plus all three slopes."
+  },
+  "scope": "Few-shot comparison uses the frozen finite Pdiag, full operator, and Generic RBF. TP-GMM SE(2) remains in the full-data benchmark and is not included in this computationally repeated sweep.",
+  "claim_boundary": "Results test sample efficiency and stability; they do not establish Pdiag dominance unless the matched comparisons support it."
+}

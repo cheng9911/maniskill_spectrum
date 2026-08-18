@@ -1,0 +1,32 @@
+{
+  "experiment": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/experiment.json",
+  "experiment_sha256": "316e109d2e0a92fce9aaab7459ab54e99869f5bc2cc945a9827d668e3caac998",
+  "context_manifest_sha256": "3751db801cf49ce698c9b5a74ce36cf0b39897d967ddf2959846a3965b8bd653",
+  "datasets": {
+    "20260818": {
+      "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/rollouts/seed_20260818.h5",
+      "sha256": "1fc05000cb046fb4215fef6a865caa3e39cbe6bfa0c26181786bf8f39c8ab473",
+      "complete_container": true
+    },
+    "20270818": {
+      "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/rollouts/seed_20270818.h5",
+      "sha256": "1ae166a3da7821afe99ab6265229a7716aa7afdf9a6a32682ad209f62b8aa3ff",
+      "complete_container": true
+    },
+    "20280818": {
+      "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/rollouts/seed_20280818.h5",
+      "sha256": "44dffb096c4a6689fcaaa80b7a01173631c26b4299b9e05150777f7fb0ccc63d",
+      "complete_container": true
+    },
+    "20290818": {
+      "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/rollouts/seed_20290818.h5",
+      "sha256": "5574d30236eaebcf6fc2725076f56860da10124d1e48ebe296f97f860966a5cf",
+      "complete_container": true
+    },
+    "20300818": {
+      "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/rollouts/seed_20300818.h5",
+      "sha256": "dca00b3455ab228df928a1df3327ded07cfdeeb79c3b9627e31245c862e5db54",
+      "complete_container": true
+    }
+  }
+}

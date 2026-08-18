@@ -1,0 +1,1353 @@
+{
+  "env_id": "KeyedCircularPhaseSwitch-v1",
+  "task": "keyed_to_circular_phase_switch",
+  "phases": {
+    "initial": -1,
+    "reach": 0,
+    "grasp": 1,
+    "lift": 2,
+    "align_keyed": 3,
+    "enter_key": 4,
+    "unlock_yaw": 5,
+    "circular_insert": 6
+  },
+  "episodes": [
+    {
+      "episode_id": 0,
+      "condition_id": 0,
+      "attempt_id": 0,
+      "episode_seed": 20260818,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        -0.5235987755982988
+      ],
+      "steps": 396,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 1,
+      "condition_id": 1,
+      "attempt_id": 0,
+      "episode_seed": 20261827,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        -0.2617993877991494
+      ],
+      "steps": 381,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 2,
+      "condition_id": 2,
+      "attempt_id": 0,
+      "episode_seed": 20262836,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 485,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 3,
+      "condition_id": 3,
+      "attempt_id": 0,
+      "episode_seed": 20263845,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.2617993877991494
+      ],
+      "steps": 157,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 4,
+      "condition_id": 3,
+      "attempt_id": 1,
+      "episode_seed": 20263846,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.2617993877991494
+      ],
+      "steps": 384,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 5,
+      "condition_id": 4,
+      "attempt_id": 0,
+      "episode_seed": 20264854,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.5235987755982988
+      ],
+      "steps": 382,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 6,
+      "condition_id": 5,
+      "attempt_id": 0,
+      "episode_seed": 20265863,
+      "generator": "translation",
+      "causal_delta": [
+        -0.015,
+        0.0,
+        0.0
+      ],
+      "steps": 700,
+      "success": false,
+      "complete": false,
+      "stop_reason": "truncated",
+      "max_contact_force_N": 60.25498955270026,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 7,
+      "condition_id": 5,
+      "attempt_id": 1,
+      "episode_seed": 20265864,
+      "generator": "translation",
+      "causal_delta": [
+        -0.015,
+        0.0,
+        0.0
+      ],
+      "steps": 314,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 8,
+      "condition_id": 6,
+      "attempt_id": 0,
+      "episode_seed": 20266872,
+      "generator": "translation",
+      "causal_delta": [
+        0.015,
+        0.0,
+        0.0
+      ],
+      "steps": 150,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 9,
+      "condition_id": 6,
+      "attempt_id": 1,
+      "episode_seed": 20266873,
+      "generator": "translation",
+      "causal_delta": [
+        0.015,
+        0.0,
+        0.0
+      ],
+      "steps": 483,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 10,
+      "condition_id": 7,
+      "attempt_id": 0,
+      "episode_seed": 20267881,
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        -0.015,
+        0.0
+      ],
+      "steps": 163,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 11,
+      "condition_id": 7,
+      "attempt_id": 1,
+      "episode_seed": 20267882,
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        -0.015,
+        0.0
+      ],
+      "steps": 397,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 31.37927428621001,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 12,
+      "condition_id": 8,
+      "attempt_id": 0,
+      "episode_seed": 20268890,
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        0.015,
+        0.0
+      ],
+      "steps": 336,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 13,
+      "condition_id": 9,
+      "attempt_id": 0,
+      "episode_seed": 20269899,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0023931185865242923,
+        -0.0010791215800725062,
+        -0.18657306469668755
+      ],
+      "steps": 157,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 14,
+      "condition_id": 9,
+      "attempt_id": 1,
+      "episode_seed": 20269900,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0023931185865242923,
+        -0.0010791215800725062,
+        -0.18657306469668755
+      ],
+      "steps": 363,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 15,
+      "condition_id": 10,
+      "attempt_id": 0,
+      "episode_seed": 20270908,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0022283235571025524,
+        -0.010246784663665433,
+        -0.27645951677924374
+      ],
+      "steps": 390,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 16,
+      "condition_id": 11,
+      "attempt_id": 0,
+      "episode_seed": 20271917,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0038875386126535627,
+        0.011759554302412916,
+        -0.03424688094341882
+      ],
+      "steps": 318,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 17,
+      "condition_id": 12,
+      "attempt_id": 0,
+      "episode_seed": 20272926,
+      "generator": "mixed",
+      "causal_delta": [
+        0.008713388927921128,
+        -0.003174494924091142,
+        -0.4797539782073512
+      ],
+      "steps": 382,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 18,
+      "condition_id": 13,
+      "attempt_id": 0,
+      "episode_seed": 20273935,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0029496725821234956,
+        -0.011109129942626405,
+        -0.31578453071810775
+      ],
+      "steps": 395,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 19,
+      "condition_id": 14,
+      "attempt_id": 0,
+      "episode_seed": 20274944,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.01132050548199724,
+        0.0031447275593994104,
+        0.18656551070753769
+      ],
+      "steps": 371,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 20,
+      "condition_id": 15,
+      "attempt_id": 0,
+      "episode_seed": 20275953,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.005542401259478868,
+        0.00032293439542781417,
+        0.1333377524075764
+      ],
+      "steps": 369,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 21,
+      "condition_id": 16,
+      "attempt_id": 0,
+      "episode_seed": 20276962,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0022334160048983077,
+        -0.0012357486408763746,
+        -0.2752020212045151
+      ],
+      "steps": 360,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 22,
+      "condition_id": 17,
+      "attempt_id": 0,
+      "episode_seed": 20277971,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0022465624784044486,
+        -0.006905244765118781,
+        -0.003963456565738155
+      ],
+      "steps": 343,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 23,
+      "condition_id": 18,
+      "attempt_id": 0,
+      "episode_seed": 20278980,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0015680678224564305,
+        0.011519377382340677,
+        -0.14347506968843726
+      ],
+      "steps": 373,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 24,
+      "condition_id": 19,
+      "attempt_id": 0,
+      "episode_seed": 20279989,
+      "generator": "mixed",
+      "causal_delta": [
+        0.010362728597275557,
+        -0.0007917488497382989,
+        -0.39507205299764264
+      ],
+      "steps": 354,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 25,
+      "condition_id": 20,
+      "attempt_id": 0,
+      "episode_seed": 20280998,
+      "generator": "mixed",
+      "causal_delta": [
+        0.001202303376842826,
+        -0.002872683158953766,
+        -0.1610041259052088
+      ],
+      "steps": 336,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 26,
+      "condition_id": 21,
+      "attempt_id": 0,
+      "episode_seed": 20282007,
+      "generator": "mixed",
+      "causal_delta": [
+        0.005460533610843841,
+        -0.009176065566340208,
+        -0.36630729949089225
+      ],
+      "steps": 700,
+      "success": false,
+      "complete": false,
+      "stop_reason": "truncated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 27,
+      "condition_id": 21,
+      "attempt_id": 1,
+      "episode_seed": 20282008,
+      "generator": "mixed",
+      "causal_delta": [
+        0.005460533610843841,
+        -0.009176065566340208,
+        -0.36630729949089225
+      ],
+      "steps": 370,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 28,
+      "condition_id": 22,
+      "attempt_id": 0,
+      "episode_seed": 20283016,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.01019785503635493,
+        0.011887546132995197,
+        0.33840644592155844
+      ],
+      "steps": 378,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 29,
+      "condition_id": 23,
+      "attempt_id": 0,
+      "episode_seed": 20284025,
+      "generator": "mixed",
+      "causal_delta": [
+        0.003583363549875037,
+        -0.0038229538769398493,
+        0.3152581491511527
+      ],
+      "steps": 384,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 30,
+      "condition_id": 24,
+      "attempt_id": 0,
+      "episode_seed": 20285034,
+      "generator": "mixed",
+      "causal_delta": [
+        0.006914381992931009,
+        -0.0015510412992135268,
+        -0.3045332339783158
+      ],
+      "steps": 183,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 31,
+      "condition_id": 24,
+      "attempt_id": 1,
+      "episode_seed": 20285035,
+      "generator": "mixed",
+      "causal_delta": [
+        0.006914381992931009,
+        -0.0015510412992135268,
+        -0.3045332339783158
+      ],
+      "steps": 388,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 32,
+      "condition_id": 25,
+      "attempt_id": 0,
+      "episode_seed": 20286043,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.010535570229681426,
+        -0.006097956751513089,
+        -0.021991373126857727
+      ],
+      "steps": 352,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 19.858832850488902,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 33,
+      "condition_id": 26,
+      "attempt_id": 0,
+      "episode_seed": 20287052,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0008629709010328137,
+        -0.0005531067163298594,
+        0.06367738146914015
+      ],
+      "steps": 317,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 34,
+      "condition_id": 27,
+      "attempt_id": 0,
+      "episode_seed": 20288061,
+      "generator": "mixed",
+      "causal_delta": [
+        0.008541769008218795,
+        0.004022032916112337,
+        0.03196049633811415
+      ],
+      "steps": 157,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 35,
+      "condition_id": 27,
+      "attempt_id": 1,
+      "episode_seed": 20288062,
+      "generator": "mixed",
+      "causal_delta": [
+        0.008541769008218795,
+        0.004022032916112337,
+        0.03196049633811415
+      ],
+      "steps": 335,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 36,
+      "condition_id": 28,
+      "attempt_id": 0,
+      "episode_seed": 20289070,
+      "generator": "mixed",
+      "causal_delta": [
+        0.002939942549023515,
+        -0.009348660801151388,
+        0.3077043496696418
+      ],
+      "steps": 353,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 37,
+      "condition_id": 29,
+      "attempt_id": 0,
+      "episode_seed": 20290079,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.006089367938036382,
+        -0.010627967707550005,
+        0.38299308163426515
+      ],
+      "steps": 344,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 38,
+      "condition_id": 30,
+      "attempt_id": 0,
+      "episode_seed": 20291088,
+      "generator": "mixed",
+      "causal_delta": [
+        0.009080504039630437,
+        0.0012646056698357323,
+        0.01733541423828555
+      ],
+      "steps": 330,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 39,
+      "condition_id": 31,
+      "attempt_id": 0,
+      "episode_seed": 20292097,
+      "generator": "mixed",
+      "causal_delta": [
+        0.011910616875627975,
+        0.00261372197217654,
+        0.510092460033387
+      ],
+      "steps": 370,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 40,
+      "condition_id": 32,
+      "attempt_id": 0,
+      "episode_seed": 20293106,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.005195427073254344,
+        0.0013924329836661215,
+        -0.346447262945213
+      ],
+      "steps": 351,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 41,
+      "condition_id": 33,
+      "attempt_id": 0,
+      "episode_seed": 20294115,
+      "generator": "mixed",
+      "causal_delta": [
+        0.00038940294977674907,
+        0.009918567515302294,
+        -0.16978677020606076
+      ],
+      "steps": 347,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 42,
+      "condition_id": 34,
+      "attempt_id": 0,
+      "episode_seed": 20295124,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0019049604993052333,
+        0.011545663344423165,
+        -0.32687843647994297
+      ],
+      "steps": 150,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 43,
+      "condition_id": 34,
+      "attempt_id": 1,
+      "episode_seed": 20295125,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0019049604993052333,
+        0.011545663344423165,
+        -0.32687843647994297
+      ],
+      "steps": 383,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 44,
+      "condition_id": 35,
+      "attempt_id": 0,
+      "episode_seed": 20296133,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.003747792048091088,
+        0.010245802483035374,
+        -0.4766883462474212
+      ],
+      "steps": 348,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 45,
+      "condition_id": 36,
+      "attempt_id": 0,
+      "episode_seed": 20297142,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.011241414553279885,
+        -0.0008387961906365701,
+        0.23442581763406956
+      ],
+      "steps": 368,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 46,
+      "condition_id": 37,
+      "attempt_id": 0,
+      "episode_seed": 20298151,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0024197706407490596,
+        -0.009121479235809632,
+        0.370931685048412
+      ],
+      "steps": 523,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 47,
+      "condition_id": 37,
+      "attempt_id": 1,
+      "episode_seed": 20298152,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0024197706407490596,
+        -0.009121479235809632,
+        0.370931685048412
+      ],
+      "steps": 367,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 48,
+      "condition_id": 38,
+      "attempt_id": 0,
+      "episode_seed": 20299160,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0008451924919283486,
+        0.008550435502034787,
+        0.1446787842603401
+      ],
+      "steps": 325,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "env_id": "KeyedCircularPhaseSwitch-v1",
+  "task": "keyed_to_circular_phase_switch",
+  "phases": {
+    "initial": -1,
+    "reach": 0,
+    "grasp": 1,
+    "lift": 2,
+    "align_keyed": 3,
+    "enter_key": 4,
+    "unlock_yaw": 5,
+    "circular_insert": 6
+  },
+  "episodes": [
+    {
+      "episode_id": 0,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 362,
+      "success": false,
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    }
+  ]
+}

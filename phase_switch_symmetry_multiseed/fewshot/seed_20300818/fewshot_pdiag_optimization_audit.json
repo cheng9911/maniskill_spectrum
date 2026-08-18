@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed": 20300818,
+  "source_sha256": "27daed3442988a91d99f5ff36caa55903d25e304574ffe64dde189c300102f9c",
+  "experiment_sha256": "316e109d2e0a92fce9aaab7459ab54e99869f5bc2cc945a9827d668e3caac998",
+  "subset_manifest_sha256": "212b4362d0e3b997eba2c3ea730983eff23f32385934755987834e94a659f982",
+  "fewshot_results_sha256": "bb39534103ea7539639d7e882bef07e2ea1c635ea1d233502463ad1c79d378c6",
+  "audit_count": 121,
+  "optimization_success_count": 121,
+  "max_profile_reproduction_error": 0.0
+}

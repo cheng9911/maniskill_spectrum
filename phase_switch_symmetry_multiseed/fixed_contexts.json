@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "source_dataset": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts/keyed_circular_phase_switch_physics_v2.h5",
+  "source_dataset_sha256": "32fa4f0702614a38750d93b41b7df821b45d2226a8947a4c6b9bc238c485dcb3",
+  "source_seed": 20260818,
+  "env_id": "KeyedCircularPhaseSwitch-v1",
+  "geometry": {
+    "BORE_INNER_RADIUS": 0.03,
+    "FINAL_PEG_Z": 0.06,
+    "GATE_CLEARANCE": 0.002,
+    "GATE_Z_MAX": 0.065,
+    "GATE_Z_MIN": 0.053,
+    "KEY_CLEAR_PEG_Z": 0.078,
+    "KEY_HALF_X": 0.021,
+    "KEY_HALF_Y": 0.014,
+    "KEY_Z_MAX": -0.029,
+    "KEY_Z_MIN": -0.045,
+    "PEG_HALF_LENGTH": 0.045,
+    "PRE_ENTRY_PEG_Z": 0.125,
+    "SHAFT_RADIUS": 0.013,
+    "SOCKET_OUTER_RADIUS": 0.07
+  },
+  "conditions": [
+    {
+      "condition_id": 0,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        -0.5235987755982988
+      ]
+    },
+    {
+      "condition_id": 1,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        -0.2617993877991494
+      ]
+    },
+    {
+      "condition_id": 2,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 3,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.2617993877991494
+      ]
+    },
+    {
+      "condition_id": 4,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.5235987755982988
+      ]
+    },
+    {
+      "condition_id": 5,
+      "generator": "translation",
+      "causal_delta": [
+        -0.015,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 6,
+      "generator": "translation",
+      "causal_delta": [
+        0.015,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 7,
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        -0.015,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 8,
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        0.015,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 9,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0023931185865242923,
+        -0.0010791215800725062,
+        -0.18657306469668755
+      ]
+    },
+    {
+      "condition_id": 10,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0022283235571025524,
+        -0.010246784663665433,
+        -0.27645951677924374
+      ]
+    },
+    {
+      "condition_id": 11,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0038875386126535627,
+        0.011759554302412916,
+        -0.03424688094341882
+      ]
+    },
+    {
+      "condition_id": 12,
+      "generator": "mixed",
+      "causal_delta": [
+        0.008713388927921128,
+        -0.003174494924091142,
+        -0.4797539782073512
+      ]
+    },
+    {
+      "condition_id": 13,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0029496725821234956,
+        -0.011109129942626405,
+        -0.31578453071810775
+      ]
+    },
+    {
+      "condition_id": 14,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.01132050548199724,
+        0.0031447275593994104,
+        0.18656551070753769
+      ]
+    },
+    {
+      "condition_id": 15,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.005542401259478868,
+        0.00032293439542781417,
+        0.1333377524075764
+      ]
+    },
+    {
+      "condition_id": 16,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0022334160048983077,
+        -0.0012357486408763746,
+        -0.2752020212045151
+      ]
+    },
+    {
+      "condition_id": 17,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0022465624784044486,
+        -0.006905244765118781,
+        -0.003963456565738155
+      ]
+    },
+    {
+      "condition_id": 18,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0015680678224564305,
+        0.011519377382340677,
+        -0.14347506968843726
+      ]
+    },
+    {
+      "condition_id": 19,
+      "generator": "mixed",
+      "causal_delta": [
+        0.010362728597275557,
+        -0.0007917488497382989,
+        -0.39507205299764264
+      ]
+    },
+    {
+      "condition_id": 20,
+      "generator": "mixed",
+      "causal_delta": [
+        0.001202303376842826,
+        -0.002872683158953766,
+        -0.1610041259052088
+      ]
+    },
+    {
+      "condition_id": 21,
+      "generator": "mixed",
+      "causal_delta": [
+        0.005460533610843841,
+        -0.009176065566340208,
+        -0.36630729949089225
+      ]
+    },
+    {
+      "condition_id": 22,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.01019785503635493,
+        0.011887546132995197,
+        0.33840644592155844
+      ]
+    },
+    {
+      "condition_id": 23,
+      "generator": "mixed",
+      "causal_delta": [
+        0.003583363549875037,
+        -0.0038229538769398493,
+        0.3152581491511527
+      ]
+    },
+    {
+      "condition_id": 24,
+      "generator": "mixed",
+      "causal_delta": [
+        0.006914381992931009,
+        -0.0015510412992135268,
+        -0.3045332339783158
+      ]
+    },
+    {
+      "condition_id": 25,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.010535570229681426,
+        -0.006097956751513089,
+        -0.021991373126857727
+      ]
+    },
+    {
+      "condition_id": 26,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0008629709010328137,
+        -0.0005531067163298594,
+        0.06367738146914015
+      ]
+    },
+    {
+      "condition_id": 27,
+      "generator": "mixed",
+      "causal_delta": [
+        0.008541769008218795,
+        0.004022032916112337,
+        0.03196049633811415
+      ]
+    },
+    {
+      "condition_id": 28,
+      "generator": "mixed",
+      "causal_delta": [
+        0.002939942549023515,
+        -0.009348660801151388,
+        0.3077043496696418
+      ]
+    },
+    {
+      "condition_id": 29,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.006089367938036382,
+        -0.010627967707550005,
+        0.38299308163426515
+      ]
+    },
+    {
+      "condition_id": 30,
+      "generator": "mixed",
+      "causal_delta": [
+        0.009080504039630437,
+        0.0012646056698357323,
+        0.01733541423828555
+      ]
+    },
+    {
+      "condition_id": 31,
+      "generator": "mixed",
+      "causal_delta": [
+        0.011910616875627975,
+        0.00261372197217654,
+        0.510092460033387
+      ]
+    },
+    {
+      "condition_id": 32,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.005195427073254344,
+        0.0013924329836661215,
+        -0.346447262945213
+      ]
+    },
+    {
+      "condition_id": 33,
+      "generator": "mixed",
+      "causal_delta": [
+        0.00038940294977674907,
+        0.009918567515302294,
+        -0.16978677020606076
+      ]
+    },
+    {
+      "condition_id": 34,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0019049604993052333,
+        0.011545663344423165,
+        -0.32687843647994297
+      ]
+    },
+    {
+      "condition_id": 35,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.003747792048091088,
+        0.010245802483035374,
+        -0.4766883462474212
+      ]
+    },
+    {
+      "condition_id": 36,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.011241414553279885,
+        -0.0008387961906365701,
+        0.23442581763406956
+      ]
+    },
+    {
+      "condition_id": 37,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0024197706407490596,
+        -0.009121479235809632,
+        0.370931685048412
+      ]
+    },
+    {
+      "condition_id": 38,
+      "generator": "mixed",
+      "causal_delta": [
+        0.0008451924919283486,
+        0.008550435502034787,
+        0.1446787842603401
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "trajectory": "phase_switch_symmetry_multiseed/rollouts/seed_20280818.h5",
+  "episodes": 43,
+  "successful_episodes": 39,
+  "successful_mixed_episodes": 30,
+  "contact_episodes": 5,
+  "yaw_preclear_mean_ratio": 1.0000199307560569,
+  "yaw_enter_mean_ratio": 1.0001933977206086,
+  "yaw_unlock_mean_ratio": 0.0006235788236830333,
+  "yaw_final_mean_ratio": 0.0008362007644491192,
+  "translation_final_mean_ratio": 0.989265015602821,
+  "phase_endpoint_diagonal": {
+    "Align keyed": {
+      "alpha_x": 1.000790273519731,
+      "alpha_y": 1.0207027176393222,
+      "alpha_yaw": 0.28808799709107547
+    },
+    "Enter key": {
+      "alpha_x": 1.0087695506124394,
+      "alpha_y": 0.9994419157816296,
+      "alpha_yaw": 1.0006101019838094
+    },
+    "Unlock yaw": {
+      "alpha_x": 1.0011661937274245,
+      "alpha_y": 1.003861966557903,
+      "alpha_yaw": 0.0006158590946107878
+    },
+    "Circular insert": {
+      "alpha_x": 1.0029803767317704,
+      "alpha_y": 1.0036662275599384,
+      "alpha_yaw": 8.373698576653876e-06
+    }
+  },
+  "final_diagonal": [
+    1.0029803767317704,
+    1.0036662275599384,
+    8.373698576653876e-06
+  ],
+  "final_scalar_weight": 0.569368353450245,
+  "heldout_scalar_mean_mm_equiv": 6.506378759947134,
+  "heldout_diagonal_mean_mm_equiv": 0.18949422764854645,
+  "paired_improvement_mean_mm_equiv": 6.316884532298587,
+  "paired_improvement_95ci_mm_equiv": [
+    5.239141653605458,
+    7.470001170469372
+  ],
+  "heldout_relative_improvement": 0.9708756230401062,
+  "checks": {
+    "H1_translation_preserved": true,
+    "H2_keyed_yaw_relevant_before_clearance": true,
+    "H3_circular_yaw_suppressed": true,
+    "H4_diagonal_beats_scalar": true,
+    "physics_contact_present_in_usable_episode": true,
+    "socket_kinematic": true,
+    "mixed_excitation_full_rank": true,
+    "all_conditions_have_one_usable_success": true,
+    "attempts_are_contiguous_and_retained": true,
+    "train_holdout_interventions_disjoint": true,
+    "no_post_terminal_actions": true,
+    "no_analyzed_truncations": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_before_collection",
+  "context_manifest": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/fixed_contexts.json",
+  "context_manifest_sha256": "3751db801cf49ce698c9b5a74ce36cf0b39897d967ddf2959846a3965b8bd653",
+  "seeds": [
+    20260818,
+    20270818,
+    20280818,
+    20290818,
+    20300818
+  ],
+  "robot_init_qpos_noise_rad": 0.01,
+  "retries_per_condition": 3,
+  "frozen_model": {
+    "alpha_max": 1.25,
+    "n_basis": 24,
+    "basis_width": 0.065,
+    "smoothness_weight": 0.1,
+    "nominal_iterations": 3
+  },
+  "success_criteria": {
+    "g_translation_final_min": 0.9,
+    "g_yaw_preclear_min": 0.9,
+    "abs_g_yaw_final_max": 0.1,
+    "switch_absolute_error_max": 0.03,
+    "pdiag_task_error_below_scalar_every_seed": true
+  },
+  "collection_policy": {
+    "fixed_contexts": true,
+    "retain_all_attempts": true,
+    "no_replacement_seeds": true,
+    "each_seed_fit_independently": true
+  }
+}

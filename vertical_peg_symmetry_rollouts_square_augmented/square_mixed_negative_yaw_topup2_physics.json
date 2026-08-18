@@ -1,0 +1,122 @@
+{
+  "task": "square",
+  "yaw_mode": "negative",
+  "target_success": 4,
+  "target_negative_success": 4,
+  "success_count": 4,
+  "negative_success_count": 4,
+  "episodes": [
+    {
+      "episode_id": 0,
+      "task": "square",
+      "generator": "mixed",
+      "causal_delta": [
+        0.0072212204215195835,
+        0.007958365968222674,
+        -0.4256102737534124
+      ],
+      "steps": 286,
+      "success": false,
+      "max_contact_force_N": 80.78703254139198,
+      "solver_error": null
+    },
+    {
+      "episode_id": 1,
+      "task": "square",
+      "generator": "mixed",
+      "causal_delta": [
+        0.0009491227129589143,
+        0.006675830329499622,
+        -0.22722548283359756
+      ],
+      "steps": 299,
+      "success": false,
+      "max_contact_force_N": 83.15865395696422,
+      "solver_error": null
+    },
+    {
+      "episode_id": 2,
+      "task": "square",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0017089287925397493,
+        0.006826499501238181,
+        -0.3402099356183116
+      ],
+      "steps": 428,
+      "success": true,
+      "max_contact_force_N": 71.89694519700181,
+      "solver_error": null
+    },
+    {
+      "episode_id": 3,
+      "task": "square",
+      "generator": "mixed",
+      "causal_delta": [
+        0.00948165496557039,
+        0.0025272674961681523,
+        -0.19920100013163172
+      ],
+      "steps": 238,
+      "success": false,
+      "max_contact_force_N": 0.6806722886671791,
+      "solver_error": null
+    },
+    {
+      "episode_id": 4,
+      "task": "square",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0006706454269802351,
+        0.006479120796455892,
+        -0.23519518911413903
+      ],
+      "steps": 432,
+      "success": true,
+      "max_contact_force_N": 2.6713814325912484,
+      "solver_error": null
+    },
+    {
+      "episode_id": 5,
+      "task": "square",
+      "generator": "mixed",
+      "causal_delta": [
+        0.008691126045976813,
+        0.007686571541483878,
+        -0.25361662157473497
+      ],
+      "steps": 297,
+      "success": false,
+      "max_contact_force_N": 81.53870751037206,
+      "solver_error": null
+    },
+    {
+      "episode_id": 6,
+      "task": "square",
+      "generator": "mixed",
+      "causal_delta": [
+        0.0009736090258035523,
+        0.005085687275792769,
+        -0.3674283405987565
+      ],
+      "steps": 427,
+      "success": true,
+      "max_contact_force_N": 75.83189888303063,
+      "solver_error": null
+    },
+    {
+      "episode_id": 7,
+      "task": "square",
+      "generator": "mixed",
+      "causal_delta": [
+        0.010109058384607267,
+        0.00492124189396957,
+        -0.3706096142336612
+      ],
+      "steps": 419,
+      "success": true,
+      "max_contact_force_N": 1.5617657269745175,
+      "solver_error": null
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+name: maniskill_download
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - mani_skill==3.0.1
+      - numpy==2.2.6
+      - scipy==1.15.3
+      - IPython

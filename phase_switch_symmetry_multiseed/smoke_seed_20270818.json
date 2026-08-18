@@ -1,0 +1,77 @@
+{
+  "env_id": "KeyedCircularPhaseSwitch-v1",
+  "task": "keyed_to_circular_phase_switch",
+  "phases": {
+    "initial": -1,
+    "reach": 0,
+    "grasp": 1,
+    "lift": 2,
+    "align_keyed": 3,
+    "enter_key": 4,
+    "unlock_yaw": 5,
+    "circular_insert": 6
+  },
+  "seed": 20270818,
+  "retries_per_condition": 1,
+  "robot_init_qpos_noise": 0.01,
+  "context_manifest": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/fixed_contexts.json",
+  "context_manifest_sha256": "3751db801cf49ce698c9b5a74ce36cf0b39897d967ddf2959846a3965b8bd653",
+  "episodes": [
+    {
+      "episode_id": 0,
+      "condition_id": 0,
+      "attempt_id": 0,
+      "episode_seed": 20270818,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 342,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 1,
+      "condition_id": 1,
+      "attempt_id": 0,
+      "episode_seed": 20271827,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0023931185865242923,
+        -0.0010791215800725062,
+        -0.18657306469668755
+      ],
+      "steps": 374,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    }
+  ]
+}

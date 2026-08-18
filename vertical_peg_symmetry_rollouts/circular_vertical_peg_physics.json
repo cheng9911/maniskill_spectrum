@@ -1,0 +1,425 @@
+{
+  "task": "circular",
+  "episodes": [
+    {
+      "episode_id": 0,
+      "task": "circular",
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        -0.5235987755982988
+      ],
+      "steps": 290,
+      "success": true,
+      "max_contact_force_N": 46.68729729578187,
+      "solver_error": null
+    },
+    {
+      "episode_id": 1,
+      "task": "circular",
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        -0.2617993877991494
+      ],
+      "steps": 284,
+      "success": true,
+      "max_contact_force_N": 43.88402721414534,
+      "solver_error": null
+    },
+    {
+      "episode_id": 2,
+      "task": "circular",
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 261,
+      "success": true,
+      "max_contact_force_N": 75.66896127034545,
+      "solver_error": null
+    },
+    {
+      "episode_id": 3,
+      "task": "circular",
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.2617993877991494
+      ],
+      "steps": 282,
+      "success": true,
+      "max_contact_force_N": 30.18506766162159,
+      "solver_error": null
+    },
+    {
+      "episode_id": 4,
+      "task": "circular",
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.5235987755982988
+      ],
+      "steps": 271,
+      "success": true,
+      "max_contact_force_N": 55.87381955688354,
+      "solver_error": null
+    },
+    {
+      "episode_id": 5,
+      "task": "circular",
+      "generator": "translation",
+      "causal_delta": [
+        -0.015,
+        0.0,
+        0.0
+      ],
+      "steps": 266,
+      "success": true,
+      "max_contact_force_N": 57.17924577218397,
+      "solver_error": null
+    },
+    {
+      "episode_id": 6,
+      "task": "circular",
+      "generator": "translation",
+      "causal_delta": [
+        0.015,
+        0.0,
+        0.0
+      ],
+      "steps": 269,
+      "success": true,
+      "max_contact_force_N": 59.19286261062058,
+      "solver_error": null
+    },
+    {
+      "episode_id": 7,
+      "task": "circular",
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        -0.015,
+        0.0
+      ],
+      "steps": 269,
+      "success": true,
+      "max_contact_force_N": 53.025982233156526,
+      "solver_error": null
+    },
+    {
+      "episode_id": 8,
+      "task": "circular",
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        0.015,
+        0.0
+      ],
+      "steps": 281,
+      "success": true,
+      "max_contact_force_N": 47.964814726473485,
+      "solver_error": null
+    },
+    {
+      "episode_id": 9,
+      "task": "circular",
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 269,
+      "success": true,
+      "max_contact_force_N": 50.48267073931296,
+      "solver_error": null
+    },
+    {
+      "episode_id": 10,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.0032870804957149027,
+        -0.0055251188696671125,
+        -0.48069140166842056
+      ],
+      "steps": 273,
+      "success": true,
+      "max_contact_force_N": 52.746993050779764,
+      "solver_error": null
+    },
+    {
+      "episode_id": 11,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.011603336747315302,
+        0.0075184857408065395,
+        0.4322366297679682
+      ],
+      "steps": 242,
+      "success": false,
+      "max_contact_force_N": 5.693594473381226,
+      "solver_error": null
+    },
+    {
+      "episode_id": 12,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.002559258618412316,
+        0.005507917463615963,
+        0.045683984233563346
+      ],
+      "steps": 398,
+      "success": true,
+      "max_contact_force_N": 3.1478283029060155,
+      "solver_error": null
+    },
+    {
+      "episode_id": 13,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.010441738170906437,
+        0.007580485298916771,
+        -0.5207310249261683
+      ],
+      "steps": 280,
+      "success": true,
+      "max_contact_force_N": 49.76212390726921,
+      "solver_error": null
+    },
+    {
+      "episode_id": 14,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.008577702638101665,
+        -0.011193946192668856,
+        0.24049462112039888
+      ],
+      "steps": 511,
+      "success": false,
+      "max_contact_force_N": 75.04333290460833,
+      "solver_error": null
+    },
+    {
+      "episode_id": 15,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.007784265105538584,
+        0.008716294136397278,
+        0.04341808831447158
+      ],
+      "steps": 275,
+      "success": true,
+      "max_contact_force_N": 56.47474271323689,
+      "solver_error": null
+    },
+    {
+      "episode_id": 16,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.004806914627102765,
+        -0.001855506691256198,
+        -0.49394248532407703
+      ],
+      "steps": 334,
+      "success": false,
+      "max_contact_force_N": 0.0,
+      "solver_error": null
+    },
+    {
+      "episode_id": 17,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.009017201364010467,
+        0.004094985952647127,
+        0.154136496082378
+      ],
+      "steps": 175,
+      "success": false,
+      "max_contact_force_N": 0.0,
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 18,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.002769242675550093,
+        -0.0027917386977147976,
+        0.5206770271890794
+      ],
+      "steps": 290,
+      "success": true,
+      "max_contact_force_N": 44.63512625314252,
+      "solver_error": null
+    },
+    {
+      "episode_id": 19,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.011540048130629522,
+        0.004453007627536674,
+        0.15756058566246955
+      ],
+      "steps": 281,
+      "success": true,
+      "max_contact_force_N": 5.005958840397734,
+      "solver_error": null
+    },
+    {
+      "episode_id": 20,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.004522721533702562,
+        -0.0026658858245015085,
+        -0.3821260463636109
+      ],
+      "steps": 304,
+      "success": false,
+      "max_contact_force_N": 65.83965470894762,
+      "solver_error": null
+    },
+    {
+      "episode_id": 21,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.00531572016465796,
+        0.0006085037394174212,
+        -0.19871424323432085
+      ],
+      "steps": 407,
+      "success": true,
+      "max_contact_force_N": 11.304148500826225,
+      "solver_error": null
+    },
+    {
+      "episode_id": 22,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.00033995138803706235,
+        0.009347708024376008,
+        0.454529307022146
+      ],
+      "steps": 632,
+      "success": false,
+      "max_contact_force_N": 0.0,
+      "solver_error": null
+    },
+    {
+      "episode_id": 23,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.0034129152789823154,
+        0.001716715937514263,
+        -0.18653793745843217
+      ],
+      "steps": 291,
+      "success": true,
+      "max_contact_force_N": 27.029313654369414,
+      "solver_error": null
+    },
+    {
+      "episode_id": 24,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.0022632007247927223,
+        -0.0038901305878288016,
+        -0.11349631724314929
+      ],
+      "steps": 276,
+      "success": true,
+      "max_contact_force_N": 43.18669652325495,
+      "solver_error": null
+    },
+    {
+      "episode_id": 25,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.009366584448115015,
+        -0.006548217755198887,
+        0.1290012762541246
+      ],
+      "steps": 273,
+      "success": true,
+      "max_contact_force_N": 40.738538313888895,
+      "solver_error": null
+    },
+    {
+      "episode_id": 26,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.009983631754022764,
+        0.007983459543681546,
+        0.3006486445548371
+      ],
+      "steps": 299,
+      "success": true,
+      "max_contact_force_N": 26.46872827658055,
+      "solver_error": null
+    },
+    {
+      "episode_id": 27,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.006255133368169148,
+        0.009035621539456893,
+        -0.4622664729719022
+      ],
+      "steps": 290,
+      "success": true,
+      "max_contact_force_N": 47.56314001345238,
+      "solver_error": null
+    },
+    {
+      "episode_id": 28,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        -0.003933190546904152,
+        -0.008393292794523863,
+        -0.05200449363573878
+      ],
+      "steps": 414,
+      "success": true,
+      "max_contact_force_N": 2.7662082924981335,
+      "solver_error": null
+    },
+    {
+      "episode_id": 29,
+      "task": "circular",
+      "generator": "mixed",
+      "causal_delta": [
+        0.007111782486895063,
+        -0.006464586984150061,
+        -0.4691221965135881
+      ],
+      "steps": 673,
+      "success": false,
+      "max_contact_force_N": 0.0,
+      "solver_error": null
+    }
+  ]
+}

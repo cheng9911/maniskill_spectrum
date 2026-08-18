@@ -1,0 +1,48 @@
+{
+  "control_mode": "pd_ee_delta_pose",
+  "env_id": "PlugChargerCausal-v1",
+  "episodes": [
+    {
+      "causal_delta": [
+        -0.02,
+        0.0,
+        0.0
+      ],
+      "delta_x_m": -0.02,
+      "delta_x_mm": -20.0,
+      "delta_y_m": 0.0,
+      "delta_y_mm": 0.0,
+      "delta_yaw_deg": 0.0,
+      "delta_yaw_rad": 0.0,
+      "elapsed_steps": 200,
+      "episode_id": 0,
+      "final_obj_to_goal_angle": 2.590604782104492,
+      "final_obj_to_goal_dist": 0.1653212308883667,
+      "generator": "dx",
+      "intervention_index": 0,
+      "obj_to_goal_angle": 0.0693729817867279,
+      "obj_to_goal_dist": 0.14638067781925201,
+      "sample_id": 0,
+      "seed": 0,
+      "seed_offset": 0,
+      "success": false
+    }
+  ],
+  "gains": {
+    "pos_gain": 30.0,
+    "rot_gain": 1.0
+  },
+  "num_episodes": 1,
+  "phase_steps": {
+    "close_gripper": 20,
+    "grasp": 25,
+    "hold": 15,
+    "insert": 35,
+    "lift": 25,
+    "pre_grasp": 35,
+    "pre_insert": 45
+  },
+  "pose_format": "xyz + quaternion_wxyz",
+  "source_desc": "True ManiSkill env.step physics rollout using a simple scripted pd_ee_delta_pose controller. Does not use mplib.",
+  "source_type": "scripted_pd_ee_delta_pose_physics_rollout"
+}

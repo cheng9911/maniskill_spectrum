@@ -1,0 +1,62 @@
+{
+  "trajectory": "phase_switch_symmetry_rollouts/keyed_circular_phase_switch_physics_v2.h5",
+  "episodes": 49,
+  "successful_episodes": 39,
+  "successful_mixed_episodes": 30,
+  "contact_episodes": 3,
+  "yaw_preclear_mean_ratio": 0.9997177262004755,
+  "yaw_enter_mean_ratio": 0.9998268518290636,
+  "yaw_unlock_mean_ratio": 0.0028177511273659644,
+  "yaw_final_mean_ratio": 0.0022272691006642547,
+  "translation_final_mean_ratio": 0.9924194068251597,
+  "phase_endpoint_diagonal": {
+    "Align keyed": {
+      "alpha_x": 1.0010896967833125,
+      "alpha_y": 1.0247572885806264,
+      "alpha_yaw": 1.0001405054086643
+    },
+    "Enter key": {
+      "alpha_x": 1.0000238546569753,
+      "alpha_y": 1.0142464128343545,
+      "alpha_yaw": 1.0001198602719457
+    },
+    "Unlock yaw": {
+      "alpha_x": 1.0009874078850907,
+      "alpha_y": 1.0001443296186427,
+      "alpha_yaw": -0.00018535115175239217
+    },
+    "Circular insert": {
+      "alpha_x": 1.0023616362863466,
+      "alpha_y": 1.000005104984586,
+      "alpha_yaw": -0.0003081432777276658
+    }
+  },
+  "final_diagonal": [
+    1.0023616362863466,
+    1.000005104984586,
+    -0.0003081432777276658
+  ],
+  "final_scalar_weight": 0.5681247729288877,
+  "heldout_scalar_mean_mm_equiv": 6.553958754157609,
+  "heldout_diagonal_mean_mm_equiv": 0.639363088205771,
+  "paired_improvement_mean_mm_equiv": 5.914595665951838,
+  "paired_improvement_95ci_mm_equiv": [
+    4.711379180081552,
+    7.201706623863022
+  ],
+  "heldout_relative_improvement": 0.902446275268336,
+  "checks": {
+    "H1_translation_preserved": true,
+    "H2_keyed_yaw_relevant_before_clearance": true,
+    "H3_circular_yaw_suppressed": true,
+    "H4_diagonal_beats_scalar": true,
+    "physics_contact_present_in_usable_episode": true,
+    "socket_kinematic": true,
+    "mixed_excitation_full_rank": true,
+    "all_conditions_have_one_usable_success": true,
+    "attempts_are_contiguous_and_retained": true,
+    "train_holdout_interventions_disjoint": true,
+    "no_post_terminal_actions": true,
+    "no_analyzed_truncations": true
+  }
+}

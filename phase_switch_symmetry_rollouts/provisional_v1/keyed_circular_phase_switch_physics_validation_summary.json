@@ -1,0 +1,51 @@
+{
+  "trajectory": "phase_switch_symmetry_rollouts/keyed_circular_phase_switch_physics.h5",
+  "episodes": 49,
+  "successful_episodes": 39,
+  "successful_mixed_episodes": 30,
+  "contact_episodes": 3,
+  "yaw_enter_mean_ratio": 0.9997689353647642,
+  "yaw_unlock_mean_ratio": 0.002905692171455784,
+  "yaw_final_mean_ratio": 0.0008352763841988053,
+  "translation_final_mean_ratio": 0.9872147794122073,
+  "phase_endpoint_diagonal": {
+    "Align keyed": {
+      "alpha_x": 1.000620508372024,
+      "alpha_y": 1.000482349306543,
+      "alpha_yaw": 0.9999918505165998
+    },
+    "Enter key": {
+      "alpha_x": 0.9987462157545486,
+      "alpha_y": 0.9881742851165648,
+      "alpha_yaw": 1.0005842441794193
+    },
+    "Unlock yaw": {
+      "alpha_x": 0.9988329935500524,
+      "alpha_y": 0.9988272204352455,
+      "alpha_yaw": -7.862116356138456e-05
+    },
+    "Circular insert": {
+      "alpha_x": 1.0018773574204713,
+      "alpha_y": 0.9930895728627281,
+      "alpha_yaw": -0.00014928716079008145
+    }
+  },
+  "final_diagonal": [
+    1.0018773574204713,
+    0.9930895728627281,
+    -0.00014928716079008145
+  ],
+  "final_scalar_weight": 0.5656676770491759,
+  "heldout_scalar_mean_mm_equiv": 6.498721474264426,
+  "heldout_diagonal_mean_mm_equiv": 0.3758929681317773,
+  "heldout_relative_improvement": 0.9421589354736388,
+  "checks": {
+    "H1_translation_preserved": true,
+    "H2_keyed_yaw_relevant": true,
+    "H3_circular_yaw_suppressed": true,
+    "H4_diagonal_beats_scalar": true,
+    "physics_contact_present": true,
+    "socket_kinematic": true,
+    "mixed_excitation_full_rank": true
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "env_id": "KeyedCircularPhaseSwitch-v1",
+  "task": "keyed_to_circular_phase_switch",
+  "phases": {
+    "initial": -1,
+    "reach": 0,
+    "grasp": 1,
+    "lift": 2,
+    "align_keyed": 3,
+    "enter_key": 4,
+    "unlock_yaw": 5,
+    "circular_insert": 6
+  },
+  "episodes": [
+    {
+      "episode_id": 0,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        -0.5235987755982988
+      ],
+      "steps": 422,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 1,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        -0.2617993877991494
+      ],
+      "steps": 408,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 2,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 511,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 3,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.2617993877991494
+      ],
+      "steps": 157,
+      "success": false,
+      "max_contact_force_N": 0.0,
+      "phases": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 4,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.5235987755982988
+      ],
+      "steps": 476,
+      "success": true,
+      "max_contact_force_N": 2.1176702834267718,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 5,
+      "generator": "translation",
+      "causal_delta": [
+        -0.015,
+        0.0,
+        0.0
+      ],
+      "steps": 379,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 6,
+      "generator": "translation",
+      "causal_delta": [
+        0.015,
+        0.0,
+        0.0
+      ],
+      "steps": 371,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 7,
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        -0.015,
+        0.0
+      ],
+      "steps": 344,
+      "success": true,
+      "max_contact_force_N": 0.0,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 8,
+      "generator": "translation",
+      "causal_delta": [
+        0.0,
+        0.015,
+        0.0
+      ],
+      "steps": 150,
+      "success": false,
+      "max_contact_force_N": 0.0,
+      "phases": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    }
+  ]
+}

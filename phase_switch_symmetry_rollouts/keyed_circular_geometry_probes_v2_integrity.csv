@@ -1,0 +1,8 @@
+episode,condition_id,attempt_id,probe_type,socket_yaw_deg,keyed_yaw_deg,post_clear_yaw_deg,success,final_key_clearance_m,final_peg_yaw_deg,max_contact_force_N,contact_frames,stop_reason,solver_error,post_done_actions
+episode_0,0,0,matched_preclear,-30.0,-30.0,0.0,False,0.008009139448404312,-29.991573044693634,0.0,0,solver_returned,,0
+episode_1,1,0,mismatched_preclear,-30.0,0.0,0.0,False,-0.027997810393571854,0.09051556663914742,48.061281923632244,54,solver_returned,,0
+episode_2,2,0,matched_preclear,30.0,30.0,0.0,False,0.006446141749620438,29.957955245190348,0.0,0,solver_returned,,0
+episode_3,3,0,mismatched_preclear,30.0,0.0,0.0,False,-0.028112825006246567,0.4779106072682487,49.68651594748534,50,solver_returned,,0
+episode_4,4,0,arbitrary_postclear_yaw,0.0,0.0,-30.0,False,0.0683930516242981,18.98109255501497,0.0,0,solver_exception,RuntimeError('motion planning failed'),0
+episode_5,4,1,arbitrary_postclear_yaw,0.0,0.0,-30.0,True,0.010308515280485153,-30.00174627761328,0.0,0,terminated,,0
+episode_6,5,0,arbitrary_postclear_yaw,0.0,0.0,30.0,True,0.010452751070261002,30.02240768672564,0.0,0,terminated,,0
