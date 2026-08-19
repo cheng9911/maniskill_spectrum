@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "seed": 20260818,
+  "dataset_sha256": "1fc05000cb046fb4215fef6a865caa3e39cbe6bfa0c26181786bf8f39c8ab473",
+  "experiment_sha256": "316e109d2e0a92fce9aaab7459ab54e99869f5bc2cc945a9827d668e3caac998",
+  "subset_manifest_sha256": "212b4362d0e3b997eba2c3ea730983eff23f32385934755987834e94a659f982",
+  "source_sha256": "8f99fd758bf4c8aae4a7e0d28f712728b7db6e8fb1943ecece601e83182bce0c",
+  "model": "TP-GMM SE(2)",
+  "selected_subset_ids": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    60,
+    61,
+    62,
+    63,
+    64
+  ],
+  "variants": [
+    "expanded-K",
+    "full-EM (N=5 only)"
+  ],
+  "candidates_rule": "full set (2,3,4,6,8,10,12,16,20) capped at N-1"
+}

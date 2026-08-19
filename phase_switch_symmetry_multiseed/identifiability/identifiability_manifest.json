@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "experiment_sha256": "316e109d2e0a92fce9aaab7459ab54e99869f5bc2cc945a9827d668e3caac998",
+  "subset_manifest_sha256": "212b4362d0e3b997eba2c3ea730983eff23f32385934755987834e94a659f982",
+  "source_sha256": "250f980ddc9cb47658a569d160623aa6fba9921a6dbfc42b62fa78bbd9ddd407",
+  "seeds": [
+    20260818,
+    20270818,
+    20280818,
+    20290818,
+    20300818
+  ],
+  "model": "Pdiag finite",
+  "information_definition": {
+    "name": "metric-weighted Gauss-Newton information",
+    "I": "sum_{n,k} J_nk^T W J_nk, J_nk = d yhat / d theta",
+    "W": "diag(1, 1, ell^2), ell = 30 mm/rad; W_SQRT = [1, 1, 0.03]",
+    "post_evaluation": "theta_hat_D = each subset's own fitted parameters",
+    "design_evaluation": "theta_ref = 0 (neutral prior alpha=0.625), fixed zero-intervention baseline nominal curve",
+    "regularizer_excluded": "data-only J^T W J; second-difference regularizer not added",
+    "metrics": {
+      "lambda_min": "raw minimum eigenvalue (clipped at 0)",
+      "lambda_ratio": "lambda_min / lambda_max (scale-free inverse condition number)",
+      "log_det": "log det of the lambda_max-normalized spectrum + ridge*I",
+      "trace_inv": "trace of (lambda_max-normalized spectrum + ridge*I)^{-1}"
+    },
+    "normalization": "spectrum is divided by its largest eigenvalue before log_det/trace_inv so metrics are scale-free and comparable across sample sizes",
+    "ridge": 1e-08,
+    "finite_difference_eps_alpha": 1e-06,
+    "jacobian_method": "chain rule: d yhat/d alpha (central diff on alpha) x alpha_max sigmoid'(z) phi"
+  }
+}

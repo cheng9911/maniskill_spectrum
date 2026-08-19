@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "experiment_sha256": "316e109d2e0a92fce9aaab7459ab54e99869f5bc2cc945a9827d668e3caac998",
+  "subset_manifest_sha256": "212b4362d0e3b997eba2c3ea730983eff23f32385934755987834e94a659f982",
+  "source_sha256": "916bdf1e26d2a83ef5158f70c4c95a5052ee6a7b971bcfd00919c6c0b0debe76",
+  "seeds": [
+    20260818,
+    20270818,
+    20280818,
+    20290818,
+    20300818
+  ],
+  "subset_count": 121,
+  "model": "Pdiag finite",
+  "mean_signed_spearman_rho_by_metric": {
+    "condition_number": 0.1707070707070707,
+    "trace_inv_post": 0.13602693602693602,
+    "lambda_min_post": 0.12626262626262624,
+    "lambda_ratio_design": 0.12087542087542087,
+    "lambda_ratio_post": 0.10606060606060605,
+    "log_det_design": 0.10538720538720539,
+    "trace_inv_design": 0.10538720538720539,
+    "lambda_min_design": 0.05353535353535353,
+    "log_det_post": 0.0033670033670033673
+  },
+  "primary_analysis": "within-(sample_size, protocol) Spearman correlations, averaged over the cells and over the five execution seeds per subset. The pooled within-size rank correlation is a supplement only (it mixes the random and qualified sampling mechanisms).",
+  "interpretation": "Neither simple context conditioning kappa(C) nor the tested local parameter-space Gauss-Newton spectral summaries (lambda_min, lambda_ratio, log det, trace-inverse, at the fitted theta and at a neutral theta=0 reference) reliably rank few-shot subset quality. All signed Spearman correlations are weak (|rho| < 0.4 within-cell) and sign-inconsistent across sample sizes. This is a narrow negative result about these specific spectral summaries; it does not rule out function-space identifiability of the generator law itself (e.g. variance of alpha_yaw^post or s_0.5)."
+}

@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "experiment_sha256": "316e109d2e0a92fce9aaab7459ab54e99869f5bc2cc945a9827d668e3caac998",
+  "subset_manifest_sha256": "212b4362d0e3b997eba2c3ea730983eff23f32385934755987834e94a659f982",
+  "source_sha256": "61bfda09f25ece0c2220c80eac8b3f19567380b6ed2641de600d7d5426db24ab",
+  "seeds": [
+    20260818,
+    20270818,
+    20280818,
+    20290818,
+    20300818
+  ],
+  "models": [
+    "Pdiag finite",
+    "TP-GMM SE(2)",
+    "Full operator",
+    "Generic RBF"
+  ],
+  "matched_subset_count": 16,
+  "summary": [
+    {
+      "sample_size": 5,
+      "model": "Pdiag finite",
+      "task_error_mean_over_subset_means": 2.7087826768898813,
+      "between_subset_sd": 0.24899647126754249,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 5,
+      "model": "Full operator",
+      "task_error_mean_over_subset_means": 4.109341696373443,
+      "between_subset_sd": 1.9345242743084117,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 5,
+      "model": "Generic RBF",
+      "task_error_mean_over_subset_means": 5.91460413386349,
+      "between_subset_sd": 3.06233216655509,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 10,
+      "model": "Pdiag finite",
+      "task_error_mean_over_subset_means": 2.670259108364928,
+      "between_subset_sd": 0.26270066805545705,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 10,
+      "model": "Full operator",
+      "task_error_mean_over_subset_means": 3.9371490434797485,
+      "between_subset_sd": 1.100561687348125,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 10,
+      "model": "Generic RBF",
+      "task_error_mean_over_subset_means": 5.266161583831019,
+      "between_subset_sd": 1.3821633878846946,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 20,
+      "model": "Pdiag finite",
+      "task_error_mean_over_subset_means": 2.4343912237501746,
+      "between_subset_sd": 0.09464451332852045,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 20,
+      "model": "Full operator",
+      "task_error_mean_over_subset_means": 3.28365778324281,
+      "between_subset_sd": 0.30952917819970033,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 20,
+      "model": "Generic RBF",
+      "task_error_mean_over_subset_means": 4.020850645293711,
+      "between_subset_sd": 0.46667048329662825,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 30,
+      "model": "Pdiag finite",
+      "task_error_mean_over_subset_means": 2.385578162368333,
+      "between_subset_sd": NaN,
+      "subset_count": 1
+    },
+    {
+      "sample_size": 30,
+      "model": "Full operator",
+      "task_error_mean_over_subset_means": 3.074994646842822,
+      "between_subset_sd": NaN,
+      "subset_count": 1
+    },
+    {
+      "sample_size": 30,
+      "model": "Generic RBF",
+      "task_error_mean_over_subset_means": 3.6296485866556987,
+      "between_subset_sd": NaN,
+      "subset_count": 1
+    },
+    {
+      "sample_size": 5,
+      "model": "TP-GMM SE(2)",
+      "task_error_mean_over_subset_means": 7.58306855050039,
+      "between_subset_sd": 2.975093800906864,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 10,
+      "model": "TP-GMM SE(2)",
+      "task_error_mean_over_subset_means": 4.4283680975429895,
+      "between_subset_sd": 0.4481280858575879,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 20,
+      "model": "TP-GMM SE(2)",
+      "task_error_mean_over_subset_means": 3.7837952199194804,
+      "between_subset_sd": 0.3953549744828206,
+      "subset_count": 5
+    },
+    {
+      "sample_size": 30,
+      "model": "TP-GMM SE(2)",
+      "task_error_mean_over_subset_means": 3.4556683892794675,
+      "between_subset_sd": NaN,
+      "subset_count": 1
+    }
+  ],
+  "win_fraction": [
+    {
+      "sample_size": 5,
+      "pdiag_win_fraction": 1.0,
+      "paired_count": 25,
+      "mean_diff": 4.874285873610509
+    },
+    {
+      "sample_size": 10,
+      "pdiag_win_fraction": 1.0,
+      "paired_count": 25,
+      "mean_diff": 1.758108989178062
+    },
+    {
+      "sample_size": 20,
+      "pdiag_win_fraction": 1.0,
+      "paired_count": 25,
+      "mean_diff": 1.3494039961693058
+    },
+    {
+      "sample_size": 30,
+      "pdiag_win_fraction": 1.0,
+      "paired_count": 5,
+      "mean_diff": 1.070090226911134
+    }
+  ],
+  "note": "Paired comparison uses only subsets that both TP-GMM SE(2) and Pdiag finite fitted successfully on the same seed."
+}
