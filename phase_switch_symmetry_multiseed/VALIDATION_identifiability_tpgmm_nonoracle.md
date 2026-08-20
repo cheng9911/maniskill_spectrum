@@ -131,9 +131,18 @@ Expanded component candidates `(2,3,4,6,8,10,12,16,20)` capped at `N-1`
 | TP-GMM full-EM (N=5 only) | 8.47 | -- |
 
 Allowing K=2,3 or restoring the full EM budget does **not** close the gap (it is
-slightly worse). The few-shot advantage of Pdiag over the formal rotation-aware
-baseline is not an artefact of the mixture-complexity search space or the EM
-budget.
+slightly worse). Expanding the candidate set to smaller mixtures did not improve
+few-shot generalization; the additional candidates changed CV model selection
+but did not close the performance gap.
+
+Selected-component histogram (expanded-K, 25 fits per size): N=5 -> K=2 x20, K=3
+x2, K=4 x3; N=10 -> K=2 x6, K=3 x6, K=4 x8, K=6 x5. At N=5 the grouped CV
+strongly favors low-component mixtures; these selected models empirically
+underfit the phase-dependent response and generalize poorly to isolated-generator
+interventions. This is an empirical underfitting finding, not a claim that K=2 is
+structurally incapable of expressing the switch. The few-shot advantage of Pdiag
+over the formal rotation-aware baseline is therefore not an artefact of the
+mixture-complexity search space or the EM budget.
 
 ### Statistical note
 
@@ -149,7 +158,8 @@ seed IDs and subset IDs.
 ### Frozen parameterizations
 
 ```text
-oracle       : four solver phases (3..6), reference / upper bound.
+oracle       : four solver phases (3..6) -- privileged semantic-phase reference
+               (NOT an upper bound on trajectory alignment; see below).
 time         : normalized step index t / T_ref (naive baseline).
 arc          : SE(3) arc-length L(t) / L_ref.
 keypoint     : normalized peg-to-socket vertical descent (observable z).
@@ -213,6 +223,27 @@ phase labels, but performance depends strongly on the progress coordinate:
 event/geometric progress (keypoint, dtw-position) localizes the symmetry
 transition correctly, while full-motion alignment (arc, dtw-position) is needed
 for accurate translation tracking.
+
+Notes and caveats:
+
+* **dz_switch between-seed spread is not captured by the mean.** arc's mean
+  `+2.97 mm` hides a `+44 .. -11 mm` range across seeds, whereas keypoint and
+  dtw-position are tightly clustered (`-5.3 .. -6.8` and `-3.4 .. -4.9` mm).
+  The correct claim is: arc yields low mean task error but substantially larger
+  between-seed variability in physical switch localization.
+* **oracle is not an upper bound.** `dtw-position` scores below oracle because a
+  continuous spatial registration aligns motion better than the fixed
+  four-phase segmentation. `oracle` is a privileged *semantic-phase* reference,
+  not an optimal trajectory registration.
+* **Metric convention.** `E_task^physical` is the mean pointwise Euclidean task
+  distance (mean over timesteps of the per-step metric norm), not an RMS over
+  the trajectory. Full-text terminology must be "mean quotient task-trajectory
+  error"; a metric audit against the older `metric_errors` (which is also
+  mean-based) is required before submission.
+* **Horizon mismatch is a property, not a bug.** The 29--41% of trajectories
+  with `s_end > 1` reflect that causal progress estimators use training-derived
+  reference scales and saturate when an execution exceeds the reference horizon,
+  unlike full-sequence DTW.
 
 ---
 

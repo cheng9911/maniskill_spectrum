@@ -1,0 +1,97 @@
+x,y,z,reachable,last_phase,ik_distance,error
+-0.45,-0.15,0.08,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.15,0.13,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.45,-0.15,0.18,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.15,0.23,True,circular_insert,0.0,
+-0.45,-0.1,0.08,True,circular_insert,0.0,
+-0.45,-0.1,0.13,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.1,0.18,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.45,-0.1,0.23,False,circular_insert,nan,RuntimeError('motion planning failed')
+-0.45,-0.05,0.08,True,circular_insert,0.0,
+-0.45,-0.05,0.13,True,circular_insert,0.0,
+-0.45,-0.05,0.18,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.05,0.23,True,circular_insert,0.0,
+-0.45,0.0,0.08,True,circular_insert,0.0,
+-0.45,0.0,0.13,True,circular_insert,0.0,
+-0.45,0.0,0.18,True,circular_insert,0.0,
+-0.45,0.0,0.23,True,circular_insert,0.0,
+-0.45,0.05,0.08,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.05,0.13,True,circular_insert,0.0,
+-0.45,0.05,0.18,True,circular_insert,0.0,
+-0.45,0.05,0.23,True,circular_insert,0.0,
+-0.45,0.1,0.08,True,circular_insert,0.0,
+-0.45,0.1,0.13,True,circular_insert,0.0,
+-0.45,0.1,0.18,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.45,0.1,0.23,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.15,0.08,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.15,0.13,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.4,-0.15,0.18,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.4,-0.15,0.23,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.4,-0.1,0.08,True,circular_insert,0.0,
+-0.4,-0.1,0.13,True,circular_insert,0.0,
+-0.4,-0.1,0.18,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.4,-0.1,0.23,False,enter_key,nan,truncated
+-0.4,-0.05,0.08,True,circular_insert,0.0,
+-0.4,-0.05,0.13,True,circular_insert,0.0,
+-0.4,-0.05,0.18,True,circular_insert,0.0,
+-0.4,-0.05,0.23,True,circular_insert,0.0,
+-0.4,0.0,0.08,True,circular_insert,0.0,
+-0.4,0.0,0.13,True,circular_insert,0.0,
+-0.4,0.0,0.18,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.4,0.0,0.23,True,circular_insert,0.0,
+-0.4,0.05,0.08,True,circular_insert,0.0,
+-0.4,0.05,0.13,True,circular_insert,0.0,
+-0.4,0.05,0.18,True,circular_insert,0.0,
+-0.4,0.05,0.23,False,lift,nan,RuntimeError('motion planning failed')
+-0.4,0.1,0.08,True,circular_insert,0.0,
+-0.4,0.1,0.13,True,circular_insert,0.0,
+-0.4,0.1,0.18,True,circular_insert,0.0,
+-0.4,0.1,0.23,True,circular_insert,0.0,
+-0.35,-0.15,0.08,False,enter_key,nan,truncated
+-0.35,-0.15,0.13,True,circular_insert,0.0,
+-0.35,-0.15,0.18,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.35,-0.15,0.23,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.35,-0.1,0.08,True,circular_insert,0.0,
+-0.35,-0.1,0.13,True,circular_insert,0.0,
+-0.35,-0.1,0.18,True,circular_insert,0.0,
+-0.35,-0.1,0.23,True,circular_insert,0.0,
+-0.35,-0.05,0.08,True,circular_insert,0.0,
+-0.35,-0.05,0.13,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.05,0.18,True,circular_insert,0.0,
+-0.35,-0.05,0.23,True,circular_insert,0.0,
+-0.35,0.0,0.08,True,circular_insert,0.0,
+-0.35,0.0,0.13,True,circular_insert,0.0,
+-0.35,0.0,0.18,True,circular_insert,0.0,
+-0.35,0.0,0.23,True,circular_insert,0.0,
+-0.35,0.05,0.08,True,circular_insert,0.0,
+-0.35,0.05,0.13,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.05,0.18,True,circular_insert,0.0,
+-0.35,0.05,0.23,True,circular_insert,0.0,
+-0.35,0.1,0.08,True,circular_insert,0.0,
+-0.35,0.1,0.13,True,circular_insert,0.0,
+-0.35,0.1,0.18,True,circular_insert,0.0,
+-0.35,0.1,0.23,True,circular_insert,0.0,
+-0.3,-0.15,0.08,True,circular_insert,0.0,
+-0.3,-0.15,0.13,False,enter_key,nan,truncated
+-0.3,-0.15,0.18,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.3,-0.15,0.23,False,lift,nan,RuntimeError('motion planning failed')
+-0.3,-0.1,0.08,True,circular_insert,0.0,
+-0.3,-0.1,0.13,True,circular_insert,0.0,
+-0.3,-0.1,0.18,False,initial,nan,RuntimeError('motion planning failed')
+-0.3,-0.1,0.23,False,lift,nan,RuntimeError('motion planning failed')
+-0.3,-0.05,0.08,True,circular_insert,0.0,
+-0.3,-0.05,0.13,True,circular_insert,0.0,
+-0.3,-0.05,0.18,True,circular_insert,0.0,
+-0.3,-0.05,0.23,True,circular_insert,0.0,
+-0.3,0.0,0.08,False,enter_key,nan,truncated
+-0.3,0.0,0.13,True,circular_insert,0.0,
+-0.3,0.0,0.18,True,circular_insert,0.0,
+-0.3,0.0,0.23,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.3,0.05,0.08,True,circular_insert,0.0,
+-0.3,0.05,0.13,True,circular_insert,0.0,
+-0.3,0.05,0.18,True,circular_insert,0.0,
+-0.3,0.05,0.23,True,circular_insert,0.0,
+-0.3,0.1,0.08,True,circular_insert,0.0,
+-0.3,0.1,0.13,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.3,0.1,0.18,True,circular_insert,0.0,
+-0.3,0.1,0.23,False,lift,nan,RuntimeError('motion planning failed')

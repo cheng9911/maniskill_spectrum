@@ -1,0 +1,39 @@
+{
+  "env_id": "CircularPhaseSwitch-v1",
+  "task": "circular_phase_switch_placebo",
+  "seed": 20260818,
+  "orientation": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "retries_per_condition": 1,
+  "episodes": [
+    {
+      "episode_id": 0,
+      "condition_id": 0,
+      "attempt_id": 0,
+      "generator": "yaw",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 448,
+      "success": true,
+      "complete": false,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 176.15355477057776,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "solver_error": null
+    }
+  ]
+}

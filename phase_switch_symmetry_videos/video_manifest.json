@@ -1,0 +1,11 @@
+[
+  {
+    "frames": 98,
+    "steps": 486,
+    "every": 1,
+    "success": true,
+    "label": "01_nominal_zero_intervention",
+    "out": "phase_switch_symmetry_videos/01_nominal_zero_intervention.mp4",
+    "description": "Nominal insertion, yaw=0: align -> enter -> unlock -> insert"
+  }
+]

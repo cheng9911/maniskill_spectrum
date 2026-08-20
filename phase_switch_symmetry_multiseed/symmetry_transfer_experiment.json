@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "status": "preregistered_before_collection",
+  "context_manifest": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/fixed_contexts.json",
+  "context_manifest_sha256": "3751db801cf49ce698c9b5a74ce36cf0b39897d967ddf2959846a3965b8bd653",
+  "orientation": {
+    "Q1": [1.0, 0.0, 0.0, 0.0]
+  },
+  "orientation_note": "Q1 identity only (insertion axis = world z, vertical). The symmetry question is orthogonal to the rotated-axis question; a Q2 extension is possible later but is not part of this design.",
+  "task_anchor": [-0.35, 0.10, 0.08],
+  "task_anchor_note": "The rotated-axis COMMON anchor, so the keyed arm REUSES the frozen rotated_Q1 seed rollouts rather than re-collecting.",
+  "seeds": [20260818, 20270818, 20280818],
+  "retries_per_condition": 5,
+  "robot_init_qpos_noise_rad": 0.01,
+  "gripper": {
+    "stiffness": 2500.0,
+    "force_limit": 150.0,
+    "note": "Firm gripper (unchanged from rotated-axis)."
+  },
+  "arm_definition": {
+    "keyed": {
+      "env_id": "KeyedCircularPhaseSwitch-v1",
+      "yaw_mode": "keyed",
+      "source": "reuse",
+      "files": [
+        "phase_switch_symmetry_rollouts_rotated/rotated_Q1_seed_20260818.h5",
+        "phase_switch_symmetry_rollouts_rotated/rotated_Q1_seed_20270818.h5",
+        "phase_switch_symmetry_rollouts_rotated/rotated_Q1_seed_20280818.h5"
+      ]
+    },
+    "circular_honest": {
+      "env_id": "CircularPhaseSwitch-v1",
+      "yaw_mode": "honest",
+      "source": "collect",
+      "note": "Collector ignores d_axial in yaw; yaw channel is a flat nominal. alpha*=0 by symmetry AND by absence of rotation."
+    },
+    "circular_placebo": {
+      "env_id": "CircularPhaseSwitch-v1",
+      "yaw_mode": "placebo",
+      "source": "collect",
+      "note": "Collector performs a FIXED yaw sweep (15 deg) independent of d_axial. alpha*=0 by symmetry, but rotation IS present in the marginal trajectory."
+    }
+  },
+  "placebo_yaw_deg": 15.0,
+  "placebo_note": "The fixed sweep is an exemplar of 'rotation present but uncorrelated with d_axial'. It does not need to replicate the exact keyed yaw profile; the decisive contrast is correlation, not amplitude.",
+  "contexts": {
+    "manifest": "39-condition frozen manifest (30 mixed + 8 isolated + 1 baseline)",
+    "demonstrations": "N in {5, 10, 20} mixed demos, subsampled from the 30-mixed manifest via a FROZEN subset file (fewshot_subsets.json discipline)",
+    "perturbation_tests": "8 held-out isolated interventions (+-30deg, +-15deg yaw; +-0.015 x/y) plus the zero baseline"
+  },
+  "frozen_model": {
+    "alpha_max": 1.25,
+    "n_basis": 24,
+    "basis_width": 0.065,
+    "smoothness_weight": 0.1,
+    "nominal_iterations": 3
+  },
+  "success_criteria": {
+    "M1_generator_identification_error": "E_alpha(task; N, model) = (1/T) sum_t (alpha_yaw(t) - alpha*_yaw^task(t))^2",
+    "M2_symmetry_discrimination_accuracy": "classify fit as keyed iff alpha_yaw^pre > 0.5; target 100% for Pdiag at every N, chance for Frame-weighted/Phase-scalar-GP",
+    "M2b_symmetry_gap": "G_psi = alpha_yaw^pre(keyed) - alpha_yaw^pre(circular); ideal G_psi*=1; headline = placebo gap G_psi^placebo ~ 1",
+    "M0_switch_fidelity": "keyed arm reproduces the frozen 0.5-crossing transition location",
+    "M3_cross_task_mismatch_gap": "Delta = E_traj^cross - E_traj^in (secondary, behavioral)"
+  },
+  "collection_policy": {
+    "same_frozen_contexts": true,
+    "same_common_anchor": true,
+    "retain_all_attempts": true,
+    "each_seed_fit_independently": true,
+    "env_change_is_additive": true,
+    "env_change_note": "phase_switch_symmetry_env.py gained a keyed:bool flag (default True preserves keyed geometry) and a second @register_env wrapper. The reused keyed arm H5 files are unaffected; the keyed geometry is byte-for-byte preserved under keyed=True."
+  },
+  "source_sha256": {
+    "phase_switch_symmetry_env.py": "4913fbdf91127fb5994b0e2e78ab740e70ac3a203c2e8092422f342a90914bd0",
+    "collect_phase_switch_rotated.py": "e78afea880d331c5ec8a4d24db5fcfbb96feb587320d04ec423a93d9ac42076e",
+    "validate_circular_geometry.py": "c8b3d49e06673f544532d3e3c08ed9cc4a18bbea39ae858318736d6dedaa8c37"
+  }
+}

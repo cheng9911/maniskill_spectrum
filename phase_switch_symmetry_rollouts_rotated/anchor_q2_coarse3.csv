@@ -1,0 +1,121 @@
+x,y,z,reachable,last_phase,ik_distance,error
+-0.55,-0.15,0.05,False,enter_key,nan,truncated
+-0.55,-0.15,0.1,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,-0.15,0.15,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,-0.15,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.55,-0.1,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,-0.1,0.1,False,enter_key,nan,truncated
+-0.55,-0.1,0.15,False,enter_key,nan,truncated
+-0.55,-0.1,0.2,False,enter_key,nan,truncated
+-0.55,-0.05,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,-0.05,0.1,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,-0.05,0.15,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,-0.05,0.2,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,0.0,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,0.0,0.1,False,enter_key,nan,truncated
+-0.55,0.0,0.15,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,0.0,0.2,False,enter_key,nan,truncated
+-0.55,0.05,0.05,False,enter_key,nan,truncated
+-0.55,0.05,0.1,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,0.05,0.15,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,0.05,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.55,0.1,0.05,False,enter_key,nan,truncated
+-0.55,0.1,0.1,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.55,0.1,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.55,0.1,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,-0.15,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.5,-0.15,0.1,False,align_keyed,nan,truncated
+-0.5,-0.15,0.15,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.5,-0.15,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,-0.1,0.05,False,enter_key,nan,truncated
+-0.5,-0.1,0.1,False,enter_key,nan,truncated
+-0.5,-0.1,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,-0.1,0.2,False,enter_key,nan,truncated
+-0.5,-0.05,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.5,-0.05,0.1,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.5,-0.05,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,-0.05,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,0.0,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.5,0.0,0.1,False,enter_key,nan,truncated
+-0.5,0.0,0.15,False,enter_key,nan,truncated
+-0.5,0.0,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,0.05,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.5,0.05,0.1,False,enter_key,nan,truncated
+-0.5,0.05,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,0.05,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,0.1,0.05,False,enter_key,nan,truncated
+-0.5,0.1,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,0.1,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.5,0.1,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.15,0.05,False,enter_key,nan,truncated
+-0.45,-0.15,0.1,False,enter_key,nan,truncated
+-0.45,-0.15,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.15,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.1,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.45,-0.1,0.1,False,enter_key,nan,truncated
+-0.45,-0.1,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.1,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.05,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.45,-0.05,0.1,False,enter_key,nan,truncated
+-0.45,-0.05,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,-0.05,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.0,0.05,False,enter_key,nan,truncated
+-0.45,0.0,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.0,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.0,0.2,False,align_keyed,nan,truncated
+-0.45,0.05,0.05,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.05,0.1,False,enter_key,nan,truncated
+-0.45,0.05,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.05,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.1,0.05,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.1,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.1,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.45,0.1,0.2,False,align_keyed,nan,truncated
+-0.4,-0.15,0.05,False,enter_key,nan,RuntimeError('motion planning failed')
+-0.4,-0.15,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.15,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.15,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.1,0.05,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.1,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.1,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.1,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.05,0.05,False,enter_key,nan,truncated
+-0.4,-0.05,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.05,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,-0.05,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.0,0.05,False,enter_key,nan,truncated
+-0.4,0.0,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.0,0.15,False,enter_key,nan,truncated
+-0.4,0.0,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.05,0.05,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.05,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.05,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.05,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.1,0.05,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.1,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.1,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.4,0.1,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.15,0.05,False,align_keyed,nan,truncated
+-0.35,-0.15,0.1,False,align_keyed,nan,truncated
+-0.35,-0.15,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.15,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.1,0.05,False,enter_key,nan,truncated
+-0.35,-0.1,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.1,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.1,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.05,0.05,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.05,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.05,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,-0.05,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.0,0.05,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.0,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.0,0.15,False,align_keyed,nan,truncated
+-0.35,0.0,0.2,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.05,0.05,False,enter_key,nan,truncated
+-0.35,0.05,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.05,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.05,0.2,False,align_keyed,nan,truncated
+-0.35,0.1,0.05,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.1,0.1,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.1,0.15,False,align_keyed,nan,RuntimeError('motion planning failed')
+-0.35,0.1,0.2,False,align_keyed,nan,truncated

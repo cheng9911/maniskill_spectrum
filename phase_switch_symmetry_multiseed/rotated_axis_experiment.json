@@ -1,0 +1,76 @@
+{
+  "schema_version": 2,
+  "status": "preregistered_before_collection",
+  "context_manifest": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/fixed_contexts.json",
+  "context_manifest_sha256": "3751db801cf49ce698c9b5a74ce36cf0b39897d967ddf2959846a3965b8bd653",
+  "orientations": {
+    "Q1": [1.0, 0.0, 0.0, 0.0],
+    "Q2": [0.707107, 0.0, 0.707107, 0.0]
+  },
+  "orientation_notes": {
+    "Q1": "identity (insertion axis = world z, vertical)",
+    "Q2": "Ry(90 deg) (insertion axis = world x, horizontal)"
+  },
+  "excluded_orientation": {
+    "Q3": [0.88112, 0.277816, 0.364972, -0.115075],
+    "note": "Reachability-limited exploratory orientation (Rx35 Ry45 oblique). The Panda could not realize the oblique pre-insertion configuration over the screened common workspace (0/96 nominal feasibility, all FAIL at align_keyed). This is an embodiment/workspace limitation, not a failure of the learned transformation law; it provides no counter-evidence to P_Q(s) invariance because it never entered the learning stage."
+  },
+  "task_anchor": [-0.35, 0.10, 0.08],
+  "task_anchor_note": "COMMON workspace anchor shared by Q1 and Q2, chosen by coarse nominal feasibility (Q1 62/96, Q2 64/96, common 40/96; margin-maximizing interior cell). Chosen from IK/collision feasibility only, never from Pdiag results.",
+  "seeds": [20260818, 20270818, 20280818],
+  "retries_per_condition": 5,
+  "robot_init_qpos_noise_rad": 0.01,
+  "gripper": {
+    "stiffness": 2500.0,
+    "force_limit": 150.0,
+    "note": "Firm gripper to hold the peg through the axial contact during horizontal insertion (default ~23 N squeeze slipped ~5 cm)."
+  },
+  "frozen_model": {
+    "alpha_max": 1.25,
+    "n_basis": 24,
+    "basis_width": 0.065,
+    "smoothness_weight": 0.1,
+    "nominal_iterations": 3
+  },
+  "solver": {
+    "grasp": "end-on along the insertion axis (approaching = -axis)",
+    "pedestal": "kinematic stand at [-0.25, -0.18, 0.28] holding the peg elevated",
+    "insertion_step_m": 0.003,
+    "max_episode_steps": 1500
+  },
+  "screening_result": {
+    "common_anchor": [-0.35, 0.10, 0.08],
+    "Q1_first_attempt": "18/21",
+    "Q1_eventual": "21/21",
+    "Q2_first_attempt": "21/21",
+    "Q2_eventual": "21/21",
+    "note": "3 Q1 first-attempt failures were all at seed 20280818 circular_insert (du-, dv-, dpsi-) and recovered within 2-3 retries; no systematic failure."
+  },
+  "success_criteria": {
+    "structure_law_every_orientation_every_seed": {
+      "g_translation_final_min": 0.9,
+      "g_axial_preclear_min": 0.9,
+      "abs_g_axial_final_max": 0.1
+    },
+    "orientation_vs_seed_variability": "D_orient should be comparable to (or below) D_seed"
+  },
+  "metrics": {
+    "D_P": "RMSE of canonical generator profiles between orientations",
+    "rho_axial": "correlation of canonical axial-yaw profiles",
+    "D_orient": "RMSE between orientation-mean profiles (Q2 vs Q1)",
+    "D_seed": "mean over orientations of within-orientation seed-pair profile RMSE"
+  },
+  "collection_policy": {
+    "same_frozen_contexts": true,
+    "same_common_anchor": true,
+    "retain_all_attempts": true,
+    "each_orientation_seed_fit_independently": true,
+    "do_not_retune_anchor_q_or_solver_after_screening": true
+  },
+  "source_sha256": {
+    "phase_switch_symmetry_env.py": "9279fa406739f95090b819e6c617f1ffc4546c694c61209bc6d37d5dc8322508",
+    "collect_phase_switch_rotated.py": "0c7236182897451952597e08e5b1818294af592153bf1ead6b89d705fe97dd42",
+    "analyze_phase_switch_rotated.py": "6818d5a115de5f0ddcd561394dc8cdccc4ef1f750e217ca38fbd54e2328d73d0",
+    "validate_rotated_reachability.py": "ff8f135a9a3920ebbf22d276cf63f2d2e74799e381c41bb9b5d37d91a675a243"
+  }
+}
