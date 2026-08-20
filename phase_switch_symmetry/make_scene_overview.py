@@ -11,8 +11,8 @@ script:
      task (so the peg/socket are centered and large);
   2. composes those frames into a 2x4 grid: the keyed phase-switch mechanism
      (row 1) and the geometry variants behind each experiment group (row 2);
-  3. annotates every panel with the experiment name + frozen counts from
-     main.tex Table 1, and writes experiment_overview_scenes.{png,pdf}.
+  3. composes a clean paper-ready image plate and writes
+     experiment_overview_scenes.{png,pdf}.
 
 Run from phase_switch_symmetry/ (so phase_switch_symmetry_env is importable).
 """
@@ -40,15 +40,9 @@ from mani_skill.utils.structs.pose import Pose  # noqa: E402
 
 PHASE_NAME = {2: "lift", 3: "align_keyed", 4: "enter_key", 5: "unlock_yaw", 6: "circular_insert"}
 
-# Frozen numbers from main.tex Table 1 (tab:protocol).
-TOTAL_PHYSICS = 700
-TOTAL_FITS = 1895
-
 C_DARK = "#1b4f72"
 C_MID = "#2471a3"
 C_AMBER = "#b9770e"
-C_TXT = "#1c1c1c"
-C_SUB = "#555555"
 
 
 def to_np(x):
@@ -161,63 +155,48 @@ def main():
         raise RuntimeError(f"missing frames: {missing}")
 
     # ---- Compose -----------------------------------------------------------
-    fig = plt.figure(figsize=(13.2, 7.6))
-    gs = fig.add_gridspec(2, 4, left=0.01, right=0.99, top=0.80, bottom=0.16,
+    fig = plt.figure(figsize=(13.2, 6.4))
+    gs = fig.add_gridspec(2, 4, left=0.015, right=0.99, top=0.84, bottom=0.08,
                           wspace=0.05, hspace=0.16)
 
-    def panel(ax, img, title, sub, edge):
+    def panel(ax, img, title, edge):
         ax.imshow(img)
         ax.set_xticks([])
         ax.set_yticks([])
         for s in ax.spines.values():
             s.set_color(edge)
             s.set_linewidth(2.2)
-        ax.set_title(title, fontsize=10.2, fontweight="bold", color=C_DARK, pad=5)
-        ax.text(0.5, -0.12, sub, transform=ax.transAxes, ha="center", va="top",
-                fontsize=7.6, color=C_SUB)
+        ax.set_title(title, fontsize=11.0, fontweight="bold", color=C_DARK, pad=6)
 
     # Row 1 — phase switch
     row1 = [
-        ("align", "align_keyed", "key aligns to rotated gate"),
-        ("enter", "enter_key", "key passes through keyed gate"),
-        ("unlock", "unlock_yaw", "yaw unlocks in circular bore"),
-        ("insert", "circular_insert", "shaft seats into bore"),
+        ("align", "Align keyed"),
+        ("enter", "Enter key"),
+        ("unlock", "Unlock yaw"),
+        ("insert", "Circular insert"),
     ]
-    for col, (key, title, sub) in enumerate(row1):
-        panel(fig.add_subplot(gs[0, col]), frames[key], title, sub, C_MID)
+    for col, (key, title) in enumerate(row1):
+        panel(fig.add_subplot(gs[0, col]), frames[key], title, C_MID)
 
     # Row 2 — geometry variants behind each experiment group
     row2 = [
-        ("q1_lift", "Keyed Q₁ (vertical)",
-         "single-seed 39  ·  five-seed 195\nfew-shot 1,815 fits  ·  TP-GMM 80 fits", C_MID),
-        ("q2", "Keyed Q₂ (horizontal)",
-         "rotated axis 232 usable", C_AMBER),
-        ("honest", "Circular honest",
-         "circular symmetry 117 usable", C_AMBER),
-        ("placebo", "Circular placebo",
-         "circular symmetry 117 usable", C_AMBER),
+        ("q1_lift", "Keyed Q1 vertical", C_MID),
+        ("q2", "Keyed Q2 horizontal", C_AMBER),
+        ("honest", "Circular honest", C_AMBER),
+        ("placebo", "Circular placebo", C_AMBER),
     ]
-    for col, (key, title, sub, edge) in enumerate(row2):
-        panel(fig.add_subplot(gs[1, col]), frames[key], title, sub, edge)
+    for col, (key, title, edge) in enumerate(row2):
+        panel(fig.add_subplot(gs[1, col]), frames[key], title, edge)
 
     # Row labels
-    fig.text(0.004, 0.615, "Phase switch\n(keyed task)", rotation=90, ha="center",
-             va="center", fontsize=11, fontweight="bold", color=C_MID)
-    fig.text(0.004, 0.30, "Geometry variants\n(experiment arms)", rotation=90, ha="center",
-             va="center", fontsize=10, fontweight="bold", color=C_AMBER)
+    fig.text(0.006, 0.62, "Phases", rotation=90, ha="center",
+             va="center", fontsize=8.5, fontweight="bold", color=C_MID)
+    fig.text(0.006, 0.28, "Variants", rotation=90, ha="center",
+             va="center", fontsize=8.5, fontweight="bold", color=C_AMBER)
 
     # Header
-    fig.text(0.5, 0.945, "Keyed-to-circular peg insertion — real simulation scenes",
+    fig.text(0.5, 0.935, "Keyed-to-circular peg insertion",
              ha="center", va="center", fontsize=16, fontweight="bold", color=C_DARK)
-    fig.text(0.5, 0.885, "ManiSkill / PhysX  ·  Panda pd_joint_pos  ·  intervention c = [Δx, Δy, Δψ]\n"
-                         "frozen 39-condition manifest (30 mixed + 8 isolated + 1 zero)  ·  held-out socket yaw +30° shown",
-             ha="center", va="center", fontsize=9.0, color=C_TXT)
-
-    # Footer
-    fig.text(0.5, 0.075,
-             f"6 experiments   ·   {TOTAL_PHYSICS} usable physics rollouts   ·   {TOTAL_FITS} offline model fits\n"
-             "all rollouts executed in simulation (ManiSkill/PhysX); failed attempts retained with condition id, attempt id, seed, stop reason.",
-             ha="center", va="center", fontsize=10.5, color=C_DARK, fontweight="bold")
 
     fig.savefig(args.out_png, dpi=150, facecolor="white", bbox_inches="tight")
     fig.savefig(args.out_pdf, bbox_inches="tight", facecolor="white")

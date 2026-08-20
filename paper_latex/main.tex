@@ -36,7 +36,7 @@ and rotation generators inside one relation can obey different task constraints
 across skill phases. We introduce a phase-dependent generator relevance
 representation that selects which relation changes should propagate and lets
 rigid-body geometry realize the selected finite motion. The learned
-transformation law is inspected with isolated generator interventions, while
+transformation law is identified through isolated generator interventions, while
 symmetric execution is evaluated with quotient task-space metrics. In a
 keyed-to-circular insertion task, the method recovers a sharp phase switch:
 lateral translation remains relevant, axial yaw is propagated while the key
@@ -44,8 +44,9 @@ constrains the gate, and the same yaw generator is suppressed after physical
 clearance. A matched circular-placebo intervention further contains a visible
 yaw sweep without any axial-yaw intervention response, separating trajectory
 statistics from task relevance. Fixed-context replications, few-shot tests,
-rotation-of-the-world controls, and circular symmetry interventions support
-assigning geometric task relevance to generators rather than frames.
+rotation-of-the-world controls, and task-space symmetry interventions support
+representing task relevance at the generator level rather than enforcing a
+single relevance value for an entire reference frame.
 \end{abstract}
 
 \section{Introduction}
@@ -69,17 +70,21 @@ Zhu2022FewTP,Sun2024FrameWeighted,Montero2024TPGP}.
 
 The reference frame itself nevertheless remains a coarse unit of geometric
 relevance. A frame bundles several translation and rotation generators into one
-object, although these generators need not share the same task meaning. Consider
-a task relation $C_r\in SE(3)$ between an insertion target and the world. If the
-target is translated laterally, the demonstrated trajectory should generally
-translate with it. If a non-axisymmetric keyed peg is rotated about the
-insertion axis, its orientation must also follow that rotation. For a circular
-peg, in contrast, the same axial rotation is a continuous symmetry of the task:
-the target relation has changed as a rigid frame, yet the physical insertion
-requirement has not. A single scalar frame weight therefore faces an intrinsic
-conflict. Suppressing the frame to ignore the irrelevant yaw also suppresses the
-still-relevant translations; following the frame to preserve translations
-incorrectly propagates yaw.
+object, although these generators need not share the same task meaning or the
+same phase dependence. Consider keyed-to-circular insertion. Lateral socket
+displacement should remain relevant throughout the skill, but axial rotation is
+task-relevant only while the key constrains the gate. After key clearance, the
+circular shaft enters a bore for which axial spin is a gauge degree of freedom.
+The desired relation is therefore not a scalar frame weight $w_r(s)$, but a
+generator-level law such as
+\[
+    \alpha_x(s)\approx \alpha_y(s)\approx 1,\qquad
+    \alpha_\psi(s): 1 \rightarrow 0 .
+\]
+A single scalar frame weight faces an intrinsic conflict. Suppressing the frame
+to ignore the irrelevant post-clear yaw also suppresses the still-relevant
+translations; following the frame to preserve translations incorrectly
+propagates yaw after the task has become axisymmetric.
 
 This issue is distinct from whether a model can produce anisotropic outputs.
 Task-parameterized Gaussian models can induce directional behavior through
@@ -178,7 +183,9 @@ irrelevant in another, and its relevance can vary with task progress.
 \section{Method}
 \label{sec:method}
 
-\textbf{Overview.}
+\subsection{Core Idea: Generator-Level Task Relevance}
+\label{sec:core_idea}
+
 The method follows a structured geometric transfer chain:
 \[
 C_r^0\!\rightarrow C_r
@@ -221,7 +228,7 @@ Let $X_0(s)\in SE(3)$ be a nominal task-space trajectory parameterized by
 progress $s\in[0,1]$. The objective is to predict how this trajectory should
 change when $C_r^0$ changes to $C_r$.
 
-\subsection{Frame-Level Relevance}
+\subsection{Why Frame-Level Relevance Is Insufficient}
 
 A common abstraction is a scalar frame relevance:
 \begin{equation}
@@ -276,7 +283,7 @@ Importantly, this quotient is used for \emph{task evaluation}; it is not used
 to remove the observed yaw response during learning, because doing so would
 make the yaw generator unidentified rather than identifiable as invariant.
 
-\subsection{From Frame-Level Relevance to Generator-Level Relevance}
+\subsection{Generator Relevance Model}
 \label{sec:generator_relevance}
 
 We define the selected relation perturbation as
@@ -301,7 +308,7 @@ physically defined generators themselves are relevant and avoids arbitrary
 cross-generator couplings. A dense operator is retained only as a capacity
 ablation.
 
-\subsection{Smooth Phase Parameterization}
+\subsection{Phase-Dependent Learning Model}
 
 The propagation strengths are represented by smooth basis functions:
 \begin{equation}
@@ -516,7 +523,7 @@ screened workspace.
 
 \subsection{Circular Symmetry Intervention}
 
-The final causal intervention removes the key and keyway, leaving a circular
+The final intervention removes the key and keyway, leaving a circular
 peg and circular collar while keeping the robot, controller, anchor, insertion
 depth, frozen contexts, retry budget, and seed perturbation fixed. This creates
 three matched arms: the original keyed arm, a circular-honest arm, and a
@@ -563,19 +570,19 @@ Symmetry-transfer fits & 1296 fits & 1296 & frozen\\
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure*}[t]
     \centering
-    \includegraphics[width=\columnwidth,trim=0 52 0 0,clip]{experiment_overview_scenes.png}
+    \includegraphics[width=\textwidth]{experiment_overview_scenes.png}
     \caption{Experimental controls. The same generator coordinate
     $\Delta\psi$ is relevant in the keyed entry phase, irrelevant after
     clearance, and a pure gauge in the circular honest/placebo arms.}
     \label{fig:overview_scenes}
-\end{figure}
+\end{figure*}
 
 \section{Results}
 \label{sec:results}
 
-\subsection{The Phase Switch Is Physically Expressed}
+\subsection{Generator Relevance Recovers the Phase-Dependent Switch}
 
 The single-seed task validates the core mechanism before any model comparison.
 Translation remains relevant to the endpoint, yaw is relevant immediately
@@ -607,28 +614,29 @@ Pairwise contact in usable data & present & 2 episodes\\
 \end{tabular}
 \end{table}
 
-\subsection{Strong Baselines Confirm the Frame-Level Failure}
+\subsection{Generator-Level Relevance Improves Few-Shot Transfer}
 
 Table~\ref{tab:baseline} reports the frozen strong-baseline benchmark on the
 same train/test split. Scalar frame relevance and the phase scalar GP preserve a
 single frame-level weight and therefore cannot keep translation near one while
 suppressing final yaw. TP-GMM and generic/dense regressors recover the switch
 better, showing that anisotropic behavior is possible without our
-parameterization. The smooth finite $P_{\rm diag}$ model is not uniformly the
-lowest-error predictor, but it preserves the intended law with a constrained,
-interpretable finite-action operator.
+parameterization. The smooth finite $P_{\rm diag}$ model is therefore not
+claimed as the lowest-error trajectory predictor. Its role is to recover a
+task-consistent generator law with a constrained, interpretable finite-action
+operator.
 
 \begin{table*}[t]
 \centering
-\caption{Held-out baseline benchmark on the frozen single-seed dataset. Errors
-are mean mm-equivalent values; switch error is measured against the isolated
-half-decay target.}
+\caption{Held-out baseline benchmark on the frozen single-seed dataset.
+Trajectory and endpoint errors are mean mm-equivalent values. $E_{\rm gen}$
+measures isolated generator-law recovery and is not quotient-projected.}
 \label{tab:baseline}
 \small
 \setlength{\tabcolsep}{4.2pt}
 \begin{tabular}{lcccccc}
 \toprule
-Model & Task traj. & Endpoint & Gen. RMSE & Final trans. & Pre-yaw & Final yaw\\
+Model & Task traj. & Endpoint & $E_{\rm gen}$ & Final trans. & Pre-yaw & Final yaw\\
 \midrule
 Frame-weighted & 4.765 & 3.262 & 0.354 & 0.568 & 1.004 & 0.568\\
 Phase scalar GP & 4.764 & 3.261 & 0.354 & 0.568 & 1.004 & 0.568\\
@@ -679,7 +687,10 @@ at every sample size. Its complete generator-law pass rate is 88\% for random
 $N=3$, 92\% for qualified $N=3$, and 100\% for both protocols at every
 $N\geq5$. The matched TP-GMM few-shot experiment is summarized in
 Table~\ref{tab:fewshot_tpgmm}; $P_{\rm diag}$ wins every matched seed/subset
-cell at each tested $N$.
+cell at each tested $N$. The performance gap narrows as $N$ increases and
+flexible operators approach the same response, which is consistent with the
+claim that the diagonal generator prior mainly improves sample efficiency
+rather than replacing data.
 
 \begin{table}[t]
 \centering
@@ -708,7 +719,7 @@ $N$ & $P_{\rm diag}$ & TP-GMM SE(2) & Full op. & RBF\\
     \label{fig:fewshot}
 \end{figure}
 
-\subsection{Privileged Phase Labels Are Not Required}
+\subsection{Observable Progress Recovers the Same Law}
 
 Non-oracle progress experiments show that the recovered law is not an artifact
 of using solver phase labels. Normalized time is poor; observable geometric
@@ -736,7 +747,7 @@ DTW-position & \textbf{3.19} & -1.42 & \textbf{0.130}\\
 \end{tabular}
 \end{table}
 
-\subsection{The Generator Law Is Task-Local}
+\subsection{The Learned Relation Is Invariant to World Orientation}
 
 The rotated-axis experiment tests whether the model merely learned a world-yaw
 heuristic. After canonicalizing by the inverse global task rotation, the axial
@@ -764,17 +775,25 @@ Seed & $D_{\rm orient}$ & $\rho_{\rm axial}$ & $|d g_{\psi}^{\rm final}|$\\
 
 \subsection{Symmetry Intervention: Relation Rather Than Trajectory Statistics}
 
-The circular symmetry intervention closes the main causal chain. Step 0 first
+The circular symmetry intervention closes the main intervention-based evidence
+chain. Step 0 first
 validates the geometry: nominal circular insertion succeeds, and the isolated
 axial-yaw slope at alignment is 0.0000, confirming that $\Delta\psi$ is a gauge
 intervention before any benchmark fitting. All nine datasets
 (3 arms $\times$ 3 seeds) then realize 39/39 usable condition cells. The scored
 benchmark has 1296 fits and zero failures.
 
+The placebo arm makes the alternative hypothesis explicit. A learner that uses
+marginal trajectory statistics can observe that yaw motion is present and assign
+$\alpha_\psi>0$. A learner that identifies the intervention-response relation
+should instead test whether the trajectory changes with $\Delta\psi$. Because
+the placebo yaw sweep is fixed across axial-yaw interventions, the
+task-consistent prediction is $\alpha_\psi\approx0$.
+
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{symmetry_transfer_main.png}
-    \caption{Causal symmetry-transfer benchmark. A, The keyed, circular-honest,
+    \caption{Symmetry-transfer intervention benchmark. A, The keyed, circular-honest,
     and circular-placebo arms share contexts, seeds, controller, anchor, and
     retry budget; the placebo arm contains yaw motion that is fixed across
     axial-yaw interventions. B, M1 generator-law error at $N=20$ separates
@@ -868,32 +887,49 @@ to honest and placebo circular arms despite the placebo trajectory containing
 rotation.
 
 The reliability analysis explains why the constrained generator prior remains
-useful when flexible models also identify the relation. On the hardest
-few-shot circular-honest case ($N=5$), the full operator has mean
-$E_\alpha=0.062$ with total standard deviation 0.253 and one catastrophic
-hallucination out of 18 cells ($E_\alpha=1.106$). The finite $P_{\rm diag}$
-has mean $E_\alpha=0.0077$, total standard deviation 0.011, worst case 0.045,
-and zero hallucinations. The generic RBF is also stable on this diagnostic
-($E_\alpha=0.0003$, worst case 0.0020), so the correct claim is not exclusive
-accuracy, but that the diagonal finite-action prior removes the fat overfitting
-tail of an unconstrained operator while preserving an interpretable generator
-law.
+useful when flexible models also identify the relation
+(Fig.~\ref{fig:sym_var}). On the hardest few-shot circular-honest case
+($N=5$), the full operator has mean
+$E_\alpha=0.062$ with total standard deviation 0.253, seed standard deviation
+0.087, subset standard deviation 0.138, and one catastrophic hallucination out
+of 18 seed/subset cells ($E_\alpha=1.106$). The finite $P_{\rm diag}$ has mean
+$E_\alpha=0.0077$, total standard deviation 0.011, seed standard deviation
+0.006, subset standard deviation 0.009, worst case 0.045, and zero
+hallucinations. Thus the total standard deviation is about 22 times lower and
+the worst case is about 25 times lower under the generator-regularized model.
+This contrast is cleanest on the circular-honest arm; on the placebo arm both
+models are stable because the fixed yaw sweep is absorbed into the nominal
+trajectory. The correct claim is therefore not exclusive accuracy, but
+few-shot reliability: an unconstrained $3\times3$ operator has a fat
+overfitting tail, whereas the diagonal generator prior does not.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{symmetry_variance.png}
+    \caption{Few-shot variance of generator-law error on the circular-honest
+    arm. The full operator has a high-variance tail at $N=5$, whereas the
+    diagonal finite-action prior keeps the law stable across seed/subset cells.}
+    \label{fig:sym_var}
+\end{figure}
 
 \begin{table}[t]
 \centering
-\caption{Few-shot stability on the circular-honest arm at $N=5$. Hallucination
-denotes fits whose circular yaw relevance exceeds the preregistered threshold.}
+\caption{Few-shot reliability on the circular-honest arm at $N=5$ over 18
+seed/subset cells. Hallucination denotes fits whose circular yaw relevance
+exceeds the preregistered threshold.}
 \label{tab:sym_var}
 \small
-\setlength{\tabcolsep}{4.0pt}
-\begin{tabular}{lcccc}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{lcc}
 \toprule
-Model & Mean & Std. & Worst & Halluc.\\
+Metric & Full op. & $P_{\rm diag}$ finite\\
 \midrule
-Frame-weighted & 0.300 & 0.063 & 0.404 & 1.000\\
-Full operator & 0.062 & 0.253 & 1.106 & 0.056\\
-Generic RBF & \textbf{0.0003} & \textbf{0.0006} & \textbf{0.002} & 0.000\\
-$P_{\rm diag}$ finite & 0.0077 & 0.011 & 0.045 & 0.000\\
+Mean $E_\alpha$ & 0.062 & 0.0077\\
+Total std. & 0.253 & 0.011\\
+Seed std. & 0.087 & 0.006\\
+Subset std. & 0.138 & 0.009\\
+Worst case & 1.106 & 0.045\\
+Hallucination & 1/18 & 0/18\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -941,14 +977,19 @@ therefore essential.
 
 \subsection{Limitations and Open Edges}
 
-The current causal study isolates a three-generator subgroup $(x,y,\psi)$
+The current intervention study isolates a three-generator subgroup $(x,y,\psi)$
 rather than the full six-dimensional $SE(3)$ relation. Extending the approach
 to full 6-DoF manipulation requires physically meaningful generator bases and
-excitation checks in all claimed directions. The controlled ManiSkill/PhysX
-experiments are designed to isolate the generator law under fixed contexts,
-controllers, and seeds; the corresponding hardware study should preserve the
-same three-arm intervention logic and report the same generator-law metrics
-rather than replacing the claim with a raw success-rate comparison.
+excitation checks in all claimed directions, including wrist orientation,
+coupled translation-rotation generators, and contact-rich whole-body settings.
+The phase variable is also treated as observable progress or a provided
+semantic segmentation, not as a learned semantic phase model. A deployable
+system would need to estimate this progress online and report errors when the
+phase estimate is wrong. The controlled ManiSkill/PhysX experiments are
+designed to isolate the generator law under fixed contexts, controllers, and
+seeds; the corresponding hardware study should preserve the same three-arm
+intervention logic and report the same generator-law metrics rather than
+replacing the claim with a raw success-rate comparison.
 
 The circular honest/placebo intervention is the strongest current evidence
 because it changes task symmetry while preserving the surrounding execution
