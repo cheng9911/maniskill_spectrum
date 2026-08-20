@@ -1,0 +1,25 @@
+model,sample_size,accuracy,sum,count
+Frame-weighted,5,0.7037037037037037,38,54
+Phase scalar GP,5,0.7037037037037037,38,54
+TP-GMM additive,5,0.9629629629629629,52,54
+TP-GMM SE(2),5,1.0,54,54
+Generic RBF,5,1.0,54,54
+Full operator,5,1.0,54,54
+Pdiag pointwise,5,1.0,54,54
+Pdiag finite,5,1.0,54,54
+Frame-weighted,10,0.9259259259259259,50,54
+Phase scalar GP,10,0.9259259259259259,50,54
+TP-GMM additive,10,1.0,54,54
+TP-GMM SE(2),10,1.0,54,54
+Generic RBF,10,1.0,54,54
+Full operator,10,1.0,54,54
+Pdiag pointwise,10,1.0,54,54
+Pdiag finite,10,1.0,54,54
+Frame-weighted,20,0.9629629629629629,52,54
+Phase scalar GP,20,0.9629629629629629,52,54
+TP-GMM additive,20,1.0,54,54
+TP-GMM SE(2),20,1.0,54,54
+Generic RBF,20,1.0,54,54
+Full operator,20,1.0,54,54
+Pdiag pointwise,20,1.0,54,54
+Pdiag finite,20,1.0,54,54

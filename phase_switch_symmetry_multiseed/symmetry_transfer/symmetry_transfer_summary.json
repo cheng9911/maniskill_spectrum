@@ -1,0 +1,5507 @@
+{
+  "schema_version": 1,
+  "experiment_sha256": "f82b47e867efce126d14c8c2b9e4e3520efe2ee6ed152a33729bb72a213ce757",
+  "subset_manifest_sha256": "77237c65f0b8c96fdf65cfe3dd290464b2c21bcbfb242829aea7f925d6206075",
+  "source_sha256": {
+    "benchmark_symmetry_transfer.py": "20de3cd31eacd240e68fdc64dd01df318641eae5067c7bdbcbb5dad7215cbe17",
+    "phase_switch_baselines.py": "13d097a1041838d74d6a4c36378cd04c91569518dc67a9224e4b4341867b2c57"
+  },
+  "model_definitions": {
+    "Frame-weighted": "Per-progress affine regression constrained to one shared scalar w(s) for x, y, and axial yaw.",
+    "Phase scalar GP": "Oracle-favorable phase-dependent scalar relevance: the training-only least-squares w(s) is GP-smoothed. This is not the TPGP algorithm.",
+    "TP-GMM additive": "Shared-responsibility frame-product mixture over world and additive response-coordinate emissions; corresponding conditional Gaussian components are fused by the same product used during fitting and CV.",
+    "TP-GMM SE(2)": "Rotation-aware shared-responsibility frame-product mixture using p_local=R(-yaw_socket)(p_world-p_socket), with component-wise task-frame transformation and the same Gaussian-product objective during fitting, CV, and prediction.",
+    "Generic RBF": "Unstructured phase-local RBF conditional regressor with context interactions; ridge strength is selected by episode-grouped five-fold CV on mixed training episodes.",
+    "Full operator": "Per-progress affine dense 3x3 response operator.",
+    "Pdiag pointwise": "Ablation that independently fits one affine diagonal response at each progress point.",
+    "Pdiag finite": "Final method: alpha_max-constrained RBF-sigmoid generator profiles with second-difference smoothness, realized by C0 Exp(P(s) Log(C0^-1 C)) C0^-1 X0 in SE(2)."
+  },
+  "oracle": {
+    "keyed": "alpha_yaw = 1 in align/enter (phase<2), 0 in unlock/insert",
+    "circular_honest": "alpha_yaw = 0 everywhere (gauge symmetry)",
+    "circular_placebo": "alpha_yaw = 0 everywhere (rotation present, uncorrelated)",
+    "translation": "alpha_x = alpha_y = 1 everywhere, both tasks"
+  },
+  "M1_generator_identification_error": [
+    {
+      "task": "keyed",
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "mean": 0.44153148263964626,
+      "std": 0.14043729680712425,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "mean": 0.44150358367719295,
+      "std": 0.14040605151862953,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "mean": 0.1394788110173255,
+      "std": 0.05749983598818654,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "mean": 0.13480578494273696,
+      "std": 0.03937808796270864,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "mean": 0.16290367596308428,
+      "std": 0.017777501492605444,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Full operator",
+      "sample_size": 5,
+      "mean": 0.1693921971288611,
+      "std": 0.02385513147579664,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "mean": 0.15943296738450374,
+      "std": 0.008076983760145403,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "mean": 0.17676758165301723,
+      "std": 0.02623394348256311,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "mean": 0.3657179696398165,
+      "std": 0.06717926643689005,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "mean": 0.36571733740217743,
+      "std": 0.06717070966587141,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "mean": 0.13203613069821876,
+      "std": 0.020483812940071698,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "mean": 0.15502492554212388,
+      "std": 0.03293428145014544,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "mean": 0.15940430526177382,
+      "std": 0.008937387884001181,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Full operator",
+      "sample_size": 10,
+      "mean": 0.16037534055368338,
+      "std": 0.009405846194209696,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "mean": 0.15934370547130577,
+      "std": 0.005976018291244262,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "mean": 0.17843140108929068,
+      "std": 0.014512807922574936,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "mean": 0.33772960133898144,
+      "std": 0.022740616729513267,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "mean": 0.33772799190790076,
+      "std": 0.022744444809924453,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "mean": 0.13217992013302107,
+      "std": 0.009855050960001378,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "mean": 0.14208894056790966,
+      "std": 0.006080839710594688,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "mean": 0.15860895770222838,
+      "std": 0.0021177605053681655,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Full operator",
+      "sample_size": 20,
+      "mean": 0.15882662681037213,
+      "std": 0.0020968163292915567,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "mean": 0.1582975586367389,
+      "std": 0.001928293631097209,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "mean": 0.18019970126451568,
+      "std": 0.006178606413994808,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "mean": 0.2995214165173095,
+      "std": 0.06442194106248494,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "mean": 0.2995001740536113,
+      "std": 0.06441704797137966,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "mean": 0.0006897387087572126,
+      "std": 0.0013243029530174463,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "mean": 0.006815963255104444,
+      "std": 0.015907011634648447,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "mean": 0.00031650496849280907,
+      "std": 0.0005962866464518802,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Full operator",
+      "sample_size": 5,
+      "mean": 0.06209700235829,
+      "std": 0.26046104145272575,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "mean": 0.0007706487021652284,
+      "std": 0.002551477020267564,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "mean": 0.00768805431071937,
+      "std": 0.011725563904835534,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "mean": 0.26241338513618234,
+      "std": 0.05376941065970632,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "mean": 0.2624038388949753,
+      "std": 0.05377011950981325,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "mean": 0.00014312144175809138,
+      "std": 0.0005035174499312448,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "mean": 0.0001317053861479624,
+      "std": 0.0003910497587776047,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "mean": 8.448848967462162e-05,
+      "std": 0.00016215463736988906,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Full operator",
+      "sample_size": 10,
+      "mean": 0.00018561899417225133,
+      "std": 0.00043667468169399646,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "mean": 7.697440157767843e-05,
+      "std": 8.852790157274944e-05,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "mean": 0.003200590924397649,
+      "std": 0.005443939049708124,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "mean": 0.26210116136186035,
+      "std": 0.01387787177927377,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "mean": 0.26209389109789205,
+      "std": 0.013879309788505002,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "mean": 0.000591927838329879,
+      "std": 0.0009273494462616774,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "mean": 0.0005683490015142883,
+      "std": 0.0009066652748432936,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "mean": 7.819207309499383e-05,
+      "std": 8.836624170588827e-05,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Full operator",
+      "sample_size": 20,
+      "mean": 0.0001600583467332113,
+      "std": 0.0002270584095456811,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "mean": 0.000129565225206009,
+      "std": 0.00015411346120827266,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "mean": 0.0016078868215250379,
+      "std": 0.0008183992406596774,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "mean": 0.32179890265967,
+      "std": 0.06528147859185064,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "mean": 0.32174847109153026,
+      "std": 0.06527822835599437,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "mean": 0.0010164889679844726,
+      "std": 0.0017126626168353543,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "mean": 0.00035437194649132295,
+      "std": 0.0010071624529989906,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "mean": 0.004697553915076757,
+      "std": 0.016475575094507724,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Full operator",
+      "sample_size": 5,
+      "mean": 0.004979546672444415,
+      "std": 0.016731774582382477,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "mean": 0.003966436019885598,
+      "std": 0.01616032897803992,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "mean": 0.004915112111586433,
+      "std": 0.01638421054263405,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "mean": 0.28914456885144657,
+      "std": 0.061868146422125535,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "mean": 0.2891307338688517,
+      "std": 0.061866713048089356,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "mean": 0.0005232520359422412,
+      "std": 0.0012913898330122243,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "mean": 0.0008042441597607565,
+      "std": 0.0017087721576730982,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "mean": 0.0016222591841099957,
+      "std": 0.00349534668398046,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Full operator",
+      "sample_size": 10,
+      "mean": 0.00180264834275664,
+      "std": 0.003854818625546877,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "mean": 0.0010667045804414476,
+      "std": 0.002602279690463288,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "mean": 0.001844215869738641,
+      "std": 0.0027782443616794113,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "mean": 0.2839550474612606,
+      "std": 0.01683375973642758,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "mean": 0.2839458638967034,
+      "std": 0.016831886851891215,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "mean": 0.0005218300414080415,
+      "std": 0.0009972104370892508,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "mean": 0.00037925806281302826,
+      "std": 0.0007732713280032247,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "mean": 0.0005699985540563409,
+      "std": 0.001003128960576543,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Full operator",
+      "sample_size": 20,
+      "mean": 0.0005801928550243858,
+      "std": 0.0010190856805795845,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "mean": 0.00045511637312456297,
+      "std": 0.0007842708910755286,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "mean": 0.0014777320403155632,
+      "std": 0.0010110957233464045,
+      "count": 18
+    }
+  ],
+  "M2_discrimination_accuracy": [
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "accuracy": 0.7037037037037037,
+      "sum": 38,
+      "count": 54
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "accuracy": 0.7037037037037037,
+      "sum": 38,
+      "count": 54
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "accuracy": 0.9629629629629629,
+      "sum": 52,
+      "count": 54
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "accuracy": 0.9259259259259259,
+      "sum": 50,
+      "count": 54
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "accuracy": 0.9259259259259259,
+      "sum": 50,
+      "count": 54
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "accuracy": 0.9629629629629629,
+      "sum": 52,
+      "count": 54
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "accuracy": 0.9629629629629629,
+      "sum": 52,
+      "count": 54
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "accuracy": 1.0,
+      "sum": 54,
+      "count": 54
+    }
+  ],
+  "M2b_symmetry_gap": [
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.27478702957800816,
+      "G_psi_std": 0.10031157817080229,
+      "abs_dev_mean": 0.7252129704219918
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.33464708832632617,
+      "G_psi_std": 0.09059395471922715,
+      "abs_dev_mean": 0.6653529116736738
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.3439358507694258,
+      "G_psi_std": 0.027713260000695013,
+      "abs_dev_mean": 0.6560641492305742
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.8041418626762387,
+      "G_psi_std": 0.021809779883671977,
+      "abs_dev_mean": 0.1958581373237614
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.8110516157078176,
+      "G_psi_std": 0.010035838379824136,
+      "abs_dev_mean": 0.18894838429218241
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.8113491095468484,
+      "G_psi_std": 0.0022187509948843613,
+      "abs_dev_mean": 0.18865089045315175
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.7788917550511116,
+      "G_psi_std": 0.025888484831160154,
+      "abs_dev_mean": 0.22110824494888837
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.807885470124908,
+      "G_psi_std": 0.011100679749219152,
+      "abs_dev_mean": 0.19211452987509212
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.8107252483459797,
+      "G_psi_std": 0.002622479484374443,
+      "abs_dev_mean": 0.18927475165402022
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.7330276593871772,
+      "G_psi_std": 0.04776956662427425,
+      "abs_dev_mean": 0.2669723406128227
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.7404959846676943,
+      "G_psi_std": 0.03581701406317812,
+      "abs_dev_mean": 0.2595040153323057
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.7349827650241167,
+      "G_psi_std": 0.01532415836547889,
+      "abs_dev_mean": 0.26501723497588325
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.8107568222821914,
+      "G_psi_std": 0.01400817618694856,
+      "abs_dev_mean": 0.18924317771780863
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.8112874148707655,
+      "G_psi_std": 0.005558675808202751,
+      "abs_dev_mean": 0.1887125851292345
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.8115113021661593,
+      "G_psi_std": 0.0023861265720442953,
+      "abs_dev_mean": 0.18848869783384078
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.27480002565327133,
+      "G_psi_std": 0.10030488006097815,
+      "abs_dev_mean": 0.7251999743467287
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.3346300933279531,
+      "G_psi_std": 0.09059615891541363,
+      "abs_dev_mean": 0.6653699066720469
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.34392987169887107,
+      "G_psi_std": 0.027712094722143293,
+      "abs_dev_mean": 0.656070128301129
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.6508658109891265,
+      "G_psi_std": 0.09282389639896807,
+      "abs_dev_mean": 0.34913418901087356
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.7838147017648217,
+      "G_psi_std": 0.06388463432804276,
+      "abs_dev_mean": 0.2161852982351783
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.8001675150719048,
+      "G_psi_std": 0.010327187768514268,
+      "abs_dev_mean": 0.19983248492809516
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.6308035400996889,
+      "G_psi_std": 0.10129187702271372,
+      "abs_dev_mean": 0.36919645990031114
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.7884962288012091,
+      "G_psi_std": 0.04668793528419459,
+      "abs_dev_mean": 0.21150377119879088
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.7948206389780403,
+      "G_psi_std": 0.016561689122761042,
+      "abs_dev_mean": 0.20517936102195958
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.15966565041075928,
+      "G_psi_std": 0.1533981985944453,
+      "abs_dev_mean": 0.8403343495892407
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.23802798108709503,
+      "G_psi_std": 0.10166818896454086,
+      "abs_dev_mean": 0.7619720189129049
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.26845881254156284,
+      "G_psi_std": 0.03889309002016825,
+      "abs_dev_mean": 0.7315411874584371
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.7987398649735433,
+      "G_psi_std": 0.018657883010542973,
+      "abs_dev_mean": 0.20126013502645673
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.8125257775144639,
+      "G_psi_std": 0.011209230100451538,
+      "abs_dev_mean": 0.1874742224855361
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.8126420644292563,
+      "G_psi_std": 0.0032022686152449156,
+      "abs_dev_mean": 0.1873579355707437
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.773288301551897,
+      "G_psi_std": 0.03452726748553,
+      "abs_dev_mean": 0.22671169844810293
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.8094914051321139,
+      "G_psi_std": 0.0122667962828068,
+      "abs_dev_mean": 0.19050859486788604
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.8119554600993694,
+      "G_psi_std": 0.0030247207767076516,
+      "abs_dev_mean": 0.18804453990063064
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.761203186840544,
+      "G_psi_std": 0.06176865968907463,
+      "abs_dev_mean": 0.238796813159456
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.7538947439721961,
+      "G_psi_std": 0.03235151275848812,
+      "abs_dev_mean": 0.24610525602780392
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.7412708354686022,
+      "G_psi_std": 0.013474354115119904,
+      "abs_dev_mean": 0.2587291645313979
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.8143896040554254,
+      "G_psi_std": 0.010301691380822531,
+      "abs_dev_mean": 0.18561039594457462
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.8147401219639497,
+      "G_psi_std": 0.007032108499965924,
+      "abs_dev_mean": 0.18525987803605026
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.8131628777353057,
+      "G_psi_std": 0.0029781870215054747,
+      "abs_dev_mean": 0.1868371222646942
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.1596470607294968,
+      "G_psi_std": 0.15341349201235657,
+      "abs_dev_mean": 0.8403529392705031
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.23801604318149344,
+      "G_psi_std": 0.1016538128014996,
+      "abs_dev_mean": 0.7619839568185065
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.26845284474642017,
+      "G_psi_std": 0.038897433415069155,
+      "abs_dev_mean": 0.7315471552535798
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.6796425475763832,
+      "G_psi_std": 0.0695787731531996,
+      "abs_dev_mean": 0.3203574524236168
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.7757547753825519,
+      "G_psi_std": 0.06460890516338302,
+      "abs_dev_mean": 0.22424522461744806
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.7993877835451868,
+      "G_psi_std": 0.009227870373136876,
+      "abs_dev_mean": 0.20061221645481309
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.6269901608174364,
+      "G_psi_std": 0.0992678384241245,
+      "abs_dev_mean": 0.37300983918256364
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.7824685529476638,
+      "G_psi_std": 0.04232978102272386,
+      "abs_dev_mean": 0.21753144705233618
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.7902550222922917,
+      "G_psi_std": 0.015815429945474798,
+      "abs_dev_mean": 0.20974497770770834
+    }
+  ],
+  "M0_keyed_switch_fidelity": [
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "switch_detected_fraction": 1.0,
+      "switch_location_mean": 0.6063145801435329,
+      "switch_deviation_mean": 0.10631458014353286
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "switch_detected_fraction": 1.0,
+      "switch_location_mean": 0.6080691415552231,
+      "switch_deviation_mean": 0.10806914155522312
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "switch_detected_fraction": 1.0,
+      "switch_location_mean": 0.6075223452399575,
+      "switch_deviation_mean": 0.1075223452399575
+    }
+  ],
+  "M3_cross_task_mismatch_gap": [
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.414588854055011,
+      "in_task_error": 5.074976619199777,
+      "mismatch_gap": 0.33961223485523373
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.801364117087637,
+      "in_task_error": 5.074976619199777,
+      "mismatch_gap": 8.72638749788786
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.414537609910609,
+      "in_task_error": 5.074974147912693,
+      "mismatch_gap": 0.3395634619979164
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.801336782933406,
+      "in_task_error": 5.074974147912693,
+      "mismatch_gap": 8.726362635020713
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 7.791159529767448,
+      "in_task_error": 5.56972347811371,
+      "mismatch_gap": 2.221436051653738
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.637895633941739,
+      "in_task_error": 5.56972347811371,
+      "mismatch_gap": 8.068172155828028
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 7.37161867150007,
+      "in_task_error": 5.1319589991042065,
+      "mismatch_gap": 2.239659672395864
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.846112247066467,
+      "in_task_error": 5.1319589991042065,
+      "mismatch_gap": 8.71415324796226
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 7.741430038695692,
+      "in_task_error": 8.135675749139109,
+      "mismatch_gap": -0.3942457104434167
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.993845794269696,
+      "in_task_error": 8.135675749139109,
+      "mismatch_gap": 6.858170045130587
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 6.753815026862306,
+      "in_task_error": 3.433094905718638,
+      "mismatch_gap": 3.3207201211436677
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.012734155819658,
+      "in_task_error": 3.433094905718638,
+      "mismatch_gap": 10.57963925010102
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.972791055283859,
+      "in_task_error": 2.391871281895833,
+      "mismatch_gap": 2.5809197733880263
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.886952941871703,
+      "in_task_error": 2.391871281895833,
+      "mismatch_gap": 10.49508165997587
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.2046060309139905,
+      "in_task_error": 2.4970710859289986,
+      "mismatch_gap": 2.707534944984992
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.034511510329963,
+      "in_task_error": 2.4970710859289986,
+      "mismatch_gap": 10.537440424400964
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.41182593035031,
+      "in_task_error": 5.102666001969131,
+      "mismatch_gap": 0.3091599283811792
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.800667452377843,
+      "in_task_error": 5.102666001969131,
+      "mismatch_gap": 8.69800145040871
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.412026011435661,
+      "in_task_error": 5.102748788048903,
+      "mismatch_gap": 0.30927722338675867
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.800365818898237,
+      "in_task_error": 5.102748788048903,
+      "mismatch_gap": 8.697617030849335
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 7.2303454445690685,
+      "in_task_error": 4.558650866733733,
+      "mismatch_gap": 2.6716945778353356
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.963258104470158,
+      "in_task_error": 4.558650866733733,
+      "mismatch_gap": 8.404607237736425
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 6.836833352517446,
+      "in_task_error": 4.2742465303901795,
+      "mismatch_gap": 2.5625868221272663
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.358262406648796,
+      "in_task_error": 4.2742465303901795,
+      "mismatch_gap": 8.084015876258617
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.000493519854412,
+      "in_task_error": 6.041214412592807,
+      "mismatch_gap": -1.0407208927383955
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.11541299318081,
+      "in_task_error": 6.041214412592807,
+      "mismatch_gap": 7.0741985805880025
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.945174524256626,
+      "in_task_error": 2.3122214151933327,
+      "mismatch_gap": 2.6329531090632936
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.099459661702767,
+      "in_task_error": 2.3122214151933327,
+      "mismatch_gap": 10.787238246509434
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.577317240610178,
+      "in_task_error": 2.1503299934602103,
+      "mismatch_gap": 2.4269872471499676
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.675714446380097,
+      "in_task_error": 2.1503299934602103,
+      "mismatch_gap": 10.525384452919887
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.046955313385631,
+      "in_task_error": 2.2141354779600992,
+      "mismatch_gap": 2.8328198354255316
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.892015920766413,
+      "in_task_error": 2.2141354779600992,
+      "mismatch_gap": 10.677880442806314
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.194555214113197,
+      "in_task_error": 4.896273133727286,
+      "mismatch_gap": 0.29828208038591075
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.892516103881135,
+      "in_task_error": 4.896273133727286,
+      "mismatch_gap": 8.99624297015385
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.1947360539978815,
+      "in_task_error": 4.896405197264542,
+      "mismatch_gap": 0.29833085673333937
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.892448537145405,
+      "in_task_error": 4.896405197264542,
+      "mismatch_gap": 8.996043339880863
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.705320096401247,
+      "in_task_error": 3.4200293386164202,
+      "mismatch_gap": 1.2852907577848272
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.294737463985761,
+      "in_task_error": 3.4200293386164202,
+      "mismatch_gap": 8.874708125369342
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.818973479403668,
+      "in_task_error": 3.0946160453586153,
+      "mismatch_gap": 1.7243574340450523
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.688380513381402,
+      "in_task_error": 3.0946160453586153,
+      "mismatch_gap": 9.593764468022787
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.598056467492714,
+      "in_task_error": 3.521974421752317,
+      "mismatch_gap": 1.0760820457403968
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.951912617365688,
+      "in_task_error": 3.521974421752317,
+      "mismatch_gap": 9.42993819561337
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.586370167490819,
+      "in_task_error": 1.8857199739332562,
+      "mismatch_gap": 2.700650193557563
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.951589548331588,
+      "in_task_error": 1.8857199739332562,
+      "mismatch_gap": 11.065869574398333
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.273809569906825,
+      "in_task_error": 1.964209823136609,
+      "mismatch_gap": 2.309599746770216
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.80264830251073,
+      "in_task_error": 1.964209823136609,
+      "mismatch_gap": 10.838438479374123
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.681513991870227,
+      "in_task_error": 1.9503587696764504,
+      "mismatch_gap": 2.7311552221937765
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.923144476453288,
+      "in_task_error": 1.9503587696764504,
+      "mismatch_gap": 10.972785706776838
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.51108582866945,
+      "in_task_error": 5.141787466569189,
+      "mismatch_gap": 0.36929836210026057
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.54241055649488,
+      "in_task_error": 5.141787466569189,
+      "mismatch_gap": 8.400623089925691
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.510609242172809,
+      "in_task_error": 5.141654449244421,
+      "mismatch_gap": 0.3689547929283874
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.541785651301621,
+      "in_task_error": 5.141654449244421,
+      "mismatch_gap": 8.4001312020572
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 8.315822968350943,
+      "in_task_error": 5.790138695212429,
+      "mismatch_gap": 2.5256842731385145
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.294473089149681,
+      "in_task_error": 5.790138695212429,
+      "mismatch_gap": 7.504334393937253
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 7.710001997234642,
+      "in_task_error": 5.448146184893569,
+      "mismatch_gap": 2.2618558123410724
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.860750541118366,
+      "in_task_error": 5.448146184893569,
+      "mismatch_gap": 7.412604356224796
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 6.60830422845637,
+      "in_task_error": 5.918149239606568,
+      "mismatch_gap": 0.6901549888498018
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.116593237495499,
+      "in_task_error": 5.918149239606568,
+      "mismatch_gap": 8.19844399788893
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 6.149968303067895,
+      "in_task_error": 3.8254532772177297,
+      "mismatch_gap": 2.324515025850165
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.623118113640489,
+      "in_task_error": 3.8254532772177297,
+      "mismatch_gap": 9.79766483642276
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.448110683528204,
+      "in_task_error": 2.1824541014294385,
+      "mismatch_gap": 2.265656582098765
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.52927037291483,
+      "in_task_error": 2.1824541014294385,
+      "mismatch_gap": 10.346816271485391
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.109968487827698,
+      "in_task_error": 2.5422114126152584,
+      "mismatch_gap": 2.5677570752124392
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.840574700644131,
+      "in_task_error": 2.5422114126152584,
+      "mismatch_gap": 10.298363288028874
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.418073062153916,
+      "in_task_error": 5.053751934965614,
+      "mismatch_gap": 0.364321127188302
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.546376895573665,
+      "in_task_error": 5.053751934965614,
+      "mismatch_gap": 8.492624960608051
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.418048837080819,
+      "in_task_error": 5.053856647725169,
+      "mismatch_gap": 0.36419218935564945
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.546018251476132,
+      "in_task_error": 5.053856647725169,
+      "mismatch_gap": 8.492161603750963
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 6.740391309044551,
+      "in_task_error": 4.547280189146926,
+      "mismatch_gap": 2.1931111198976243
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.839920130902785,
+      "in_task_error": 4.547280189146926,
+      "mismatch_gap": 8.292639941755859
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 6.5674381133169994,
+      "in_task_error": 4.3475845696567825,
+      "mismatch_gap": 2.219853543660217
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.464751941437955,
+      "in_task_error": 4.3475845696567825,
+      "mismatch_gap": 8.117167371781171
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.922942243069226,
+      "in_task_error": 3.745005192735513,
+      "mismatch_gap": 1.1779370503337132
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.78932577651296,
+      "in_task_error": 3.745005192735513,
+      "mismatch_gap": 9.044320583777449
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.899639269866987,
+      "in_task_error": 2.0976706238492806,
+      "mismatch_gap": 2.8019686460177065
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.769520112710302,
+      "in_task_error": 2.0976706238492806,
+      "mismatch_gap": 10.671849488861021
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.278808487935769,
+      "in_task_error": 1.9935910849635026,
+      "mismatch_gap": 2.2852174029722665
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.444078805037924,
+      "in_task_error": 1.9935910849635026,
+      "mismatch_gap": 10.45048772007442
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.854460099531436,
+      "in_task_error": 2.117228573453703,
+      "mismatch_gap": 2.737231526077733
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.654835297921352,
+      "in_task_error": 2.117228573453703,
+      "mismatch_gap": 10.537606724467649
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.137431030348227,
+      "in_task_error": 4.855944301960801,
+      "mismatch_gap": 0.28148672838742606
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.352354043097451,
+      "in_task_error": 4.855944301960801,
+      "mismatch_gap": 8.496409741136649
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.1373832293834445,
+      "in_task_error": 4.856038064994422,
+      "mismatch_gap": 0.28134516438902235
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.352161875889607,
+      "in_task_error": 4.856038064994422,
+      "mismatch_gap": 8.496123810895185
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.747348736064674,
+      "in_task_error": 3.690371143706049,
+      "mismatch_gap": 1.0569775923586247
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.84267999096548,
+      "in_task_error": 3.690371143706049,
+      "mismatch_gap": 8.152308847259432
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.19889885319139,
+      "in_task_error": 3.145075542735137,
+      "mismatch_gap": 2.053823310456253
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.960336729287645,
+      "in_task_error": 3.145075542735137,
+      "mismatch_gap": 8.815261186552508
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.5589330781628385,
+      "in_task_error": 2.1762215812862937,
+      "mismatch_gap": 2.382711496876545
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.44446034795567,
+      "in_task_error": 2.1762215812862937,
+      "mismatch_gap": 10.268238766669377
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.547389689210606,
+      "in_task_error": 1.7510466706141112,
+      "mismatch_gap": 2.7963430185964944
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.438161263843542,
+      "in_task_error": 1.7510466706141112,
+      "mismatch_gap": 10.687114593229431
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.129116023696221,
+      "in_task_error": 1.8947589462182133,
+      "mismatch_gap": 2.2343570774780073
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.315624131755802,
+      "in_task_error": 1.8947589462182133,
+      "mismatch_gap": 10.42086518553759
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.539310820352395,
+      "in_task_error": 1.8681346223996007,
+      "mismatch_gap": 2.6711761979527946
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.393206230549213,
+      "in_task_error": 1.8681346223996007,
+      "mismatch_gap": 10.525071608149613
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.626861767328683,
+      "in_task_error": 5.2759552471011455,
+      "mismatch_gap": 0.35090652022753765
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.050278928142419,
+      "in_task_error": 5.2759552471011455,
+      "mismatch_gap": 8.774323681041274
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.626446267679721,
+      "in_task_error": 5.275996572918843,
+      "mismatch_gap": 0.3504496947608775
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.050168287791777,
+      "in_task_error": 5.275996572918843,
+      "mismatch_gap": 8.774171714872935
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 7.4273692368852275,
+      "in_task_error": 5.4836133558923486,
+      "mismatch_gap": 1.943755880992879
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.405487725292362,
+      "in_task_error": 5.4836133558923486,
+      "mismatch_gap": 7.9218743694000135
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 7.203536439922591,
+      "in_task_error": 5.594837601350649,
+      "mismatch_gap": 1.608698838571942
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.574579779903486,
+      "in_task_error": 5.594837601350649,
+      "mismatch_gap": 7.979742178552836
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 8.39960019282318,
+      "in_task_error": 9.23395985441551,
+      "mismatch_gap": -0.8343596615923303
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 15.657040916795024,
+      "in_task_error": 9.23395985441551,
+      "mismatch_gap": 6.423081062379515
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 7.305590049662382,
+      "in_task_error": 4.439246922677712,
+      "mismatch_gap": 2.8663431269846704
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.545423152380389,
+      "in_task_error": 4.439246922677712,
+      "mismatch_gap": 10.106176229702676
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.656736540718197,
+      "in_task_error": 2.3772137639616546,
+      "mismatch_gap": 2.2795227767565422
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.9846345301441,
+      "in_task_error": 2.3772137639616546,
+      "mismatch_gap": 10.607420766182447
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.067969818616697,
+      "in_task_error": 2.668521930707558,
+      "mismatch_gap": 2.399447887909139
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.181211444653501,
+      "in_task_error": 2.668521930707558,
+      "mismatch_gap": 10.512689513945944
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.373885703872404,
+      "in_task_error": 5.205089023366244,
+      "mismatch_gap": 0.16879668050616026
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.128565124878698,
+      "in_task_error": 5.205089023366244,
+      "mismatch_gap": 8.923476101512453
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.3737786766506375,
+      "in_task_error": 5.205077891171544,
+      "mismatch_gap": 0.16870078547909362
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.128378028409841,
+      "in_task_error": 5.205077891171544,
+      "mismatch_gap": 8.923300137238297
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 7.311459199589354,
+      "in_task_error": 5.087848336011381,
+      "mismatch_gap": 2.2236108635779734
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.097827185418177,
+      "in_task_error": 5.087848336011381,
+      "mismatch_gap": 8.009978849406796
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 6.305106589346958,
+      "in_task_error": 4.207926690323504,
+      "mismatch_gap": 2.0971798990234545
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.82977901064566,
+      "in_task_error": 4.207926690323504,
+      "mismatch_gap": 8.621852320322157
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.081257504509793,
+      "in_task_error": 5.187941692872498,
+      "mismatch_gap": -0.10668418836270543
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.606792676770239,
+      "in_task_error": 5.187941692872498,
+      "mismatch_gap": 8.418850983897741
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.946819453893097,
+      "in_task_error": 2.4733606216108104,
+      "mismatch_gap": 2.4734588322822866
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.459951570092016,
+      "in_task_error": 2.4733606216108104,
+      "mismatch_gap": 10.986590948481206
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.357808945543954,
+      "in_task_error": 2.1590903827141408,
+      "mismatch_gap": 2.198718562829813
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.984105731247631,
+      "in_task_error": 2.1590903827141408,
+      "mismatch_gap": 10.82501534853349
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.620540500670192,
+      "in_task_error": 2.298797168241562,
+      "mismatch_gap": 2.3217433324286296
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.143371403518161,
+      "in_task_error": 2.298797168241562,
+      "mismatch_gap": 10.8445742352766
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.089026582513822,
+      "in_task_error": 4.891607324766944,
+      "mismatch_gap": 0.19741925774687807
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.963760857899125,
+      "in_task_error": 4.891607324766944,
+      "mismatch_gap": 9.07215353313218
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.088915373128943,
+      "in_task_error": 4.891675835830214,
+      "mismatch_gap": 0.19723953729872878
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.963711474253792,
+      "in_task_error": 4.891675835830214,
+      "mismatch_gap": 9.072035638423579
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.946809874815864,
+      "in_task_error": 3.692409605417412,
+      "mismatch_gap": 1.2544002693984524
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.691295422076125,
+      "in_task_error": 3.692409605417412,
+      "mismatch_gap": 8.998885816658714
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 5.124306665892138,
+      "in_task_error": 3.266360510293657,
+      "mismatch_gap": 1.8579461555984809
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.02848347925997,
+      "in_task_error": 3.266360510293657,
+      "mismatch_gap": 9.762122968966313
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.509568672833626,
+      "in_task_error": 3.955970792599896,
+      "mismatch_gap": 0.5535978802337298
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.011574365379365,
+      "in_task_error": 3.955970792599896,
+      "mismatch_gap": 9.05560357277947
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.48321275183815,
+      "in_task_error": 1.8342767460458633,
+      "mismatch_gap": 2.6489360057922866
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.994557693541715,
+      "in_task_error": 1.8342767460458633,
+      "mismatch_gap": 11.160280947495853
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.161447724080551,
+      "in_task_error": 1.9419041011210507,
+      "mismatch_gap": 2.2195436229595003
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.894449871716171,
+      "in_task_error": 1.9419041011210507,
+      "mismatch_gap": 10.95254577059512
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 4.398704626714249,
+      "in_task_error": 1.9526376268280603,
+      "mismatch_gap": 2.4460669998861886
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.92541050603081,
+      "in_task_error": 1.9526376268280603,
+      "mismatch_gap": 10.972772879202749
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.715399762526253,
+      "in_task_error": 5.074976619199777,
+      "mismatch_gap": 0.6404231433264762
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.425561717562644,
+      "in_task_error": 5.074976619199777,
+      "mismatch_gap": 9.350585098362867
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.71564871242953,
+      "in_task_error": 5.074974147912693,
+      "mismatch_gap": 0.6406745645168375
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.425549269648224,
+      "in_task_error": 5.074974147912693,
+      "mismatch_gap": 9.350575121735531
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 7.382123991743335,
+      "in_task_error": 5.56972347811371,
+      "mismatch_gap": 1.8124005136296244
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.714020116102143,
+      "in_task_error": 5.56972347811371,
+      "mismatch_gap": 5.1442966379884325
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 8.033658241794557,
+      "in_task_error": 5.1319589991042065,
+      "mismatch_gap": 2.9016992426903503
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.21719751816538,
+      "in_task_error": 5.1319589991042065,
+      "mismatch_gap": 5.085238519061173
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 16.845307350226257,
+      "in_task_error": 8.135675749139109,
+      "mismatch_gap": 8.709631601087148
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 23.141756379219547,
+      "in_task_error": 8.135675749139109,
+      "mismatch_gap": 15.006080630080438
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.187927018871252,
+      "in_task_error": 3.433094905718638,
+      "mismatch_gap": 1.7548321131526143
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.487268989443002,
+      "in_task_error": 3.433094905718638,
+      "mismatch_gap": 8.054174083724364
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.637396104523398,
+      "in_task_error": 2.391871281895833,
+      "mismatch_gap": 2.245524822627565
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.100875090585303,
+      "in_task_error": 2.391871281895833,
+      "mismatch_gap": 8.70900380868947
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.888813147170324,
+      "in_task_error": 2.4970710859289986,
+      "mismatch_gap": 2.391742061241325
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.495886049726366,
+      "in_task_error": 2.4970710859289986,
+      "mismatch_gap": 8.998814963797367
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.874462798206633,
+      "in_task_error": 5.102666001969131,
+      "mismatch_gap": 0.7717967962375019
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.534950506194592,
+      "in_task_error": 5.102666001969131,
+      "mismatch_gap": 9.43228450422546
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.874502325306494,
+      "in_task_error": 5.102748788048903,
+      "mismatch_gap": 0.7717535372575917
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.534948942375609,
+      "in_task_error": 5.102748788048903,
+      "mismatch_gap": 9.432200154326706
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.3521199895746925,
+      "in_task_error": 4.558650866733733,
+      "mismatch_gap": 1.7934691228409596
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 9.500151370453633,
+      "in_task_error": 4.558650866733733,
+      "mismatch_gap": 4.9415005037199
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.113359497001304,
+      "in_task_error": 4.2742465303901795,
+      "mismatch_gap": 1.8391129666111246
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 9.207190993165485,
+      "in_task_error": 4.2742465303901795,
+      "mismatch_gap": 4.932944462775305
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 14.203930083650091,
+      "in_task_error": 6.041214412592807,
+      "mismatch_gap": 8.162715671057285
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 20.533684991672324,
+      "in_task_error": 6.041214412592807,
+      "mismatch_gap": 14.492470579079516
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.6414813792071525,
+      "in_task_error": 2.3122214151933327,
+      "mismatch_gap": 2.32925996401382
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.295881102740381,
+      "in_task_error": 2.3122214151933327,
+      "mismatch_gap": 8.983659687547048
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.313258189522901,
+      "in_task_error": 2.1503299934602103,
+      "mismatch_gap": 2.1629281960626905
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.067769532847224,
+      "in_task_error": 2.1503299934602103,
+      "mismatch_gap": 8.917439539387015
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.394501268103421,
+      "in_task_error": 2.2141354779600992,
+      "mismatch_gap": 2.180365790143322
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.275611080475558,
+      "in_task_error": 2.2141354779600992,
+      "mismatch_gap": 9.06147560251546
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.669601565256348,
+      "in_task_error": 4.896273133727286,
+      "mismatch_gap": 0.7733284315290616
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.243814835134097,
+      "in_task_error": 4.896273133727286,
+      "mismatch_gap": 9.347541701406811
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.6696621877164235,
+      "in_task_error": 4.896405197264542,
+      "mismatch_gap": 0.7732569904518813
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.243872003670381,
+      "in_task_error": 4.896405197264542,
+      "mismatch_gap": 9.347466806405839
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.505315507644855,
+      "in_task_error": 3.4200293386164202,
+      "mismatch_gap": 3.085286169028435
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 9.185843214421999,
+      "in_task_error": 3.4200293386164202,
+      "mismatch_gap": 5.765813875805579
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.088618433986525,
+      "in_task_error": 3.0946160453586153,
+      "mismatch_gap": 2.99400238862791
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 9.231979051210077,
+      "in_task_error": 3.0946160453586153,
+      "mismatch_gap": 6.137363005851462
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 8.455999467423874,
+      "in_task_error": 3.521974421752317,
+      "mismatch_gap": 4.934025045671557
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.991671024380482,
+      "in_task_error": 3.521974421752317,
+      "mismatch_gap": 11.469696602628165
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.3010757379589,
+      "in_task_error": 1.8857199739332562,
+      "mismatch_gap": 2.415355764025644
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.94146663933263,
+      "in_task_error": 1.8857199739332562,
+      "mismatch_gap": 9.055746665399374
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.221693261798463,
+      "in_task_error": 1.964209823136609,
+      "mismatch_gap": 2.257483438661854
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.887594567772291,
+      "in_task_error": 1.964209823136609,
+      "mismatch_gap": 8.923384744635683
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.171701724930154,
+      "in_task_error": 1.9503587696764504,
+      "mismatch_gap": 2.2213429552537036
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.962897800245356,
+      "in_task_error": 1.9503587696764504,
+      "mismatch_gap": 9.012539030568906
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.255595907860076,
+      "in_task_error": 5.141787466569189,
+      "mismatch_gap": 1.1138084412908862
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.884735204181515,
+      "in_task_error": 5.141787466569189,
+      "mismatch_gap": 8.742947737612326
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.255831763489915,
+      "in_task_error": 5.141654449244421,
+      "mismatch_gap": 1.1141773142454943
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.884676490704186,
+      "in_task_error": 5.141654449244421,
+      "mismatch_gap": 8.743022041459763
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 7.646530350441627,
+      "in_task_error": 5.790138695212429,
+      "mismatch_gap": 1.8563916552291984
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.29010449478451,
+      "in_task_error": 5.790138695212429,
+      "mismatch_gap": 4.499965799572081
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 7.4908113960890494,
+      "in_task_error": 5.448146184893569,
+      "mismatch_gap": 2.04266521119548
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 9.769330867294348,
+      "in_task_error": 5.448146184893569,
+      "mismatch_gap": 4.321184682400779
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 11.905344959501933,
+      "in_task_error": 5.918149239606568,
+      "mismatch_gap": 5.987195719895365
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 17.69634897550435,
+      "in_task_error": 5.918149239606568,
+      "mismatch_gap": 11.778199735897783
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 7.0277152826851905,
+      "in_task_error": 3.8254532772177297,
+      "mismatch_gap": 3.202262005467461
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.76767620343154,
+      "in_task_error": 3.8254532772177297,
+      "mismatch_gap": 7.942222926213811
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.80702163946072,
+      "in_task_error": 2.1824541014294385,
+      "mismatch_gap": 2.624567538031281
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.551285721563934,
+      "in_task_error": 2.1824541014294385,
+      "mismatch_gap": 8.368831620134495
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.918220550300552,
+      "in_task_error": 2.5422114126152584,
+      "mismatch_gap": 2.376009137685293
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.081596906424144,
+      "in_task_error": 2.5422114126152584,
+      "mismatch_gap": 8.539385493808886
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.25072606880576,
+      "in_task_error": 5.053751934965614,
+      "mismatch_gap": 1.196974133840146
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.92122655862093,
+      "in_task_error": 5.053751934965614,
+      "mismatch_gap": 8.867474623655315
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.250763943183845,
+      "in_task_error": 5.053856647725169,
+      "mismatch_gap": 1.1969072954586757
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.921213620507771,
+      "in_task_error": 5.053856647725169,
+      "mismatch_gap": 8.867356972782602
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.6614768025486955,
+      "in_task_error": 4.547280189146926,
+      "mismatch_gap": 2.114196613401769
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 8.65137657153225,
+      "in_task_error": 4.547280189146926,
+      "mismatch_gap": 4.104096382385324
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.741997120803755,
+      "in_task_error": 4.3475845696567825,
+      "mismatch_gap": 2.3944125511469725
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 8.570145338733552,
+      "in_task_error": 4.3475845696567825,
+      "mismatch_gap": 4.222560769076769
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 8.904706189417972,
+      "in_task_error": 3.745005192735513,
+      "mismatch_gap": 5.159700996682459
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.98578010728562,
+      "in_task_error": 3.745005192735513,
+      "mismatch_gap": 11.240774914550109
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.810491940511898,
+      "in_task_error": 2.0976706238492806,
+      "mismatch_gap": 2.712821316662618
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.62248196078002,
+      "in_task_error": 2.0976706238492806,
+      "mismatch_gap": 8.524811336930739
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.62720190799104,
+      "in_task_error": 1.9935910849635026,
+      "mismatch_gap": 2.6336108230275377
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.446196317135465,
+      "in_task_error": 1.9935910849635026,
+      "mismatch_gap": 8.452605232171962
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.569832690917846,
+      "in_task_error": 2.117228573453703,
+      "mismatch_gap": 2.4526041174641433
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.67422431013682,
+      "in_task_error": 2.117228573453703,
+      "mismatch_gap": 8.556995736683117
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.085410240350174,
+      "in_task_error": 4.855944301960801,
+      "mismatch_gap": 1.2294659383893727
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.898405108419157,
+      "in_task_error": 4.855944301960801,
+      "mismatch_gap": 9.042460806458354
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.085483200033063,
+      "in_task_error": 4.856038064994422,
+      "mismatch_gap": 1.2294451350386408
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 13.898393263385438,
+      "in_task_error": 4.856038064994422,
+      "mismatch_gap": 9.042355198391016
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.237072560176436,
+      "in_task_error": 3.690371143706049,
+      "mismatch_gap": 2.546701416470387
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 8.880638913269971,
+      "in_task_error": 3.690371143706049,
+      "mismatch_gap": 5.190267769563922
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.033323812688162,
+      "in_task_error": 3.145075542735137,
+      "mismatch_gap": 2.888248269953025
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 8.971497996867614,
+      "in_task_error": 3.145075542735137,
+      "mismatch_gap": 5.8264224541324765
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.429184640868162,
+      "in_task_error": 2.1762215812862937,
+      "mismatch_gap": 3.2529630595818686
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.595842797653495,
+      "in_task_error": 2.1762215812862937,
+      "mismatch_gap": 9.4196212163672
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.440668633639466,
+      "in_task_error": 1.7510466706141112,
+      "mismatch_gap": 2.6896219630253544
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.529065715365478,
+      "in_task_error": 1.7510466706141112,
+      "mismatch_gap": 8.778019044751368
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.511833112006033,
+      "in_task_error": 1.8947589462182133,
+      "mismatch_gap": 2.6170741657878196
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.515517036791357,
+      "in_task_error": 1.8947589462182133,
+      "mismatch_gap": 8.620758090573144
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.377770901953851,
+      "in_task_error": 1.8681346223996007,
+      "mismatch_gap": 2.5096362795542504
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.588480891268018,
+      "in_task_error": 1.8681346223996007,
+      "mismatch_gap": 8.720346268868418
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.026737978299903,
+      "in_task_error": 5.2759552471011455,
+      "mismatch_gap": 0.7507827311987576
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.248868289490256,
+      "in_task_error": 5.2759552471011455,
+      "mismatch_gap": 8.97291304238911
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.02677731813601,
+      "in_task_error": 5.275996572918843,
+      "mismatch_gap": 0.7507807452171669
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.248819856926234,
+      "in_task_error": 5.275996572918843,
+      "mismatch_gap": 8.97282328400739
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 7.379235048097894,
+      "in_task_error": 5.4836133558923486,
+      "mismatch_gap": 1.8956216922055455
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 9.966622398012175,
+      "in_task_error": 5.4836133558923486,
+      "mismatch_gap": 4.483009042119827
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 8.812996130714684,
+      "in_task_error": 5.594837601350649,
+      "mismatch_gap": 3.2181585293640342
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.102044663874574,
+      "in_task_error": 5.594837601350649,
+      "mismatch_gap": 5.507207062523925
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 18.84713600392421,
+      "in_task_error": 9.23395985441551,
+      "mismatch_gap": 9.6131761495087
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 25.029621220743852,
+      "in_task_error": 9.23395985441551,
+      "mismatch_gap": 15.795661366328343
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.741984278749761,
+      "in_task_error": 4.439246922677712,
+      "mismatch_gap": 2.3027373560720488
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 12.227821151087058,
+      "in_task_error": 4.439246922677712,
+      "mismatch_gap": 7.788574228409346
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.742697493839562,
+      "in_task_error": 2.3772137639616546,
+      "mismatch_gap": 2.3654837298779072
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.909107305182971,
+      "in_task_error": 2.3772137639616546,
+      "mismatch_gap": 8.531893541221317
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.829386844908805,
+      "in_task_error": 2.668521930707558,
+      "mismatch_gap": 2.160864914201247
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.363854984612564,
+      "in_task_error": 2.668521930707558,
+      "mismatch_gap": 8.695333053905006
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.08348529966531,
+      "in_task_error": 5.205089023366244,
+      "mismatch_gap": 0.8783962762990658
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.21234583975405,
+      "in_task_error": 5.205089023366244,
+      "mismatch_gap": 9.007256816387805
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.083514140468986,
+      "in_task_error": 5.205077891171544,
+      "mismatch_gap": 0.878436249297442
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.212481787539792,
+      "in_task_error": 5.205077891171544,
+      "mismatch_gap": 9.007403896368249
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 7.202537141955035,
+      "in_task_error": 5.087848336011381,
+      "mismatch_gap": 2.114688805943654
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 9.456237868299498,
+      "in_task_error": 5.087848336011381,
+      "mismatch_gap": 4.368389532288117
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.895969727162208,
+      "in_task_error": 4.207926690323504,
+      "mismatch_gap": 2.688043036838704
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 9.389838217409691,
+      "in_task_error": 4.207926690323504,
+      "mismatch_gap": 5.1819115270861875
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 12.03365710344638,
+      "in_task_error": 5.187941692872498,
+      "mismatch_gap": 6.845715410573882
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 18.386194797628097,
+      "in_task_error": 5.187941692872498,
+      "mismatch_gap": 13.198253104755597
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.916869440901362,
+      "in_task_error": 2.4733606216108104,
+      "mismatch_gap": 2.4435088192905514
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 11.176723204360998,
+      "in_task_error": 2.4733606216108104,
+      "mismatch_gap": 8.703362582750188
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.44870197755703,
+      "in_task_error": 2.1590903827141408,
+      "mismatch_gap": 2.289611594842889
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.645184614832429,
+      "in_task_error": 2.1590903827141408,
+      "mismatch_gap": 8.486094232118289
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.55825258428607,
+      "in_task_error": 2.298797168241562,
+      "mismatch_gap": 2.2594554160445077
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.953625049751013,
+      "in_task_error": 2.298797168241562,
+      "mismatch_gap": 8.654827881509451
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.787461466912137,
+      "in_task_error": 4.891607324766944,
+      "mismatch_gap": 0.8958541421451933
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.13579183455692,
+      "in_task_error": 4.891607324766944,
+      "mismatch_gap": 9.244184509789978
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 5.787516578534372,
+      "in_task_error": 4.891675835830214,
+      "mismatch_gap": 0.8958407427041575
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.135868647627362,
+      "in_task_error": 4.891675835830214,
+      "mismatch_gap": 9.244192811797149
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 7.044178362288426,
+      "in_task_error": 3.692409605417412,
+      "mismatch_gap": 3.3517687568710146
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 8.656513823566703,
+      "in_task_error": 3.692409605417412,
+      "mismatch_gap": 4.964104218149291
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 6.125672103710875,
+      "in_task_error": 3.266360510293657,
+      "mismatch_gap": 2.8593115934172184
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 9.154121288725388,
+      "in_task_error": 3.266360510293657,
+      "mismatch_gap": 5.887760778431732
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 9.730939189786957,
+      "in_task_error": 3.955970792599896,
+      "mismatch_gap": 5.774968397187061
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 16.48824654835689,
+      "in_task_error": 3.955970792599896,
+      "mismatch_gap": 12.532275755756995
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.343327199103842,
+      "in_task_error": 1.8342767460458633,
+      "mismatch_gap": 2.509050453057979
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.83193400816881,
+      "in_task_error": 1.8342767460458633,
+      "mismatch_gap": 8.997657262122946
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.297477831879705,
+      "in_task_error": 1.9419041011210507,
+      "mismatch_gap": 2.3555737307586546
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.764254283937639,
+      "in_task_error": 1.9419041011210507,
+      "mismatch_gap": 8.822350182816589
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 4.284876715746672,
+      "in_task_error": 1.9526376268280603,
+      "mismatch_gap": 2.332239088918612
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 10.878291176918315,
+      "in_task_error": 1.9526376268280603,
+      "mismatch_gap": 8.925653550090255
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.394147686375975,
+      "in_task_error": 5.074976619199777,
+      "mismatch_gap": 8.319171067176198
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.433463275994564,
+      "in_task_error": 5.074976619199777,
+      "mismatch_gap": 8.358486656794787
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.394089744629158,
+      "in_task_error": 5.074974147912693,
+      "mismatch_gap": 8.319115596716465
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.433237501608993,
+      "in_task_error": 5.074974147912693,
+      "mismatch_gap": 8.3582633536963
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 14.341743595036732,
+      "in_task_error": 5.56972347811371,
+      "mismatch_gap": 8.772020116923022
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.5310093452344,
+      "in_task_error": 5.56972347811371,
+      "mismatch_gap": 6.96128586712069
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.757529333579908,
+      "in_task_error": 5.1319589991042065,
+      "mismatch_gap": 8.625570334475702
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 11.88176054364092,
+      "in_task_error": 5.1319589991042065,
+      "mismatch_gap": 6.749801544536714
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.674376513433018,
+      "in_task_error": 8.135675749139109,
+      "mismatch_gap": 4.538700764293909
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.73322691675679,
+      "in_task_error": 8.135675749139109,
+      "mismatch_gap": 2.597551167617681
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.612343760434731,
+      "in_task_error": 3.433094905718638,
+      "mismatch_gap": 9.179248854716093
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.667953355572784,
+      "in_task_error": 3.433094905718638,
+      "mismatch_gap": 7.234858449854146
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.15749096874562,
+      "in_task_error": 2.391871281895833,
+      "mismatch_gap": 9.765619686849787
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.206636163555126,
+      "in_task_error": 2.391871281895833,
+      "mismatch_gap": 7.814764881659293
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.373611520440823,
+      "in_task_error": 2.4970710859289986,
+      "mismatch_gap": 9.876540434511824
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.46979168616771,
+      "in_task_error": 2.4970710859289986,
+      "mismatch_gap": 7.972720600238711
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.70131369235076,
+      "in_task_error": 5.102666001969131,
+      "mismatch_gap": 8.598647690381629
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.638333150547425,
+      "in_task_error": 5.102666001969131,
+      "mismatch_gap": 8.535667148578295
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.701244429446392,
+      "in_task_error": 5.102748788048903,
+      "mismatch_gap": 8.59849564139749
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.638219722836702,
+      "in_task_error": 5.102748788048903,
+      "mismatch_gap": 8.5354709347878
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 14.092250759646461,
+      "in_task_error": 4.558650866733733,
+      "mismatch_gap": 9.53359989291273
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.234540145308083,
+      "in_task_error": 4.558650866733733,
+      "mismatch_gap": 7.67588927857435
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.628837403767996,
+      "in_task_error": 4.2742465303901795,
+      "mismatch_gap": 9.354590873377816
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 11.701914654464622,
+      "in_task_error": 4.2742465303901795,
+      "mismatch_gap": 7.427668124074442
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.85762911181486,
+      "in_task_error": 6.041214412592807,
+      "mismatch_gap": 6.816414699222054
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.942606192891922,
+      "in_task_error": 6.041214412592807,
+      "mismatch_gap": 4.901391780299115
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.37584329166362,
+      "in_task_error": 2.3122214151933327,
+      "mismatch_gap": 10.063621876470286
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.415590455246534,
+      "in_task_error": 2.3122214151933327,
+      "mismatch_gap": 8.1033690400532
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.223588876587854,
+      "in_task_error": 2.1503299934602103,
+      "mismatch_gap": 10.073258883127643
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.2569001150349,
+      "in_task_error": 2.1503299934602103,
+      "mismatch_gap": 8.106570121574691
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.233422663497493,
+      "in_task_error": 2.2141354779600992,
+      "mismatch_gap": 10.019287185537394
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.363026854773699,
+      "in_task_error": 2.2141354779600992,
+      "mismatch_gap": 8.1488913768136
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.473922021045803,
+      "in_task_error": 4.896273133727286,
+      "mismatch_gap": 8.577648887318517
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.416079769229476,
+      "in_task_error": 4.896273133727286,
+      "mismatch_gap": 8.51980663550219
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.473824315558199,
+      "in_task_error": 4.896405197264542,
+      "mismatch_gap": 8.577419118293657
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.41599843169786,
+      "in_task_error": 4.896405197264542,
+      "mismatch_gap": 8.519593234433318
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.519084244409,
+      "in_task_error": 3.4200293386164202,
+      "mismatch_gap": 10.09905490579258
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 11.601480890877179,
+      "in_task_error": 3.4200293386164202,
+      "mismatch_gap": 8.181451552260759
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.234206624569799,
+      "in_task_error": 3.0946160453586153,
+      "mismatch_gap": 10.139590579211184
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 11.305492849757307,
+      "in_task_error": 3.0946160453586153,
+      "mismatch_gap": 8.210876804398692
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.15845190210893,
+      "in_task_error": 3.521974421752317,
+      "mismatch_gap": 8.636477480356612
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.19550945889979,
+      "in_task_error": 3.521974421752317,
+      "mismatch_gap": 6.673535037147474
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.121212662514958,
+      "in_task_error": 1.8857199739332562,
+      "mismatch_gap": 10.235492688581703
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.157831486150217,
+      "in_task_error": 1.8857199739332562,
+      "mismatch_gap": 8.272111512216961
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.080654946006094,
+      "in_task_error": 1.964209823136609,
+      "mismatch_gap": 10.116445122869486
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.140256716369715,
+      "in_task_error": 1.964209823136609,
+      "mismatch_gap": 8.176046893233107
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.086424798321323,
+      "in_task_error": 1.9503587696764504,
+      "mismatch_gap": 10.136066028644873
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.224970310490448,
+      "in_task_error": 1.9503587696764504,
+      "mismatch_gap": 8.274611540813998
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.803729079362446,
+      "in_task_error": 5.141787466569189,
+      "mismatch_gap": 8.661941612793257
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.696593059866322,
+      "in_task_error": 5.141787466569189,
+      "mismatch_gap": 8.554805593297132
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.8037026291005,
+      "in_task_error": 5.141654449244421,
+      "mismatch_gap": 8.662048179856079
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.696567762825959,
+      "in_task_error": 5.141654449244421,
+      "mismatch_gap": 8.554913313581537
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 14.737574799014112,
+      "in_task_error": 5.790138695212429,
+      "mismatch_gap": 8.947436103801683
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.74971917855735,
+      "in_task_error": 5.790138695212429,
+      "mismatch_gap": 6.95958048334492
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 15.401745528869926,
+      "in_task_error": 5.448146184893569,
+      "mismatch_gap": 9.953599343976357
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.369126163690028,
+      "in_task_error": 5.448146184893569,
+      "mismatch_gap": 7.920979978796459
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.924235523263391,
+      "in_task_error": 5.918149239606568,
+      "mismatch_gap": 7.006086283656823
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.881981056840155,
+      "in_task_error": 5.918149239606568,
+      "mismatch_gap": 4.963831817233587
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.901662092637594,
+      "in_task_error": 3.8254532772177297,
+      "mismatch_gap": 9.076208815419864
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.876017529264026,
+      "in_task_error": 3.8254532772177297,
+      "mismatch_gap": 7.050564252046296
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.419238474938636,
+      "in_task_error": 2.1824541014294385,
+      "mismatch_gap": 10.236784373509197
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.318903869861211,
+      "in_task_error": 2.1824541014294385,
+      "mismatch_gap": 8.136449768431772
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.743153017334363,
+      "in_task_error": 2.5422114126152584,
+      "mismatch_gap": 10.200941604719105
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.724332113255093,
+      "in_task_error": 2.5422114126152584,
+      "mismatch_gap": 8.182120700639835
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.951072585095618,
+      "in_task_error": 5.053751934965614,
+      "mismatch_gap": 8.897320650130004
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.749639042373905,
+      "in_task_error": 5.053751934965614,
+      "mismatch_gap": 8.695887107408291
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.951053578667716,
+      "in_task_error": 5.053856647725169,
+      "mismatch_gap": 8.897196930942547
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.74958877411639,
+      "in_task_error": 5.053856647725169,
+      "mismatch_gap": 8.69573212639122
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 14.939434332898252,
+      "in_task_error": 4.547280189146926,
+      "mismatch_gap": 10.392154143751325
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.917170697900673,
+      "in_task_error": 4.547280189146926,
+      "mismatch_gap": 8.369890508753747
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 14.822937945444815,
+      "in_task_error": 4.3475845696567825,
+      "mismatch_gap": 10.475353375788032
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.783090352060652,
+      "in_task_error": 4.3475845696567825,
+      "mismatch_gap": 8.435505782403869
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.342074679101069,
+      "in_task_error": 3.745005192735513,
+      "mismatch_gap": 8.597069486365555
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.262285822744248,
+      "in_task_error": 3.745005192735513,
+      "mismatch_gap": 6.517280630008735
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.342917975040976,
+      "in_task_error": 2.0976706238492806,
+      "mismatch_gap": 10.245247351191695
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.259646928254005,
+      "in_task_error": 2.0976706238492806,
+      "mismatch_gap": 8.161976304404725
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.38839110962956,
+      "in_task_error": 1.9935910849635026,
+      "mismatch_gap": 10.394800024666056
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.28527763063897,
+      "in_task_error": 1.9935910849635026,
+      "mismatch_gap": 8.291686545675466
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.483145775586898,
+      "in_task_error": 2.117228573453703,
+      "mismatch_gap": 10.365917202133195
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.462951028200013,
+      "in_task_error": 2.117228573453703,
+      "mismatch_gap": 8.34572245474631
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.811703623545476,
+      "in_task_error": 4.855944301960801,
+      "mismatch_gap": 8.955759321584676
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.572180441445731,
+      "in_task_error": 4.855944301960801,
+      "mismatch_gap": 8.71623613948493
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.811638125922984,
+      "in_task_error": 4.856038064994422,
+      "mismatch_gap": 8.955600060928562
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.57219546121007,
+      "in_task_error": 4.856038064994422,
+      "mismatch_gap": 8.716157396215648
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 15.103251151590237,
+      "in_task_error": 3.690371143706049,
+      "mismatch_gap": 11.412880007884189
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.032755453870768,
+      "in_task_error": 3.690371143706049,
+      "mismatch_gap": 9.34238431016472
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.94442520823972,
+      "in_task_error": 3.145075542735137,
+      "mismatch_gap": 10.799349665504582
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 11.848030804878066,
+      "in_task_error": 3.145075542735137,
+      "mismatch_gap": 8.702955262142929
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.3727712244839,
+      "in_task_error": 2.1762215812862937,
+      "mismatch_gap": 10.196549643197606
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.293028810862413,
+      "in_task_error": 2.1762215812862937,
+      "mismatch_gap": 8.11680722957612
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.368617055872727,
+      "in_task_error": 1.7510466706141112,
+      "mismatch_gap": 10.617570385258617
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.28232775703878,
+      "in_task_error": 1.7510466706141112,
+      "mismatch_gap": 8.53128108642467
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.34188099478967,
+      "in_task_error": 1.8947589462182133,
+      "mismatch_gap": 10.447122048571458
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.24748745702176,
+      "in_task_error": 1.8947589462182133,
+      "mismatch_gap": 8.352728510803548
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.354480441882268,
+      "in_task_error": 1.8681346223996007,
+      "mismatch_gap": 10.486345819482668
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.332078610756847,
+      "in_task_error": 1.8681346223996007,
+      "mismatch_gap": 8.463943988357247
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.897437054732501,
+      "in_task_error": 5.2759552471011455,
+      "mismatch_gap": 8.621481807631355
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 14.22955089596521,
+      "in_task_error": 5.2759552471011455,
+      "mismatch_gap": 8.953595648864063
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.89808879509848,
+      "in_task_error": 5.275996572918843,
+      "mismatch_gap": 8.622092222179639
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 14.229948066163294,
+      "in_task_error": 5.275996572918843,
+      "mismatch_gap": 8.95395149324445
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 14.561395065662817,
+      "in_task_error": 5.4836133558923486,
+      "mismatch_gap": 9.077781709770468
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.023376395840737,
+      "in_task_error": 5.4836133558923486,
+      "mismatch_gap": 7.539763039948388
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 14.385627615549815,
+      "in_task_error": 5.594837601350649,
+      "mismatch_gap": 8.790790014199166
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.760452404378322,
+      "in_task_error": 5.594837601350649,
+      "mismatch_gap": 7.1656148030276725
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.413368839235487,
+      "in_task_error": 9.23395985441551,
+      "mismatch_gap": 4.179408984819977
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 11.852018401183129,
+      "in_task_error": 9.23395985441551,
+      "mismatch_gap": 2.618058546767619
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.331968745025131,
+      "in_task_error": 4.439246922677712,
+      "mismatch_gap": 8.892721822347418
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 11.771977958639667,
+      "in_task_error": 4.439246922677712,
+      "mismatch_gap": 7.332731035961955
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.459189752798709,
+      "in_task_error": 2.3772137639616546,
+      "mismatch_gap": 10.081975988837055
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.771198141856821,
+      "in_task_error": 2.3772137639616546,
+      "mismatch_gap": 8.393984377895167
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.745624759874703,
+      "in_task_error": 2.668521930707558,
+      "mismatch_gap": 10.077102829167146
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 5,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 11.091731544830049,
+      "in_task_error": 2.668521930707558,
+      "mismatch_gap": 8.423209614122491
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.921196968571325,
+      "in_task_error": 5.205089023366244,
+      "mismatch_gap": 8.716107945205081
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 14.17661055755301,
+      "in_task_error": 5.205089023366244,
+      "mismatch_gap": 8.971521534186767
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.92118801683417,
+      "in_task_error": 5.205077891171544,
+      "mismatch_gap": 8.716110125662627
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 14.176620554779817,
+      "in_task_error": 5.205077891171544,
+      "mismatch_gap": 8.971542663608272
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 14.330116077399774,
+      "in_task_error": 5.087848336011381,
+      "mismatch_gap": 9.242267741388392
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.79479512077191,
+      "in_task_error": 5.087848336011381,
+      "mismatch_gap": 7.70694678476053
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 14.23438979126802,
+      "in_task_error": 4.207926690323504,
+      "mismatch_gap": 10.026463100944516
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.643234449248979,
+      "in_task_error": 4.207926690323504,
+      "mismatch_gap": 8.435307758925475
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.566896833055035,
+      "in_task_error": 5.187941692872498,
+      "mismatch_gap": 7.378955140182536
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.93258418256215,
+      "in_task_error": 5.187941692872498,
+      "mismatch_gap": 5.744642489689652
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.553405981103703,
+      "in_task_error": 2.4733606216108104,
+      "mismatch_gap": 10.080045359492892
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.921972307806081,
+      "in_task_error": 2.4733606216108104,
+      "mismatch_gap": 8.448611686195271
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.298323970860844,
+      "in_task_error": 2.1590903827141408,
+      "mismatch_gap": 10.139233588146704
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.6258391506851,
+      "in_task_error": 2.1590903827141408,
+      "mismatch_gap": 8.46674876797096
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.415674313712222,
+      "in_task_error": 2.298797168241562,
+      "mismatch_gap": 10.11687714547066
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 10,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.795910121240064,
+      "in_task_error": 2.298797168241562,
+      "mismatch_gap": 8.497112952998503
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.646741533368278,
+      "in_task_error": 4.891607324766944,
+      "mismatch_gap": 8.755134208601334
+    },
+    {
+      "model": "Frame-weighted",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.866413119304148,
+      "in_task_error": 4.891607324766944,
+      "mismatch_gap": 8.974805794537204
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.64669446635468,
+      "in_task_error": 4.891675835830214,
+      "mismatch_gap": 8.755018630524464
+    },
+    {
+      "model": "Phase scalar GP",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 13.86634929404201,
+      "in_task_error": 4.891675835830214,
+      "mismatch_gap": 8.974673458211797
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.935108659098574,
+      "in_task_error": 3.692409605417412,
+      "mismatch_gap": 10.242699053681163
+    },
+    {
+      "model": "TP-GMM additive",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.30542289015004,
+      "in_task_error": 3.692409605417412,
+      "mismatch_gap": 8.613013284732629
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 13.705692208045926,
+      "in_task_error": 3.266360510293657,
+      "mismatch_gap": 10.43933169775227
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.074877759381272,
+      "in_task_error": 3.266360510293657,
+      "mismatch_gap": 8.808517249087615
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.238447805745496,
+      "in_task_error": 3.955970792599896,
+      "mismatch_gap": 8.2824770131456
+    },
+    {
+      "model": "Generic RBF",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.596262647865284,
+      "in_task_error": 3.955970792599896,
+      "mismatch_gap": 6.640291855265389
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.233772755538553,
+      "in_task_error": 1.8342767460458633,
+      "mismatch_gap": 10.39949600949269
+    },
+    {
+      "model": "Full operator",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.591033391363634,
+      "in_task_error": 1.8342767460458633,
+      "mismatch_gap": 8.756756645317772
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.194752956590717,
+      "in_task_error": 1.9419041011210507,
+      "mismatch_gap": 10.252848855469667
+    },
+    {
+      "model": "Pdiag pointwise",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.52361372242131,
+      "in_task_error": 1.9419041011210507,
+      "mismatch_gap": 8.58170962130026
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 12.211515671987684,
+      "in_task_error": 1.9526376268280603,
+      "mismatch_gap": 10.258878045159623
+    },
+    {
+      "model": "Pdiag finite",
+      "sample_size": 20,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 10.596745946302915,
+      "in_task_error": 1.9526376268280603,
+      "mismatch_gap": 8.644108319474855
+    }
+  ],
+  "fit_count": 1296,
+  "fit_failure_count": 0,
+  "bins_per_phase": 25
+}

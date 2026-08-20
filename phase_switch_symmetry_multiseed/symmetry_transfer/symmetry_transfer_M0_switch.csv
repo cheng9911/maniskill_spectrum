@@ -1,0 +1,4 @@
+model,sample_size,switch_detected_fraction,switch_location_mean,switch_deviation_mean
+Pdiag finite,5,1.0,0.6063145801435329,0.10631458014353286
+Pdiag finite,10,1.0,0.6080691415552231,0.10806914155522312
+Pdiag finite,20,1.0,0.6075223452399575,0.1075223452399575

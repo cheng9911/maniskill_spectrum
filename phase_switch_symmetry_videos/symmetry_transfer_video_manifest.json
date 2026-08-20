@@ -1,0 +1,32 @@
+[
+  {
+    "frames": 516,
+    "steps": 516,
+    "every": 1,
+    "success": true,
+    "label": "21_keyed_asymmetric_yaw_p30",
+    "out": "phase_switch_symmetry_videos/21_keyed_asymmetric_yaw_p30.mp4",
+    "description": "Keyed asymmetric: key aligns to +30deg gate (yaw relevant) then unlocks to 0",
+    "condition_id": 4
+  },
+  {
+    "frames": 491,
+    "steps": 491,
+    "every": 1,
+    "success": true,
+    "label": "22_circular_honest_yaw_p30",
+    "out": "phase_switch_symmetry_videos/22_circular_honest_yaw_p30.mp4",
+    "description": "Circular honest: peg inserts flat (0deg) \u2014 d_axial is a pure gauge DOF",
+    "condition_id": 4
+  },
+  {
+    "frames": 525,
+    "steps": 525,
+    "every": 1,
+    "success": true,
+    "label": "23_circular_placebo_yaw_p30",
+    "out": "phase_switch_symmetry_videos/23_circular_placebo_yaw_p30.mp4",
+    "description": "Circular placebo: fixed +15deg yaw sweep unrelated to d_axial, then 0deg insert",
+    "condition_id": 4
+  }
+]

@@ -42,7 +42,7 @@ def load_episode(h5_path: Path, episode_id: int):
     return data, episode_attrs, root_attrs
 
 
-def make_env(orientation, task_anchor):
+def make_env(orientation, task_anchor, env_id="KeyedCircularPhaseSwitch-v1"):
     kwargs = dict(
         num_envs=1,
         obs_mode="state_dict",
@@ -55,7 +55,7 @@ def make_env(orientation, task_anchor):
         kwargs["orientation"] = orientation
     if task_anchor is not None:
         kwargs["task_anchor"] = task_anchor
-    return gym.make("KeyedCircularPhaseSwitch-v1", **kwargs)
+    return gym.make(env_id, **kwargs)
 
 
 def overlay_phase(frame, phase):
@@ -87,12 +87,15 @@ def render_episode_video(
     causal_delta = data["causal_delta"]
     orientation = root_attrs.get("orientation", None)
     task_anchor = root_attrs.get("task_anchor", None)
+    env_id = root_attrs.get("env_id", "KeyedCircularPhaseSwitch-v1")
+    if isinstance(env_id, bytes):
+        env_id = env_id.decode()
     if orientation is not None:
         orientation = np.asarray(orientation, dtype=np.float64)
     if task_anchor is not None:
         task_anchor = np.asarray(task_anchor, dtype=np.float64)
 
-    env = make_env(orientation, task_anchor)
+    env = make_env(orientation, task_anchor, env_id=env_id)
     n = len(data["qpos"])
     # Subsample long episodes to keep the video concise.
     every = max(1, int(np.ceil(n / max_frames)))

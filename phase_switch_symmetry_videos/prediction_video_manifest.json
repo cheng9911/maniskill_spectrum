@@ -8,5 +8,6 @@
   {"label": "16_model_prediction_trans_p15_x", "type": "B", "intervention": [0.015, 0.0, 0.0], "note": "test ctx idx5: dx +15"},
   {"label": "17_model_prediction_trans_m15_y", "type": "B", "intervention": [0.0, -0.015, 0.0], "note": "test ctx idx6: dy -15"},
   {"label": "18_model_prediction_trans_p15_y", "type": "B", "intervention": [0.0, 0.015, 0.0], "note": "test ctx idx7: dy +15"},
-  {"label": "19_grid_all8",                  "type": "B-grid", "note": "all 8 held-out contexts in one 2x4 grid"}
+  {"label": "19_grid_all8",                  "type": "B-grid", "note": "all 8 held-out contexts in one 2x4 grid"},
+  {"label": "20_fewshot_N5_vs_N30",          "type": "fewshot", "intervention": [-0.015, 0.0, 0.5236], "note": "3 few-shot models x N=5 vs N=30, mixed ctx"}
 ]

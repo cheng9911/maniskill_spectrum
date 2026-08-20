@@ -44,7 +44,7 @@ Panda.gripper_stiffness = 2.5e3
 Panda.gripper_force_limit = 150.0
 
 
-def solve_rotated(env: PhaseSwitchTraceWrapper, align_yaw=None):
+def solve_rotated(env: PhaseSwitchTraceWrapper, align_yaw=None, align_sweep_yaw=None):
     base = env.unwrapped
     axis = base.insertion_axis  # [3] unit vector
     planner = PandaArmMotionPlanningSolver(
@@ -107,6 +107,12 @@ def solve_rotated(env: PhaseSwitchTraceWrapper, align_yaw=None):
         move_pose(grasp_pose * sapien.Pose([0.0, 0.0, -0.095]))
 
         env.set_phase("align_keyed")
+        if align_sweep_yaw is not None:
+            sweep_preinsert = base.target_pose_at(
+                phase_switch_symmetry_env.PRE_ENTRY_PEG_Z, align_sweep_yaw
+            ).sp
+            move_pose(tcp_pose_for_peg_target(sweep_preinsert), refine_steps=5)
+            move_pose(tcp_pose_for_peg_target(sweep_preinsert), refine_steps=5)
         move_pose(tcp_pose_for_peg_target(keyed_preinsert), refine_steps=5)
         move_pose(tcp_pose_for_peg_target(keyed_preinsert), refine_steps=5)
         env.set_phase("enter_key")
@@ -135,17 +141,21 @@ def solve_rotated(env: PhaseSwitchTraceWrapper, align_yaw=None):
 
 
 def solve_circular(env: PhaseSwitchTraceWrapper, yaw_mode="honest", placebo_yaw=np.deg2rad(15.0)):
-    """Circular-task solver: the same skeleton as solve_rotated, but the
-    align/enter yaw is a FIXED schedule independent of the intervention d_axial.
+    """Circular-task solver: the same skeleton as solve_rotated, but the yaw is a
+    FIXED schedule independent of the intervention d_axial.
 
     honest  : align_yaw = 0, so the peg stays at nominal yaw and d_axial is a
               pure gauge DOF (the task-local trajectory is yaw-invariant).
-    placebo : align_yaw = placebo_yaw, a fixed sweep independent of d_axial, so
-              yaw rotation IS present in the marginal trajectory but carries no
-              causal response to d_axial.
+    placebo : a FIXED yaw sweep performed entirely in the align phase (above the
+              collar), then a straight 0-degree insertion. Rotation IS present in
+              the marginal trajectory but carries no causal response to d_axial,
+              and it avoids the collar jamming that a circular peg suffers when
+              rotated inside the tight shaft-vs-collar passage.
     """
-    align_yaw = 0.0 if yaw_mode == "honest" else float(placebo_yaw)
-    solve_rotated(env, align_yaw=align_yaw)
+    if yaw_mode == "honest":
+        solve_rotated(env, align_yaw=0.0)
+    else:
+        solve_rotated(env, align_yaw=0.0, align_sweep_yaw=float(placebo_yaw))
 
 
 def collect_rotated(rows, output_path, seed, orientation, retries_per_condition, task_anchor, context_manifest_path=None, robot_init_qpos_noise=0.0, yaw_mode="keyed"):

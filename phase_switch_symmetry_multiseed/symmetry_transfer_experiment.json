@@ -38,7 +38,7 @@
       "env_id": "CircularPhaseSwitch-v1",
       "yaw_mode": "placebo",
       "source": "collect",
-      "note": "Collector performs a FIXED yaw sweep (15 deg) independent of d_axial. alpha*=0 by symmetry, but rotation IS present in the marginal trajectory."
+      "note": "Collector performs a FIXED yaw sweep (0 -> +15 deg -> 0) entirely in the align phase (above the collar), then a straight 0-degree insertion. Rotation IS present in the marginal trajectory but uncorrelated with d_axial; alpha*=0 by symmetry. The sweep is confined to align to avoid the collar jamming that a circular peg suffers when rotated inside the tight shaft-vs-collar passage."
     }
   },
   "placebo_yaw_deg": 15.0,
@@ -72,7 +72,7 @@
   },
   "source_sha256": {
     "phase_switch_symmetry_env.py": "4913fbdf91127fb5994b0e2e78ab740e70ac3a203c2e8092422f342a90914bd0",
-    "collect_phase_switch_rotated.py": "e78afea880d331c5ec8a4d24db5fcfbb96feb587320d04ec423a93d9ac42076e",
+    "collect_phase_switch_rotated.py": "e25dd6a37525f902d74bb995df4b1e6e17b32ed2b8e7376550ef671d5104fd08",
     "validate_circular_geometry.py": "c8b3d49e06673f544532d3e3c08ed9cc4a18bbea39ae858318736d6dedaa8c37"
   }
 }
