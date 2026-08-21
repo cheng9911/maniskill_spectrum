@@ -1,0 +1,13 @@
+model,sample_size,accuracy,sum,count
+Frame-weighted (SE(3)),8,0.5277777777777778,19,36
+Full operator (SE(3)),8,1.0,36,36
+Pdiag pointwise (SE(3)),8,1.0,36,36
+Pdiag finite (SE(3)),8,1.0,36,36
+Frame-weighted (SE(3)),15,0.75,27,36
+Full operator (SE(3)),15,0.8333333333333334,30,36
+Pdiag pointwise (SE(3)),15,0.8333333333333334,30,36
+Pdiag finite (SE(3)),15,1.0,36,36
+Frame-weighted (SE(3)),30,0.7222222222222222,26,36
+Full operator (SE(3)),30,0.8333333333333334,30,36
+Pdiag pointwise (SE(3)),30,0.8611111111111112,31,36
+Pdiag finite (SE(3)),30,1.0,36,36

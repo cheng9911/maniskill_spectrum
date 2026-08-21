@@ -1,0 +1,156 @@
+{
+  "env_id": "KeyedCircularPhaseSwitchSE3-v1",
+  "task": "keyed_to_circular_phase_switch_se3",
+  "seed": 20260818,
+  "orientation": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "retries_per_condition": 1,
+  "episodes": [
+    {
+      "episode_id": 0,
+      "condition_id": 0,
+      "attempt_id": 0,
+      "generator": "baseline",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 480,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 1,
+      "condition_id": 1,
+      "attempt_id": 0,
+      "generator": "mixed",
+      "causal_delta": [
+        0.01,
+        0.004,
+        -0.006,
+        0.13962634015954636,
+        -0.08726646259971647,
+        0.20943951023931956
+      ],
+      "steps": 213,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    },
+    {
+      "episode_id": 2,
+      "condition_id": 2,
+      "attempt_id": 0,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.005,
+        0.009,
+        0.003,
+        -0.17453292519943295,
+        0.10471975511965978,
+        -0.3141592653589793
+      ],
+      "steps": 503,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 3,
+      "condition_id": 3,
+      "attempt_id": 0,
+      "generator": "mixed",
+      "causal_delta": [
+        0.002,
+        -0.008,
+        0.011,
+        0.06981317007977318,
+        0.19198621771937624,
+        0.4363323129985824
+      ],
+      "steps": 489,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 6.807387162520333,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 4,
+      "condition_id": 4,
+      "attempt_id": 0,
+      "generator": "mixed",
+      "causal_delta": [
+        -0.011,
+        -0.003,
+        -0.009,
+        -0.20943951023931956,
+        -0.15707963267948966,
+        -0.4886921905584123
+      ],
+      "steps": 219,
+      "success": false,
+      "complete": false,
+      "stop_reason": "solver_exception",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "solver_error": "RuntimeError('motion planning failed')"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "frames": 200,
+    "arms": [
+      "seed 20260818",
+      "seed 20270818",
+      "seed 20280818",
+      "seed 20290818",
+      "seed 20300818"
+    ],
+    "label": "24_fiveseed_replication",
+    "out": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_videos/24_fiveseed_replication.mp4"
+  },
+  {
+    "frames": 200,
+    "arms": [
+      "Q1 vertical (axis z)",
+      "Q2 horizontal (axis x)"
+    ],
+    "label": "25_rotated_Q1_vs_Q2",
+    "out": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_videos/25_rotated_Q1_vs_Q2.mp4"
+  },
+  {
+    "frames": 200,
+    "arms": [
+      "SE(3) keyed (yaw relevant)",
+      "SE(3) circular honest (gauge)"
+    ],
+    "label": "26_se3_keyed_vs_circular",
+    "out": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_videos/26_se3_keyed_vs_circular.mp4"
+  }
+]

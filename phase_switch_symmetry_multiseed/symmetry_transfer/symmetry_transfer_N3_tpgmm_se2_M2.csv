@@ -1,0 +1,2 @@
+model,sample_size,accuracy,sum,count
+TP-GMM SE(2),3,0.7222222222222222,39,54

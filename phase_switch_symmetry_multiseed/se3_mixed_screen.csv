@@ -1,0 +1,17 @@
+context,seed,first_attempt,eventual,retries_used,last_phase
+translation_only,20260818,True,True,1,circular_insert
+yaw30_only,20260818,True,True,1,circular_insert
+tilt_only,20260818,True,True,1,circular_insert
+tilt+yaw15,20260818,True,True,1,circular_insert
+tilt+yaw30,20260818,False,True,2,circular_insert
+tilt+trans,20260818,False,True,2,circular_insert
+trans+yaw30,20260818,True,True,1,circular_insert
+full_mixed,20260818,False,False,2,enter_key
+mixed_2,20260818,True,True,1,circular_insert
+mixed_16,20260818,True,True,1,circular_insert
+mixed_18,20260818,True,True,1,circular_insert
+mixed_21,20260818,True,True,1,circular_insert
+mixed_24,20260818,False,True,2,circular_insert
+mixed_25,20260818,True,True,1,circular_insert
+mixed_32,20260818,True,True,1,circular_insert
+mixed_39,20260818,False,False,2,unlock_yaw

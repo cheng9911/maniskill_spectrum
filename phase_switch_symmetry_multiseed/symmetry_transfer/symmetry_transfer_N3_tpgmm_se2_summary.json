@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "extension": "N=3 TP-GMM SE(2) only",
+  "experiment_sha256": "f82b47e867efce126d14c8c2b9e4e3520efe2ee6ed152a33729bb72a213ce757",
+  "subset_manifest_sha256": "77237c65f0b8c96fdf65cfe3dd290464b2c21bcbfb242829aea7f925d6206075",
+  "source_sha256": "bd6c9402a9f324da2c968ada26f2f7279c42fb32edf37e6b64288f0fe68c6f6a",
+  "model": "TP-GMM SE(2)",
+  "config": {
+    "component_candidates_rule": "expanded-K (2,3,4,6,8,10,12,16,20) capped at N-1 -> (2,) at N=3",
+    "cv_splits": "min(5, N) = 3",
+    "cv_n_init": 2,
+    "final_n_init": 5
+  },
+  "n3_subsets": [
+    {
+      "subset_id": 18,
+      "protocol": "random",
+      "sample_size": 3,
+      "repeat": 0,
+      "mixed_indices": [
+        17,
+        25,
+        28
+      ],
+      "source_condition_ids": [
+        26,
+        34,
+        37
+      ],
+      "rank": 3,
+      "augmented_intercept_rank": 3,
+      "condition_number": 60.80789609521335
+    },
+    {
+      "subset_id": 19,
+      "protocol": "random",
+      "sample_size": 3,
+      "repeat": 1,
+      "mixed_indices": [
+        13,
+        23,
+        29
+      ],
+      "source_condition_ids": [
+        22,
+        32,
+        38
+      ],
+      "rank": 3,
+      "augmented_intercept_rank": 3,
+      "condition_number": 3.659692841547767
+    },
+    {
+      "subset_id": 20,
+      "protocol": "random",
+      "sample_size": 3,
+      "repeat": 2,
+      "mixed_indices": [
+        8,
+        18,
+        26
+      ],
+      "source_condition_ids": [
+        17,
+        27,
+        35
+      ],
+      "rank": 3,
+      "augmented_intercept_rank": 3,
+      "condition_number": 3.384912940202378
+    },
+    {
+      "subset_id": 21,
+      "protocol": "qualified",
+      "sample_size": 3,
+      "repeat": 0,
+      "mixed_indices": [
+        8,
+        17,
+        29
+      ],
+      "source_condition_ids": [
+        17,
+        26,
+        38
+      ],
+      "rank": 3,
+      "augmented_intercept_rank": 3,
+      "condition_number": 6.551227658277406
+    },
+    {
+      "subset_id": 22,
+      "protocol": "qualified",
+      "sample_size": 3,
+      "repeat": 1,
+      "mixed_indices": [
+        3,
+        5,
+        26
+      ],
+      "source_condition_ids": [
+        12,
+        14,
+        35
+      ],
+      "rank": 3,
+      "augmented_intercept_rank": 3,
+      "condition_number": 5.970285114419417
+    },
+    {
+      "subset_id": 23,
+      "protocol": "qualified",
+      "sample_size": 3,
+      "repeat": 2,
+      "mixed_indices": [
+        7,
+        15,
+        23
+      ],
+      "source_condition_ids": [
+        16,
+        24,
+        32
+      ],
+      "rank": 3,
+      "augmented_intercept_rank": 3,
+      "condition_number": 8.056868274427838
+    }
+  ],
+  "M1_generator_identification_error": [
+    {
+      "task": "keyed",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "mean": 0.22935434693060197,
+      "std": 0.014104621804130505,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "mean": 0.003208581243075616,
+      "std": 0.007364545434052933,
+      "count": 18
+    },
+    {
+      "task": "circular_placebo",
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "mean": 0.009338526349867347,
+      "std": 0.015967213819416293,
+      "count": 18
+    }
+  ],
+  "M2_discrimination_accuracy": [
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "accuracy": 0.7222222222222222,
+      "sum": 39,
+      "count": 54
+    }
+  ],
+  "M2b_symmetry_gap": [
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "arm": "circular_honest",
+      "G_psi_mean": 0.4453255821573894,
+      "G_psi_std": 0.03448822576418972,
+      "abs_dev_mean": 0.5546744178426106
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "arm": "circular_placebo",
+      "G_psi_mean": 0.41374093872538675,
+      "G_psi_std": 0.050438370539776414,
+      "abs_dev_mean": 0.5862590612746132
+    }
+  ],
+  "M3_cross_task_mismatch_gap": [
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.490940050745644,
+      "in_task_error": 11.25332148052817,
+      "mismatch_gap": 1.2376185702174745
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20260818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 16.462524803775242,
+      "in_task_error": 11.25332148052817,
+      "mismatch_gap": 5.209203323247072
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 11.97118850403177,
+      "in_task_error": 10.827453827674894,
+      "mismatch_gap": 1.1437346763568765
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20270818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 15.950655332091536,
+      "in_task_error": 10.827453827674894,
+      "mismatch_gap": 5.123201504416642
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_honest",
+      "cross_task_error": 12.071161737467966,
+      "in_task_error": 11.110812229311684,
+      "mismatch_gap": 0.9603495081562823
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20280818,
+      "fit_task": "keyed",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 16.438388615961795,
+      "in_task_error": 11.110812229311684,
+      "mismatch_gap": 5.327576386650112
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 11.843311010272261,
+      "in_task_error": 11.25332148052817,
+      "mismatch_gap": 0.5899895297440914
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20260818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.986222756788194,
+      "in_task_error": 11.25332148052817,
+      "mismatch_gap": 3.7329012762600247
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 12.257676563048939,
+      "in_task_error": 10.827453827674894,
+      "mismatch_gap": 1.4302227353740449
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20270818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 14.891691303395108,
+      "in_task_error": 10.827453827674894,
+      "mismatch_gap": 4.064237475720214
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "keyed",
+      "cross_task_error": 12.649473192185773,
+      "in_task_error": 11.110812229311684,
+      "mismatch_gap": 1.53866096287409
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20280818,
+      "fit_task": "circular_honest",
+      "eval_task": "circular_placebo",
+      "cross_task_error": 15.749529835472353,
+      "in_task_error": 11.110812229311684,
+      "mismatch_gap": 4.63871760616067
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 16.828032473624777,
+      "in_task_error": 11.25332148052817,
+      "mismatch_gap": 5.574710993096607
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20260818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 15.2383417409401,
+      "in_task_error": 11.25332148052817,
+      "mismatch_gap": 3.9850202604119307
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 17.014016888963805,
+      "in_task_error": 10.827453827674894,
+      "mismatch_gap": 6.186563061288911
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20270818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 15.204922891028152,
+      "in_task_error": 10.827453827674894,
+      "mismatch_gap": 4.377469063353258
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "keyed",
+      "cross_task_error": 16.511143855234515,
+      "in_task_error": 11.110812229311684,
+      "mismatch_gap": 5.400331625922831
+    },
+    {
+      "model": "TP-GMM SE(2)",
+      "sample_size": 3,
+      "seed": 20280818,
+      "fit_task": "circular_placebo",
+      "eval_task": "circular_honest",
+      "cross_task_error": 15.211267087835239,
+      "in_task_error": 11.110812229311684,
+      "mismatch_gap": 4.100454858523555
+    }
+  ],
+  "fit_count": 54,
+  "fit_success_count": 54,
+  "fit_failure_count": 0,
+  "bins_per_phase": 25
+}

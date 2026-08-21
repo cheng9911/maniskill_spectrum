@@ -1,0 +1,94 @@
+{
+  "schema_version": 2,
+  "status": "preregistered_before_collection",
+  "title": "SE(3) 6-generator symmetry-transfer supplement",
+  "context_manifest": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/se3_fixed_contexts.json",
+  "context_manifest_sha256": "30d7f46f8ce73fc94704e0cdf433087de2f129156a45c90dd3c1a516ed5f64d5",
+  "env_id": {
+    "keyed": "KeyedCircularPhaseSwitchSE3-v1",
+    "circular_honest": "CircularPhaseSwitchSE3-v1"
+  },
+  "generator_basis": ["du", "dv", "dw", "d_roll", "d_pitch", "d_yaw"],
+  "orientation": {
+    "Q1": [1.0, 0.0, 0.0, 0.0]
+  },
+  "orientation_note": "Q1 identity only (nominal insertion axis = world z). Roll/pitch are realized as genuine post-grasp re-orientations of the peg (not geometry-locked), and dw is the axial depth DOF. The tilt feasibility was established by the Phase-0 probe (se3_tilt_probe.csv): every +-15 deg tilt cell reaches circular_insert across all three seeds.",
+  "task_anchor": [-0.15, 0.00, 0.08],
+  "task_anchor_note": "RE-ANCHORED from the SE(2) common anchor (-0.35, 0.10, 0.08). That anchor sits ~0.29 m from the Panda base; the bent-arm configuration constrains wrist orientation so combined tilt+translation+yaw align poses are IK-unsolvable (mixed-context failures at ~25-50%, deterministic for the roll=+8/pitch=-5/yaw=+12 corner which fails at align/lift). A full-box corner screen at (-0.15, 0.00, 0.08) confirmed 64/64 corners of the +-0.012 m / +-15 deg / +-30 deg box reachable across 2 seeds x 3 retries. Chosen from IK/collision feasibility only, never from Pdiag results.",
+  "seeds": [20260818, 20270818, 20280818],
+  "retries_per_condition": 5,
+  "robot_init_qpos_noise_rad": 0.01,
+  "gripper": {
+    "stiffness": 2500.0,
+    "force_limit": 150.0,
+    "note": "Firm gripper (unchanged from rotated-axis / symmetry-transfer)."
+  },
+  "arm_definition": {
+    "keyed": {
+      "env_id": "KeyedCircularPhaseSwitchSE3-v1",
+      "yaw_mode": "keyed",
+      "source": "collect",
+      "solver": "solve_se3 (full SE(3) post-grasp re-orientation to roll/pitch/yaw, then unlock yaw to 0)",
+      "note": "yaw is the unique selective generator: alpha_yaw = 1 in align/enter, 0 in unlock/insert. du/dv/dw/roll/pitch are always-on during insertion."
+    },
+    "circular_honest": {
+      "env_id": "CircularPhaseSwitchSE3-v1",
+      "yaw_mode": "honest",
+      "source": "collect",
+      "solver": "solve_se3 with align_yaw=0 (keep socket roll/pitch tilt, drop yaw)",
+      "note": "full SO(2) yaw gauge symmetry: alpha_yaw = 0 everywhere. du/dv/dw/roll/pitch remain always-on."
+    }
+  },
+  "oracle": {
+    "generator_law_table": {
+      "du": {"keyed": [1, 1, 1, 1], "circular_honest": [1, 1, 1, 1]},
+      "dv": {"keyed": [1, 1, 1, 1], "circular_honest": [1, 1, 1, 1]},
+      "dw": {"keyed": [1, 1, 1, 1], "circular_honest": [1, 1, 1, 1]},
+      "roll": {"keyed": [1, 1, 1, 1], "circular_honest": [1, 1, 1, 1]},
+      "pitch": {"keyed": [1, 1, 1, 1], "circular_honest": [1, 1, 1, 1]},
+      "yaw": {"keyed": [1, 1, 0, 0], "circular_honest": [0, 0, 0, 0]}
+    },
+    "phases": ["align_keyed", "enter_key", "unlock_yaw", "circular_insert"],
+    "note": "The five non-yaw generators are 0 during reach/grasp/lift (peg at fixed pedestal) and 1 during insertion. yaw is the only generator that additionally drops to 0 at unlock (SO(2)->C2 gauge symmetry)."
+  },
+  "contexts": {
+    "manifest": "75-condition frozen manifest (60 mixed + 14 isolated + 1 baseline)",
+    "generator_scale": {
+      "translation_m": 0.012,
+      "roll_pitch_deg": 15.0,
+      "yaw_deg": 30.0
+    },
+    "isolated_grid": "du/dv/dw at +-0.015 m; roll/pitch at +-15 deg; yaw at +-15 and +-30 deg",
+    "demonstrations": "N in {8, 15, 30} mixed demos, subsampled from the 60-mixed manifest via a FROZEN subset file (se3_subsets.json). N>=6 is required for a rank-6 design.",
+    "perturbation_tests": "14 held-out isolated interventions plus the zero baseline"
+  },
+  "frozen_model": {
+    "alpha_max": 1.25,
+    "n_basis": 24,
+    "basis_width": 0.065,
+    "smoothness_weight": 0.1,
+    "nominal_iterations": 3,
+    "finite_action": "C0 Exp(P(s) Log(C0^-1 C)) C0^-1 X0 in SE(3), 6-dim diagonal"
+  },
+  "success_criteria": {
+    "M4_selectivity_identification": "HEADLINE. Delta_j = mean(alpha_j | phase<2) - mean(alpha_j | phase>=2). Oracle Delta*_yaw = 1, Delta*_others = 0. Correct iff Delta_yaw > 0.5 AND Delta_j < 0.5 for all of du/dv/dw/roll/pitch. Target ~100% for Pdiag finite across seeds/subsets at N in {8,15,30}.",
+    "M1_generator_identification_error": "E_alpha(task; N, model) = (1/(6T)) sum_j sum_t (alpha_j(t) - alpha*_j^task(t))^2, summed over all 6 generators",
+    "M2_symmetry_discrimination_accuracy": "classify fit as keyed iff alpha_yaw^pre > 0.5; target 100% for Pdiag finite at every N",
+    "M2b_symmetry_gap": "G_psi = alpha_yaw^pre(keyed) - alpha_yaw^pre(circular_honest); ideal G_psi* = 1",
+    "M0_switch_fidelity": "keyed arm reproduces the frozen 0.5-crossing transition location in the yaw channel"
+  },
+  "collection_policy": {
+    "same_frozen_contexts": true,
+    "same_common_anchor": false,
+    "anchor_note": "SE(3) supplement re-anchored to (-0.15, 0.00, 0.08); see task_anchor_note. The SE(2) common anchor (-0.35, 0.10, 0.08) is IK-limited for full 6D mixed contexts.",
+    "retain_all_attempts": true,
+    "each_seed_fit_independently": true,
+    "env_change_is_additive": true,
+    "env_change_note": "Two NEW @register_env classes (KeyedCircularPhaseSwitchSE3-v1 / CircularPhaseSwitchSE3-v1) were added; the frozen SE(2) classes and their provenance hashes are byte-for-byte preserved."
+  },
+  "source_sha256": {
+    "phase_switch_symmetry_env.py": "7a9865687c97223cbddba731d443eb2be68ff96d1929053f7f2e59a68316f34c",
+    "collect_phase_switch_rotated.py": "19b08acc5d7d1a952ffdd0194a30d127f79f6957d02132df70a06372b4d054f9",
+    "phase_switch_se3_baselines.py": "820ac06d795f51e0332444796b37f8ac993262b5903a4c916722e04ef0e24080"
+  }
+}

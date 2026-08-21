@@ -1,0 +1,24 @@
+{
+  "yaw_profile": [
+    1.6314247954404353e-06,
+    -0.0017103015408372797,
+    -0.0010238420750284638,
+    1.000195241753447,
+    1.000300359863673,
+    0.06921138028521709,
+    0.04051974512239783
+  ],
+  "translation_profile": [
+    2.3179584079318583e-06,
+    0.00017434358596801758,
+    0.0037610530853271484,
+    0.9994440608554418,
+    1.0067240645488105,
+    1.0083072715335424,
+    1.0246000356144376
+  ],
+  "yaw_is_0_1_0": true,
+  "translation_is_0_then_1": true,
+  "translation_is_constant_1": false,
+  "note": "yaw is 0->1->0 (0 in reach/grasp/lift, 1 in align/enter, 0 in unlock/insert). translation is 0->1 (0 in reach/grasp/lift, 1 in align/enter/unlock/insert), NOT constant 1: reach/grasp/lift are pre-contact, the peg is at a fixed pedestal pose independent of the socket intervention."
+}

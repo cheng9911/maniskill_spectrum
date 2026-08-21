@@ -44,6 +44,60 @@ Panda.gripper_stiffness = 2.5e3
 Panda.gripper_force_limit = 150.0
 
 
+def intervention_rows_se3(n_mixed: int, seed: int):
+    """6-generator SE(3) intervention rows.
+
+    baseline : 1 zero vector.
+    isolated : du, dv, dw at +-0.015 m; roll, pitch at +-15 deg; yaw at
+               +-15 and +-30 deg (4 points, matching the SE(2) yaw sweep).
+    mixed    : n_mixed random 6-vectors, uniform in du/dv/dw +-0.012 m,
+               roll/pitch +-15 deg, yaw +-30 deg (larger pool for rank-6
+               qualified subsets).
+    """
+    deg = np.deg2rad
+    rows = [dict(generator="baseline", causal_delta=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0])]
+    rows.extend(
+        dict(generator="du", causal_delta=[d, 0.0, 0.0, 0.0, 0.0, 0.0])
+        for d in (-0.015, 0.015)
+    )
+    rows.extend(
+        dict(generator="dv", causal_delta=[0.0, d, 0.0, 0.0, 0.0, 0.0])
+        for d in (-0.015, 0.015)
+    )
+    rows.extend(
+        dict(generator="dw", causal_delta=[0.0, 0.0, d, 0.0, 0.0, 0.0])
+        for d in (-0.015, 0.015)
+    )
+    rows.extend(
+        dict(generator="roll", causal_delta=[0.0, 0.0, 0.0, deg(a), 0.0, 0.0])
+        for a in (-15.0, 15.0)
+    )
+    rows.extend(
+        dict(generator="pitch", causal_delta=[0.0, 0.0, 0.0, 0.0, deg(a), 0.0])
+        for a in (-15.0, 15.0)
+    )
+    rows.extend(
+        dict(generator="yaw", causal_delta=[0.0, 0.0, 0.0, 0.0, 0.0, deg(a)])
+        for a in (-30.0, -15.0, 15.0, 30.0)
+    )
+    rng = np.random.default_rng(seed)
+    for _ in range(n_mixed):
+        rows.append(
+            dict(
+                generator="mixed",
+                causal_delta=[
+                    float(rng.uniform(-0.012, 0.012)),
+                    float(rng.uniform(-0.012, 0.012)),
+                    float(rng.uniform(-0.012, 0.012)),
+                    float(rng.uniform(deg(-15.0), deg(15.0))),
+                    float(rng.uniform(deg(-15.0), deg(15.0))),
+                    float(rng.uniform(deg(-30.0), deg(30.0))),
+                ],
+            )
+        )
+    return rows
+
+
 def solve_rotated(env: PhaseSwitchTraceWrapper, align_yaw=None, align_sweep_yaw=None):
     base = env.unwrapped
     axis = base.insertion_axis  # [3] unit vector
@@ -130,6 +184,102 @@ def solve_rotated(env: PhaseSwitchTraceWrapper, align_yaw=None, align_sweep_yaw=
                 phase_switch_symmetry_env.KEY_CLEAR_PEG_Z,
             )
             staged_goal = base.target_pose_at(peg_depth, keyed_yaw).sp
+            move_pose(tcp_pose_for_peg_target(staged_goal), refine_steps=3)
+        env.set_phase("unlock_yaw")
+        move_pose(tcp_pose_for_peg_target(post_clear), refine_steps=8)
+        env.set_phase("circular_insert")
+        move_pose(tcp_pose_for_peg_target(final_target), refine_steps=10)
+        move_pose(tcp_pose_for_peg_target(final_target), refine_steps=10)
+    finally:
+        planner.close()
+
+
+def solve_se3(env: PhaseSwitchTraceWrapper, align_roll=None, align_pitch=None, align_yaw=None):
+    """SE(3) solver: the same skeleton as solve_rotated, but the peg is tilted to
+    the socket's full local SO(3) orientation (roll, pitch, yaw) after grasp.
+
+    The grasp/lift phases are UNCHANGED from SE(2): the peg is spawned at the
+    nominal orientation Q, so the end-on grasp approaches along the nominal
+    ``insertion_axis = Q e_z``. The post-grasp align phase then re-orients the
+    grasped peg to (roll, pitch, yaw) at PRE_ENTRY_PEG_Z; enter_key steps along
+    the tilted ``socket_axis``; unlock_yaw drops yaw to 0 while keeping tilt;
+    circular_insert reaches the final depth at (roll, pitch, 0).
+    """
+    base = env.unwrapped
+    axis = base.insertion_axis  # nominal axis for the end-on grasp
+    planner = PandaArmMotionPlanningSolver(
+        env,
+        debug=False,
+        vis=False,
+        base_pose=base.agent.robot.pose,
+        visualize_target_grasp_pose=False,
+        print_env_info=False,
+        joint_vel_limits=0.5,
+        joint_acc_limits=0.5,
+    )
+    try:
+        peg_position = base.peg.pose.sp.p
+        grasp_pose = base.agent.build_grasp_pose(
+            approaching=-axis,
+            closing=base.Q_mat @ np.array([0.0, 1.0, 0.0]),
+            center=peg_position + 0.020 * axis,
+        )
+
+        def move_pose(target_pose, refine_steps=0):
+            result = planner.move_to_pose_with_screw(
+                target_pose, refine_steps=refine_steps
+            )
+            if result == -1:
+                result = planner.move_to_pose_with_RRTConnect(
+                    target_pose, refine_steps=refine_steps
+                )
+            if result == -1:
+                raise RuntimeError("motion planning failed")
+            return result
+
+        def tcp_pose_for_peg_target(target_peg_pose):
+            return target_peg_pose * base.peg.pose.sp.inv() * base.agent.tcp.pose.sp
+
+        roll = float(base.socket_rpy[0]) if align_roll is None else float(align_roll)
+        pitch = float(base.socket_rpy[1]) if align_pitch is None else float(align_pitch)
+        yaw = float(base.socket_rpy[2]) if align_yaw is None else float(align_yaw)
+
+        keyed_preinsert = base.target_pose_at(
+            phase_switch_symmetry_env.PRE_ENTRY_PEG_Z, roll, pitch, yaw
+        ).sp
+        keyed_entry = base.target_pose_at(
+            phase_switch_symmetry_env.KEY_CLEAR_PEG_Z, roll, pitch, yaw
+        ).sp
+        post_clear = base.target_pose_at(
+            phase_switch_symmetry_env.KEY_CLEAR_PEG_Z, roll, pitch, 0.0
+        ).sp
+        final_target = base.target_pose_at(
+            phase_switch_symmetry_env.FINAL_PEG_Z, roll, pitch, 0.0
+        ).sp
+
+        env.set_phase("reach")
+        move_pose(grasp_pose * sapien.Pose([0.0, 0.0, -0.070]))
+        env.set_phase("grasp")
+        move_pose(grasp_pose)
+        planner.close_gripper()
+        env.set_phase("lift")
+        move_pose(grasp_pose * sapien.Pose([0.0, 0.0, -0.095]))
+
+        env.set_phase("align_keyed")
+        move_pose(tcp_pose_for_peg_target(keyed_preinsert), refine_steps=5)
+        move_pose(tcp_pose_for_peg_target(keyed_preinsert), refine_steps=5)
+        env.set_phase("enter_key")
+        insertion_step = 0.003
+        n_steps = int(np.ceil(
+            (phase_switch_symmetry_env.PRE_ENTRY_PEG_Z
+             - phase_switch_symmetry_env.KEY_CLEAR_PEG_Z) / insertion_step
+        ))
+        for i in range(1, n_steps + 1):
+            peg_depth = max(
+                phase_switch_symmetry_env.PRE_ENTRY_PEG_Z - i * insertion_step,
+                phase_switch_symmetry_env.KEY_CLEAR_PEG_Z,
+            )
+            staged_goal = base.target_pose_at(peg_depth, roll, pitch, yaw).sp
             move_pose(tcp_pose_for_peg_target(staged_goal), refine_steps=3)
         env.set_phase("unlock_yaw")
         move_pose(tcp_pose_for_peg_target(post_clear), refine_steps=8)

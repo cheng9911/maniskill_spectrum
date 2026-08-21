@@ -60,6 +60,31 @@ def _yaw_quat(yaw: float):
     return euler2quat(0.0, 0.0, yaw)
 
 
+def _axis_angle_quat(axis, angle):
+    axis = np.asarray(axis, dtype=np.float64)
+    axis = axis / np.linalg.norm(axis)
+    half = 0.5 * float(angle)
+    s = np.sin(half)
+    return np.array(
+        [np.cos(half), s * axis[0], s * axis[1], s * axis[2]], dtype=np.float64
+    )
+
+
+def _local_quat(roll, pitch, yaw):
+    """Local SO(3) perturbation ``R_local = Rx(roll) Ry(pitch) Rz(yaw)``.
+
+    Column-vector convention: ``R_local v = Rx(roll) (Ry(pitch) (Rz(yaw) v))``
+    — yaw is the innermost axial rotation, pitch the middle, roll the outer. For
+    the small angles used here the three commute to first order, so the isolated
+    response diagonal is identity under any consistent local frame regardless of
+    this (pinned) order.
+    """
+    q_x = _axis_angle_quat([1.0, 0.0, 0.0], roll)
+    q_y = _axis_angle_quat([0.0, 1.0, 0.0], pitch)
+    q_z = _axis_angle_quat([0.0, 0.0, 1.0], yaw)
+    return qmult(q_x, qmult(q_y, q_z))
+
+
 def _axis_error_from_wxyz(q_wxyz: np.ndarray, axis_world: np.ndarray) -> float:
     w, x, y, z = np.asarray(q_wxyz, dtype=np.float64)
     axis_z = np.array(
@@ -401,6 +426,194 @@ class CircularPhaseSwitchEnv(KeyedCircularPhaseSwitchEnv):
     removed, so the axial-yaw generator is irrelevant throughout: the task-local
     trajectory is invariant under the intervention d_axial (a gauge symmetry).
     """
+
+    def __init__(self, *args, **kwargs):
+        kwargs["keyed"] = False
+        super().__init__(*args, **kwargs)
+
+
+@register_env("KeyedCircularPhaseSwitchSE3-v1", max_episode_steps=1500)
+class KeyedCircularPhaseSwitchSE3Env(KeyedCircularPhaseSwitchEnv):
+    """SE(3) 6-generator variant of the phase-switch task.
+
+    ``causal_delta = [du, dv, dw, d_roll, d_pitch, d_yaw]`` is the full
+    task-local SE(3) intervention: ``du, dv`` lateral translation, ``dw`` axial
+    depth, ``d_roll, d_pitch`` socket-axis tilt, ``d_yaw`` axial rotation. The
+    socket orientation is ``Q * Rx(roll) Ry(pitch) Rz(yaw)`` and its position is
+    ``_to_world([du, dv, dw])``. The peg is still spawned at the nominal
+    orientation ``Q`` on the pedestal (axis ``Q e_z``); the solver tilts it to
+    the socket after grasp. ``insertion_axis`` stays the nominal ``Q e_z`` for
+    the end-on grasp, while ``socket_axis`` is the tilted insertion axis.
+    """
+
+    def __init__(self, *args, robot_uids="panda", robot_init_qpos_noise=0.0,
+                 orientation=None, task_anchor=None, keyed=True, **kwargs):
+        super().__init__(
+            *args,
+            robot_uids=robot_uids,
+            robot_init_qpos_noise=robot_init_qpos_noise,
+            orientation=orientation,
+            task_anchor=task_anchor,
+            keyed=keyed,
+            **kwargs,
+        )
+        # Override the SE(2) 3-vector defaults with the 6-vector SE(3) state.
+        self.causal_delta = np.zeros(6, dtype=np.float64)
+        self.socket_rpy = np.zeros(3, dtype=np.float64)  # [roll, pitch, yaw]
+        self.socket_axis = self.insertion_axis.copy()
+
+    def _initialize_episode(self, env_idx: torch.Tensor, options: dict):
+        with torch.device(self.device):
+            self.table_scene.initialize(env_idx)
+            causal_delta = (
+                np.zeros(6, dtype=np.float64)
+                if options is None or options.get("causal_delta") is None
+                else np.asarray(options["causal_delta"], dtype=np.float64)
+            )
+            if causal_delta.shape != (6,):
+                raise ValueError(
+                    "causal_delta must be [du, dv, dw, d_roll, d_pitch, d_yaw]"
+                )
+            self.causal_delta = causal_delta
+            self.socket_rpy = causal_delta[3:6].copy()
+            self.socket_yaw = float(causal_delta[5])
+            roll, pitch, yaw = (float(causal_delta[3]), float(causal_delta[4]),
+                                float(causal_delta[5]))
+
+            # Peg start: FIXED grasp position on the elevated pedestal, axis
+            # aligned with Q (nominal). The tilt happens after grasp.
+            peg_pos = np.array(
+                [PEDESTAL_POS[0], PEDESTAL_POS[1], PEDESTAL_POS[2] + self._resting_height()],
+                dtype=np.float64,
+            )
+            peg_p = torch.tensor(
+                peg_pos, dtype=torch.float32, device=self.device
+            ).repeat(len(env_idx), 1)
+            peg_q = torch.tensor(
+                self.orientation, dtype=torch.float32, device=self.device
+            ).repeat(len(env_idx), 1)
+            self.peg.set_pose(Pose.create_from_pq(peg_p, peg_q))
+
+            socket_p = torch.tensor(
+                self._to_world([causal_delta[0], causal_delta[1], causal_delta[2]]),
+                dtype=torch.float32,
+                device=self.device,
+            ).repeat(len(env_idx), 1)
+            socket_q = torch.tensor(
+                qmult(self.orientation, _local_quat(roll, pitch, yaw)),
+                dtype=torch.float32,
+                device=self.device,
+            ).repeat(len(env_idx), 1)
+            self.socket.set_pose(Pose.create_from_pq(socket_p, socket_q))
+
+            # Tilted insertion axis (socket local z in world); yaw does not move
+            # the local z axis, so only roll/pitch enter here.
+            r_roll_pitch = quat2mat(_local_quat(roll, pitch, 0.0))
+            self.socket_axis = self.Q_mat @ (
+                r_roll_pitch @ np.array([0.0, 0.0, 1.0])
+            )
+
+            qpos = np.array(
+                [
+                    0.0,
+                    np.pi / 8,
+                    0.0,
+                    -np.pi * 5 / 8,
+                    0.0,
+                    np.pi * 3 / 4,
+                    np.pi / 4,
+                    0.04,
+                    0.04,
+                ],
+                dtype=np.float64,
+            )
+            noise = np.random.normal(
+                0.0, self.robot_init_qpos_noise, (len(env_idx), len(qpos))
+            )
+            qpos = qpos + noise
+            qpos[:, -2:] = 0.04
+            self.agent.robot.set_qpos(qpos)
+            self.agent.robot.set_pose(sapien.Pose([-0.615, 0.0, 0.0]))
+
+    def target_pose_at(self, d: float, roll: float, pitch: float, yaw: float):
+        # d = depth along the (possibly tilted) insertion axis, measured from the
+        # socket centre. dw shifts the socket centre; roll/pitch tilt the axis so
+        # the peg moves along the tilted bore, not the nominal Q e_z.
+        socket_center = self._to_world(
+            [self.causal_delta[0], self.causal_delta[1], self.causal_delta[2]]
+        )
+        axis_local = quat2mat(_local_quat(roll, pitch, 0.0)) @ np.array([0.0, 0.0, 1.0])
+        axis_world = self.Q_mat @ axis_local
+        p_world = socket_center + d * axis_world
+        q_world = qmult(self.orientation, _local_quat(roll, pitch, yaw))
+        p = torch.tensor(p_world, dtype=torch.float32, device=self.device).reshape(1, 3)
+        q = torch.tensor(q_world, dtype=torch.float32, device=self.device).reshape(1, 4)
+        return Pose.create_from_pq(p, q)
+
+    @property
+    def keyed_preinsert_pose(self):
+        r, p, y = self.socket_rpy
+        return self.target_pose_at(PRE_ENTRY_PEG_Z, r, p, y)
+
+    @property
+    def keyed_entry_pose(self):
+        r, p, y = self.socket_rpy
+        return self.target_pose_at(KEY_CLEAR_PEG_Z, r, p, y)
+
+    @property
+    def circular_transition_pose(self):
+        r, p, _ = self.socket_rpy
+        return self.target_pose_at(KEY_CLEAR_PEG_Z, r, p, 0.0)
+
+    @property
+    def goal_pose(self):
+        r, p, _ = self.socket_rpy
+        return self.target_pose_at(FINAL_PEG_Z, r, p, 0.0)
+
+    @property
+    def key_clearance_margin(self):
+        axis = torch.tensor(self.socket_axis, dtype=torch.float32, device=self.device)
+        peg_local_z = torch.sum((self.peg.pose.p - self.socket.pose.p) * axis, dim=1)
+        return GATE_Z_MIN - (peg_local_z + KEY_Z_MAX)
+
+    def evaluate(self):
+        peg = self.peg.pose
+        goal = self.goal_pose
+        pos_err = torch.linalg.norm(peg.p - goal.p, axis=1)
+        axis_err = torch.tensor(
+            [_axis_error_from_wxyz(q, self.socket_axis) for q in peg.q.detach().cpu().numpy()],
+            dtype=pos_err.dtype,
+            device=pos_err.device,
+        )
+        yaw_err = torch.zeros_like(pos_err)
+        success = (pos_err < 0.012) & (axis_err < 0.15)
+        return dict(
+            success=success,
+            obj_to_goal_dist=pos_err,
+            axis_angle_err=axis_err,
+            yaw_err=yaw_err,
+            key_clearance_margin=self.key_clearance_margin,
+        )
+
+    def _get_obs_extra(self, info: dict):
+        obs = dict(tcp_pose=self.agent.tcp.pose.raw_pose)
+        if self.obs_mode_struct.use_state:
+            obs.update(
+                peg_pose=self.peg.pose.raw_pose,
+                socket_pose=self.socket.pose.raw_pose,
+                keyed_entry_goal_pose=self.keyed_entry_pose.raw_pose,
+                goal_pose=self.goal_pose.raw_pose,
+                causal_delta=torch.tensor(
+                    self.causal_delta, dtype=torch.float32, device=self.device
+                ).repeat(self.num_envs, 1),
+                key_clearance_margin=self.key_clearance_margin[:, None],
+            )
+        return obs
+
+
+@register_env("CircularPhaseSwitchSE3-v1", max_episode_steps=1500)
+class CircularPhaseSwitchSE3Env(KeyedCircularPhaseSwitchSE3Env):
+    """Circular peg in a circular bore, SE(3) variant: full SO(2) yaw symmetry."""
 
     def __init__(self, *args, **kwargs):
         kwargs["keyed"] = False
