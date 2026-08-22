@@ -1,0 +1,895 @@
+{
+  "schema_version": 1,
+  "fits_source": "phase_switch_symmetry_multiseed/se3_transfer_basis_ablation/basis_ablation_fits.csv",
+  "source_sha256": {
+    "analyze_se3_basis_ablation.py": "d25304c1f5f102e9f179423dff69270617ab17f165265d82418a581c2541ca98",
+    "benchmark_se3_basis_ablation.py": "f0819a82c0ab8645f1467bca5eab572abd8337b1321ce9fd6e8ebf2b3407d064",
+    "benchmark_se3_transfer.py": "6f71d22b7b3e137dba23208227ff81c1816b8d0cbc666b86e7e2b2b09df071ec"
+  },
+  "rotations_deg": {
+    "rotated-1": [
+      30.0,
+      -20.0,
+      40.0
+    ],
+    "rotated-2": [
+      -35.0,
+      25.0,
+      15.0
+    ]
+  },
+  "design": {
+    "e_data": "mean squared in-sample prediction error in metric units; basis-independent, scored at full precision. Pdiag finite must degrade in rotated bases; the Full operator and the provably Ad-invariant Frame-weighted scalar must not.",
+    "rescaling_floor": "closed-form best-achievable e_alpha for any diagonal model in a rotated basis: proj_k(s) = sum_j A[k,j] R[j,k] d_j(s) with A = C0'^-1 C0_true ~ I, i.e. the rescaled law d_k(s) * R[k,k]. The fitted e_alpha(rotated) exceeds it because the pose6-weighted objective contorts the diagonal to chase the off-diagonal response (a law-vs-data tension that only exists off the task basis)."
+  },
+  "e_data_means_and_ratios": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "local": 5.7537652524726514e-05,
+      "rotated-1": 6.357620372559057e-05,
+      "rotated-2": 5.763920408441743e-05,
+      "r1/local": 1.104949558000633,
+      "r2/local": 1.0017649583400587
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "local": 5.747775468187218e-05,
+      "rotated-1": 6.411818033713018e-05,
+      "rotated-2": 5.844668017805304e-05,
+      "r1/local": 1.1155303593888004,
+      "r2/local": 1.0168573999026869
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "local": 6.684603144173367e-05,
+      "rotated-1": 7.460033123225302e-05,
+      "rotated-2": 6.707446262739576e-05,
+      "r1/local": 1.1160023957036012,
+      "r2/local": 1.0034172737069844
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "local": 6.558418247097953e-05,
+      "rotated-1": 7.492606458465702e-05,
+      "rotated-2": 6.741329390396394e-05,
+      "r1/local": 1.1424410850560072,
+      "r2/local": 1.0278895209800591
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "local": 7.73206448186705e-05,
+      "rotated-1": 8.70623620237788e-05,
+      "rotated-2": 8.00056630714111e-05,
+      "r1/local": 1.125991153177191,
+      "r2/local": 1.0347257612638565
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "local": 7.963089071166864e-05,
+      "rotated-1": 9.122727046134142e-05,
+      "rotated-2": 8.275602706202641e-05,
+      "r1/local": 1.1456266487293418,
+      "r2/local": 1.0392452768319949
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "local": 2.998020106873922e-07,
+      "rotated-1": 3.3416649551830806e-07,
+      "rotated-2": 3.888010900039457e-07,
+      "r1/local": 1.1146239304804004,
+      "r2/local": 1.2968595144258526
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "local": 1.6362417215403839e-06,
+      "rotated-1": 2.1552887773308237e-06,
+      "rotated-2": 2.141571680992728e-06,
+      "r1/local": 1.3172190569140363,
+      "r2/local": 1.3088357623448315
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "local": 1.8551176159162121e-06,
+      "rotated-1": 2.9066292151839646e-06,
+      "rotated-2": 2.8967848244147115e-06,
+      "r1/local": 1.5668166752588504,
+      "r2/local": 1.561510062521851
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "local": 1.3471029156287145e-06,
+      "rotated-1": 1.2959271067098073e-06,
+      "rotated-2": 1.4839676477981288e-06,
+      "r1/local": 0.962010468298168,
+      "r2/local": 1.1015993140401878
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "local": 1.7240328599531768e-05,
+      "rotated-1": 1.8053877682947524e-05,
+      "rotated-2": 1.639705480027219e-05,
+      "r1/local": 1.0471887225767758,
+      "r2/local": 0.9510871388331611
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "local": 1.5512053864131027e-05,
+      "rotated-1": 1.6407022296745292e-05,
+      "rotated-2": 1.6365079508572953e-05,
+      "r1/local": 1.0576950312610587,
+      "r2/local": 1.0549911476528844
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "local": 3.3167817337828103e-06,
+      "rotated-1": 3.781024873180893e-05,
+      "rotated-2": 2.3176960924673257e-05,
+      "r1/local": 11.399679498562032,
+      "r2/local": 6.987785988027554
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "local": 3.6756797449722e-06,
+      "rotated-1": 3.654288534986905e-05,
+      "rotated-2": 3.1003705747019894e-05,
+      "r1/local": 9.94180339020407,
+      "r2/local": 8.434822372495454
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "local": 3.7490396057518976e-06,
+      "rotated-1": 4.878327694357274e-05,
+      "rotated-2": 3.376902538474012e-05,
+      "r1/local": 13.01220634445362,
+      "r2/local": 9.00738027225175
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "local": 1.1624141752317684e-05,
+      "rotated-1": 4.507979838453928e-05,
+      "rotated-2": 3.2948655267242e-05,
+      "r1/local": 3.8781184318877586,
+      "r2/local": 2.8345021911551034
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "local": 2.125678950495951e-05,
+      "rotated-1": 5.4822108542380614e-05,
+      "rotated-2": 4.748801524895906e-05,
+      "r1/local": 2.5790399123813987,
+      "r2/local": 2.2340163474770933
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "local": 1.65477352808014e-05,
+      "rotated-1": 6.101494258869337e-05,
+      "rotated-2": 4.581956021970068e-05,
+      "r1/local": 3.6872080410594075,
+      "r2/local": 2.7689323911810644
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "local": 4.9008141022590106e-05,
+      "rotated-1": 5.757005459892016e-05,
+      "rotated-2": 4.977864812505255e-05,
+      "r1/local": 1.1747039042428373,
+      "r2/local": 1.0157220226351227
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "local": 4.7350425113556715e-05,
+      "rotated-1": 5.8919148620669885e-05,
+      "rotated-2": 4.986665282852513e-05,
+      "r1/local": 1.2443214285694126,
+      "r2/local": 1.0531405517254375
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "local": 5.902573934503194e-05,
+      "rotated-1": 7.021292023920863e-05,
+      "rotated-2": 6.251671357868599e-05,
+      "r1/local": 1.1895305508802287,
+      "r2/local": 1.0591432529671123
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "local": 5.812372084835845e-05,
+      "rotated-1": 6.721677002343274e-05,
+      "rotated-2": 6.0046203719414534e-05,
+      "r1/local": 1.1564429985271858,
+      "r2/local": 1.0330757020196923
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "local": 7.145014419478192e-05,
+      "rotated-1": 8.345487444107033e-05,
+      "rotated-2": 7.47883849650574e-05,
+      "r1/local": 1.1680154796267734,
+      "r2/local": 1.0467212600883635
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "local": 7.550312561795241e-05,
+      "rotated-1": 8.735813352075732e-05,
+      "rotated-2": 7.992181376897321e-05,
+      "r1/local": 1.1570134720354694,
+      "r2/local": 1.058523248075576
+    }
+  ],
+  "e_alpha_means_and_ratios": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "local": 0.29841028190221225,
+      "rotated-1": 0.48469594387033166,
+      "rotated-2": 0.2771085930906556,
+      "r1/local": 1.6242601990140688,
+      "r2/local": 0.9286161030519146
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "local": 0.2638118956053289,
+      "rotated-1": 0.3810344030594223,
+      "rotated-2": 0.2651439631206322,
+      "r1/local": 1.444341249984656,
+      "r2/local": 1.005049308001244
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "local": 0.2641293017822732,
+      "rotated-1": 0.39647978247985727,
+      "rotated-2": 0.2568015233499972,
+      "r1/local": 1.5010821586416911,
+      "r2/local": 0.972256851538886
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "local": 0.22080655577961875,
+      "rotated-1": 0.3718053964255888,
+      "rotated-2": 0.23398275475119265,
+      "r1/local": 1.6838512566478236,
+      "r2/local": 1.0596730424287073
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "local": 0.225513847618419,
+      "rotated-1": 0.3218066490243296,
+      "rotated-2": 0.24492457741975673,
+      "r1/local": 1.426992853976945,
+      "r2/local": 1.0860733387609158
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "local": 0.19635616358879585,
+      "rotated-1": 0.3060838438708078,
+      "rotated-2": 0.21081959177606088,
+      "r1/local": 1.5588196381336972,
+      "r2/local": 1.0736591504076949
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "local": 0.21853197858818396,
+      "rotated-1": 0.3365706888770264,
+      "rotated-2": 1.0206526641898974,
+      "r1/local": 1.5401438775753837,
+      "r2/local": 4.670495690304816
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "local": 0.06201940075686352,
+      "rotated-1": 0.1129577549846901,
+      "rotated-2": 0.10161089268602636,
+      "r1/local": 1.8213293518833198,
+      "r2/local": 1.6383726938022913
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "local": 0.06433789834731532,
+      "rotated-1": 0.1196578636061622,
+      "rotated-2": 0.10050365923538003,
+      "r1/local": 1.8598348202207828,
+      "r2/local": 1.562122198845089
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "local": 0.40341303681894397,
+      "rotated-1": 0.49459722112205434,
+      "rotated-2": 1.242069889061126,
+      "r1/local": 1.2260318234188223,
+      "r2/local": 3.078903693483213
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "local": 0.1552628710909597,
+      "rotated-1": 0.18918675889592076,
+      "rotated-2": 0.22472665242273326,
+      "r1/local": 1.218493240312985,
+      "r2/local": 1.4473946722979163
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "local": 0.12164791744401714,
+      "rotated-1": 0.15632070278602697,
+      "rotated-2": 0.1679517513414309,
+      "r1/local": 1.285025720707191,
+      "r2/local": 1.380638114242465
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "local": 0.07790433197687628,
+      "rotated-1": 0.3206722997516833,
+      "rotated-2": 0.22839489509477687,
+      "r1/local": 4.116231942619904,
+      "r2/local": 2.9317354927396013
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "local": 0.07140001804703905,
+      "rotated-1": 0.2389973799010766,
+      "rotated-2": 0.25023286683116325,
+      "r1/local": 3.3473013934481464,
+      "r2/local": 3.5046611145995414
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "local": 0.06977623524298443,
+      "rotated-1": 0.23981668921830845,
+      "rotated-2": 0.2011731017114721,
+      "r1/local": 3.436939358840237,
+      "r2/local": 2.8831177407453894
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "local": 0.1049653770097887,
+      "rotated-1": 0.35357187414447594,
+      "rotated-2": 0.2473554893476645,
+      "r1/local": 3.368461908268124,
+      "r2/local": 2.356543618421882
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "local": 0.10203557874543757,
+      "rotated-1": 0.26556603477739255,
+      "rotated-2": 0.2514589327179408,
+      "r1/local": 2.602680731982099,
+      "r2/local": 2.4644240353189995
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "local": 0.09494636546358662,
+      "rotated-1": 0.2694339147144988,
+      "rotated-2": 0.20166205247545246,
+      "r1/local": 2.8377485899429273,
+      "r2/local": 2.123957578479325
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "local": 0.2536195813273228,
+      "rotated-1": 0.46654975632652335,
+      "rotated-2": 0.3677978572769996,
+      "r1/local": 1.8395652018855424,
+      "r2/local": 1.450195033648911
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "local": 0.21966886022679197,
+      "rotated-1": 0.32741921986274886,
+      "rotated-2": 0.3034074664043869,
+      "r1/local": 1.4905126722317972,
+      "r2/local": 1.381203808728925
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "local": 0.14402969696265036,
+      "rotated-1": 0.3072425410349855,
+      "rotated-2": 0.1800770322993886,
+      "r1/local": 2.133188831985527,
+      "r2/local": 1.2502771032427153
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "local": 0.31662697289938113,
+      "rotated-1": 0.5157781075910797,
+      "rotated-2": 0.4461788361974101,
+      "r1/local": 1.628977161572983,
+      "r2/local": 1.4091624352521555
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "local": 0.3109643947745946,
+      "rotated-1": 0.4091271021736209,
+      "rotated-2": 0.45128604654918064,
+      "r1/local": 1.3156718551980218,
+      "r2/local": 1.4512466833262359
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "local": 0.17948482635151522,
+      "rotated-1": 0.3438348261152877,
+      "rotated-2": 0.2503536693243437,
+      "r1/local": 1.915676289213988,
+      "r2/local": 1.3948458731215203
+    }
+  ],
+  "analytic_smearing_floor": [
+    {
+      "task": "keyed",
+      "floor_rotated-1": 0.05195521203812443,
+      "floor_rotated-2": 0.02886921797847973
+    },
+    {
+      "task": "circular_honest",
+      "floor_rotated-1": 0.049065936748885326,
+      "floor_rotated-2": 0.023339571075222856
+    }
+  ],
+  "fitted_vs_floor": [
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "basis": "rotated-2",
+      "e_alpha": 1.242069889061126,
+      "floor": 0.02886921797847973,
+      "fitted/floor": 43.02402268003984
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "basis": "rotated-2",
+      "e_alpha": 0.2473554893476645,
+      "floor": 0.02886921797847973,
+      "fitted/floor": 8.568139584939681
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "basis": "rotated-1",
+      "e_alpha": 0.49459722112205434,
+      "floor": 0.05195521203812443,
+      "fitted/floor": 9.519684391993662
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 8,
+      "basis": "rotated-1",
+      "e_alpha": 0.35357187414447594,
+      "floor": 0.05195521203812443,
+      "fitted/floor": 6.8053205881447845
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "basis": "rotated-2",
+      "e_alpha": 0.22472665242273326,
+      "floor": 0.02886921797847973,
+      "fitted/floor": 7.784299962342364
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "basis": "rotated-2",
+      "e_alpha": 0.2514589327179408,
+      "floor": 0.02886921797847973,
+      "fitted/floor": 8.710278640224628
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "basis": "rotated-1",
+      "e_alpha": 0.18918675889592076,
+      "floor": 0.05195521203812443,
+      "fitted/floor": 3.6413432160972925
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 15,
+      "basis": "rotated-1",
+      "e_alpha": 0.26556603477739255,
+      "floor": 0.05195521203812443,
+      "fitted/floor": 5.1114416505994
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "basis": "rotated-1",
+      "e_alpha": 0.15632070278602697,
+      "floor": 0.05195521203812443,
+      "fitted/floor": 3.0087588261851335
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "basis": "rotated-1",
+      "e_alpha": 0.2694339147144988,
+      "floor": 0.05195521203812443,
+      "fitted/floor": 5.185888078308482
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "basis": "rotated-2",
+      "e_alpha": 0.1679517513414309,
+      "floor": 0.02886921797847973,
+      "fitted/floor": 5.817675818812579
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "keyed",
+      "sample_size": 30,
+      "basis": "rotated-2",
+      "e_alpha": 0.20166205247545246,
+      "floor": 0.02886921797847973,
+      "fitted/floor": 6.985365957116657
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "basis": "rotated-1",
+      "e_alpha": 0.3365706888770264,
+      "floor": 0.049065936748885326,
+      "fitted/floor": 6.859559017482176
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "basis": "rotated-1",
+      "e_alpha": 0.3206722997516833,
+      "floor": 0.049065936748885326,
+      "fitted/floor": 6.53553811461611
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "basis": "rotated-2",
+      "e_alpha": 1.0206526641898974,
+      "floor": 0.023339571075222856,
+      "fitted/floor": 43.730566465868606
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 8,
+      "basis": "rotated-2",
+      "e_alpha": 0.22839489509477687,
+      "floor": 0.023339571075222856,
+      "fitted/floor": 9.785736608383496
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "basis": "rotated-1",
+      "e_alpha": 0.1129577549846901,
+      "floor": 0.049065936748885326,
+      "fitted/floor": 2.302162405719407
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "basis": "rotated-1",
+      "e_alpha": 0.2389973799010766,
+      "floor": 0.049065936748885326,
+      "fitted/floor": 4.870942974639247
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "basis": "rotated-2",
+      "e_alpha": 0.10161089268602636,
+      "floor": 0.023339571075222856,
+      "fitted/floor": 4.35358869100623
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 15,
+      "basis": "rotated-2",
+      "e_alpha": 0.25023286683116325,
+      "floor": 0.023339571075222856,
+      "fitted/floor": 10.721399550346018
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "basis": "rotated-2",
+      "e_alpha": 0.10050365923538003,
+      "floor": 0.023339571075222856,
+      "fitted/floor": 4.306148511104134
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "basis": "rotated-2",
+      "e_alpha": 0.2011731017114721,
+      "floor": 0.023339571075222856,
+      "fitted/floor": 8.619400119355074
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "basis": "rotated-1",
+      "e_alpha": 0.1196578636061622,
+      "floor": 0.049065936748885326,
+      "fitted/floor": 2.438715563886194
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task": "circular_honest",
+      "sample_size": 30,
+      "basis": "rotated-1",
+      "e_alpha": 0.23981668921830845,
+      "floor": 0.049065936748885326,
+      "fitted/floor": 4.8876411031479305
+    }
+  ],
+  "rescaling_distortion": {
+    "rotated-1": {
+      "note": "Best-achievable rotated-basis diagonal = the rescaled law d_k * R[k,k] (A = C0'^-1 C0_true ~ I; see analytic_floor). The selectivity structure (which generators drop) survives the rescaling; the MAGNITUDES are under-read by 1 - R[k,k]. diag(R) applies to both the translation and rotation triples (Ad(R) = blkdiag(R, R)).",
+      "diag_R": [
+        0.7198463103929542,
+        0.7733371033654155,
+        0.8137976813493738
+      ],
+      "relevance_underread": {
+        "du": 0.2801536896070458,
+        "dv": 0.2266628966345845,
+        "dw": 0.1862023186506262
+      }
+    },
+    "rotated-2": {
+      "note": "Best-achievable rotated-basis diagonal = the rescaled law d_k * R[k,k] (A = C0'^-1 C0_true ~ I; see analytic_floor). The selectivity structure (which generators drop) survives the rescaling; the MAGNITUDES are under-read by 1 - R[k,k]. diag(R) applies to both the translation and rotation triples (Ad(R) = blkdiag(R, R)).",
+      "diag_R": [
+        0.875426098065593,
+        0.853978855082683,
+        0.7424038765061041
+      ],
+      "relevance_underread": {
+        "du": 0.12457390193440698,
+        "dv": 0.146021144917317,
+        "dw": 0.25759612349389593
+      }
+    }
+  },
+  "off_diag_mass_full_operator": [
+    {
+      "task": "keyed",
+      "sample_size": 8,
+      "basis": "rotated-2",
+      "mean": 0.917658166836763,
+      "std": 0.015519774886565241
+    },
+    {
+      "task": "keyed",
+      "sample_size": 8,
+      "basis": "local",
+      "mean": 0.8903258488399973,
+      "std": 0.014764679976280332
+    },
+    {
+      "task": "keyed",
+      "sample_size": 8,
+      "basis": "rotated-1",
+      "mean": 0.9243280561654661,
+      "std": 0.015695415760333543
+    },
+    {
+      "task": "keyed",
+      "sample_size": 15,
+      "basis": "rotated-2",
+      "mean": 0.9221238612998938,
+      "std": 0.006853698081108818
+    },
+    {
+      "task": "keyed",
+      "sample_size": 15,
+      "basis": "rotated-1",
+      "mean": 0.9337342772336883,
+      "std": 0.005679156158508866
+    },
+    {
+      "task": "keyed",
+      "sample_size": 15,
+      "basis": "local",
+      "mean": 0.888785177961734,
+      "std": 0.009070050331013848
+    },
+    {
+      "task": "keyed",
+      "sample_size": 30,
+      "basis": "rotated-1",
+      "mean": 0.9322323695801357,
+      "std": 0.0016093578716600864
+    },
+    {
+      "task": "keyed",
+      "sample_size": 30,
+      "basis": "local",
+      "mean": 0.8839277344678205,
+      "std": 0.0023289489349317214
+    },
+    {
+      "task": "keyed",
+      "sample_size": 30,
+      "basis": "rotated-2",
+      "mean": 0.9196537480080332,
+      "std": 0.003940889488370969
+    },
+    {
+      "task": "circular_honest",
+      "sample_size": 8,
+      "basis": "rotated-1",
+      "mean": 0.9293976480709938,
+      "std": 0.01169977128619941
+    },
+    {
+      "task": "circular_honest",
+      "sample_size": 8,
+      "basis": "local",
+      "mean": 0.8970184851744618,
+      "std": 0.01382765491453142
+    },
+    {
+      "task": "circular_honest",
+      "sample_size": 8,
+      "basis": "rotated-2",
+      "mean": 0.9209671504137368,
+      "std": 0.015607030455256535
+    },
+    {
+      "task": "circular_honest",
+      "sample_size": 15,
+      "basis": "local",
+      "mean": 0.8902778473911825,
+      "std": 0.003003151680389945
+    },
+    {
+      "task": "circular_honest",
+      "sample_size": 15,
+      "basis": "rotated-1",
+      "mean": 0.9352604334823688,
+      "std": 0.0021585500758871173
+    },
+    {
+      "task": "circular_honest",
+      "sample_size": 15,
+      "basis": "rotated-2",
+      "mean": 0.9242428484845884,
+      "std": 0.00489789272018933
+    },
+    {
+      "task": "circular_honest",
+      "sample_size": 30,
+      "basis": "local",
+      "mean": 0.8906404396202086,
+      "std": 0.0013047629152739563
+    },
+    {
+      "task": "circular_honest",
+      "sample_size": 30,
+      "basis": "rotated-2",
+      "mean": 0.9243153298543749,
+      "std": 0.0024823441760028577
+    },
+    {
+      "task": "circular_honest",
+      "sample_size": 30,
+      "basis": "rotated-1",
+      "mean": 0.9363835468653696,
+      "std": 0.0013869324663780876
+    }
+  ]
+}

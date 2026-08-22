@@ -1,0 +1,503 @@
+{
+  "schema_version": 1,
+  "experiment_sha256": "44e219fe7c00a1ad2a7761d61618655420cbbd29f542ee2b897a4e1ec4244e4a",
+  "subset_manifest_sha256": "b14b6d26b52daa7d26fd832666d6c195731f2180726e499dd13edc57773664f0",
+  "source_sha256": {
+    "benchmark_se3_multigen.py": "df65a56201358e0e9b48703e97657f8daca4105e0261ba2cd0af01e385da4025",
+    "benchmark_se3_transfer.py": "6f71d22b7b3e137dba23208227ff81c1816b8d0cbc666b86e7e2b2b09df071ec",
+    "phase_switch_se3_baselines.py": "820ac06d795f51e0332444796b37f8ac993262b5903a4c916722e04ef0e24080"
+  },
+  "oracle": {
+    "multigen": "du/yaw = 1 in align/enter (phase<2), 0 in unlock/insert; dv/dw/roll/pitch = 1 everywhere"
+  },
+  "M_multi": {
+    "definition": "rank generators by Delta_j = mean(alpha_j|phase<2) - mean(alpha_j|phase>=2); correct iff top-2 == {du, yaw}, both Delta > 0.2, and the other four all < 0.2",
+    "tau": 0.2,
+    "oracle": {
+      "delta_du": 1.0,
+      "delta_yaw": 1.0,
+      "delta_others": 0.0
+    }
+  },
+  "M_multi_accuracy": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "accuracy": 0.7777777777777778,
+      "sum": 14,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "accuracy": 0.6666666666666666,
+      "sum": 12,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "accuracy": 0.9444444444444444,
+      "sum": 17,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "accuracy": 0.8888888888888888,
+      "sum": 16,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "accuracy": 0.7777777777777778,
+      "sum": 14,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    }
+  ],
+  "delta_means": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "delta_du": 0.16032759382273254,
+      "delta_dv": 0.16032759382273254,
+      "delta_dw": 0.16032759382273254,
+      "delta_roll": 0.16032759382273254,
+      "delta_pitch": 0.16032759382273254,
+      "delta_yaw": 0.16032759382273254
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "delta_du": 0.3681181056016671,
+      "delta_dv": -0.42890701540609455,
+      "delta_dw": -0.21098782977747244,
+      "delta_roll": -0.1911101451131426,
+      "delta_pitch": -0.16573581943731552,
+      "delta_yaw": 0.659602893014891
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "delta_du": 0.2943881962627466,
+      "delta_dv": -0.18333453740023417,
+      "delta_dw": -0.15646704375195183,
+      "delta_roll": -0.18941407416823786,
+      "delta_pitch": -0.18102055461229075,
+      "delta_yaw": 0.6658474265251237
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "delta_du": 0.3716131005712665,
+      "delta_dv": -0.15386898004367958,
+      "delta_dw": -0.1247038343261744,
+      "delta_roll": -0.16460827434161526,
+      "delta_pitch": -0.20381968072975978,
+      "delta_yaw": 0.531526949693442
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "delta_du": 0.11754554692364223,
+      "delta_dv": 0.11754554692364223,
+      "delta_dw": 0.11754554692364223,
+      "delta_roll": 0.11754554692364223,
+      "delta_pitch": 0.11754554692364223,
+      "delta_yaw": 0.11754554692364223
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "delta_du": 0.41331933436687573,
+      "delta_dv": -0.2288300524914549,
+      "delta_dw": -0.16476586815567243,
+      "delta_roll": -0.18256694488284803,
+      "delta_pitch": -0.17765006845611941,
+      "delta_yaw": 0.6045150181412002
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "delta_du": 0.3812802487630591,
+      "delta_dv": -0.2185600648479948,
+      "delta_dw": -0.22799208584363928,
+      "delta_roll": -0.19040785844341815,
+      "delta_pitch": -0.18325665394133722,
+      "delta_yaw": 0.6001253052910771
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "delta_du": 0.3917422698068442,
+      "delta_dv": -0.15679074077321967,
+      "delta_dw": -0.1482018673667382,
+      "delta_roll": -0.15473467771964777,
+      "delta_pitch": -0.17710867331433922,
+      "delta_yaw": 0.5616261736003181
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "delta_du": 0.15755730472258173,
+      "delta_dv": 0.15755730472258173,
+      "delta_dw": 0.15755730472258173,
+      "delta_roll": 0.15755730472258173,
+      "delta_pitch": 0.15755730472258173,
+      "delta_yaw": 0.15755730472258173
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "delta_du": 0.40709922917081204,
+      "delta_dv": -0.15565765836777581,
+      "delta_dw": -0.1433251237503841,
+      "delta_roll": -0.18919397832191376,
+      "delta_pitch": -0.18088361266321296,
+      "delta_yaw": 0.617506394501659
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "delta_du": 0.38756061608190984,
+      "delta_dv": -0.23446005454278732,
+      "delta_dw": -0.1919543990796822,
+      "delta_roll": -0.1897479712429622,
+      "delta_pitch": -0.1811294821824081,
+      "delta_yaw": 0.6281337235085717
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "delta_du": 0.4042493182541963,
+      "delta_dv": -0.14880217536107448,
+      "delta_dw": -0.10531919877528043,
+      "delta_roll": -0.1427853458309075,
+      "delta_pitch": -0.19112596563427442,
+      "delta_yaw": 0.5403378545302374
+    }
+  ],
+  "alpha_pre_means": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "alpha_pre_du": 0.7122296509478923,
+      "alpha_pre_dv": 0.7122296509478923,
+      "alpha_pre_dw": 0.7122296509478923,
+      "alpha_pre_roll": 0.7122296509478923,
+      "alpha_pre_pitch": 0.7122296509478923,
+      "alpha_pre_yaw": 0.7122296509478923
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "alpha_pre_du": 0.78698636321077,
+      "alpha_pre_dv": 0.57434261694634,
+      "alpha_pre_dw": 0.7514599696117766,
+      "alpha_pre_roll": 0.8076983446674532,
+      "alpha_pre_pitch": 0.8269949115545658,
+      "alpha_pre_yaw": 0.8214071727649307
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "alpha_pre_du": 0.22916297413079517,
+      "alpha_pre_dv": 0.7046642499711033,
+      "alpha_pre_dw": 0.7567730991373458,
+      "alpha_pre_roll": 0.8102224721988637,
+      "alpha_pre_pitch": 0.8216862107987126,
+      "alpha_pre_yaw": 0.8219850585509519
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "alpha_pre_du": 0.7553286119491057,
+      "alpha_pre_dv": 0.7892687503655842,
+      "alpha_pre_dw": 0.8585865144395322,
+      "alpha_pre_roll": 0.7993115447205412,
+      "alpha_pre_pitch": 0.8028185739589325,
+      "alpha_pre_yaw": 0.7654483472221365
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "alpha_pre_du": 0.6828895576098181,
+      "alpha_pre_dv": 0.6828895576098181,
+      "alpha_pre_dw": 0.6828895576098181,
+      "alpha_pre_roll": 0.6828895576098181,
+      "alpha_pre_pitch": 0.6828895576098181,
+      "alpha_pre_yaw": 0.6828895576098181
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "alpha_pre_du": 0.8063186337005936,
+      "alpha_pre_dv": 0.769382063047743,
+      "alpha_pre_dw": 0.8489992310907494,
+      "alpha_pre_roll": 0.8179690515788024,
+      "alpha_pre_pitch": 0.818615738693287,
+      "alpha_pre_yaw": 0.7626748345232978
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "alpha_pre_du": 0.5803429768975357,
+      "alpha_pre_dv": 0.551064048019777,
+      "alpha_pre_dw": 0.7954634038034426,
+      "alpha_pre_roll": 0.8096886371556761,
+      "alpha_pre_pitch": 0.8168167765870646,
+      "alpha_pre_yaw": 0.7558871818359963
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "alpha_pre_du": 0.7796773459473161,
+      "alpha_pre_dv": 0.819042583464823,
+      "alpha_pre_dw": 0.844814504793737,
+      "alpha_pre_roll": 0.8250974593616877,
+      "alpha_pre_pitch": 0.8029943851706618,
+      "alpha_pre_yaw": 0.778027286059789
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "alpha_pre_du": 0.7126234180423102,
+      "alpha_pre_dv": 0.7126234180423102,
+      "alpha_pre_dw": 0.7126234180423102,
+      "alpha_pre_roll": 0.7126234180423102,
+      "alpha_pre_pitch": 0.7126234180423102,
+      "alpha_pre_yaw": 0.7126234180423102
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "alpha_pre_du": 0.8084030745840368,
+      "alpha_pre_dv": 0.8429596519252739,
+      "alpha_pre_dw": 0.8361682577499405,
+      "alpha_pre_roll": 0.8112278876434424,
+      "alpha_pre_pitch": 0.8191268834507004,
+      "alpha_pre_yaw": 0.7751119137723564
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "alpha_pre_du": 0.742762703139243,
+      "alpha_pre_dv": 0.372364450538873,
+      "alpha_pre_dw": 0.813941138178002,
+      "alpha_pre_roll": 0.8100853064600823,
+      "alpha_pre_pitch": 0.819152296138368,
+      "alpha_pre_yaw": 0.7860649494070905
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "alpha_pre_du": 0.7967998661926132,
+      "alpha_pre_dv": 0.8344813595448801,
+      "alpha_pre_dw": 0.8757370278038156,
+      "alpha_pre_roll": 0.8335137312605194,
+      "alpha_pre_pitch": 0.816364194152493,
+      "alpha_pre_yaw": 0.770883523500522
+    }
+  ],
+  "e_alpha": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "mean": 0.26511896067114527,
+      "std": 0.0870410547387419,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "mean": 0.4141343438003002,
+      "std": 0.5086349553468148,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "mean": 0.2867958053916397,
+      "std": 0.1389159656862992,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "mean": 0.12951643453989523,
+      "std": 0.007800060746901468,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "mean": 0.24254634023309019,
+      "std": 0.05052864165899937,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "mean": 0.14109002651294406,
+      "std": 0.05040877507468092,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "mean": 0.2789014673298067,
+      "std": 0.1370068312940436,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "mean": 0.12358499181945226,
+      "std": 0.005984740450322876,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "mean": 0.2304181411497882,
+      "std": 0.03758144140923044,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "mean": 0.12555513719244618,
+      "std": 0.02312634520093569,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "mean": 0.19030087958880462,
+      "std": 0.04774804607851297,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "mean": 0.11859559131680834,
+      "std": 0.004538070129608875,
+      "count": 18
+    }
+  ],
+  "M0_switch_fidelity": [
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "du_switch_fraction": 1.0,
+      "du_switch_location_mean": 0.6861503468379174,
+      "yaw_switch_fraction": 1.0,
+      "yaw_switch_location_mean": 0.5805718269437643
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "du_switch_fraction": 1.0,
+      "du_switch_location_mean": 0.691497431986993,
+      "yaw_switch_fraction": 1.0,
+      "yaw_switch_location_mean": 0.5793024245545697
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "du_switch_fraction": 1.0,
+      "du_switch_location_mean": 0.6960873113097845,
+      "yaw_switch_fraction": 1.0,
+      "yaw_switch_location_mean": 0.5809489388958755
+    }
+  ],
+  "keyed_arm_control": [
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "m_multi_accuracy": 0.0,
+      "delta_du_mean": -0.22061350698330506,
+      "delta_dv_mean": -0.15556904514390582,
+      "delta_dw_mean": -0.11409972007488937,
+      "delta_roll_mean": -0.1670656334675016,
+      "delta_pitch_mean": -0.20469107312109414,
+      "delta_yaw_mean": 0.47433319056196105
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "m_multi_accuracy": 0.0,
+      "delta_du_mean": -0.18572882597042695,
+      "delta_dv_mean": -0.14418334575371036,
+      "delta_dw_mean": -0.15612900445484026,
+      "delta_roll_mean": -0.15640032112723995,
+      "delta_pitch_mean": -0.17023798822461553,
+      "delta_yaw_mean": 0.49268880872426657
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "m_multi_accuracy": 0.0,
+      "delta_du_mean": -0.20104770684540005,
+      "delta_dv_mean": -0.13890469385860643,
+      "delta_dw_mean": -0.1281773701336557,
+      "delta_roll_mean": -0.14600161192906005,
+      "delta_pitch_mean": -0.1925131002974566,
+      "delta_yaw_mean": 0.4804238673954981
+    }
+  ],
+  "align_phase_transient_note": "As in the frozen SE(3) benchmark, the align phase carries a 0->1 rise, so alpha_pre means land at ~0.7 rather than the oracle 1.0; M-multi is threshold-free except for the 0.2 clearance-drop tau.",
+  "fit_count": 216,
+  "fit_failure_count": 0,
+  "bins_per_phase": 25
+}

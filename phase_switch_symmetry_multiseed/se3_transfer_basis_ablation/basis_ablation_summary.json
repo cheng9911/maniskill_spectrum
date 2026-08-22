@@ -1,0 +1,571 @@
+{
+  "schema_version": 1,
+  "experiment_sha256": "44e219fe7c00a1ad2a7761d61618655420cbbd29f542ee2b897a4e1ec4244e4a",
+  "subset_manifest_sha256": "b14b6d26b52daa7d26fd832666d6c195731f2180726e499dd13edc57773664f0",
+  "source_sha256": {
+    "benchmark_se3_basis_ablation.py": "f0819a82c0ab8645f1467bca5eab572abd8337b1321ce9fd6e8ebf2b3407d064",
+    "benchmark_se3_transfer.py": "6f71d22b7b3e137dba23208227ff81c1816b8d0cbc666b86e7e2b2b09df071ec",
+    "phase_switch_se3_baselines.py": "820ac06d795f51e0332444796b37f8ac993262b5903a4c916722e04ef0e24080"
+  },
+  "design": {
+    "question": "Is the generator basis principled (task-local socket frame) or arbitrary?",
+    "procedure": "Contexts conjugated by a fixed rotation: context_rot = pose6(R^-1 T(context) R); the nominal-frame recovery adapts automatically. Same frozen data, same subsets, same models.",
+    "metric": "e_data = mean squared in-sample prediction error in metric units (basis-independent).",
+    "expected": "e_data(Pdiag, rotated) >> e_data(Pdiag, local) ~= 0; e_data(Full, rotated) ~= e_data(Full, local); off-diag(Full, rotated) >> off-diag(Full, local)."
+  },
+  "rotations_deg": {
+    "rotated-1": [
+      30.0,
+      -20.0,
+      40.0
+    ],
+    "rotated-2": [
+      -35.0,
+      25.0,
+      15.0
+    ]
+  },
+  "e_data": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 8,
+      "mean": 6.252624899419197e-05,
+      "std": 1.9708372732272207e-05,
+      "count": 36
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 8,
+      "mean": 9.363843689010373e-07,
+      "std": 2.0668289024642747e-06,
+      "count": 36
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 8,
+      "mean": 5.491242592223451e-05,
+      "std": 1.936391200807343e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 8,
+      "mean": 2.8062808095957625e-05,
+      "std": 1.5251538706680779e-05,
+      "count": 36
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "basis": "local",
+      "sample_size": 8,
+      "mean": 6.156091749785628e-05,
+      "std": 1.971940846276649e-05,
+      "count": 36
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "basis": "local",
+      "sample_size": 8,
+      "mean": 8.234524631580532e-07,
+      "std": 1.987922903481168e-06,
+      "count": 36
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "basis": "local",
+      "sample_size": 8,
+      "mean": 5.356593093547693e-05,
+      "std": 1.7913670932865637e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "basis": "local",
+      "sample_size": 8,
+      "mean": 7.470461743050247e-06,
+      "std": 1.209877458258626e-05,
+      "count": 36
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 8,
+      "mean": 6.925113415512813e-05,
+      "std": 2.1276551429205863e-05,
+      "count": 36
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 8,
+      "mean": 8.150468011140576e-07,
+      "std": 1.8289592145816523e-06,
+      "count": 36
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 8,
+      "mean": 6.239341231117921e-05,
+      "std": 2.0557141116363156e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 8,
+      "mean": 4.144502355817411e-05,
+      "std": 1.794427334867832e-05,
+      "count": 36
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 15,
+      "mean": 6.92261716247401e-05,
+      "std": 2.120409733950814e-05,
+      "count": 36
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 15,
+      "mean": 9.269313240632457e-06,
+      "std": 1.2716936134540852e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 15,
+      "mean": 6.232751889679546e-05,
+      "std": 2.194518291744099e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 15,
+      "mean": 3.9245860497989474e-05,
+      "std": 1.7703969387227214e-05,
+      "count": 36
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 15,
+      "mean": 7.559027118046456e-05,
+      "std": 2.2959946122416284e-05,
+      "count": 36
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 15,
+      "mean": 1.0104583230139174e-05,
+      "std": 1.4352583609382608e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 15,
+      "mean": 7.118701153088056e-05,
+      "std": 2.2767606924578046e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 15,
+      "mean": 4.568249694612483e-05,
+      "std": 1.7685252939163447e-05,
+      "count": 36
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "basis": "local",
+      "sample_size": 15,
+      "mean": 6.739919975027396e-05,
+      "std": 2.0885807960730032e-05,
+      "count": 36
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "basis": "local",
+      "sample_size": 15,
+      "mean": 9.438285160536076e-06,
+      "std": 1.3864998322854522e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "basis": "local",
+      "sample_size": 15,
+      "mean": 5.9400284654173964e-05,
+      "std": 2.1182960899141697e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "basis": "local",
+      "sample_size": 15,
+      "mean": 1.2466234624965854e-05,
+      "std": 1.485755900307163e-05,
+      "count": 36
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 30,
+      "mean": 8.291380084679723e-05,
+      "std": 1.0723936521069508e-05,
+      "count": 36
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 30,
+      "mean": 9.656825755964627e-06,
+      "std": 8.888523663080745e-06,
+      "count": 36
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 30,
+      "mean": 7.878552687998483e-05,
+      "std": 1.0720688568722869e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "basis": "rotated-1",
+      "sample_size": 30,
+      "mean": 5.4899109766133056e-05,
+      "std": 7.995288302278146e-06,
+      "count": 36
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "basis": "local",
+      "sample_size": 30,
+      "mean": 7.323846107670117e-05,
+      "std": 8.833154861020476e-06,
+      "count": 36
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "basis": "local",
+      "sample_size": 30,
+      "mean": 8.68358574002362e-06,
+      "std": 8.95242688596074e-06,
+      "count": 36
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "basis": "local",
+      "sample_size": 30,
+      "mean": 6.726443248149219e-05,
+      "std": 9.981129616570549e-06,
+      "count": 36
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "basis": "local",
+      "sample_size": 30,
+      "mean": 1.0148387443276646e-05,
+      "std": 8.141530731002361e-06,
+      "count": 36
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 30,
+      "mean": 7.491524484471109e-05,
+      "std": 1.0278736161827187e-05,
+      "count": 36
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 30,
+      "mean": 9.630932166493832e-06,
+      "std": 8.96482631395538e-06,
+      "count": 36
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 30,
+      "mean": 7.12192636738296e-05,
+      "std": 1.0564029861178933e-05,
+      "count": 36
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "basis": "rotated-2",
+      "sample_size": 30,
+      "mean": 3.9794292802220396e-05,
+      "std": 8.889706375109458e-06,
+      "count": 36
+    }
+  ],
+  "off_diag_mass_full_operator": [
+    {
+      "basis": "rotated-2",
+      "sample_size": 8,
+      "mean": 0.91931265862525,
+      "std": 0.01543101899935928
+    },
+    {
+      "basis": "local",
+      "sample_size": 8,
+      "mean": 0.8936721670072294,
+      "std": 0.014500757900373222
+    },
+    {
+      "basis": "rotated-1",
+      "sample_size": 8,
+      "mean": 0.9268628521182298,
+      "std": 0.013883421940740362
+    },
+    {
+      "basis": "rotated-2",
+      "sample_size": 15,
+      "mean": 0.9231833548922411,
+      "std": 0.005968426398146528
+    },
+    {
+      "basis": "rotated-1",
+      "sample_size": 15,
+      "mean": 0.9344973553580284,
+      "std": 0.004304379758892692
+    },
+    {
+      "basis": "local",
+      "sample_size": 15,
+      "mean": 0.8895315126764581,
+      "std": 0.006701584076308061
+    },
+    {
+      "basis": "rotated-1",
+      "sample_size": 30,
+      "mean": 0.9343079582227527,
+      "std": 0.002573612807554243
+    },
+    {
+      "basis": "local",
+      "sample_size": 30,
+      "mean": 0.8872840870440144,
+      "std": 0.0038792217705476183
+    },
+    {
+      "basis": "rotated-2",
+      "sample_size": 30,
+      "mean": 0.9219845389312042,
+      "std": 0.0040154986576726465
+    }
+  ],
+  "e_alpha_local_crosscheck": [
+    {
+      "task": "keyed",
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "mean": 0.22080655577961877,
+      "std": 0.08583252473402297,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "mean": 0.403413036818944,
+      "std": 0.5215147354659886,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "mean": 0.3166269728993812,
+      "std": 0.1663614410038757,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "mean": 0.10496537700978875,
+      "std": 0.006706009829388039,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "mean": 0.225513847618419,
+      "std": 0.06960784402976106,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "mean": 0.1552628710909597,
+      "std": 0.08640609977308224,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "mean": 0.3109643947745946,
+      "std": 0.20620336726511693,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "mean": 0.1020355787454376,
+      "std": 0.007376954030522703,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "mean": 0.19635616358879587,
+      "std": 0.05273257478387904,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "mean": 0.12164791744401719,
+      "std": 0.04672662189250571,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "mean": 0.17948482635151525,
+      "std": 0.06898162514344564,
+      "count": 18
+    },
+    {
+      "task": "keyed",
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "mean": 0.09494636546358665,
+      "std": 0.005515472598660578,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "mean": 0.2984102819022123,
+      "std": 0.13919557558014206,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "mean": 0.21853197858818396,
+      "std": 0.29613560758032814,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "mean": 0.2536195813273229,
+      "std": 0.18612084662609024,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "mean": 0.07790433197687632,
+      "std": 0.009467601167688178,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "mean": 0.2638118956053289,
+      "std": 0.04302296532088346,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "mean": 0.06201940075686355,
+      "std": 0.00743468831915638,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "mean": 0.219668860226792,
+      "std": 0.12825250594306514,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "mean": 0.07140001804703908,
+      "std": 0.009084589070368077,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "mean": 0.26412930178227323,
+      "std": 0.05092392985600838,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "mean": 0.06433789834731536,
+      "std": 0.005984076705601731,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "mean": 0.14402969696265042,
+      "std": 0.05414637028257419,
+      "count": 18
+    },
+    {
+      "task": "circular_honest",
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "mean": 0.06977623524298447,
+      "std": 0.004792588895071699,
+      "count": 18
+    }
+  ],
+  "fit_count": 1296,
+  "fit_failure_count": 0,
+  "bins_per_phase": 25
+}
