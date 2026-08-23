@@ -250,112 +250,11 @@
   </section>
 
   <section id="videos">
-    <h2 class="sec"><span class="num">§</span>Experimental videos</h2>
-    <p class="muted" style="margin-top:-8px">All videos are physical replays of recorded trajectories (qpos + peg/socket poses) rendered in the ManiSkill simulator. Click to play.</p>
+    <h2 class="sec"><span class="num">§</span>Experimental evidence</h2>
+    <p class="muted" style="margin-top:-8px">Physical replays of recorded trajectories (qpos + peg/socket poses) rendered in ManiSkill, organized to mirror the paper's results. Click to play.</p>
 
-    <h3 class="sub"><span class="tag">core</span>The phase switch is physical, not memorized</h3>
-    <p class="muted" style="margin-top:2px; font-size:14px">Three arms under the <i>same</i> held-out intervention (socket yaw +30°), differing only in geometry and demonstrator yaw behavior.</p>
-    <div class="videos">
-      <figure class="vid featured">
-        <video controls preload="metadata" playsinline src="assets/videos/21_keyed_asymmetric_yaw_p30.mp4"></video>
-        <figcaption><b>Keyed arm — yaw physically relevant</b> A rectangular key + keyed gate: the key must rotate to +30° to clear the gate, then returns to ~0° in the circular bore. The source of <code>g<sub>ψ</sub>(s)=1→0</code>.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/22_circular_honest_yaw_p30.mp4"></video>
-        <figcaption><b>Circular honest arm — pure gauge</b> Round peg + round bore (no key): axial yaw is a gauge DOF. No rotation, no sweep — the clean symmetry baseline.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/23_circular_placebo_yaw_p30.mp4"></video>
-        <figcaption><b>Circular placebo control</b> Identical geometry but a visible +15° yaw sweep with <i>no</i> axial-yaw response — separates trajectory statistics from task relevance.</figcaption>
-      </figure>
-    </div>
-
-    <h3 class="sub"><span class="tag">se3</span>Six-generator SE(3) variant</h3>
-    <div class="videos">
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/26_se3_keyed_vs_circular.mp4"></video>
-        <figcaption><b>SE(3) keyed vs. circular honest</b> The six-generator extension (du, dv, dw, roll, pitch, yaw): yaw relevant in the keyed arm, gauge in the circular arm.</figcaption>
-      </figure>
-    </div>
-
-    <h3 class="sub"><span class="tag">few-shot</span>Sample efficiency</h3>
-    <div class="videos">
-      <figure class="vid featured">
-        <video controls preload="metadata" playsinline src="assets/videos/20_fewshot_N5_vs_N30.mp4"></video>
-        <figcaption><b>N=5 vs. N=30</b> Full operator / Generic RBF / Pdiag finite on a mixed intervention. The diagonal law is near-N=30 accurate already at N=5; the RBF under-follows by representation bias.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/27_tpgmm_matched_fewshot.mp4"></video>
-        <figcaption><b>TP-GMM SE(2) matched few-shot</b> The frame-product baseline at matched sample sizes.</figcaption>
-      </figure>
-    </div>
-
-    <h3 class="sub"><span class="tag">predictions</span>Counterfactual predictions vs. ground truth</h3>
-    <p class="muted" style="margin-top:2px; font-size:14px">Offline models predict the trajectory response to a given intervention; overlays show ground truth (black), nominal (grey), scalar models (orange/blue), TP-GMM SE(2) (purple), and the diagonal law (green).</p>
-    <div class="videos">
-      <figure class="vid featured">
-        <video controls preload="metadata" playsinline src="assets/videos/13_model_prediction_mixed.mp4"></video>
-        <figcaption><b>Mixed (−15 mm + yaw +30°)</b> The single scene that exposes both faces of the scalar compromise: orange/blue under-follow translation and stall at +17° yaw.</figcaption>
-      </figure>
-      <figure class="vid featured">
-        <video controls preload="metadata" playsinline src="assets/videos/19_grid_all8.mp4"></video>
-        <figcaption><b>All 8 held-out contexts</b> The result holds across the full intervention grid (yaw ±30°/±15°, translation ±15 mm x/y).</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/10_model_prediction_yaw_p30.mp4"></video>
-        <figcaption><b>Yaw +30°</b></figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/11_model_prediction_yaw_m30.mp4"></video>
-        <figcaption><b>Yaw −30°</b></figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/12_model_prediction_trans_n15.mp4"></video>
-        <figcaption><b>Translation −15 mm (x)</b></figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/14_model_prediction_yaw_p15.mp4"></video>
-        <figcaption><b>Yaw +15°</b></figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/15_model_prediction_yaw_m15.mp4"></video>
-        <figcaption><b>Yaw −15°</b></figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/16_model_prediction_trans_p15_x.mp4"></video>
-        <figcaption><b>Translation +15 mm (x)</b></figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/17_model_prediction_trans_m15_y.mp4"></video>
-        <figcaption><b>Translation −15 mm (y)</b></figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/18_model_prediction_trans_p15_y.mp4"></video>
-        <figcaption><b>Translation +15 mm (y)</b></figcaption>
-      </figure>
-    </div>
-
-    <h3 class="sub"><span class="tag">controls</span>Controls &amp; ablations</h3>
-    <div class="videos">
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/24_fiveseed_replication.mp4"></video>
-        <figcaption><b>Five-seed replication</b> The same isolated yaw intervention across five execution seeds.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/25_rotated_Q1_vs_Q2.mp4"></video>
-        <figcaption><b>Rotated frame Q1 vs. Q2</b> Vertical vs. horizontal socket axis — a rotation-of-the-world control.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/28_nonoracle_progress.mp4"></video>
-        <figcaption><b>No solver labels</b> The phase switch recovered from progress alone (arc length, keypoint descent, DTW alignment).</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/29_identifiability.mp4"></video>
-        <figcaption><b>Identifiability</b> Isolated generator interventions identify the diagonal law.</figcaption>
-      </figure>
-    </div>
-
-    <h3 class="sub"><span class="tag">interventions</span>Nominal &amp; isolated-generator interventions</h3>
+    <h3 class="sub"><span class="tag">physics</span>Generator relevance recovers the phase switch</h3>
+    <p class="muted" style="margin-top:2px; font-size:14px">Single-seed isolated-generator interventions: translation stays relevant to the endpoint, yaw is relevant before key clearance, and suppressed after the task enters the circular bore.</p>
     <div class="videos">
       <figure class="vid">
         <video controls preload="metadata" playsinline src="assets/videos/01_nominal_zero_intervention.mp4"></video>
@@ -363,27 +262,81 @@
       </figure>
       <figure class="vid">
         <video controls preload="metadata" playsinline src="assets/videos/02_yaw_matched_plus30.mp4"></video>
-        <figcaption><b>Yaw matched +30°</b> Isolated yaw generator.</figcaption>
+        <figcaption><b>Yaw matched +30°</b> Isolated yaw generator: the key rotates to clear the gate.</figcaption>
       </figure>
       <figure class="vid">
         <video controls preload="metadata" playsinline src="assets/videos/03_translation_neg15mm.mp4"></video>
-        <figcaption><b>Translation −15 mm</b> Isolated translation generator.</figcaption>
+        <figcaption><b>Translation −15 mm</b> Isolated translation generator: lateral motion follows the intervention.</figcaption>
       </figure>
       <figure class="vid">
         <video controls preload="metadata" playsinline src="assets/videos/04_yaw_mismatched_blocked.mp4"></video>
-        <figcaption><b>Yaw mismatched (blocked)</b> A misaligned key cannot enter.</figcaption>
+        <figcaption><b>Yaw mismatched (blocked)</b> A misaligned key cannot enter — the constraint is physical.</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub"><span class="tag">baseline</span>Held-out baseline: the scalar compromise</h3>
+    <p class="muted" style="margin-top:2px; font-size:14px">Offline models predict the trajectory response to a held-out intervention. Ground truth (black), nominal (grey), scalar models (orange/blue), TP-GMM SE(2) (purple), diagonal law (green).</p>
+    <div class="videos">
+      <figure class="vid featured">
+        <video controls preload="metadata" playsinline src="assets/videos/13_model_prediction_mixed.mp4"></video>
+        <figcaption><b>Mixed (−15 mm + yaw +30°)</b> The one scene exposing both faces of the compromise: scalar models under-follow translation and stall at +17° yaw.</figcaption>
+      </figure>
+      <figure class="vid featured">
+        <video controls preload="metadata" playsinline src="assets/videos/19_grid_all8.mp4"></video>
+        <figcaption><b>All 8 held-out contexts</b> The result holds across the full intervention grid (yaw ±30°/±15°, translation ±15 mm x/y).</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub"><span class="tag">symmetry</span>Symmetry transfer: the phase switch is physical, not memorized</h3>
+    <p class="muted" style="margin-top:2px; font-size:14px">Three arms under the <i>same</i> held-out intervention (socket yaw +30°), differing only in geometry and demonstrator yaw behavior.</p>
+    <div class="videos">
+      <figure class="vid featured">
+        <video controls preload="metadata" playsinline src="assets/videos/21_keyed_asymmetric_yaw_p30.mp4"></video>
+        <figcaption><b>Keyed arm — yaw physically relevant</b> Rectangular key + keyed gate: the key rotates to +30° to clear the gate, then returns to ~0° in the circular bore.</figcaption>
       </figure>
       <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/05_matched_preclear_plus30.mp4"></video>
-        <figcaption><b>Matched pre-clear +30°</b></figcaption>
+        <video controls preload="metadata" playsinline src="assets/videos/22_circular_honest_yaw_p30.mp4"></video>
+        <figcaption><b>Circular honest arm — pure gauge</b> Round peg + round bore: axial yaw is a gauge DOF. No rotation, no sweep.</figcaption>
       </figure>
       <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/06_postclear_yaw_plus30.mp4"></video>
-        <figcaption><b>Post-clearance yaw +30°</b></figcaption>
+        <video controls preload="metadata" playsinline src="assets/videos/23_circular_placebo_yaw_p30.mp4"></video>
+        <figcaption><b>Circular placebo control</b> A visible +15° yaw sweep with <i>no</i> axial-yaw response — separates trajectory statistics from task relevance.</figcaption>
       </figure>
       <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/07_rotated_Q2_horizontal.mp4"></video>
-        <figcaption><b>Rotated Q2 (horizontal axis)</b></figcaption>
+        <video controls preload="metadata" playsinline src="assets/videos/26_se3_keyed_vs_circular.mp4"></video>
+        <figcaption><b>SE(3) six-generator</b> The extension among six generators (du, dv, dw, roll, pitch, yaw): yaw relevant in the keyed arm, gauge in the circular arm.</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub"><span class="tag">few-shot</span>Few-shot &amp; replication</h3>
+    <div class="videos">
+      <figure class="vid featured">
+        <video controls preload="metadata" playsinline src="assets/videos/20_fewshot_N5_vs_N30.mp4"></video>
+        <figcaption><b>N=5 vs. N=30</b> Full operator / Generic RBF / Pdiag finite on a mixed intervention: the diagonal law is near-N=30 accurate already at N=5.</figcaption>
+      </figure>
+      <figure class="vid">
+        <video controls preload="metadata" playsinline src="assets/videos/27_tpgmm_matched_fewshot.mp4"></video>
+        <figcaption><b>TP-GMM SE(2) matched few-shot</b> The frame-product baseline at matched sample sizes.</figcaption>
+      </figure>
+      <figure class="vid">
+        <video controls preload="metadata" playsinline src="assets/videos/24_fiveseed_replication.mp4"></video>
+        <figcaption><b>Five-seed replication</b> The same isolated yaw intervention across five execution seeds.</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub"><span class="tag">controls</span>Robustness controls</h3>
+    <div class="videos">
+      <figure class="vid">
+        <video controls preload="metadata" playsinline src="assets/videos/25_rotated_Q1_vs_Q2.mp4"></video>
+        <figcaption><b>Rotated frame Q1 vs. Q2</b> Vertical vs. horizontal socket axis — a rotation-of-the-world control.</figcaption>
+      </figure>
+      <figure class="vid">
+        <video controls preload="metadata" playsinline src="assets/videos/28_nonoracle_progress.mp4"></video>
+        <figcaption><b>No solver labels</b> The phase switch recovered from progress alone (arc length, keypoint descent, DTW).</figcaption>
+      </figure>
+      <figure class="vid">
+        <video controls preload="metadata" playsinline src="assets/videos/29_identifiability.mp4"></video>
+        <figcaption><b>Identifiability</b> Isolated generator interventions identify the diagonal law.</figcaption>
       </figure>
     </div>
   </section>
