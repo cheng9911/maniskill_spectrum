@@ -1,0 +1,94 @@
+{
+  "schema_version": 2,
+  "status": "preregistered_before_collection",
+  "title": "Planar-push task supplement (Task 2: rebut circular-symmetry tailoring)",
+  "context_manifest": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/planar_push/planar_push_fixed_contexts.json",
+  "context_manifest_sha256": "e018b944be07c78ea76f76e2ef4e4313fd94fc82bb5853eac37a3dfbe8858427",
+  "env_id": "PlanarPush-v1",
+  "env_note": "One env, two arms distinguished by the goal_heading flag: heading_push (block aligns position AND heading) and free_yaw_push (block aligns position only, heading free). The env is a NEW @register_env class in its own file; frozen SE(2)/SE(3) classes are byte-identical.",
+  "generator_basis": ["du", "dv", "dw", "d_roll", "d_pitch", "d_yaw"],
+  "orientation": {
+    "Q1": [1.0, 0.0, 0.0, 0.0]
+  },
+  "orientation_note": "Q1 identity only (table normal = world z). du/dv are in-plane translation, yaw is heading about the table normal (all TRACKED); dw is vertical translation, roll/pitch are tilts (all SUPPRESSED — the block stays on the table, level).",
+  "task_anchor": [0.10, 0.0, 0.01],
+  "task_anchor_note": "Nominal ghost-target centre at block-centre height (z = BLOCK_HALF_Z = 0.01). The ghost renders the full 6-DOF target at C0 o intervention, so dw/roll/pitch genuinely vary in the data (necessary for the model to learn alpha=0 vs alpha=1). Block starts at a FIXED pose (-0.10, 0.0, 0.01).",
+  "seeds": [20260818, 20270818, 20280818],
+  "retries_per_condition": 5,
+  "robot_init_qpos_noise_rad": 0.01,
+  "gripper": {
+    "stiffness": 2500.0,
+    "force_limit": 150.0,
+    "note": "Firm gripper (unchanged from rotated-axis / symmetry-transfer / SE(3))."
+  },
+  "arm_definition": {
+    "heading_push": {
+      "env_id": "PlanarPush-v1",
+      "goal_heading": true,
+      "source": "collect",
+      "solver": "solve_planar_push (non-prehensive push: reach -> push -> align -> retract; align rotates the block about vertical to the target heading)",
+      "oracle_selector": [1, 1, 0, 0, 0, 1],
+      "note": "du/dv/yaw tracked (block responds to target in-plane pose), dw/roll/pitch suppressed (block on table)."
+    },
+    "free_yaw_push": {
+      "env_id": "PlanarPush-v1",
+      "goal_heading": false,
+      "source": "collect",
+      "solver": "solve_planar_push with align_yaw=0 (block heading never corrected)",
+      "oracle_selector": [1, 1, 0, 0, 0, 0],
+      "note": "du/dv tracked, yaw suppressed too (block never rotates; heading free)."
+    }
+  },
+  "oracle": {
+    "generator_law_table": {
+      "du": {"heading_push": [0, 1, 1, 1], "free_yaw_push": [0, 1, 1, 1]},
+      "dv": {"heading_push": [0, 1, 1, 1], "free_yaw_push": [0, 1, 1, 1]},
+      "dw": {"heading_push": [0, 0, 0, 0], "free_yaw_push": [0, 0, 0, 0]},
+      "roll": {"heading_push": [0, 0, 0, 0], "free_yaw_push": [0, 0, 0, 0]},
+      "pitch": {"heading_push": [0, 0, 0, 0], "free_yaw_push": [0, 0, 0, 0]},
+      "yaw": {"heading_push": [0, 0, 1, 1], "free_yaw_push": [0, 0, 0, 0]}
+    },
+    "phases": ["reach", "push", "align", "retract"],
+    "active_phases": ["push", "align"],
+    "note": "du/dv respond from push on; yaw (heading) responds from align on; dw/roll/pitch never respond. reach/retract are setup/teardown (block at rest) and are masked from threshold scoring. The SELECTOR (which generators are ever tracked) is static: {du,dv,yaw} vs {dw,roll,pitch} — a second contrast against peg-in-hole's phase-dependent yaw drop."
+  },
+  "contexts": {
+    "manifest": "75-condition frozen manifest (60 mixed + 14 isolated + 1 baseline), IDENTICAL 6-vectors to the frozen peg-in-hole manifest",
+    "generator_scale": {
+      "translation_m": 0.012,
+      "roll_pitch_deg": 15.0,
+      "yaw_deg": 30.0
+    },
+    "isolated_grid": "du/dv/dw at +-0.015 m; roll/pitch at +-15 deg; yaw at +-15 and +-30 deg",
+    "demonstrations": "N in {8, 15, 30} mixed demos, subsampled from the 60-mixed manifest via a FROZEN subset file (planar_push_subsets.json). N>=6 is required for a rank-6 design."
+  },
+  "frozen_model": {
+    "alpha_max": 1.25,
+    "n_basis": 24,
+    "basis_width": 0.065,
+    "smoothness_weight": 0.1,
+    "nominal_iterations": 3,
+    "finite_action": "C0 Exp(P(s) Log(C0^-1 C)) C0^-1 X0 in SE(3), 6-dim diagonal",
+    "suite": "SE3FrameWeightedModel / SE3FullOperatorModel / SE3DiagonalOperatorModel / SE3SmoothFinitePDiagModel, REUSED byte-identical from phase_switch_se3_baselines.py"
+  },
+  "success_criteria": {
+    "M_oop_out_of_plane_suppression": "HEADLINE. For heading_push: correct iff max-active alpha_j < 0.5 for all of {dw, roll, pitch} AND max-active alpha_j > 0.5 for all of {du, dv, yaw}, where active phases = push+align and the max is taken over active phases (robust to the one-phase support offset: du/dv onset at push, yaw onset at align). Target ~100% for Pdiag finite across seeds/subsets at N in {8,15,30}; near 0 for the Frame-weighted negative control.",
+    "M1_generator_identification_error": "E_alpha(arm; N, model) = (1/(6T)) sum_j sum_t (alpha_j(t) - alpha*_j^arm(t))^2 against the full phasewise oracle above.",
+    "M_yaw_heading_vs_free_yaw": "Correct iff alpha_yaw_active_max(heading_push) > 0.5 AND alpha_yaw_active_max(free_yaw_push) < 0.5. Target 100% for Pdiag finite at every N.",
+    "cross_task_out_of_plane_contrast": "alpha_{dw,roll,pitch} in heading_push (~0) vs the frozen peg-in-hole keyed arm (~1) — read directly from the frozen se3_transfer_fits.csv + the new fits. No new collection."
+  },
+  "collection_policy": {
+    "same_frozen_contexts": true,
+    "same_contexts_as_peg_in_hole": true,
+    "contexts_note": "The push manifest reuses intervention_rows_se3 (same seed), so its 75 causal_deltas are byte-identical to the frozen peg-in-hole manifest — the cross-task contrast holds interventions fixed across tasks.",
+    "retain_all_attempts": true,
+    "each_seed_fit_independently": true,
+    "env_change_is_additive": true,
+    "env_change_note": "One NEW @register_env class (PlanarPush-v1) in its own file; frozen SE(2)/SE(3) classes and their provenance hashes are byte-for-byte preserved.",
+    "phase0_gate": "A feasibility probe (probe_planar_push.py) must pass BEFORE full collection: the scripted non-prehensive pusher must reach the target across context extremes (far targets, +-30 deg heading, ghost tilted +-15 deg). If yaw alignment is unstable, switch to guided push (grasp + slide) and record it here."
+  },
+  "source_sha256": {
+    "phase_switch_symmetry_planar_push_env.py": "46e640f0bb7d629daeadfa052d4a11f5ea215258853645513d93750a300598c3",
+    "phase_switch_se3_baselines.py": "820ac06d795f51e0332444796b37f8ac993262b5903a4c916722e04ef0e24080"
+  }
+}
