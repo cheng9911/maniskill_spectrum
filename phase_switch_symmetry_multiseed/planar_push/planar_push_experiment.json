@@ -26,7 +26,7 @@
       "env_id": "PlanarPush-v1",
       "goal_heading": true,
       "source": "collect",
-      "solver": "solve_planar_push (non-prehensive push: reach -> push -> align -> retract; align rotates the block about vertical to the target heading)",
+      "solver": "solve_planar_push (guided push / grasp + slide: reach overhead grasp -> push lift+slide to target in-plane position -> align wrist yaw about the table normal -> retract lower+release; the block's heading is set by rotating the grasped block)",
       "oracle_selector": [1, 1, 0, 0, 0, 1],
       "note": "du/dv/yaw tracked (block responds to target in-plane pose), dw/roll/pitch suppressed (block on table)."
     },
@@ -34,7 +34,7 @@
       "env_id": "PlanarPush-v1",
       "goal_heading": false,
       "source": "collect",
-      "solver": "solve_planar_push with align_yaw=0 (block heading never corrected)",
+      "solver": "solve_planar_push (guided push / grasp + slide; heading NEVER corrected, block stays at its grasp heading 0)",
       "oracle_selector": [1, 1, 0, 0, 0, 0],
       "note": "du/dv tracked, yaw suppressed too (block never rotates; heading free)."
     }
@@ -85,7 +85,7 @@
     "each_seed_fit_independently": true,
     "env_change_is_additive": true,
     "env_change_note": "One NEW @register_env class (PlanarPush-v1) in its own file; frozen SE(2)/SE(3) classes and their provenance hashes are byte-for-byte preserved.",
-    "phase0_gate": "A feasibility probe (probe_planar_push.py) must pass BEFORE full collection: the scripted non-prehensive pusher must reach the target across context extremes (far targets, +-30 deg heading, ghost tilted +-15 deg). If yaw alignment is unstable, switch to guided push (grasp + slide) and record it here."
+    "phase0_gate": "A feasibility probe (probe_planar_push.py) must pass BEFORE full collection: the scripted pusher must reach the target across context extremes (far targets, +-30 deg heading, ghost tilted +-15 deg). RESULT: the initial non-prehensive point-push reached the target position reliably (baseline/du/dv/diag all pos_err ~0.007) but its align-phase corner-nudge yaw control was unstable and out of reach (IK failed at +-30 deg heading). Per this gate, the solver was SWITCHED to guided push (grasp + slide), which passes 14/14 probe cases across both arms (heading_push 7/7, free_yaw_push 7/7)."
   },
   "source_sha256": {
     "phase_switch_symmetry_planar_push_env.py": "46e640f0bb7d629daeadfa052d4a11f5ea215258853645513d93750a300598c3",
