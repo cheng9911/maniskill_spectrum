@@ -1,0 +1,205 @@
+[condition 001/075 attempt 1/5] baseline
+screw plan failed.
+  steps=221 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0071 heading_err=0.0699
+[condition 002/075 attempt 1/5] du
+screw plan failed
+  steps=243 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0072 heading_err=0.0743
+[condition 003/075 attempt 1/5] du
+screw plan failed
+  steps=249 success=True max_contact=0.375 phases=[-1, 3, 4] final_dist=0.0072 heading_err=0.0590
+[condition 004/075 attempt 1/5] dv
+  steps=229 success=True max_contact=0.373 phases=[-1, 3, 4] final_dist=0.0078 heading_err=0.0620
+[condition 005/075 attempt 1/5] dv
+screw plan failed
+  steps=246 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0071 heading_err=0.0712
+[condition 006/075 attempt 1/5] dw
+screw plan failed.
+  steps=220 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0073 heading_err=0.0705
+[condition 007/075 attempt 1/5] dw
+  steps=228 success=True max_contact=0.712 phases=[-1, 3, 4] final_dist=0.0073 heading_err=0.0549
+[condition 008/075 attempt 1/5] roll
+  steps=231 success=True max_contact=0.284 phases=[-1, 3, 4] final_dist=0.0067 heading_err=0.0569
+[condition 009/075 attempt 1/5] roll
+  steps=230 success=True max_contact=0.280 phases=[-1, 3, 4] final_dist=0.0071 heading_err=0.0565
+[condition 010/075 attempt 1/5] pitch
+screw plan failed
+  steps=246 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0070 heading_err=0.0743
+[condition 011/075 attempt 1/5] pitch
+screw plan failed
+  steps=252 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0075 heading_err=0.0728
+[condition 012/075 attempt 1/5] yaw
+  steps=271 success=True max_contact=0.275 phases=[-1, 3, 4, 5] final_dist=0.0036 heading_err=0.0971
+[condition 013/075 attempt 1/5] yaw
+screw plan failed
+  steps=271 success=True max_contact=0.373 phases=[-1, 3, 4, 5] final_dist=0.0021 heading_err=0.0859
+[condition 014/075 attempt 1/5] yaw
+screw plan failed
+  steps=270 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0027 heading_err=0.0855
+[condition 015/075 attempt 1/5] yaw
+screw plan failed
+screw plan failed
+  steps=488 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0072 heading_err=0.0498
+[condition 016/075 attempt 1/5] mixed
+  steps=257 success=True max_contact=0.587 phases=[-1, 3, 4, 5] final_dist=0.0031 heading_err=0.0898
+[condition 017/075 attempt 1/5] mixed
+  steps=264 success=True max_contact=0.498 phases=[-1, 3, 4, 5] final_dist=0.0035 heading_err=0.0888
+[condition 018/075 attempt 1/5] mixed
+screw plan failed
+  steps=262 success=True max_contact=0.369 phases=[-1, 3, 4, 5] final_dist=0.0031 heading_err=0.0963
+[condition 019/075 attempt 1/5] mixed
+screw plan failed
+  steps=267 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0020 heading_err=0.0959
+[condition 020/075 attempt 1/5] mixed
+  steps=253 success=True max_contact=0.639 phases=[-1, 3, 4, 5] final_dist=0.0035 heading_err=0.0996
+[condition 021/075 attempt 1/5] mixed
+  steps=252 success=True max_contact=0.356 phases=[-1, 3, 4, 5] final_dist=0.0032 heading_err=0.0978
+[condition 022/075 attempt 1/5] mixed
+screw plan failed
+screw plan failed
+  steps=278 success=True max_contact=0.378 phases=[-1, 3, 4, 5] final_dist=0.0048 heading_err=0.0855
+[condition 023/075 attempt 1/5] mixed
+screw plan failed
+  steps=278 success=True max_contact=0.379 phases=[-1, 3, 4, 5] final_dist=0.0037 heading_err=0.0934
+[condition 024/075 attempt 1/5] mixed
+screw plan failed
+  steps=260 success=True max_contact=0.376 phases=[-1, 3, 4, 5] final_dist=0.0021 heading_err=0.0960
+[condition 025/075 attempt 1/5] mixed
+screw plan failed
+screw plan failed
+  steps=335 success=True max_contact=10.183 phases=[-1, 3, 4, 5] final_dist=0.0075 heading_err=0.0532
+[condition 026/075 attempt 1/5] mixed
+  steps=231 success=True max_contact=0.331 phases=[-1, 3, 4] final_dist=0.0066 heading_err=0.0765
+[condition 027/075 attempt 1/5] mixed
+  steps=265 success=True max_contact=0.549 phases=[-1, 3, 4, 5] final_dist=0.0033 heading_err=0.0999
+[condition 028/075 attempt 1/5] mixed
+  steps=262 success=True max_contact=0.790 phases=[-1, 3, 4, 5] final_dist=0.0035 heading_err=0.0984
+[condition 029/075 attempt 1/5] mixed
+  steps=257 success=True max_contact=0.515 phases=[-1, 3, 4, 5] final_dist=0.0029 heading_err=0.0914
+[condition 030/075 attempt 1/5] mixed
+  steps=230 success=True max_contact=0.822 phases=[-1, 3, 4] final_dist=0.0071 heading_err=0.0932
+[condition 031/075 attempt 1/5] mixed
+  steps=258 success=True max_contact=0.566 phases=[-1, 3, 4, 5] final_dist=0.0035 heading_err=0.0900
+[condition 032/075 attempt 1/5] mixed
+  steps=227 success=True max_contact=0.348 phases=[-1, 3, 4] final_dist=0.0074 heading_err=0.0890
+[condition 033/075 attempt 1/5] mixed
+  steps=266 success=True max_contact=0.332 phases=[-1, 3, 4, 5] final_dist=0.0022 heading_err=0.0838
+[condition 034/075 attempt 1/5] mixed
+  steps=252 success=True max_contact=0.271 phases=[-1, 3, 4, 5] final_dist=0.0030 heading_err=0.0942
+[condition 035/075 attempt 1/5] mixed
+screw plan failed.
+  steps=288 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0042 heading_err=0.0858
+[condition 036/075 attempt 1/5] mixed
+screw plan failed
+  steps=245 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0072 heading_err=0.0488
+[condition 037/075 attempt 1/5] mixed
+screw plan failed
+  steps=248 success=True max_contact=0.375 phases=[-1, 3, 4] final_dist=0.0074 heading_err=0.0494
+[condition 038/075 attempt 1/5] mixed
+screw plan failed
+  steps=275 success=True max_contact=0.383 phases=[-1, 3, 4, 5] final_dist=0.0034 heading_err=0.0921
+[condition 039/075 attempt 1/5] mixed
+screw plan failed
+  steps=279 success=True max_contact=0.372 phases=[-1, 3, 4, 5] final_dist=0.0020 heading_err=0.0961
+[condition 040/075 attempt 1/5] mixed
+screw plan failed
+  steps=282 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0044 heading_err=0.0955
+[condition 041/075 attempt 1/5] mixed
+  steps=254 success=True max_contact=0.794 phases=[-1, 3, 4, 5] final_dist=0.0044 heading_err=0.0868
+[condition 042/075 attempt 1/5] mixed
+  steps=273 success=True max_contact=0.527 phases=[-1, 3, 4, 5] final_dist=0.0036 heading_err=0.0940
+[condition 043/075 attempt 1/5] mixed
+  steps=263 success=True max_contact=0.452 phases=[-1, 3, 4, 5] final_dist=0.0046 heading_err=0.0927
+[condition 044/075 attempt 1/5] mixed
+screw plan failed
+  steps=275 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0027 heading_err=0.0872
+[condition 045/075 attempt 1/5] mixed
+screw plan failed.
+  steps=257 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0027 heading_err=0.0971
+[condition 046/075 attempt 1/5] mixed
+  steps=255 success=True max_contact=0.282 phases=[-1, 3, 4, 5] final_dist=0.0021 heading_err=0.0867
+[condition 047/075 attempt 1/5] mixed
+  steps=260 success=True max_contact=0.809 phases=[-1, 3, 4, 5] final_dist=0.0033 heading_err=0.0849
+[condition 048/075 attempt 1/5] mixed
+screw plan failed.
+  steps=239 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0030 heading_err=0.0938
+[condition 049/075 attempt 1/5] mixed
+screw plan failed
+  steps=248 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0068 heading_err=0.0796
+[condition 050/075 attempt 1/5] mixed
+  steps=268 success=True max_contact=0.267 phases=[-1, 3, 4, 5] final_dist=0.0026 heading_err=0.0851
+[condition 051/075 attempt 1/5] mixed
+  steps=243 success=True max_contact=0.555 phases=[-1, 3, 4, 5] final_dist=0.0024 heading_err=0.0931
+[condition 052/075 attempt 1/5] mixed
+screw plan failed
+  steps=275 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0034 heading_err=0.0863
+[condition 053/075 attempt 1/5] mixed
+screw plan failed
+  steps=271 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0035 heading_err=0.0933
+[condition 054/075 attempt 1/5] mixed
+screw plan failed
+  steps=270 success=True max_contact=0.373 phases=[-1, 3, 4, 5] final_dist=0.0018 heading_err=0.0971
+[condition 055/075 attempt 1/5] mixed
+screw plan failed
+screw plan failed
+  steps=315 success=True max_contact=6.738 phases=[-1, 3, 4, 5] final_dist=0.0077 heading_err=0.0024
+[condition 056/075 attempt 1/5] mixed
+screw plan failed
+  steps=245 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0079 heading_err=0.0921
+[condition 057/075 attempt 1/5] mixed
+screw plan failed.
+  steps=248 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0068 heading_err=0.0912
+[condition 058/075 attempt 1/5] mixed
+screw plan failed.
+screw plan failed
+  steps=287 success=True max_contact=2.763 phases=[-1, 3, 4, 5] final_dist=0.0077 heading_err=0.0770
+[condition 059/075 attempt 1/5] mixed
+screw plan failed
+  steps=262 success=True max_contact=0.375 phases=[-1, 3, 4, 5] final_dist=0.0026 heading_err=0.0963
+[condition 060/075 attempt 1/5] mixed
+screw plan failed
+  steps=268 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0032 heading_err=0.0997
+[condition 061/075 attempt 1/5] mixed
+  steps=259 success=True max_contact=0.290 phases=[-1, 3, 4, 5] final_dist=0.0026 heading_err=0.0854
+[condition 062/075 attempt 1/5] mixed
+screw plan failed
+screw plan failed
+  steps=366 success=True max_contact=0.378 phases=[-1, 3, 4, 5] final_dist=0.0050 heading_err=0.0099
+[condition 063/075 attempt 1/5] mixed
+screw plan failed
+  steps=271 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0034 heading_err=0.0989
+[condition 064/075 attempt 1/5] mixed
+screw plan failed.
+  steps=245 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0020 heading_err=0.0879
+[condition 065/075 attempt 1/5] mixed
+  steps=231 success=True max_contact=0.261 phases=[-1, 3, 4] final_dist=0.0070 heading_err=0.0144
+[condition 066/075 attempt 1/5] mixed
+screw plan failed
+  steps=274 success=True max_contact=0.374 phases=[-1, 3, 4, 5] final_dist=0.0031 heading_err=0.0991
+[condition 067/075 attempt 1/5] mixed
+screw plan failed
+  steps=258 success=True max_contact=0.378 phases=[-1, 3, 4, 5] final_dist=0.0025 heading_err=0.0955
+[condition 068/075 attempt 1/5] mixed
+screw plan failed.
+  steps=254 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0022 heading_err=0.0882
+[condition 069/075 attempt 1/5] mixed
+screw plan failed
+screw plan failed
+  steps=326 success=True max_contact=8.960 phases=[-1, 3, 4, 5] final_dist=0.0070 heading_err=0.0242
+[condition 070/075 attempt 1/5] mixed
+  steps=257 success=True max_contact=0.593 phases=[-1, 3, 4, 5] final_dist=0.0041 heading_err=0.0842
+[condition 071/075 attempt 1/5] mixed
+screw plan failed
+  steps=281 success=True max_contact=0.375 phases=[-1, 3, 4, 5] final_dist=0.0041 heading_err=0.0999
+[condition 072/075 attempt 1/5] mixed
+screw plan failed
+  steps=244 success=True max_contact=0.157 phases=[-1, 3, 4] final_dist=0.0079 heading_err=0.0534
+[condition 073/075 attempt 1/5] mixed
+  steps=231 success=True max_contact=0.459 phases=[-1, 3, 4] final_dist=0.0073 heading_err=0.0060
+[condition 074/075 attempt 1/5] mixed
+screw plan failed
+  steps=281 success=True max_contact=0.157 phases=[-1, 3, 4, 5] final_dist=0.0040 heading_err=0.0870
+[condition 075/075 attempt 1/5] mixed
+screw plan failed
+screw plan failed
+  steps=363 success=True max_contact=0.374 phases=[-1, 3, 4, 5] final_dist=0.0050 heading_err=0.0119
+DONE heading_push 20280818 rc=0

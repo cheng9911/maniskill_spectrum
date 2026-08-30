@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Project page: Task Frames Are Too Coarse — Learning Phase-Dependent Generator Relevance for Geometric Skill Transfer.">
+<meta name="description" content="Task Frames Are Too Coarse — Learning Phase-Dependent Generator Relevance for Geometric Skill Transfer.">
 <title>Task Frames Are Too Coarse — Learning Phase-Dependent Generator Relevance</title>
 <style>
   :root {
@@ -22,162 +22,128 @@
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
-    margin: 0;
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-    background: var(--bg);
+    margin: 0; color: var(--text); font-family: var(--sans);
+    font-size: 16px; line-height: 1.6; background: var(--bg);
     text-rendering: optimizeLegibility;
   }
   a { color: var(--accent-2); text-decoration: none; }
   a:hover { text-decoration: underline; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
 
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  /* ---------- title block ---------- */
+  header.titleblock { padding: 60px 0 8px; text-align: center; }
+  h1.title { font-weight: 800; font-size: clamp(30px, 4.4vw, 44px); line-height: 1.15; letter-spacing: -.01em; margin: 0 auto 18px; max-width: 960px; }
+  .authors { font-size: 19px; font-weight: 600; }
+  .venue { font-size: 15px; color: var(--muted); margin-top: 10px; }
+  .note { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
 
-  /* ---------- nav ---------- */
-  nav {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255,255,255,.92);
-    backdrop-filter: saturate(180%) blur(8px);
-    border-bottom: 1px solid var(--line);
+  /* ---------- link buttons ---------- */
+  .links { margin: 26px auto 0; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .links a.btn {
+    display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+    width: 96px; height: 96px; border: 1px solid var(--line); border-radius: 14px;
+    background: var(--bg); color: var(--text); font-weight: 700; font-size: 14px;
+    transition: border-color .15s, transform .15s, box-shadow .15s;
   }
-  nav .wrap { display: flex; align-items: center; gap: 22px; height: 54px; }
-  nav .brand { font-weight: 700; color: var(--accent); font-size: 14.5px; letter-spacing: .01em; }
-  nav .spacer { flex: 1; }
-  nav a { color: var(--muted); font-size: 14px; }
-  nav a:hover { color: var(--accent); text-decoration: none; }
+  .links a.btn:hover { border-color: var(--accent-2); color: var(--accent); text-decoration: none; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(27,79,114,.10); }
+  .links a.btn svg { width: 30px; height: 30px; margin-bottom: 8px; fill: var(--accent); }
+  .links a.btn.disabled { opacity: .42; cursor: not-allowed; pointer-events: none; }
 
   /* ---------- hero ---------- */
-  header.hero { padding: 64px 0 36px; text-align: center; }
-  .hero .kicker {
-    font-family: var(--mono); font-size: 12px; letter-spacing: .16em;
-    text-transform: uppercase; color: var(--amber); margin-bottom: 18px;
-  }
-  h1.title {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: clamp(26px, 4.6vw, 42px);
-    line-height: 1.16;
-    margin: 0 auto 16px;
-    max-width: 880px;
-    letter-spacing: -.01em;
-  }
-  .authors { font-size: 18px; color: var(--text); }
-  .anon { color: var(--muted); font-size: 14px; margin-top: 6px; }
-  .links { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .links a {
-    display: inline-flex; align-items: center; gap: 7px;
-    border: 1px solid var(--line); border-radius: 999px;
-    padding: 8px 18px; font-size: 14px; font-weight: 600; color: var(--text);
-    background: var(--bg); transition: border-color .15s, transform .15s;
-  }
-  .links a:hover { border-color: var(--accent-2); color: var(--accent); text-decoration: none; transform: translateY(-1px); }
-  .links a.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .links a.primary:hover { background: var(--accent-2); color: #fff; }
-  .links .gh { fill: var(--muted); }
+  .hero { margin: 34px auto 0; text-align: center; }
+  .hero video { width: 100%; max-width: 860px; aspect-ratio: 16/9; object-fit: cover; background: #000; border-radius: 10px; border: 1px solid var(--line); display: inline-block; }
+  .hero .caption { max-width: 820px; margin: 16px auto 0; font-size: 14.5px; color: #555; font-style: italic; text-align: left; line-height: 1.5; }
+  .hero .caption b { font-style: normal; }
 
   /* ---------- sections ---------- */
-  section { padding: 44px 0; border-top: 1px solid var(--line); }
-  section.alt { background: var(--bg-soft); border-top: 1px solid var(--line); }
-  h2.sec {
-    font-family: var(--serif); font-weight: 600;
-    font-size: 24px; letter-spacing: -.01em; margin: 0 0 18px;
-  }
-  h2.sec .num { color: var(--accent-2); font-family: var(--mono); font-size: 15px; vertical-align: 3px; margin-right: 10px; }
-  h3.sub { font-size: 15px; font-weight: 700; margin: 28px 0 4px; color: var(--text); letter-spacing: .01em; }
-  .sub a.anchor { color: var(--text); }
-  .sub .tag {
-    font-family: var(--mono); font-size: 11px; color: var(--accent-2);
-    border: 1px solid var(--line); border-radius: 5px; padding: 1px 7px; margin-right: 8px;
-  }
-  p.lead { font-size: 17px; }
-  .muted { color: var(--muted); }
+  section { padding: 42px 0; border-top: 1px solid var(--line); }
+  section.alt { background: var(--bg-soft); }
+  h2.sec { font-weight: 800; font-size: 30px; letter-spacing: -.01em; text-align: center; margin: 0 0 20px; }
+  .sec-note { text-align: center; color: var(--muted); font-size: 15px; margin-top: -12px; margin-bottom: 8px; }
 
   /* ---------- abstract ---------- */
-  .abstract { font-size: 16.5px; color: #262b33; max-width: 820px; }
-  .abstract .first { font-weight: 600; color: var(--text); }
+  .abstract { max-width: 860px; margin: 0 auto; font-size: 17px; color: #262b33; }
+  .abstract .first { font-weight: 700; color: var(--text); }
+
+  /* ---------- method ---------- */
+  .method { max-width: 880px; margin: 0 auto; }
+  .method p { font-size: 16.5px; }
+  .callout { border-left: 4px solid var(--amber); background: #fbf7ef; padding: 18px 22px; border-radius: 0 10px 10px 0; margin: 26px 0; font-size: 15.5px; }
+  .callout b { color: #7c5407; }
+  .callout code { font-family: var(--mono); font-size: 13.5px; background: #f3e9d2; padding: 1px 6px; border-radius: 4px; color: #5c3e05; }
 
   /* ---------- figures ---------- */
-  figure.fig { margin: 22px 0; text-align: center; }
-  figure.fig img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
-  figure.fig figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; text-align: center; max-width: 780px; margin-left: auto; margin-right: auto; }
-  figure.fig.wide img { width: 100%; }
-
-  .callout {
-    border-left: 3px solid var(--amber);
-    background: #fbf7ef;
-    padding: 16px 20px; border-radius: 0 8px 8px 0;
-    margin: 24px 0; font-size: 15.5px;
-  }
-  .callout b { color: #7c5407; }
-
+  figure.fig { margin: 26px auto; text-align: center; max-width: 860px; }
+  figure.fig img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; }
+  figure.fig figcaption { font-size: 13.5px; color: var(--muted); margin-top: 12px; text-align: left; }
+  figure.fig figcaption b { color: var(--text); }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
   @media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
 
-  /* ---------- video gallery ---------- */
-  .videos { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 24px; }
-  @media (max-width: 760px) { .videos { grid-template-columns: 1fr; } }
-  figure.vid { margin: 0; }
-  figure.vid video { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; border-radius: 8px; border: 1px solid var(--line); display: block; }
-  figure.vid figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
-  figure.vid figcaption b { color: var(--text); display: block; font-size: 13.5px; margin-bottom: 2px; }
-  figure.vid.featured video { border: 2px solid var(--accent-2); }
+  /* ---------- video carousel ---------- */
+  .task-block { margin-bottom: 46px; }
+  h3.task-title { font-weight: 700; font-size: 20px; margin: 0 0 4px; }
+  h3.task-title .tag {
+    font-family: var(--mono); font-size: 11.5px; color: var(--accent-2); font-weight: 600;
+    border: 1px solid var(--line); border-radius: 5px; padding: 2px 8px; margin-right: 10px; vertical-align: 2px;
+  }
+  .task-note { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+  .carousel {
+    display: flex; gap: 18px; overflow-x: auto;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    padding: 6px 4px 18px;
+  }
+  .carousel .thumb { flex: 0 0 auto; width: 320px; max-width: 82vw; scroll-snap-align: start; }
+  .carousel .thumb video { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; border-radius: 10px; border: 1px solid var(--line); display: block; }
+  .carousel .thumb.featured video { border: 2px solid var(--accent-2); }
+  .carousel .thumb .caption { margin-top: 9px; font-size: 13px; color: var(--muted); line-height: 1.45; }
+  .carousel .thumb .caption b { color: var(--text); display: block; font-size: 13.5px; margin-bottom: 2px; }
 
   /* ---------- code ---------- */
-  pre.code {
-    background: #0f1c2a; color: #dbe7f3; border-radius: 8px;
-    padding: 18px 20px; overflow-x: auto; font-family: var(--mono); font-size: 13px; line-height: 1.55;
-  }
-  pre.code .c { color: #7f9bb3; }
-  ul.files { list-style: none; padding: 0; margin: 14px 0; }
+  .codebtn { display: inline-block; background: var(--accent); color: #fff; border-radius: 999px; padding: 11px 24px; font-weight: 700; font-size: 15px; margin: 4px 0 18px; }
+  .codebtn:hover { background: var(--accent-2); color: #fff; text-decoration: none; }
+  ul.files { list-style: none; padding: 0; margin: 14px 0; max-width: 860px; }
   ul.files li { padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
   ul.files code { font-family: var(--mono); font-size: 13px; color: var(--accent); background: #eef3f7; padding: 1px 6px; border-radius: 4px; }
 
   /* ---------- bib ---------- */
-  pre.bib {
-    background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px;
-    padding: 18px 20px; overflow-x: auto; font-family: var(--mono); font-size: 13px; line-height: 1.6; color: #2b3540;
-  }
+  pre.bib { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 13px; line-height: 1.6; color: #2b3540; max-width: 860px; margin: 0 auto; }
 
   footer { padding: 40px 0 56px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13.5px; text-align: center; }
+  .center { text-align: center; }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <span class="brand">Phase-Dependent Generator Relevance</span>
-    <span class="spacer"></span>
-    <a href="#abstract">Abstract</a>
-    <a href="#method">Idea</a>
-    <a href="#results">Results</a>
-    <a href="#videos">Videos</a>
-    <a href="#code">Code</a>
-    <a href="#cite">Cite</a>
-  </div>
-</nav>
-
-<header class="hero wrap">
-  <div class="kicker">Project Page</div>
+<header class="titleblock container">
   <h1 class="title">Task Frames Are Too Coarse:<br>Learning Phase-Dependent Generator Relevance for Geometric Skill Transfer</h1>
   <div class="authors">Anonymous Authors</div>
-  <div class="anon">Anonymized for double-blind review.</div>
+  <div class="venue">Under review</div>
+  <div class="note">Anonymized for double-blind review</div>
+
   <div class="links">
-    <a class="primary" href="https://github.com/cheng9911/maniskill_spectrum" target="_blank" rel="noopener">
-      <svg class="gh" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+    <a class="btn disabled" title="Paper coming soon">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM6 20h12V10H13V4H6v16z"/></svg>
+      Paper
+    </a>
+    <a class="btn" href="https://github.com/cheng9911/maniskill_spectrum" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
       Code
     </a>
-    <a href="#abstract">Abstract</a>
-    <a href="#videos">Videos</a>
-    <a href="#cite">BibTeX</a>
+  </div>
+
+  <div class="hero">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/img/experiment_overview_scenes.png" src="assets/videos/21_keyed_asymmetric_yaw_p30.mp4"></video>
+    <div class="caption">
+      <b>The phase switch.</b> A rectangular key must rotate to +30° to clear a rotated gate — yaw is <i>physically relevant</i> before clearance. The moment the key clears the gate into the circular bore, the same yaw generator is <i>suppressed</i> and the peg rotates back to 0°, while lateral translation stays relevant throughout. This phase-dependent relevance is exactly what a single scalar frame weight cannot express.
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="container">
 
   <section id="abstract">
-    <h2 class="sec"><span class="num">§</span>Abstract</h2>
+    <h2 class="sec">Abstract</h2>
     <p class="abstract"><span class="first">Learning from demonstration must adapt skills when task objects move,</span>
     but task-parameterized methods often treat each reference frame as a single
     relevance unit. We argue that this unit is too coarse because the translation
@@ -198,35 +164,28 @@
     single relevance value for an entire reference frame.</p>
   </section>
 
-  <section id="teaser" class="alt">
-    <h2 class="sec"><span class="num">§</span>Overview</h2>
-    <figure class="fig wide">
-      <img src="assets/img/experiment_overview_scenes.png" alt="Real rendered simulation scenes of the keyed and circular phase-switch task across phases and geometry variants" loading="lazy">
-      <figcaption>Real rendered frames from the ManiSkill simulation. The keyed peg must align its key to a rotated gate before insertion (yaw becomes <i>physically</i> relevant), then rotates back once the key clears the gate into the circular bore (the same yaw generator becomes <i>gauge</i>). Row 1 shows this phase switch; row 2 shows the geometry variants behind each experiment arm.</figcaption>
-    </figure>
-  </section>
+  <section id="method" class="alt">
+    <h2 class="sec">The key idea</h2>
+    <div class="method">
+      <p>Task-parameterized models re-express a skill in object-centered frames and adapt it when those frames move. But each frame is usually treated as <b>one relevance unit</b> — a single scalar weight. That unit is too coarse: inside a single relation there are several generators — lateral translation (x, y) and axial rotation (yaw) — that obey <b>different</b> constraints at <b>different</b> phases of the same skill. A scalar weight forced to serve them all must compromise.</p>
 
-  <section id="method">
-    <h2 class="sec"><span class="num">§</span>The key idea</h2>
-    <p class="lead">Task-parameterized models re-express a skill in object-centered frames and adapt it when those frames move. But each frame is usually treated as <b>one relevance unit</b> — a single scalar weight. That unit is too coarse.</p>
-    <p>Inside a single relation there are several generators — lateral translation (x, y) and axial rotation (yaw). These generators obey <b>different</b> constraints at <b>different</b> phases of the same skill. A scalar weight that is forced to serve them all must compromise.</p>
+      <div class="callout">
+        <b>The phase switch.</b> In keyed peg insertion, a rectangular key must rotate to match a rotated gate to pass through — so <b>yaw is relevant</b> while the key is constrained. The moment the key clears the gate into the circular bore, the yaw degree of freedom becomes physically free, and the <b>same yaw generator is suppressed</b>. Relevance <code>g<sub>ψ</sub>(s)</code> therefore drops 1&nbsp;→&nbsp;0 at the clearance point.
+      </div>
 
-    <div class="callout">
-      <b>The phase switch.</b> In keyed peg insertion, a rectangular key must rotate to match a rotated gate to pass through — so <b>yaw is relevant</b> while the key is constrained. The moment the key clears the gate into the circular bore, the yaw degree of freedom becomes physically free, and the <b>same yaw generator is suppressed</b>. Lateral translation, in contrast, stays relevant throughout. Relevance <code>g<sub>ψ</sub>(s)</code> therefore drops 1&nbsp;→&nbsp;0 at the clearance point.
+      <p>Our method learns a <b>phase-dependent generator relevance</b> <code>α<sub>j</sub>(s)</code> — a diagonal law that lets each generator carry its own relevance profile across phases. A scalar model (<code>w(s)·I</code>) cannot express this: to suppress yaw it must also under-follow translation, landing on a compromise weight <code>w&nbsp;≈&nbsp;0.568</code> that is wrong for both. The diagonal law follows translation and zeroes yaw, simultaneously and exactly.</p>
+
+      <p>Identification is decoupled from evaluation: we probe each generator in <b>isolation</b> (translation-only and yaw-only interventions) to identify the law, then assess <b>symmetric execution</b> with quotient task-space metrics that are invariant to the gauge freedom. A matched <b>circular-placebo</b> control — an arm with a visible yaw sweep but <i>no</i> axial-yaw response — rules out the possibility that the model merely memorized trajectory statistics.</p>
+
+      <figure class="fig">
+        <img src="assets/img/symmetry_transfer_main.png" alt="Phase-dependent generator relevance profiles and the recovered phase switch" loading="lazy">
+        <figcaption><b>Phase-dependent generator relevance profiles.</b> The yaw generator (hero row) switches 1&nbsp;→&nbsp;0 at the key clearance while lateral translation stays relevant; the recovered law matches the model-independent solver oracle.</figcaption>
+      </figure>
     </div>
-
-    <p>Our method learns a <b>phase-dependent generator relevance</b> <code>α<sub>j</sub>(s)</code> — a diagonal law that lets each generator carry its own relevance profile across phases, rather than one shared value for the whole frame. A scalar model (<code>w(s)·I</code>) cannot express this: to suppress yaw it must also under-follow translation, landing on a compromise weight <code>w&nbsp;≈&nbsp;0.568</code> that is wrong for both. The diagonal law follows translation and zeroes yaw, simultaneously and exactly.</p>
-
-    <p>Identification is decoupled from evaluation: we probe each generator in <b>isolation</b> (translation-only and yaw-only interventions) to identify the law, then assess <b>symmetric execution</b> with quotient task-space metrics that are invariant to the gauge freedom. A matched <b>circular-placebo</b> control — an arm with a visible yaw sweep but <i>no</i> axial-yaw response — rules out the possibility that the model merely memorized trajectory statistics.</p>
-
-    <figure class="fig">
-      <img src="assets/img/symmetry_transfer_main.png" alt="Main figure: phase-dependent generator relevance profiles and the recovered phase switch" loading="lazy">
-      <figcaption>Phase-dependent generator relevance profiles. The yaw generator (hero row) switches 1&nbsp;→&nbsp;0 at the key clearance while lateral translation stays relevant; the recovered law matches the model-independent solver oracle.</figcaption>
-    </figure>
   </section>
 
-  <section id="results" class="alt">
-    <h2 class="sec"><span class="num">§</span>Results highlights</h2>
+  <section id="results">
+    <h2 class="sec">Results highlights</h2>
     <div class="grid2">
       <figure class="fig">
         <img src="assets/img/phase_switch_fewshot.png" alt="Few-shot comparison across models and sample sizes" loading="lazy">
@@ -236,8 +195,6 @@
         <img src="assets/img/se3_generator_relevance.png" alt="Six-generator SE(3) relevance grid" loading="lazy">
         <figcaption><b>SE(3) six-generator extension.</b> The same phase switch is recovered among six generators (du, dv, dw, roll, pitch, yaw), with yaw the sole selective channel and the non-yaw generators a stable non-selective background.</figcaption>
       </figure>
-    </div>
-    <div class="grid2">
       <figure class="fig">
         <img src="assets/img/identifiability_figure.png" alt="Identifiability of isolated generator interventions" loading="lazy">
         <figcaption><b>Identifiability.</b> Isolated generator interventions are sufficient to identify the diagonal law; the recovered profiles stay stable across seeds and subsets.</figcaption>
@@ -249,105 +206,67 @@
     </div>
   </section>
 
-  <section id="videos">
-    <h2 class="sec"><span class="num">§</span>Experimental evidence</h2>
-    <p class="muted" style="margin-top:-8px">Physical replays of recorded trajectories (qpos + peg/socket poses) rendered in ManiSkill, organized to mirror the paper's results. Click to play.</p>
+  <section id="videos" class="alt">
+    <h2 class="sec">Experimental evidence</h2>
+    <p class="sec-note">Physical replays of recorded trajectories (qpos + peg/socket poses) rendered in ManiSkill, organized to mirror the paper's results. Videos auto-play muted; scroll to view.</p>
 
-    <h3 class="sub"><span class="tag">physics</span>Generator relevance recovers the phase switch</h3>
-    <p class="muted" style="margin-top:2px; font-size:14px">Single-seed isolated-generator interventions: translation stays relevant to the endpoint, yaw is relevant before key clearance, and suppressed after the task enters the circular bore.</p>
-    <div class="videos">
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/01_nominal_zero_intervention.mp4"></video>
-        <figcaption><b>Nominal (yaw = 0)</b> Align → enter → unlock → insert with no intervention.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/02_yaw_matched_plus30.mp4"></video>
-        <figcaption><b>Yaw matched +30°</b> Isolated yaw generator: the key rotates to clear the gate.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/03_translation_neg15mm.mp4"></video>
-        <figcaption><b>Translation −15 mm</b> Isolated translation generator: lateral motion follows the intervention.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/04_yaw_mismatched_blocked.mp4"></video>
-        <figcaption><b>Yaw mismatched (blocked)</b> A misaligned key cannot enter — the constraint is physical.</figcaption>
-      </figure>
+    <div class="task-block">
+      <h3 class="task-title"><span class="tag">physics</span>Generator relevance recovers the phase switch</h3>
+      <p class="task-note">Single-seed isolated-generator interventions: translation stays relevant to the endpoint, yaw is relevant before key clearance and suppressed after.</p>
+      <div class="carousel">
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/01_nominal_zero_intervention.mp4"></video><div class="caption"><b>Nominal (yaw = 0)</b>Align → enter → unlock → insert with no intervention.</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/02_yaw_matched_plus30.mp4"></video><div class="caption"><b>Yaw matched +30°</b>Isolated yaw generator: the key rotates to clear the gate.</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/03_translation_neg15mm.mp4"></video><div class="caption"><b>Translation −15 mm</b>Isolated translation generator: lateral motion follows the intervention.</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/04_yaw_mismatched_blocked.mp4"></video><div class="caption"><b>Yaw mismatched (blocked)</b>A misaligned key cannot enter — the constraint is physical.</div></div>
+      </div>
     </div>
 
-    <h3 class="sub"><span class="tag">baseline</span>Held-out baseline: the scalar compromise</h3>
-    <p class="muted" style="margin-top:2px; font-size:14px">Offline models predict the trajectory response to a held-out intervention. Ground truth (black), nominal (grey), scalar models (orange/blue), TP-GMM SE(2) (purple), diagonal law (green).</p>
-    <div class="videos">
-      <figure class="vid featured">
-        <video controls preload="metadata" playsinline src="assets/videos/13_model_prediction_mixed.mp4"></video>
-        <figcaption><b>Mixed (−15 mm + yaw +30°)</b> The one scene exposing both faces of the compromise: scalar models under-follow translation and stall at +17° yaw.</figcaption>
-      </figure>
-      <figure class="vid featured">
-        <video controls preload="metadata" playsinline src="assets/videos/19_grid_all8.mp4"></video>
-        <figcaption><b>All 8 held-out contexts</b> The result holds across the full intervention grid (yaw ±30°/±15°, translation ±15 mm x/y).</figcaption>
-      </figure>
+    <div class="task-block">
+      <h3 class="task-title"><span class="tag">baseline</span>Held-out baseline: the scalar compromise</h3>
+      <p class="task-note">Offline models predict the trajectory response to a held-out intervention. Ground truth (black), nominal (grey), scalar models (orange/blue), TP-GMM SE(2) (purple), diagonal law (green).</p>
+      <div class="carousel">
+        <div class="thumb featured"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/13_model_prediction_mixed.mp4"></video><div class="caption"><b>Mixed (−15 mm + yaw +30°)</b>The one scene exposing both faces of the compromise: scalar models under-follow translation and stall at +17° yaw.</div></div>
+        <div class="thumb featured"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/19_grid_all8.mp4"></video><div class="caption"><b>All 8 held-out contexts</b>The result holds across the full intervention grid (yaw ±30°/±15°, translation ±15 mm x/y).</div></div>
+      </div>
     </div>
 
-    <h3 class="sub"><span class="tag">symmetry</span>Symmetry transfer: the phase switch is physical, not memorized</h3>
-    <p class="muted" style="margin-top:2px; font-size:14px">Three arms under the <i>same</i> held-out intervention (socket yaw +30°), differing only in geometry and demonstrator yaw behavior.</p>
-    <div class="videos">
-      <figure class="vid featured">
-        <video controls preload="metadata" playsinline src="assets/videos/21_keyed_asymmetric_yaw_p30.mp4"></video>
-        <figcaption><b>Keyed arm — yaw physically relevant</b> Rectangular key + keyed gate: the key rotates to +30° to clear the gate, then returns to ~0° in the circular bore.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/22_circular_honest_yaw_p30.mp4"></video>
-        <figcaption><b>Circular honest arm — pure gauge</b> Round peg + round bore: axial yaw is a gauge DOF. No rotation, no sweep.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/23_circular_placebo_yaw_p30.mp4"></video>
-        <figcaption><b>Circular placebo control</b> A visible +15° yaw sweep with <i>no</i> axial-yaw response — separates trajectory statistics from task relevance.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/26_se3_keyed_vs_circular.mp4"></video>
-        <figcaption><b>SE(3) six-generator</b> The extension among six generators (du, dv, dw, roll, pitch, yaw): yaw relevant in the keyed arm, gauge in the circular arm.</figcaption>
-      </figure>
+    <div class="task-block">
+      <h3 class="task-title"><span class="tag">symmetry</span>Symmetry transfer: the phase switch is physical, not memorized</h3>
+      <p class="task-note">Three arms under the <i>same</i> held-out intervention (socket yaw +30°), differing only in geometry and demonstrator yaw behavior.</p>
+      <div class="carousel">
+        <div class="thumb featured"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/21_keyed_asymmetric_yaw_p30.mp4"></video><div class="caption"><b>Keyed arm — yaw physically relevant</b>Rectangular key + keyed gate: the key rotates to +30° to clear the gate, then returns to ~0° in the circular bore.</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/22_circular_honest_yaw_p30.mp4"></video><div class="caption"><b>Circular honest arm — pure gauge</b>Round peg + round bore: axial yaw is a gauge DOF. No rotation, no sweep.</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/23_circular_placebo_yaw_p30.mp4"></video><div class="caption"><b>Circular placebo control</b>A visible +15° yaw sweep with <i>no</i> axial-yaw response — separates trajectory statistics from task relevance.</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/26_se3_keyed_vs_circular.mp4"></video><div class="caption"><b>SE(3) six-generator</b>The extension among six generators (du, dv, dw, roll, pitch, yaw): yaw relevant in the keyed arm, gauge in the circular arm.</div></div>
+      </div>
     </div>
 
-    <h3 class="sub"><span class="tag">few-shot</span>Few-shot &amp; replication</h3>
-    <div class="videos">
-      <figure class="vid featured">
-        <video controls preload="metadata" playsinline src="assets/videos/20_fewshot_N5_vs_N30.mp4"></video>
-        <figcaption><b>N=5 vs. N=30</b> Full operator / Generic RBF / Pdiag finite on a mixed intervention: the diagonal law is near-N=30 accurate already at N=5.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/27_tpgmm_matched_fewshot.mp4"></video>
-        <figcaption><b>TP-GMM SE(2) matched few-shot</b> The frame-product baseline at matched sample sizes.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/24_fiveseed_replication.mp4"></video>
-        <figcaption><b>Five-seed replication</b> The same isolated yaw intervention across five execution seeds.</figcaption>
-      </figure>
+    <div class="task-block">
+      <h3 class="task-title"><span class="tag">few-shot</span>Few-shot &amp; replication</h3>
+      <div class="carousel">
+        <div class="thumb featured"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/20_fewshot_N5_vs_N30.mp4"></video><div class="caption"><b>N=5 vs. N=30</b>Full operator / Generic RBF / Pdiag finite on a mixed intervention: the diagonal law is near-N=30 accurate already at N=5.</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/27_tpgmm_matched_fewshot.mp4"></video><div class="caption"><b>TP-GMM SE(2) matched few-shot</b>The frame-product baseline at matched sample sizes.</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/24_fiveseed_replication.mp4"></video><div class="caption"><b>Five-seed replication</b>The same isolated yaw intervention across five execution seeds.</div></div>
+      </div>
     </div>
 
-    <h3 class="sub"><span class="tag">controls</span>Robustness controls</h3>
-    <div class="videos">
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/25_rotated_Q1_vs_Q2.mp4"></video>
-        <figcaption><b>Rotated frame Q1 vs. Q2</b> Vertical vs. horizontal socket axis — a rotation-of-the-world control.</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/28_nonoracle_progress.mp4"></video>
-        <figcaption><b>No solver labels</b> The phase switch recovered from progress alone (arc length, keypoint descent, DTW).</figcaption>
-      </figure>
-      <figure class="vid">
-        <video controls preload="metadata" playsinline src="assets/videos/29_identifiability.mp4"></video>
-        <figcaption><b>Identifiability</b> Isolated generator interventions identify the diagonal law.</figcaption>
-      </figure>
+    <div class="task-block">
+      <h3 class="task-title"><span class="tag">controls</span>Robustness controls</h3>
+      <div class="carousel">
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/25_rotated_Q1_vs_Q2.mp4"></video><div class="caption"><b>Rotated frame Q1 vs. Q2</b>Vertical vs. horizontal socket axis — a rotation-of-the-world control.</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/28_nonoracle_progress.mp4"></video><div class="caption"><b>No solver labels</b>The phase switch recovered from progress alone (arc length, keypoint descent, DTW).</div></div>
+        <div class="thumb"><video data-autoplay muted loop playsinline preload="metadata" src="assets/videos/29_identifiability.mp4"></video><div class="caption"><b>Identifiability</b>Isolated generator interventions identify the diagonal law.</div></div>
+      </div>
     </div>
   </section>
 
-  <section id="code" class="alt">
-    <h2 class="sec"><span class="num">§</span>Code</h2>
-    <p>Full implementation, benchmark scripts, and video-generation tooling live in the public repository.</p>
-    <p style="margin-top:10px">
-      <a class="primary" href="https://github.com/cheng9911/maniskill_spectrum" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;border-radius:999px;padding:9px 20px;font-weight:600;font-size:14px;">github.com/cheng9911/maniskill_spectrum</a>
-    </p>
-    <ul class="files">
+  <section id="code">
+    <h2 class="sec">Code</h2>
+    <div class="center">
+      <p>Full implementation, benchmark scripts, and video-generation tooling live in the public repository.</p>
+      <a class="codebtn" href="https://github.com/cheng9911/maniskill_spectrum" target="_blank" rel="noopener">github.com/cheng9911/maniskill_spectrum</a>
+    </div>
+    <ul class="files" style="margin: 8px auto 0;">
       <li><code>phase_switch_symmetry/phase_switch_symmetry_env.py</code> — keyed / circular phase-switch environments (ManiSkill 3.0.1)</li>
       <li><code>phase_switch_symmetry/collect_phase_switch_rotated.py</code> — data collection &amp; the phase-parameterized solver</li>
       <li><code>phase_switch_symmetry/phase_switch_baselines.py</code> — baselines (frame-weighted, phase-scalar GP, TP-GMM, RBF, full/diagonal operators, Pdiag)</li>
@@ -359,8 +278,8 @@
     </ul>
   </section>
 
-  <section id="cite">
-    <h2 class="sec"><span class="num">§</span>Citation</h2>
+  <section id="cite" class="alt">
+    <h2 class="sec">Citation</h2>
 <pre class="bib">@inproceedings{anonymized2026taskframes,
   title     = {Task Frames Are Too Coarse: Learning Phase-Dependent
                Generator Relevance for Geometric Skill Transfer},
@@ -376,6 +295,24 @@
   Project page for <i>“Task Frames Are Too Coarse”</i> — anonymized for double-blind review.
   Videos are physical replays rendered with ManiSkill.
 </footer>
+
+<script>
+  (function () {
+    var vids = document.querySelectorAll('video[data-autoplay]');
+    if (!('IntersectionObserver' in window)) {
+      vids.forEach(function (v) { v.play().catch(function () {}); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { v.play().catch(function () {}); }
+        else { v.pause(); }
+      });
+    }, { rootMargin: '140px' });
+    vids.forEach(function (v) { io.observe(v); });
+  })();
+</script>
 
 </body>
 </html>
