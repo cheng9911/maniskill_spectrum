@@ -56,6 +56,9 @@ PUSH_APPROACH_Z = 0.06   # safe approach height above the grasp (TCP z offset)
 PUSH_LIFT = 0.015        # m: lift the grasped block this far to clear table friction
 PUSH_RETRACT_Z = 0.06    # TCP lift-away height on release
 PUSH_ALIGN_TOL = 0.02    # rad: wrist yaw closed-loop tolerance in the align phase
+PUSH_ALIGN_STEP = 0.05   # rad: max wrist-yaw rotation per closed-loop step (bounded
+                         # steps keep the grasped block level; one large rotation can
+                         # lever it off the table and inject spurious dw)
 
 
 def _rz_quat(angle):
@@ -215,16 +218,21 @@ def solve_planar_push(env: PlanarPushTraceWrapper):
         env.set_phase("align")
         if base.goal_heading:
             target_heading = float(base.causal_delta[5])
-            # Closed-loop wrist yaw: re-read the grasped block's heading each pass
-            # so grasp compliance in the rotation does not accumulate error.
-            for _ in range(3):
+            # Closed-loop wrist yaw in BOUNDED steps: re-read the grasped block's
+            # heading each pass and rotate by at most PUSH_ALIGN_STEP. A single large
+            # wrist rotation can lever the grasped block off the table (grasp
+            # compliance + table friction), flinging it upward and injecting
+            # spurious out-of-plane (dw) signal; small steps keep it level while
+            # still converging to the target heading.
+            for _ in range(60):
                 block_heading = _heading_of(base.block.pose.sp.q)
                 delta = _wrap_pi(target_heading - block_heading)
                 if abs(delta) < PUSH_ALIGN_TOL:
                     break
+                step = float(np.clip(delta, -PUSH_ALIGN_STEP, PUSH_ALIGN_STEP))
                 current = base.agent.tcp.pose.sp
-                new_q = qmult(_rz_quat(delta), current.q)
-                move_pose(sapien.Pose(p=current.p, q=new_q), refine_steps=4)
+                new_q = qmult(_rz_quat(step), current.q)
+                move_pose(sapien.Pose(p=current.p, q=new_q), refine_steps=2)
 
         env.set_phase("retract")
         current_q = base.agent.tcp.pose.sp.q

@@ -1,0 +1,25 @@
+model,arm,sample_size,accuracy,sum,count
+Frame-weighted (SE(3)),heading_push,8,0.0,0,18
+Full operator (SE(3)),heading_push,8,0.8888888888888888,16,18
+Pdiag pointwise (SE(3)),heading_push,8,1.0,18,18
+Pdiag finite (SE(3)),heading_push,8,0.8888888888888888,16,18
+Frame-weighted (SE(3)),heading_push,15,0.0,0,18
+Full operator (SE(3)),heading_push,15,1.0,18,18
+Pdiag pointwise (SE(3)),heading_push,15,1.0,18,18
+Pdiag finite (SE(3)),heading_push,15,1.0,18,18
+Frame-weighted (SE(3)),heading_push,30,0.0,0,18
+Full operator (SE(3)),heading_push,30,1.0,18,18
+Pdiag pointwise (SE(3)),heading_push,30,1.0,18,18
+Pdiag finite (SE(3)),heading_push,30,1.0,18,18
+Frame-weighted (SE(3)),free_yaw_push,8,0.0,0,18
+Full operator (SE(3)),free_yaw_push,8,0.9444444444444444,17,18
+Pdiag pointwise (SE(3)),free_yaw_push,8,1.0,18,18
+Pdiag finite (SE(3)),free_yaw_push,8,1.0,18,18
+Frame-weighted (SE(3)),free_yaw_push,15,0.0,0,18
+Full operator (SE(3)),free_yaw_push,15,1.0,18,18
+Pdiag pointwise (SE(3)),free_yaw_push,15,1.0,18,18
+Pdiag finite (SE(3)),free_yaw_push,15,1.0,18,18
+Frame-weighted (SE(3)),free_yaw_push,30,0.0,0,18
+Full operator (SE(3)),free_yaw_push,30,1.0,18,18
+Pdiag pointwise (SE(3)),free_yaw_push,30,1.0,18,18
+Pdiag finite (SE(3)),free_yaw_push,30,1.0,18,18

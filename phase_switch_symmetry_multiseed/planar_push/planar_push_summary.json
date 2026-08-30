@@ -1,0 +1,771 @@
+{
+  "schema_version": 1,
+  "experiment_sha256": "3af36ec50409fc5ca387c942b69873ec37cf6e368f93e88dea0333fde738974d",
+  "subset_manifest_sha256": "30c16bbef04ded91e199cfac6a3f878994f4fb1c9b939ca5f3e0aa45135a5866",
+  "source_sha256": {
+    "benchmark_planar_push.py": "c0d4d3fdc97d42701da31a151c535614d86b8d82553e89e6f06d6e549c50c637",
+    "benchmark_se3_transfer.py": "6f71d22b7b3e137dba23208227ff81c1816b8d0cbc666b86e7e2b2b09df071ec",
+    "phase_switch_se3_baselines.py": "820ac06d795f51e0332444796b37f8ac993262b5903a4c916722e04ef0e24080"
+  },
+  "oracle": {
+    "heading_push": "du/dv = 1 from push on (code>=1); yaw = 1 from align on (code>=2); dw/roll/pitch = 0",
+    "free_yaw_push": "du/dv = 1 from push on; dw/roll/pitch/yaw = 0"
+  },
+  "active_phases": {
+    "push": 1,
+    "align": 2
+  },
+  "curve_extraction": "block pose6 per phase (reach/push/align/retract), empty phases held at the episode final pose; success terminates the episode early so align/retract are absent for small-|yaw| conditions.",
+  "M_oop_out_of_plane_suppression": {
+    "definition": "max over active phases (push+align) of alpha_j; heading_push correct iff dw/roll/pitch all < 0.5 AND du/dv/yaw all > 0.5; free_yaw_push correct iff dw/roll/pitch/yaw all < 0.5 AND du/dv all > 0.5.",
+    "threshold": 0.5
+  },
+  "M_yaw_heading_vs_free_yaw": {
+    "definition": "correct iff alpha_yaw_active_max(heading_push) > 0.5 AND alpha_yaw_active_max(free_yaw_push) < 0.5.",
+    "threshold": 0.5
+  },
+  "M_oop_accuracy": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "accuracy": 0.8888888888888888,
+      "sum": 16,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "accuracy": 0.8888888888888888,
+      "sum": 16,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "accuracy": 0.9444444444444444,
+      "sum": 17,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    }
+  ],
+  "alpha_active_max": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "alpha_active_du": 0.5662822005862341,
+      "alpha_active_dv": 0.5662822005862341,
+      "alpha_active_dw": 0.5662822005862341,
+      "alpha_active_roll": 0.5662822005862341,
+      "alpha_active_pitch": 0.5662822005862341,
+      "alpha_active_yaw": 0.5662822005862341
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "alpha_active_du": 1.962227191483124,
+      "alpha_active_dv": 1.3540804567877442,
+      "alpha_active_dw": 0.08846046414078228,
+      "alpha_active_roll": 0.018987653676685243,
+      "alpha_active_pitch": 0.03434126614000567,
+      "alpha_active_yaw": 0.6966046485875441
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "alpha_active_du": 1.0211819354618985,
+      "alpha_active_dv": 1.054047847253689,
+      "alpha_active_dw": 0.047202056718533496,
+      "alpha_active_roll": 0.01442290864749419,
+      "alpha_active_pitch": 0.004007501044770332,
+      "alpha_active_yaw": 0.6712451811346902
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "alpha_active_du": 0.9676140413835321,
+      "alpha_active_dv": 1.024801241848635,
+      "alpha_active_dw": 0.0869798347822621,
+      "alpha_active_roll": 0.04181133021536591,
+      "alpha_active_pitch": 0.2296112874105743,
+      "alpha_active_yaw": 0.6587882293902984
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "alpha_active_du": 0.5772478653091242,
+      "alpha_active_dv": 0.5772478653091242,
+      "alpha_active_dw": 0.5772478653091242,
+      "alpha_active_roll": 0.5772478653091242,
+      "alpha_active_pitch": 0.5772478653091242,
+      "alpha_active_yaw": 0.5772478653091242
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "alpha_active_du": 1.1142619649275,
+      "alpha_active_dv": 1.0330097710089658,
+      "alpha_active_dw": 0.028978676868223346,
+      "alpha_active_roll": 0.010926167943302454,
+      "alpha_active_pitch": 0.0034182612504983388,
+      "alpha_active_yaw": 0.6931578572996377
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "alpha_active_du": 1.0978368973760266,
+      "alpha_active_dv": 1.02409989983878,
+      "alpha_active_dw": 0.03051523836190549,
+      "alpha_active_roll": 0.002263573374852271,
+      "alpha_active_pitch": 0.003993741621106358,
+      "alpha_active_yaw": 0.6903654258152769
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "alpha_active_du": 1.0305429835260311,
+      "alpha_active_dv": 1.0349511888270102,
+      "alpha_active_dw": 0.031677422847615495,
+      "alpha_active_roll": 0.020262618759435913,
+      "alpha_active_pitch": 0.17614250968135858,
+      "alpha_active_yaw": 0.6767886973248723
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "alpha_active_du": 0.5789959605024406,
+      "alpha_active_dv": 0.5789959605024406,
+      "alpha_active_dw": 0.5789959605024406,
+      "alpha_active_roll": 0.5789959605024406,
+      "alpha_active_pitch": 0.5789959605024406,
+      "alpha_active_yaw": 0.5789959605024406
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "alpha_active_du": 1.1734071759220643,
+      "alpha_active_dv": 1.0264982749829872,
+      "alpha_active_dw": 0.029684251933538693,
+      "alpha_active_roll": 0.010618951686597738,
+      "alpha_active_pitch": 0.005551190399675534,
+      "alpha_active_yaw": 0.7164525266018985
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "alpha_active_du": 1.1024973162520733,
+      "alpha_active_dv": 1.0232512215450082,
+      "alpha_active_dw": 0.035231298594700866,
+      "alpha_active_roll": 0.004764659598291814,
+      "alpha_active_pitch": 0.005798120797118046,
+      "alpha_active_yaw": 0.7148436028833447
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "alpha_active_du": 1.10104740711721,
+      "alpha_active_dv": 1.0184431421678868,
+      "alpha_active_dw": 0.04133529936534926,
+      "alpha_active_roll": 0.019586966203496793,
+      "alpha_active_pitch": 0.09300560636401317,
+      "alpha_active_yaw": 0.695762491760037
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "alpha_active_du": 0.39967218179735886,
+      "alpha_active_dv": 0.39967218179735886,
+      "alpha_active_dw": 0.39967218179735886,
+      "alpha_active_roll": 0.39967218179735886,
+      "alpha_active_pitch": 0.39967218179735886,
+      "alpha_active_yaw": 0.39967218179735886
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "alpha_active_du": 1.0301065576856214,
+      "alpha_active_dv": 0.9771393114992186,
+      "alpha_active_dw": 0.019447769104801102,
+      "alpha_active_roll": 0.014615317670486674,
+      "alpha_active_pitch": 0.003636503192980938,
+      "alpha_active_yaw": 0.06460972037919588
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "alpha_active_du": 0.9927977319372321,
+      "alpha_active_dv": 0.974112754895249,
+      "alpha_active_dw": 0.0215419962607855,
+      "alpha_active_roll": 0.013962352560002465,
+      "alpha_active_pitch": 0.0017482915841690117,
+      "alpha_active_yaw": 0.09005572390172949
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "alpha_active_du": 0.9913534378824745,
+      "alpha_active_dv": 0.9388050996883521,
+      "alpha_active_dw": 0.019839779164806615,
+      "alpha_active_roll": 0.03338150406688087,
+      "alpha_active_pitch": 0.039437617484550075,
+      "alpha_active_yaw": 0.10769772157516161
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "alpha_active_du": 0.392352088767162,
+      "alpha_active_dv": 0.392352088767162,
+      "alpha_active_dw": 0.392352088767162,
+      "alpha_active_roll": 0.392352088767162,
+      "alpha_active_pitch": 0.392352088767162,
+      "alpha_active_yaw": 0.392352088767162
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "alpha_active_du": 1.0213479898895763,
+      "alpha_active_dv": 1.0140910630131401,
+      "alpha_active_dw": 0.010395277341762378,
+      "alpha_active_roll": 0.015327446540406372,
+      "alpha_active_pitch": 0.0017609933853182558,
+      "alpha_active_yaw": 0.04501615670168245
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "alpha_active_du": 1.0177196926903425,
+      "alpha_active_dv": 1.0077771914541194,
+      "alpha_active_dw": 0.011895921687763074,
+      "alpha_active_roll": 0.009296401858463333,
+      "alpha_active_pitch": 0.0021249576273144164,
+      "alpha_active_yaw": 0.027313924917175332
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "alpha_active_du": 0.9971733579663723,
+      "alpha_active_dv": 1.0208850724613,
+      "alpha_active_dw": 0.010626187072510182,
+      "alpha_active_roll": 0.023491537147869574,
+      "alpha_active_pitch": 0.025550268059252708,
+      "alpha_active_yaw": 0.04838258814749243
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "alpha_active_du": 0.38321243310206576,
+      "alpha_active_dv": 0.38321243310206576,
+      "alpha_active_dw": 0.38321243310206576,
+      "alpha_active_roll": 0.38321243310206576,
+      "alpha_active_pitch": 0.38321243310206576,
+      "alpha_active_yaw": 0.38321243310206576
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "alpha_active_du": 1.0058396099124225,
+      "alpha_active_dv": 0.9959548727445939,
+      "alpha_active_dw": 0.004448428225409685,
+      "alpha_active_roll": 0.005931927483587034,
+      "alpha_active_pitch": 0.000981161284977664,
+      "alpha_active_yaw": 0.03564216050612211
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "alpha_active_du": 1.0059454418059353,
+      "alpha_active_dv": 0.9990024037499301,
+      "alpha_active_dw": 0.00523195313835884,
+      "alpha_active_roll": 0.004696897817782505,
+      "alpha_active_pitch": 0.0012455914368066688,
+      "alpha_active_yaw": 0.029616111183822163
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "alpha_active_du": 1.0111608242997778,
+      "alpha_active_dv": 0.9989645573137409,
+      "alpha_active_dw": 0.006538077966593573,
+      "alpha_active_roll": 0.015841532504060542,
+      "alpha_active_pitch": 0.02223671605351467,
+      "alpha_active_yaw": 0.05026711861123416
+    }
+  ],
+  "e_alpha": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "mean": 0.1981362407070036,
+      "std": 0.004617603162407074,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "mean": 0.30463058345706057,
+      "std": 0.41637939852100925,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "mean": 0.08315611972167623,
+      "std": 0.02460740942841775,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 8,
+      "mean": 0.07198108466553493,
+      "std": 0.012023479300434925,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "mean": 0.19506466340223672,
+      "std": 0.0035432984582206626,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "mean": 0.07744029506578518,
+      "std": 0.02320644011286654,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "mean": 0.06340414955915426,
+      "std": 0.009298544654353149,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 15,
+      "mean": 0.06218664428496935,
+      "std": 0.009650595994752027,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "mean": 0.1937249899452148,
+      "std": 0.002015955440971761,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "mean": 0.05826964416827304,
+      "std": 0.006913907288629547,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "mean": 0.05761337890064328,
+      "std": 0.006779127870067043,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "heading_push",
+      "sample_size": 30,
+      "mean": 0.056931744857436475,
+      "std": 0.006670549741443851,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "mean": 0.18165411598019218,
+      "std": 0.004009974523327633,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "mean": 0.06557361747306381,
+      "std": 0.04334574743090634,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "mean": 0.041960833143411744,
+      "std": 0.005011479406894497,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 8,
+      "mean": 0.042495609509261685,
+      "std": 0.0046694580123770825,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "mean": 0.18057245498884764,
+      "std": 0.0029712079385814955,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "mean": 0.03799383374164809,
+      "std": 0.0034218122906634362,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "mean": 0.037811917427289725,
+      "std": 0.002593030480332812,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 15,
+      "mean": 0.037770844866948816,
+      "std": 0.0022000672931032383,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "mean": 0.17907131253434844,
+      "std": 0.0009468638117710697,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "mean": 0.038064923439034185,
+      "std": 0.002183276686050938,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "mean": 0.037770234165265384,
+      "std": 0.0018640240846418811,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "arm": "free_yaw_push",
+      "sample_size": 30,
+      "mean": 0.03790831813947766,
+      "std": 0.001634461079610137,
+      "count": 18
+    }
+  ],
+  "M_yaw_accuracy": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "m_yaw_accuracy": 0.8333333333333334,
+      "yaw_active_heading_mean": 0.5662822005862341,
+      "yaw_active_free_mean": 0.39967218179735886
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "m_yaw_accuracy": 0.9444444444444444,
+      "yaw_active_heading_mean": 0.5772478653091242,
+      "yaw_active_free_mean": 0.392352088767162
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.5789959605024406,
+      "yaw_active_free_mean": 0.38321243310206576
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.6966046485875441,
+      "yaw_active_free_mean": 0.06460972037919586
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.6931578572996377,
+      "yaw_active_free_mean": 0.04501615670168246
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.7164525266018985,
+      "yaw_active_free_mean": 0.03564216050612211
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.6587882293902984,
+      "yaw_active_free_mean": 0.10769772157516161
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.6767886973248723,
+      "yaw_active_free_mean": 0.04838258814749243
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.695762491760037,
+      "yaw_active_free_mean": 0.05026711861123416
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.6712451811346902,
+      "yaw_active_free_mean": 0.09005572390172949
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.6903654258152769,
+      "yaw_active_free_mean": 0.027313924917175332
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "m_yaw_accuracy": 1.0,
+      "yaw_active_heading_mean": 0.7148436028833447,
+      "yaw_active_free_mean": 0.029616111183822163
+    }
+  ],
+  "yaw_residual_note": "The heading arm's align phase is interrupted by success when the block heading enters the success tolerance (|heading_err| < 0.10 rad), so the block stops ~0.08-0.10 rad short of the target heading rather than at the align loop's 0.02 rad target. This is a constant ~5 deg offset, small vs the +-30 deg yaw signal, and lowers alpha_yaw_active(heading_push) to ~0.7-0.8 (still > 0.5). free_yaw_push never rotates the block.",
+  "fit_count": 432,
+  "fit_failure_count": 0,
+  "bins_per_phase": 25
+}

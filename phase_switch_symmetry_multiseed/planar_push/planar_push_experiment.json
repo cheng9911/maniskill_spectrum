@@ -26,7 +26,7 @@
       "env_id": "PlanarPush-v1",
       "goal_heading": true,
       "source": "collect",
-      "solver": "solve_planar_push (guided push / grasp + slide: reach overhead grasp -> push lift+slide to target in-plane position -> align wrist yaw about the table normal -> retract lower+release; the block's heading is set by rotating the grasped block)",
+      "solver": "solve_planar_push (guided push / grasp + slide: reach overhead grasp -> push lift+slide to target in-plane position -> align wrist yaw about the table normal in bounded 0.05 rad closed-loop steps -> retract lower+release; the block's heading is set by rotating the grasped block)",
       "oracle_selector": [1, 1, 0, 0, 0, 1],
       "note": "du/dv/yaw tracked (block responds to target in-plane pose), dw/roll/pitch suppressed (block on table)."
     },
@@ -90,5 +90,13 @@
   "source_sha256": {
     "phase_switch_symmetry_planar_push_env.py": "46e640f0bb7d629daeadfa052d4a11f5ea215258853645513d93750a300598c3",
     "phase_switch_se3_baselines.py": "820ac06d795f51e0332444796b37f8ac993262b5903a4c916722e04ef0e24080"
+  },
+  "solver_fix": {
+    "what": "The align-phase wrist-yaw rotation was changed from a single rotation by the full heading residual (<=3 closed-loop passes) to a closed-loop sequence of bounded 0.05 rad steps (<=60 passes).",
+    "why": "Post-collection data audit found the original align rotation occasionally levered the grasped block OFF the table (block z reached 0.70 m, pitch/roll ~0.75 rad) in a rare (~2-3/50 align episodes, seed-dependent) physics instability. This out-of-plane motion is spuriously attributed to the suppressed dw generator by the Pdiag finite model at N=30 (alpha_dw 0.106 -> 0.771), degrading the headline M_oop (heading_push) to 0.389. Bounded steps keep the block level (z span ~0.002 m) while still reaching the heading.",
+    "scope": "SOLVER-only change (collect_planar_push_rollouts.py). The frozen env (phase_switch_symmetry_planar_push_env.py) is byte-identical, and the context manifest, subsets, model suite, and oracle are unchanged.",
+    "validation": "heading_push was re-collected (all 3 seeds, 75/75 success). Post-fix align-phase block z max is 0.0255 m across every align-present episode (0 episodes with z>0.05), versus 5 episodes exceeding 0.69 m in the original collection. The Phase-0 gate re-passed 14/14 with the fixed solver.",
+    "recollection_note": "Only heading_push was re-collected (its align phase is the only place the rotation runs). free_yaw_push has no align rotation and its original clean data is unchanged.",
+    "documented_after_collection": true
   }
 }

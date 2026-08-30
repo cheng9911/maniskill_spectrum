@@ -2,7 +2,7 @@
   "schema_version": 2,
   "status": "frozen_before_planar_push_fitting",
   "experiment": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/planar_push/planar_push_experiment.json",
-  "experiment_sha256": "5c08cffff55571212c234245289e79fe6eb099f9ba1a84096b5f5acf29237612",
+  "experiment_sha256": "3af36ec50409fc5ca387c942b69873ec37cf6e368f93e88dea0333fde738974d",
   "context_manifest_sha256": "e018b944be07c78ea76f76e2ef4e4313fd94fc82bb5853eac37a3dfbe8858427",
   "selection_seed": 20260818,
   "sample_sizes": [
