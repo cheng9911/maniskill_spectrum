@@ -1,0 +1,2823 @@
+{
+  "schema_version": 1,
+  "experiment_sha256": "a67dd47303625446ac0ac76d0c0fc20ce38896cf5c7d7047f8f9b6ac3a45f635",
+  "subset_manifest_sha256": "46ae1ebe404e1094c6d07a237af393540728afdd305b4744c22260fe1e49258e",
+  "task_keys": [
+    "drawer_middle_open",
+    "stove_knob_turn",
+    "microwave_door_revolute",
+    "plate_front_push",
+    "bowl_on_stove",
+    "bowl_on_plate",
+    "cream_cheese_in_bowl",
+    "wine_bottle_on_rack",
+    "wine_bottle_on_cabinet",
+    "moka_pot_on_stove"
+  ],
+  "task_families": {
+    "drawer_middle_open": "prismatic_sliding",
+    "stove_knob_turn": "revolute_knob",
+    "microwave_door_revolute": "revolute_door",
+    "plate_front_push": "planar_one_axis_push",
+    "bowl_on_stove": "support_placement",
+    "bowl_on_plate": "stacking_support",
+    "cream_cheese_in_bowl": "container_in",
+    "wine_bottle_on_rack": "rack_slot_placement",
+    "wine_bottle_on_cabinet": "upright_support_placement",
+    "moka_pot_on_stove": "compound_support_subtask"
+  },
+  "pdiag_config": {
+    "alpha_max": 1.25,
+    "n_basis": 8,
+    "basis_width": 0.12,
+    "smoothness_weight": 0.1,
+    "nominal_iterations": 1
+  },
+  "M_relation": {
+    "definition": "max over active phases move+hold; each task is correct iff all oracle-selected generators are >0.5 and all suppressed generators are <0.5.",
+    "threshold": 0.5
+  },
+  "M_relation_overall": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 180
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 180
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 180
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 180,
+      "count": 180
+    }
+  ],
+  "M_relation_by_task": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "drawer_middle_open",
+      "family": "prismatic_sliding",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "stove_knob_turn",
+      "family": "revolute_knob",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "microwave_door_revolute",
+      "family": "revolute_door",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "plate_front_push",
+      "family": "planar_one_axis_push",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "bowl_on_stove",
+      "family": "support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "bowl_on_plate",
+      "family": "stacking_support",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "cream_cheese_in_bowl",
+      "family": "container_in",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "wine_bottle_on_rack",
+      "family": "rack_slot_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "wine_bottle_on_cabinet",
+      "family": "upright_support_placement",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "task_key": "moka_pot_on_stove",
+      "family": "compound_support_subtask",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    }
+  ],
+  "e_alpha_overall": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "mean": 0.12349380134592183,
+      "std": 0.030706704471944648,
+      "count": 180
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "sample_size": 8,
+      "mean": 0.123495842020995,
+      "std": 0.030708245447317265,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "sample_size": 8,
+      "mean": 0.02094323113014146,
+      "std": 0.007997719032799316,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "sample_size": 8,
+      "mean": 0.018191300967785966,
+      "std": 0.0050548620244299895,
+      "count": 180
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "mean": 1.1791171504422444e-06,
+      "std": 3.483808804754383e-06,
+      "count": 180
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "mean": 1.306118984482272e-31,
+      "std": 1.5464368688983645e-31,
+      "count": 180
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "mean": 0.0005769983521874914,
+      "std": 0.0006991736227130544,
+      "count": 180
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "mean": 0.12442569069528178,
+      "std": 0.031597396214569744,
+      "count": 180
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "sample_size": 15,
+      "mean": 0.12442762839721638,
+      "std": 0.03159885658678171,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "sample_size": 15,
+      "mean": 0.015471448977733957,
+      "std": 0.006848484859182145,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "sample_size": 15,
+      "mean": 0.016292771152527915,
+      "std": 0.005351893808061606,
+      "count": 180
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "mean": 1.6240300958599625e-10,
+      "std": 1.0662803929122807e-10,
+      "count": 180
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "mean": 3.575608509905617e-32,
+      "std": 3.506851591993562e-32,
+      "count": 180
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "mean": 0.0005076978105449973,
+      "std": 0.0006376180432494719,
+      "count": 180
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "mean": 0.12322520070731376,
+      "std": 0.030187827453731733,
+      "count": 180
+    },
+    {
+      "model": "Phase scalar GP (SE(3))",
+      "sample_size": 30,
+      "mean": 0.1232272305473917,
+      "std": 0.030189416067055653,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM additive (SE(3))",
+      "sample_size": 30,
+      "mean": 0.0035965730855458886,
+      "std": 0.002024889490739777,
+      "count": 180
+    },
+    {
+      "model": "TP-GMM SE(3)",
+      "sample_size": 30,
+      "mean": 0.006144636974196164,
+      "std": 0.003056528884238869,
+      "count": 180
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "mean": 1.997627272409658e-11,
+      "std": 1.4719428467952908e-11,
+      "count": 180
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "mean": 3.274866390636314e-32,
+      "std": 2.816074887198921e-32,
+      "count": 180
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "mean": 0.00043627248640421625,
+      "std": 0.0006608151611019046,
+      "count": 180
+    }
+  ],
+  "tpgmm_projected": {
+    "note": "TP-GMM is the repository SE(2) baseline, evaluated on [du,dv,yaw] projections only.",
+    "M_relation_projected_overall": [
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 180,
+        "count": 180
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 180,
+        "count": 180
+      },
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 180,
+        "count": 180
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 180,
+        "count": 180
+      },
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 180,
+        "count": 180
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 180,
+        "count": 180
+      }
+    ],
+    "M_relation_projected_by_task": [
+      {
+        "model": "TP-GMM additive",
+        "task_key": "drawer_middle_open",
+        "family": "prismatic_sliding",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "drawer_middle_open",
+        "family": "prismatic_sliding",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "drawer_middle_open",
+        "family": "prismatic_sliding",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "drawer_middle_open",
+        "family": "prismatic_sliding",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "drawer_middle_open",
+        "family": "prismatic_sliding",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "drawer_middle_open",
+        "family": "prismatic_sliding",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "stove_knob_turn",
+        "family": "revolute_knob",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "stove_knob_turn",
+        "family": "revolute_knob",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "stove_knob_turn",
+        "family": "revolute_knob",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "stove_knob_turn",
+        "family": "revolute_knob",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "stove_knob_turn",
+        "family": "revolute_knob",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "stove_knob_turn",
+        "family": "revolute_knob",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "microwave_door_revolute",
+        "family": "revolute_door",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "microwave_door_revolute",
+        "family": "revolute_door",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "microwave_door_revolute",
+        "family": "revolute_door",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "microwave_door_revolute",
+        "family": "revolute_door",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "microwave_door_revolute",
+        "family": "revolute_door",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "microwave_door_revolute",
+        "family": "revolute_door",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "plate_front_push",
+        "family": "planar_one_axis_push",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "plate_front_push",
+        "family": "planar_one_axis_push",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "plate_front_push",
+        "family": "planar_one_axis_push",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "plate_front_push",
+        "family": "planar_one_axis_push",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "plate_front_push",
+        "family": "planar_one_axis_push",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "plate_front_push",
+        "family": "planar_one_axis_push",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "bowl_on_stove",
+        "family": "support_placement",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "bowl_on_stove",
+        "family": "support_placement",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "bowl_on_stove",
+        "family": "support_placement",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "bowl_on_stove",
+        "family": "support_placement",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "bowl_on_stove",
+        "family": "support_placement",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "bowl_on_stove",
+        "family": "support_placement",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "bowl_on_plate",
+        "family": "stacking_support",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "bowl_on_plate",
+        "family": "stacking_support",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "bowl_on_plate",
+        "family": "stacking_support",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "bowl_on_plate",
+        "family": "stacking_support",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "bowl_on_plate",
+        "family": "stacking_support",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "bowl_on_plate",
+        "family": "stacking_support",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "cream_cheese_in_bowl",
+        "family": "container_in",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "cream_cheese_in_bowl",
+        "family": "container_in",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "cream_cheese_in_bowl",
+        "family": "container_in",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "cream_cheese_in_bowl",
+        "family": "container_in",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "cream_cheese_in_bowl",
+        "family": "container_in",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "cream_cheese_in_bowl",
+        "family": "container_in",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "wine_bottle_on_rack",
+        "family": "rack_slot_placement",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "wine_bottle_on_rack",
+        "family": "rack_slot_placement",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "wine_bottle_on_rack",
+        "family": "rack_slot_placement",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "wine_bottle_on_rack",
+        "family": "rack_slot_placement",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "wine_bottle_on_rack",
+        "family": "rack_slot_placement",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "wine_bottle_on_rack",
+        "family": "rack_slot_placement",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "wine_bottle_on_cabinet",
+        "family": "upright_support_placement",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "wine_bottle_on_cabinet",
+        "family": "upright_support_placement",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "wine_bottle_on_cabinet",
+        "family": "upright_support_placement",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "wine_bottle_on_cabinet",
+        "family": "upright_support_placement",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "wine_bottle_on_cabinet",
+        "family": "upright_support_placement",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "wine_bottle_on_cabinet",
+        "family": "upright_support_placement",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "moka_pot_on_stove",
+        "family": "compound_support_subtask",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "moka_pot_on_stove",
+        "family": "compound_support_subtask",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "moka_pot_on_stove",
+        "family": "compound_support_subtask",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "moka_pot_on_stove",
+        "family": "compound_support_subtask",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "task_key": "moka_pot_on_stove",
+        "family": "compound_support_subtask",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "task_key": "moka_pot_on_stove",
+        "family": "compound_support_subtask",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      }
+    ]
+  },
+  "fit_count": 3780,
+  "fit_failure_count": 0,
+  "tpgmm_fit_count": 1080,
+  "tpgmm_fit_failure_count": 0
+}

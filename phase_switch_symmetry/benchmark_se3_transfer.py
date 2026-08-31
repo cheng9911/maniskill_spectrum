@@ -47,7 +47,9 @@ from phase_switch_se3_baselines import (
     SE3DiagonalOperatorModel,
     SE3FrameWeightedModel,
     SE3FullOperatorModel,
+    SE3PhaseScalarGPModel,
     SE3SmoothFinitePDiagModel,
+    SE3TPGMMModel,
     euler_from_matrix,
     pose6_from_se3,
     se3_from_pose6,
@@ -64,12 +66,18 @@ TASK_FILES = {
 
 SE3_MODEL_ORDER = (
     "Frame-weighted (SE(3))",
+    "Phase scalar GP (SE(3))",
+    "TP-GMM additive (SE(3))",
+    "TP-GMM SE(3)",
     "Full operator (SE(3))",
     "Pdiag pointwise (SE(3))",
     "Pdiag finite (SE(3))",
 )
 SE3_MODEL_DEFINITIONS = {
     "Frame-weighted (SE(3))": "Per-progress affine regression constrained to one shared scalar w(s) for all six SE(3) generators.",
+    "Phase scalar GP (SE(3))": "Oracle-favorable phase-dependent shared scalar relevance: the training-only least-squares w(s) is GP-smoothed. This is not the TPGP algorithm.",
+    "TP-GMM additive (SE(3))": "Shared-responsibility frame-product mixture over world and additive six-dimensional SE(3) response-coordinate emissions.",
+    "TP-GMM SE(3)": "Shared-responsibility frame-product mixture over world and nominal-frame SE(3) local pose emissions, scored by numerical six-generator diagonals.",
     "Full operator (SE(3))": "Per-progress affine dense 6x6 response operator.",
     "Pdiag pointwise (SE(3))": "Ablation that independently fits one affine diagonal response at each progress point (6 channels).",
     "Pdiag finite (SE(3))": "Final method: alpha_max-constrained RBF-sigmoid 6-generator profiles with second-difference smoothness, realized by C0 Exp(P(s) Log(C0^-1 C)) C0^-1 X0 in SE(3).",
@@ -171,6 +179,9 @@ def oracle_alpha_se3(task, phase_codes):
 def build_models(nominal_frame_pose, pdiag_config):
     return [
         SE3FrameWeightedModel(),
+        SE3PhaseScalarGPModel(),
+        SE3TPGMMModel(frame_mode="additive"),
+        SE3TPGMMModel(frame_mode="se3", nominal_frame_pose=nominal_frame_pose),
         SE3FullOperatorModel(),
         SE3DiagonalOperatorModel(),
         SE3SmoothFinitePDiagModel(

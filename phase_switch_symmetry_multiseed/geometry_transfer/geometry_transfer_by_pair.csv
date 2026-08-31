@@ -1,0 +1,61 @@
+method,pair_key,family,sample_size,m_transfer_accuracy,e_alpha_mean,heldout_prediction_mse_mean,count
+Ours transfer: source Pdiag N=30 + target nominal N=1,drawer_to_plate_push,one_axis_sliding,3,1.0,1.3524771462458858e-05,6.530108646319845e-10,3
+Frame-weighted target scratch,drawer_to_plate_push,one_axis_sliding,3,0.0,0.08842909386200082,4.923338477312775e-06,3
+Phase scalar GP target scratch,drawer_to_plate_push,one_axis_sliding,3,0.0,0.08842925803261675,4.923349911156486e-06,3
+Pdiag finite target scratch,drawer_to_plate_push,one_axis_sliding,3,1.0,0.004993496676414129,3.5038297074057845e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,drawer_to_plate_push,one_axis_sliding,5,1.0,1.3524771462458858e-05,6.094215438833531e-10,3
+Frame-weighted target scratch,drawer_to_plate_push,one_axis_sliding,5,0.0,0.09954448755818142,5.251626867652227e-06,3
+Phase scalar GP target scratch,drawer_to_plate_push,one_axis_sliding,5,0.0,0.0995438997763044,5.25161939066228e-06,3
+Pdiag finite target scratch,drawer_to_plate_push,one_axis_sliding,5,1.0,1.6964564979135757e-05,1.3581655165029214e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,drawer_to_plate_push,one_axis_sliding,8,1.0,1.3524771462458858e-05,6.397122356088535e-10,3
+Frame-weighted target scratch,drawer_to_plate_push,one_axis_sliding,8,0.0,0.0817324654217811,4.4699506825222644e-06,3
+Phase scalar GP target scratch,drawer_to_plate_push,one_axis_sliding,8,0.0,0.08173279809510907,4.469977138395721e-06,3
+Pdiag finite target scratch,drawer_to_plate_push,one_axis_sliding,8,1.0,5.93581493071957e-05,1.2634477676787872e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,knob_to_microwave_door,revolute_yaw,3,1.0,1.3799406324010699e-05,1.0240733199410645e-09,3
+Frame-weighted target scratch,knob_to_microwave_door,revolute_yaw,3,0.0,0.09068219995341469,7.413382675587196e-06,3
+Phase scalar GP target scratch,knob_to_microwave_door,revolute_yaw,3,0.0,0.09068214725813678,7.4134381452457275e-06,3
+Pdiag finite target scratch,knob_to_microwave_door,revolute_yaw,3,1.0,4.0121900609272506e-05,1.401972933666783e-08,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,knob_to_microwave_door,revolute_yaw,5,1.0,1.3799406324010699e-05,1.0119472909801235e-09,3
+Frame-weighted target scratch,knob_to_microwave_door,revolute_yaw,5,0.0,0.10100997487536374,5.822922032832689e-06,3
+Phase scalar GP target scratch,knob_to_microwave_door,revolute_yaw,5,0.0,0.10100932885517716,5.822956487213637e-06,3
+Pdiag finite target scratch,knob_to_microwave_door,revolute_yaw,5,1.0,1.4547502985603683e-05,1.2189174712964829e-08,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,knob_to_microwave_door,revolute_yaw,8,1.0,1.3799406324010699e-05,1.0056008922320379e-09,3
+Frame-weighted target scratch,knob_to_microwave_door,revolute_yaw,8,0.0,0.09914645119411121,5.342690655684636e-06,3
+Phase scalar GP target scratch,knob_to_microwave_door,revolute_yaw,8,0.0,0.09914588619525196,5.342730570276509e-06,3
+Pdiag finite target scratch,knob_to_microwave_door,revolute_yaw,8,1.0,4.601392749002478e-05,1.4344851832392712e-08,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,bowl_stove_to_bowl_plate,support_to_stacking,3,1.0,0.0003450676808270327,1.4851040609372831e-08,3
+Frame-weighted target scratch,bowl_stove_to_bowl_plate,support_to_stacking,3,0.0,0.17545128723191106,9.070143342318583e-06,3
+Phase scalar GP target scratch,bowl_stove_to_bowl_plate,support_to_stacking,3,0.0,0.17545319056126893,9.070235296000782e-06,3
+Pdiag finite target scratch,bowl_stove_to_bowl_plate,support_to_stacking,3,1.0,0.006208192579471393,5.193198586241711e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,bowl_stove_to_bowl_plate,support_to_stacking,5,1.0,0.0003450676808270327,1.4736115300324007e-08,3
+Frame-weighted target scratch,bowl_stove_to_bowl_plate,support_to_stacking,5,0.0,0.15219751591671785,7.533658580893525e-06,3
+Phase scalar GP target scratch,bowl_stove_to_bowl_plate,support_to_stacking,5,0.0,0.15220042750893417,7.533847739272167e-06,3
+Pdiag finite target scratch,bowl_stove_to_bowl_plate,support_to_stacking,5,1.0,0.0009473272519308294,2.8917593532619384e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,bowl_stove_to_bowl_plate,support_to_stacking,8,1.0,0.0003450676808270327,1.4813718788851476e-08,3
+Frame-weighted target scratch,bowl_stove_to_bowl_plate,support_to_stacking,8,0.0,0.1473617984895794,6.559466681174218e-06,3
+Phase scalar GP target scratch,bowl_stove_to_bowl_plate,support_to_stacking,8,0.0,0.1473650190888852,6.559668567692858e-06,3
+Pdiag finite target scratch,bowl_stove_to_bowl_plate,support_to_stacking,8,1.0,0.0014852362754487075,3.4648529438677563e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,bowl_stove_to_cream_cheese_bowl,support_to_container,3,1.0,0.0003450676808270327,1.5013688888536226e-08,3
+Frame-weighted target scratch,bowl_stove_to_cream_cheese_bowl,support_to_container,3,0.0,0.14886020426404556,8.610729303788226e-06,3
+Phase scalar GP target scratch,bowl_stove_to_cream_cheese_bowl,support_to_container,3,0.0,0.1488637655113263,8.611024794292881e-06,3
+Pdiag finite target scratch,bowl_stove_to_cream_cheese_bowl,support_to_container,3,1.0,0.004497068843297179,4.47012180616441e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,bowl_stove_to_cream_cheese_bowl,support_to_container,5,1.0,0.0003450676808270327,1.4941085386996293e-08,3
+Frame-weighted target scratch,bowl_stove_to_cream_cheese_bowl,support_to_container,5,0.0,0.15156655708054279,7.700123722967404e-06,3
+Phase scalar GP target scratch,bowl_stove_to_cream_cheese_bowl,support_to_container,5,0.0,0.1515695954056702,7.700366116902648e-06,3
+Pdiag finite target scratch,bowl_stove_to_cream_cheese_bowl,support_to_container,5,1.0,0.001215695688028594,3.1973527395940905e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,bowl_stove_to_cream_cheese_bowl,support_to_container,8,1.0,0.0003450676808270327,1.51684828921127e-08,3
+Frame-weighted target scratch,bowl_stove_to_cream_cheese_bowl,support_to_container,8,0.0,0.14913991757829484,6.845575064932443e-06,3
+Phase scalar GP target scratch,bowl_stove_to_cream_cheese_bowl,support_to_container,8,0.0,0.14914290852810588,6.845747609851487e-06,3
+Pdiag finite target scratch,bowl_stove_to_cream_cheese_bowl,support_to_container,8,1.0,0.00046106934520677174,2.844282840229716e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,bowl_stove_to_wine_cabinet,cross_object_support,3,1.0,0.0003450676808270327,1.4854641274509838e-08,3
+Frame-weighted target scratch,bowl_stove_to_wine_cabinet,cross_object_support,3,0.0,0.18446703639521864,1.0472093197475166e-05,3
+Phase scalar GP target scratch,bowl_stove_to_wine_cabinet,cross_object_support,3,0.0,0.18446947739827105,1.0472326584607684e-05,3
+Pdiag finite target scratch,bowl_stove_to_wine_cabinet,cross_object_support,3,1.0,0.0030734698543903936,4.107422678715345e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,bowl_stove_to_wine_cabinet,cross_object_support,5,1.0,0.0003450676808270327,1.4566023470077976e-08,3
+Frame-weighted target scratch,bowl_stove_to_wine_cabinet,cross_object_support,5,0.0,0.1480383709041069,6.911722277213044e-06,3
+Phase scalar GP target scratch,bowl_stove_to_wine_cabinet,cross_object_support,5,0.0,0.14804146644617247,6.911930296655131e-06,3
+Pdiag finite target scratch,bowl_stove_to_wine_cabinet,cross_object_support,5,1.0,0.0023993281785327386,3.8964716969641154e-07,3
+Ours transfer: source Pdiag N=30 + target nominal N=1,bowl_stove_to_wine_cabinet,cross_object_support,8,1.0,0.0003450676808270327,1.4950602427984574e-08,3
+Frame-weighted target scratch,bowl_stove_to_wine_cabinet,cross_object_support,8,0.0,0.1587003011605416,6.841276525150375e-06,3
+Phase scalar GP target scratch,bowl_stove_to_wine_cabinet,cross_object_support,8,0.0,0.15870271078059,6.841433923458953e-06,3
+Pdiag finite target scratch,bowl_stove_to_wine_cabinet,cross_object_support,8,1.0,0.0008810459282609633,3.011106562372627e-07,3

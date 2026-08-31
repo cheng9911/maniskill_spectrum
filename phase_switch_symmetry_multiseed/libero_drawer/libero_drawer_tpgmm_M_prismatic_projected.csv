@@ -1,0 +1,7 @@
+model,sample_size,accuracy,sum,count
+TP-GMM additive,8,1.0,18,18
+TP-GMM SE(2),8,1.0,18,18
+TP-GMM additive,15,1.0,18,18
+TP-GMM SE(2),15,1.0,18,18
+TP-GMM additive,30,1.0,18,18
+TP-GMM SE(2),30,1.0,18,18

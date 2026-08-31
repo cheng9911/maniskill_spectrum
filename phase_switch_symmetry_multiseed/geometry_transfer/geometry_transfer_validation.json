@@ -1,0 +1,775 @@
+{
+  "schema_version": 1,
+  "experiment": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/libero_relation_suite/libero_relation_suite_experiment.json",
+  "experiment_sha256": "a67dd47303625446ac0ac76d0c0fc20ce38896cf5c7d7047f8f9b6ac3a45f635",
+  "relation_output_root": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/libero_relation_suite",
+  "profile_path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/libero_relation_suite/libero_relation_suite_profiles.npz",
+  "profile_sha256": "1be02ba3f905c756b40b1aa8fd70a7582904c032cd1f6f2d147712a8aeef1aa5",
+  "rollout_root": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_libero_relation_suite",
+  "pairs": [
+    {
+      "pair_key": "drawer_to_plate_push",
+      "source_task": "drawer_middle_open",
+      "target_task": "plate_front_push",
+      "family": "one_axis_sliding",
+      "claim": "rail/sliding du relevance transfers across articulated drawer and free plate push"
+    },
+    {
+      "pair_key": "knob_to_microwave_door",
+      "source_task": "stove_knob_turn",
+      "target_task": "microwave_door_revolute",
+      "family": "revolute_yaw",
+      "claim": "yaw-only relevance transfers across knob and hinged door"
+    },
+    {
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "source_task": "bowl_on_stove",
+      "target_task": "bowl_on_plate",
+      "family": "support_to_stacking",
+      "claim": "upright xyz placement transfers across support surfaces"
+    },
+    {
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "source_task": "bowl_on_stove",
+      "target_task": "cream_cheese_in_bowl",
+      "family": "support_to_container",
+      "claim": "upright xyz placement transfers across object and container geometry"
+    },
+    {
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "source_task": "bowl_on_stove",
+      "target_task": "wine_bottle_on_cabinet",
+      "family": "cross_object_support",
+      "claim": "upright xyz placement transfers across object identity and scene support"
+    }
+  ],
+  "method_order": [
+    "Ours transfer: source Pdiag N=30 + target nominal N=1",
+    "Frame-weighted target scratch",
+    "Phase scalar GP target scratch",
+    "Pdiag finite target scratch",
+    "TP-GMM SE(3) target scratch"
+  ],
+  "sample_sizes": [
+    3,
+    5,
+    8
+  ],
+  "repeats": 1,
+  "split_seed": 20260831,
+  "pdiag_target_scratch_config": {
+    "alpha_max": 1.25,
+    "n_basis": 8,
+    "basis_width": 0.12,
+    "smoothness_weight": 0.1,
+    "nominal_iterations": 1
+  },
+  "include_tpgmm": false,
+  "definition": {
+    "ours_transfer": "source N=30 Pdiag-finite alpha profile is frozen; target condition 0 is the only target nominal trajectory; target interventions are validation probes and are not used to re-identify alpha.",
+    "m_transfer_correct": "source/fit active-phase alpha is thresholded at 0.5 and compared with the target task oracle selector.",
+    "heldout_prediction_mse": "metric-scaled pose-trajectory MSE on target mixed contexts not used by target-scratch fits; ours uses no target intervention for fitting."
+  },
+  "fit_count": 180,
+  "fit_failure_count": 0,
+  "summary": [
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.00021250544405351354,
+      "heldout_prediction_mse_mean": 9.27929099139839e-09,
+      "count": 15
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.13757796434131817,
+      "heldout_prediction_mse_mean": 8.097937399296389e-06,
+      "count": 15
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.13757956775232397,
+      "heldout_prediction_mse_mean": 8.098074946260712e-06,
+      "count": 15
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0037624699708364733,
+      "heldout_prediction_mse_mean": 3.4829540143787856e-07,
+      "count": 15
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.00021250544405351354,
+      "heldout_prediction_mse_mean": 9.17291859845235e-09,
+      "count": 15
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.13047138126698254,
+      "heldout_prediction_mse_mean": 6.6440106963117785e-06,
+      "count": 15
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.13047294359845168,
+      "heldout_prediction_mse_mean": 6.644144006141173e-06,
+      "count": 15
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0009187726372913801,
+      "heldout_prediction_mse_mean": 2.2931282106905428e-07,
+      "count": 15
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.00021250544405351354,
+      "heldout_prediction_mse_mean": 9.31562344735793e-09,
+      "count": 15
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.12721618676886162,
+      "heldout_prediction_mse_mean": 6.0117919218927876e-06,
+      "count": 15
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.12721786453758843,
+      "heldout_prediction_mse_mean": 6.011911561935106e-06,
+      "count": 15
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0005865447251427326,
+      "heldout_prediction_mse_mean": 2.1454277264945628e-07,
+      "count": 15
+    }
+  ],
+  "by_pair": [
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3524771462458858e-05,
+      "heldout_prediction_mse_mean": 6.530108646319845e-10,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.08842909386200082,
+      "heldout_prediction_mse_mean": 4.923338477312775e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.08842925803261675,
+      "heldout_prediction_mse_mean": 4.923349911156486e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.004993496676414129,
+      "heldout_prediction_mse_mean": 3.5038297074057845e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3524771462458858e-05,
+      "heldout_prediction_mse_mean": 6.094215438833531e-10,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09954448755818142,
+      "heldout_prediction_mse_mean": 5.251626867652227e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.0995438997763044,
+      "heldout_prediction_mse_mean": 5.25161939066228e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.6964564979135757e-05,
+      "heldout_prediction_mse_mean": 1.3581655165029214e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3524771462458858e-05,
+      "heldout_prediction_mse_mean": 6.397122356088535e-10,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.0817324654217811,
+      "heldout_prediction_mse_mean": 4.4699506825222644e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.08173279809510907,
+      "heldout_prediction_mse_mean": 4.469977138395721e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 5.93581493071957e-05,
+      "heldout_prediction_mse_mean": 1.2634477676787872e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3799406324010699e-05,
+      "heldout_prediction_mse_mean": 1.0240733199410645e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09068219995341469,
+      "heldout_prediction_mse_mean": 7.413382675587196e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09068214725813678,
+      "heldout_prediction_mse_mean": 7.4134381452457275e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.0121900609272506e-05,
+      "heldout_prediction_mse_mean": 1.401972933666783e-08,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3799406324010699e-05,
+      "heldout_prediction_mse_mean": 1.0119472909801235e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.10100997487536374,
+      "heldout_prediction_mse_mean": 5.822922032832689e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.10100932885517716,
+      "heldout_prediction_mse_mean": 5.822956487213637e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.4547502985603683e-05,
+      "heldout_prediction_mse_mean": 1.2189174712964829e-08,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3799406324010699e-05,
+      "heldout_prediction_mse_mean": 1.0056008922320379e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09914645119411121,
+      "heldout_prediction_mse_mean": 5.342690655684636e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09914588619525196,
+      "heldout_prediction_mse_mean": 5.342730570276509e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.601392749002478e-05,
+      "heldout_prediction_mse_mean": 1.4344851832392712e-08,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003450676808270327,
+      "heldout_prediction_mse_mean": 1.4851040609372831e-08,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.17545128723191106,
+      "heldout_prediction_mse_mean": 9.070143342318583e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.17545319056126893,
+      "heldout_prediction_mse_mean": 9.070235296000782e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.006208192579471393,
+      "heldout_prediction_mse_mean": 5.193198586241711e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003450676808270327,
+      "heldout_prediction_mse_mean": 1.4736115300324007e-08,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.15219751591671785,
+      "heldout_prediction_mse_mean": 7.533658580893525e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.15220042750893417,
+      "heldout_prediction_mse_mean": 7.533847739272167e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0009473272519308294,
+      "heldout_prediction_mse_mean": 2.8917593532619384e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003450676808270327,
+      "heldout_prediction_mse_mean": 1.4813718788851476e-08,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1473617984895794,
+      "heldout_prediction_mse_mean": 6.559466681174218e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1473650190888852,
+      "heldout_prediction_mse_mean": 6.559668567692858e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0014852362754487075,
+      "heldout_prediction_mse_mean": 3.4648529438677563e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003450676808270327,
+      "heldout_prediction_mse_mean": 1.5013688888536226e-08,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.14886020426404556,
+      "heldout_prediction_mse_mean": 8.610729303788226e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1488637655113263,
+      "heldout_prediction_mse_mean": 8.611024794292881e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.004497068843297179,
+      "heldout_prediction_mse_mean": 4.47012180616441e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003450676808270327,
+      "heldout_prediction_mse_mean": 1.4941085386996293e-08,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.15156655708054279,
+      "heldout_prediction_mse_mean": 7.700123722967404e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1515695954056702,
+      "heldout_prediction_mse_mean": 7.700366116902648e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.001215695688028594,
+      "heldout_prediction_mse_mean": 3.1973527395940905e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003450676808270327,
+      "heldout_prediction_mse_mean": 1.51684828921127e-08,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.14913991757829484,
+      "heldout_prediction_mse_mean": 6.845575064932443e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.14914290852810588,
+      "heldout_prediction_mse_mean": 6.845747609851487e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.00046106934520677174,
+      "heldout_prediction_mse_mean": 2.844282840229716e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003450676808270327,
+      "heldout_prediction_mse_mean": 1.4854641274509838e-08,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.18446703639521864,
+      "heldout_prediction_mse_mean": 1.0472093197475166e-05,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.18446947739827105,
+      "heldout_prediction_mse_mean": 1.0472326584607684e-05,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0030734698543903936,
+      "heldout_prediction_mse_mean": 4.107422678715345e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003450676808270327,
+      "heldout_prediction_mse_mean": 1.4566023470077976e-08,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1480383709041069,
+      "heldout_prediction_mse_mean": 6.911722277213044e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.14804146644617247,
+      "heldout_prediction_mse_mean": 6.911930296655131e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0023993281785327386,
+      "heldout_prediction_mse_mean": 3.8964716969641154e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003450676808270327,
+      "heldout_prediction_mse_mean": 1.4950602427984574e-08,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1587003011605416,
+      "heldout_prediction_mse_mean": 6.841276525150375e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.15870271078059,
+      "heldout_prediction_mse_mean": 6.841433923458953e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0008810459282609633,
+      "heldout_prediction_mse_mean": 3.011106562372627e-07,
+      "count": 3
+    }
+  ]
+}

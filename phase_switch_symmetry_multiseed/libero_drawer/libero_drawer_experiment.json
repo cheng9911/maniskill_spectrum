@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_before_fitting",
+  "title": "LIBERO drawer prismatic-sliding relation probe",
+  "context_manifest": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/libero_drawer/libero_drawer_fixed_contexts.json",
+  "context_manifest_sha256": "9b3dacf0154d780df1069b27470b639352f4e1880d54c57150bfbfab8d32f50e",
+  "env_id": "LIBERO/robosuite open_the_middle_drawer_of_the_cabinet",
+  "task": "drawer/prismatic sliding",
+  "generator_basis": [
+    "du",
+    "dv",
+    "dw",
+    "d_roll",
+    "d_pitch",
+    "d_yaw"
+  ],
+  "oracle_selector": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "oracle_note": "Only du, the rail-aligned drawer translation, changes the drawer state. dv/dw/roll/pitch/yaw are present in the ghost target context but are suppressed by the prismatic joint.",
+  "pose_frame": "object_pose is the LIBERO drawer body expressed in a rail-aligned task frame; libero_body_pose_world stores the raw MuJoCo body pose.",
+  "phases": [
+    "reach",
+    "slide_open",
+    "hold_open",
+    "retract"
+  ],
+  "phase_codes": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "active_phases": [
+    "slide_open",
+    "hold_open"
+  ],
+  "nominal_open_displacement_m": 0.1,
+  "closed_joint_qpos": 0.0,
+  "seeds": [
+    20260818,
+    20270818,
+    20280818
+  ]
+}

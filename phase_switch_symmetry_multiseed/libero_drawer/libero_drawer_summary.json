@@ -1,0 +1,507 @@
+{
+  "schema_version": 1,
+  "experiment_sha256": "2a8dfd27269cc62296d3bdd108abcfbbba071bf4d8129fed085b62748dd314b7",
+  "subset_manifest_sha256": "5046afcb15721c02f1aa060c749345e971e37d8c044e7c817b4d0fc71e5d7c76",
+  "source_sha256": {
+    "benchmark_libero_drawer_probe.py": "c9942b3eb98bc306e554547932e5b009bc4ad961feecb12068140403123413d3",
+    "benchmark_se3_transfer.py": "6f71d22b7b3e137dba23208227ff81c1816b8d0cbc666b86e7e2b2b09df071ec",
+    "phase_switch_se3_baselines.py": "820ac06d795f51e0332444796b37f8ac993262b5903a4c916722e04ef0e24080"
+  },
+  "experiment": {
+    "schema_version": 1,
+    "status": "preregistered_before_fitting",
+    "title": "LIBERO drawer prismatic-sliding relation probe",
+    "context_manifest": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/libero_drawer/libero_drawer_fixed_contexts.json",
+    "context_manifest_sha256": "9b3dacf0154d780df1069b27470b639352f4e1880d54c57150bfbfab8d32f50e",
+    "env_id": "LIBERO/robosuite open_the_middle_drawer_of_the_cabinet",
+    "task": "drawer/prismatic sliding",
+    "generator_basis": [
+      "du",
+      "dv",
+      "dw",
+      "d_roll",
+      "d_pitch",
+      "d_yaw"
+    ],
+    "oracle_selector": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "oracle_note": "Only du, the rail-aligned drawer translation, changes the drawer state. dv/dw/roll/pitch/yaw are present in the ghost target context but are suppressed by the prismatic joint.",
+    "pose_frame": "object_pose is the LIBERO drawer body expressed in a rail-aligned task frame; libero_body_pose_world stores the raw MuJoCo body pose.",
+    "phases": [
+      "reach",
+      "slide_open",
+      "hold_open",
+      "retract"
+    ],
+    "phase_codes": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "active_phases": [
+      "slide_open",
+      "hold_open"
+    ],
+    "nominal_open_displacement_m": 0.1,
+    "closed_joint_qpos": 0.0,
+    "seeds": [
+      20260818,
+      20270818,
+      20280818
+    ]
+  },
+  "oracle": "du ramps from 0 to 1 during slide_open and stays 1 during hold/retract; dv/dw/roll/pitch/yaw stay 0.",
+  "M_prismatic": {
+    "definition": "max over active phases slide_open+hold_open; correct iff du > 0.5 and all other SE(3) generators < 0.5.",
+    "threshold": 0.5
+  },
+  "M_prismatic_accuracy": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "accuracy": 0.0,
+      "sum": 0,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "accuracy": 1.0,
+      "sum": 18,
+      "count": 18
+    }
+  ],
+  "alpha_active_max": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "alpha_active_du": 0.20375456593852834,
+      "alpha_active_dv": 0.20375456593852834,
+      "alpha_active_dw": 0.20375456593852834,
+      "alpha_active_roll": 0.20375456593852834,
+      "alpha_active_pitch": 0.20375456593852834,
+      "alpha_active_yaw": 0.20375456593852834
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "alpha_active_du": 0.999705085457768,
+      "alpha_active_dv": 0.0,
+      "alpha_active_dw": 0.0,
+      "alpha_active_roll": 0.0,
+      "alpha_active_pitch": 0.0,
+      "alpha_active_yaw": 0.0
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "alpha_active_du": 0.9999999999999992,
+      "alpha_active_dv": 0.0,
+      "alpha_active_dw": 0.0,
+      "alpha_active_roll": 0.0,
+      "alpha_active_pitch": 0.0,
+      "alpha_active_yaw": 0.0
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "alpha_active_du": 1.003372689101278,
+      "alpha_active_dv": 3.9765972186837486e-08,
+      "alpha_active_dw": 5.181795288108893e-08,
+      "alpha_active_roll": 2.3985079501495706e-07,
+      "alpha_active_pitch": 2.544633621030122e-08,
+      "alpha_active_yaw": 8.275356704076683e-09
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "alpha_active_du": 0.17449796440813023,
+      "alpha_active_dv": 0.17449796440813023,
+      "alpha_active_dw": 0.17449796440813023,
+      "alpha_active_roll": 0.17449796440813023,
+      "alpha_active_pitch": 0.17449796440813023,
+      "alpha_active_yaw": 0.17449796440813023
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "alpha_active_du": 0.9999707503454796,
+      "alpha_active_dv": 0.0,
+      "alpha_active_dw": 0.0,
+      "alpha_active_roll": 0.0,
+      "alpha_active_pitch": 0.0,
+      "alpha_active_yaw": 0.0
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "alpha_active_du": 0.9999999999999998,
+      "alpha_active_dv": 0.0,
+      "alpha_active_dw": 0.0,
+      "alpha_active_roll": 0.0,
+      "alpha_active_pitch": 0.0,
+      "alpha_active_yaw": 0.0
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "alpha_active_du": 0.9836103858304488,
+      "alpha_active_dv": 2.5783096920161126e-09,
+      "alpha_active_dw": 2.645370662840304e-08,
+      "alpha_active_roll": 2.7066993157240484e-08,
+      "alpha_active_pitch": 1.5022514341822228e-07,
+      "alpha_active_yaw": 3.878604376502762e-09
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "alpha_active_du": 0.1946769953134047,
+      "alpha_active_dv": 0.1946769953134047,
+      "alpha_active_dw": 0.1946769953134047,
+      "alpha_active_roll": 0.1946769953134047,
+      "alpha_active_pitch": 0.1946769953134047,
+      "alpha_active_yaw": 0.1946769953134047
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "alpha_active_du": 0.9999919727983637,
+      "alpha_active_dv": 0.0,
+      "alpha_active_dw": 0.0,
+      "alpha_active_roll": 0.0,
+      "alpha_active_pitch": 0.0,
+      "alpha_active_yaw": 0.0
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "alpha_active_du": 0.9999999999999996,
+      "alpha_active_dv": 0.0,
+      "alpha_active_dw": 0.0,
+      "alpha_active_roll": 0.0,
+      "alpha_active_pitch": 0.0,
+      "alpha_active_yaw": 0.0
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "alpha_active_du": 1.0103658622916198,
+      "alpha_active_dv": 7.82948204167885e-09,
+      "alpha_active_dw": 7.903195599610582e-09,
+      "alpha_active_roll": 1.2796595733920131e-08,
+      "alpha_active_pitch": 4.2198544026499194e-08,
+      "alpha_active_yaw": 5.830721237965614e-09
+    }
+  ],
+  "e_alpha": [
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 8,
+      "mean": 0.08354181494310392,
+      "std": 0.0025112560307744484,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 8,
+      "mean": 1.6821806661415273e-08,
+      "std": 2.5257647723311884e-08,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 8,
+      "mean": 7.271375254061014e-32,
+      "std": 7.708776923245698e-32,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 8,
+      "mean": 0.0002420437867141641,
+      "std": 0.0003592332912300099,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 15,
+      "mean": 0.08213665140475399,
+      "std": 0.0012458231693844135,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 15,
+      "mean": 9.65404842877903e-11,
+      "std": 7.29426307224701e-11,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 15,
+      "mean": 1.895148501560797e-32,
+      "std": 3.5397782313002425e-32,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 15,
+      "mean": 0.00013122761689030098,
+      "std": 0.00019002145157588271,
+      "count": 18
+    },
+    {
+      "model": "Frame-weighted (SE(3))",
+      "sample_size": 30,
+      "mean": 0.08196092132083445,
+      "std": 0.0005454217802423455,
+      "count": 18
+    },
+    {
+      "model": "Full operator (SE(3))",
+      "sample_size": 30,
+      "mean": 6.305584669498684e-12,
+      "std": 7.692493645388183e-13,
+      "count": 18
+    },
+    {
+      "model": "Pdiag pointwise (SE(3))",
+      "sample_size": 30,
+      "mean": 3.083927422282468e-32,
+      "std": 3.112025325574908e-32,
+      "count": 18
+    },
+    {
+      "model": "Pdiag finite (SE(3))",
+      "sample_size": 30,
+      "mean": 1.809484707612085e-05,
+      "std": 1.1296029745728595e-05,
+      "count": 18
+    }
+  ],
+  "tpgmm_projected_baseline": {
+    "note": "The repository TP-GMM baseline is SE(2), so it is fit on the rail-plane projection [du,dv,yaw] rather than scored as a full six-generator SE(3) alpha model.",
+    "component_candidates": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "cv_n_init": 1,
+    "final_n_init": 3,
+    "M_prismatic_projected_accuracy": [
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 8,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 15,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 30,
+        "accuracy": 1.0,
+        "sum": 18,
+        "count": 18
+      }
+    ],
+    "alpha_active_projected": [
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 8,
+        "alpha_active_du": 0.996224321688291,
+        "alpha_active_dv": 0.004305525977758809,
+        "alpha_active_yaw": 0.002611922307785649
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 8,
+        "alpha_active_du": 0.9629601978784069,
+        "alpha_active_dv": 0.0048665072854657725,
+        "alpha_active_yaw": 0.006076799309108419
+      },
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 15,
+        "alpha_active_du": 0.9972193886133527,
+        "alpha_active_dv": 0.004359359487507104,
+        "alpha_active_yaw": 0.007240911359056943
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 15,
+        "alpha_active_du": 0.9253781150550418,
+        "alpha_active_dv": 0.00366691691511201,
+        "alpha_active_yaw": 0.004775821323249501
+      },
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 30,
+        "alpha_active_du": 0.9979189169031604,
+        "alpha_active_dv": 0.003568898486025355,
+        "alpha_active_yaw": 0.0017563587258975439
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 30,
+        "alpha_active_du": 0.9685656437539644,
+        "alpha_active_dv": 0.0047013040866044605,
+        "alpha_active_yaw": 0.009616460161262316
+      }
+    ],
+    "e_alpha_projected": [
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 8,
+        "mean": 0.024597359276494465,
+        "std": 0.0005843538276989137,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 8,
+        "mean": 0.02602289923027946,
+        "std": 0.0013259063144436497,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 15,
+        "mean": 0.004128504404402712,
+        "std": 0.0003423361540282073,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 15,
+        "mean": 0.003920774192376602,
+        "std": 0.001873895639630155,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM additive",
+        "sample_size": 30,
+        "mean": 0.003867445900876661,
+        "std": 0.0001428049984668993,
+        "count": 18
+      },
+      {
+        "model": "TP-GMM SE(2)",
+        "sample_size": 30,
+        "mean": 0.0038427174503482433,
+        "std": 0.001466453855538376,
+        "count": 18
+      }
+    ]
+  },
+  "fit_count": 216,
+  "tpgmm_fit_count": 108,
+  "fit_failure_count": 0,
+  "tpgmm_fit_failure_count": 0,
+  "bins_per_phase": 25
+}

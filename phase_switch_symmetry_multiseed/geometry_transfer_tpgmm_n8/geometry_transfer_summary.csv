@@ -1,0 +1,6 @@
+method,sample_size,m_transfer_accuracy,e_alpha_mean,heldout_prediction_mse_mean,count
+Ours transfer: source Pdiag N=30 + target nominal N=1,8,1.0,0.00021250544405351354,9.28461198090005e-09,15
+Frame-weighted target scratch,8,0.0,0.12804854798143145,6.2609579394086644e-06,15
+Phase scalar GP target scratch,8,0.0,0.12805026489318946,6.261077482442857e-06,15
+Pdiag finite target scratch,8,1.0,0.0007421017316248097,2.1573760984680677e-07,15
+TP-GMM SE(3) target scratch,8,1.0,0.0262428629362379,3.437340798069499e-05,15

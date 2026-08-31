@@ -15,6 +15,12 @@ byte-for-byte unchanged.
 
 import numpy as np
 from scipy.optimize import least_squares
+from scipy.special import logsumexp
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.gaussian_process.kernels import ConstantKernel, RBF, WhiteKernel
+from sklearn.model_selection import GroupKFold
+
+from phase_switch_baselines import ConditionalGaussian, SharedFrameProductMixture
 
 
 SE3_DIM = 6
@@ -320,6 +326,34 @@ class SE3FrameWeightedModel:
         return np.repeat(self.weight[:, None], SE3_DIM, axis=1)
 
 
+class SE3PhaseScalarGPModel(SE3FrameWeightedModel):
+    name = "Phase scalar GP (SE(3))"
+
+    def fit(self, contexts, curves, progress, phase_codes):
+        super().fit(contexts, curves, progress, phase_codes)
+        kernel = (
+            ConstantKernel(1.0, (1e-2, 1e2))
+            * RBF(length_scale=0.12, length_scale_bounds=(0.015, 1.0))
+            + WhiteKernel(noise_level=1e-4, noise_level_bounds=(1e-8, 1e-1))
+        )
+        self.gp = GaussianProcessRegressor(
+            kernel=kernel,
+            normalize_y=True,
+            n_restarts_optimizer=5,
+            random_state=20260820,
+        )
+        self.progress = np.asarray(progress, dtype=np.float64)
+        self.gp.fit(self.progress[:, None], self.weight)
+        self.weight = self.gp.predict(self.progress[:, None])
+        contexts_metric = se3_to_metric(contexts)
+        curves_metric = se3_to_metric(curves)
+        self.intercept_metric = (
+            curves_metric.mean(axis=0)
+            - self.weight[:, None] * contexts_metric.mean(axis=0)[None, :]
+        )
+        return self
+
+
 class SE3FullOperatorModel:
     name = "Full operator (SE(3))"
 
@@ -359,6 +393,219 @@ class SE3FullOperatorModel:
 
     def jacobian_diag(self):
         return np.diagonal(self.operator_metric, axis1=1, axis2=2).copy()
+
+
+class SE3TPGMMModel:
+    def __init__(
+        self,
+        frame_mode="additive",
+        nominal_frame_pose=None,
+        component_candidates=(2, 4, 6, 8),
+        time_scale=0.05,
+        cv_splits=5,
+        cv_n_init=1,
+        final_n_init=3,
+        jacobian_epsilon=None,
+    ):
+        if frame_mode not in {"additive", "se3"}:
+            raise ValueError("frame_mode must be 'additive' or 'se3'")
+        if frame_mode == "se3" and nominal_frame_pose is None:
+            raise ValueError("nominal_frame_pose is required for SE(3) TP-GMM")
+        self.frame_mode = frame_mode
+        self.name = (
+            "TP-GMM additive (SE(3))"
+            if frame_mode == "additive"
+            else "TP-GMM SE(3)"
+        )
+        self.nominal_frame_pose = (
+            None
+            if nominal_frame_pose is None
+            else np.asarray(nominal_frame_pose, dtype=np.float64)
+        )
+        if self.nominal_frame_pose is not None:
+            self.nominal_frame = se3_from_pose6(self.nominal_frame_pose)
+            self.nominal_frame_inverse = se3_inverse(self.nominal_frame)
+        self.component_candidates = tuple(component_candidates)
+        self.time_scale = float(time_scale)
+        self.cv_splits = int(cv_splits)
+        self.cv_n_init = int(cv_n_init)
+        self.final_n_init = int(final_n_init)
+        self.jacobian_epsilon = (
+            np.array([1e-4, 1e-4, 1e-4, np.deg2rad(0.1), np.deg2rad(0.1), np.deg2rad(0.1)])
+            if jacobian_epsilon is None
+            else np.asarray(jacobian_epsilon, dtype=np.float64)
+        )
+
+    def _fit_gmm(self, time, frame_outputs, components, random_state, n_init):
+        return SharedFrameProductMixture(
+            n_components=components,
+            reg_covar=1e-7,
+            n_init=n_init,
+            max_iter=300,
+            tol=1e-5,
+            random_state=random_state,
+        ).fit(time, frame_outputs)
+
+    def _frame_for_context(self, context):
+        return self.nominal_frame @ se3_from_pose6(context)
+
+    def _curve_to_local_metric(self, curve, context):
+        if self.frame_mode == "additive":
+            return se3_to_metric(curve) - se3_to_metric(context)[None, :]
+        frame_inverse = se3_inverse(self._frame_for_context(context))
+        curve_T = se3_from_pose6_batched(np.asarray(curve, dtype=np.float64))
+        local_T = np.einsum("ij,sjk->sik", frame_inverse, curve_T)
+        return se3_to_metric(pose6_from_se3_batched(local_T))
+
+    def _se3_local_mean_to_world_metric(self, local_mean_metric, context):
+        local_pose = se3_from_metric(local_mean_metric)
+        world_T = self._frame_for_context(context) @ se3_from_pose6(local_pose)
+        return se3_to_metric(pose6_from_se3(world_T))
+
+    def _local_to_world_gaussian(self, local, context):
+        context = np.asarray(context, dtype=np.float64)
+        if self.frame_mode == "additive":
+            return ConditionalGaussian(
+                local.mean + se3_to_metric(context),
+                local.covariance,
+            )
+
+        mean = self._se3_local_mean_to_world_metric(local.mean, context)
+        jacobian = np.empty((SE3_DIM, SE3_DIM), dtype=np.float64)
+        eps = np.array([1e-5, 1e-5, 1e-5, 1e-5, 1e-5, 1e-5], dtype=np.float64)
+        for generator in range(SE3_DIM):
+            plus = np.asarray(local.mean, dtype=np.float64).copy()
+            minus = np.asarray(local.mean, dtype=np.float64).copy()
+            plus[generator] += eps[generator]
+            minus[generator] -= eps[generator]
+            delta = (
+                self._se3_local_mean_to_world_metric(plus, context)
+                - self._se3_local_mean_to_world_metric(minus, context)
+            )
+            delta[3:] = wrap_angle(delta[3:])
+            jacobian[:, generator] = delta / (2.0 * eps[generator])
+        covariance = jacobian @ local.covariance @ jacobian.T
+        covariance = 0.5 * (covariance + covariance.T) + 1e-8 * np.eye(SE3_DIM)
+        return ConditionalGaussian(mean, covariance)
+
+    def fit(self, contexts, curves, progress, phase_codes):
+        contexts = np.asarray(contexts, dtype=np.float64)
+        curves = np.asarray(curves, dtype=np.float64)
+        curves_metric = se3_to_metric(curves)
+        n_episodes, n_steps, _ = curves_metric.shape
+        time = np.tile(np.asarray(progress, dtype=np.float64) * self.time_scale, n_episodes)
+        world_output = curves_metric.reshape(-1, SE3_DIM)
+        local_output = np.asarray(
+            [
+                self._curve_to_local_metric(curves[episode], contexts[episode])
+                for episode in range(n_episodes)
+            ]
+        ).reshape(-1, SE3_DIM)
+        frame_outputs = np.stack([world_output, local_output], axis=1)
+        groups = np.repeat(np.arange(n_episodes), n_steps)
+
+        n_splits = min(self.cv_splits, n_episodes)
+        grouped_cv = GroupKFold(n_splits=n_splits)
+        self.cv_log_likelihood_by_components = {}
+        for components in self.component_candidates:
+            if components > len(time):
+                continue
+            fold_scores = []
+            for fold, (train_indices, validation_indices) in enumerate(
+                grouped_cv.split(frame_outputs, groups=groups)
+            ):
+                model = self._fit_gmm(
+                    time[train_indices],
+                    frame_outputs[train_indices],
+                    components,
+                    random_state=20260820 + fold,
+                    n_init=self.cv_n_init,
+                )
+                fold_scores.append(
+                    model.score(time[validation_indices], frame_outputs[validation_indices])
+                )
+            self.cv_log_likelihood_by_components[int(components)] = fold_scores
+        self.n_components = max(
+            self.cv_log_likelihood_by_components,
+            key=lambda components: np.mean(self.cv_log_likelihood_by_components[components]),
+        )
+        self.model = self._fit_gmm(
+            time,
+            frame_outputs,
+            self.n_components,
+            random_state=20260820,
+            n_init=self.final_n_init,
+        )
+        self.progress = np.asarray(progress, dtype=np.float64)
+        self.step_components = []
+        for progress_value in self.progress:
+            query_time = progress_value * self.time_scale
+            component_conditionals = []
+            log_activations = []
+            for component in range(self.model.n_components):
+                time_design = np.array([1.0, query_time])
+                world = ConditionalGaussian(
+                    time_design @ self.model.emission_coefficients_[component, 0],
+                    self.model.emission_covariances_[component, 0],
+                )
+                local = ConditionalGaussian(
+                    time_design @ self.model.emission_coefficients_[component, 1],
+                    self.model.emission_covariances_[component, 1],
+                )
+                component_conditionals.append((world, local))
+                variance_time = max(float(self.model.time_variances_[component]), 1e-12)
+                log_activations.append(
+                    np.log(self.model.weights_[component] + 1e-300)
+                    - 0.5
+                    * (
+                        np.log(2.0 * np.pi * variance_time)
+                        + ((query_time - self.model.time_means_[component]) ** 2)
+                        / variance_time
+                    )
+                )
+            activations = np.exp(np.asarray(log_activations) - logsumexp(log_activations))
+            self.step_components.append((activations, component_conditionals))
+        return self
+
+    def predict(self, contexts):
+        contexts = np.asarray(contexts, dtype=np.float64)
+        prediction_metric = np.empty(
+            (len(contexts), len(self.progress), SE3_DIM), dtype=np.float64
+        )
+        for episode, context in enumerate(contexts):
+            for step, (activations, components) in enumerate(self.step_components):
+                component_means = []
+                for world, local in components:
+                    local_world = self._local_to_world_gaussian(local, context)
+                    precision_world = np.linalg.inv(world.covariance)
+                    precision_local = np.linalg.inv(local_world.covariance)
+                    fused_covariance = np.linalg.inv(precision_world + precision_local)
+                    component_means.append(
+                        fused_covariance
+                        @ (
+                            precision_world @ world.mean
+                            + precision_local @ local_world.mean
+                        )
+                    )
+                prediction_metric[episode, step] = np.einsum(
+                    "k,kd->d", activations, np.asarray(component_means)
+                )
+        return se3_from_metric(prediction_metric)
+
+    def jacobian_diag(self):
+        zero = np.zeros((1, SE3_DIM), dtype=np.float64)
+        diagonal = np.empty((len(self.progress), SE3_DIM), dtype=np.float64)
+        for generator in range(SE3_DIM):
+            plus = zero.copy()
+            minus = zero.copy()
+            plus[0, generator] = self.jacobian_epsilon[generator]
+            minus[0, generator] = -self.jacobian_epsilon[generator]
+            derivative = (
+                self.predict(plus)[0] - self.predict(minus)[0]
+            ) / (2.0 * self.jacobian_epsilon[generator])
+            derivative[:, 3:] = wrap_angle(derivative[:, 3:])
+            diagonal[:, generator] = derivative[:, generator]
+        return diagonal
 
 
 class SE3SmoothFinitePDiagModel:
