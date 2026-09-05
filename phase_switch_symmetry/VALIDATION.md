@@ -68,7 +68,7 @@ commands arbitrary post-clear yaw:
   generates 48.1 and 49.7 N peg-socket contact.
 - After clearance, -30 and +30 degree peg yaw both insert successfully and end
   at -30.00 and +30.02 degrees.
-- All 6 geometry checks pass with zero post-terminal actions.
+- All 6 geometry checks pass w                                                                                                                                                                                                                                            ith zero post-terminal actions.
 
 ## Interpretation boundary
 
