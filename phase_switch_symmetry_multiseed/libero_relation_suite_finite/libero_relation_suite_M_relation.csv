@@ -1,0 +1,22 @@
+model,sample_size,accuracy,sum,count
+Frame-weighted (SE(3)),8,0.0,0,180
+Phase scalar GP (SE(3)),8,0.0,0,180
+TP-GMM additive (SE(3)),8,1.0,180,180
+TP-GMM SE(3),8,1.0,180,180
+Full operator (SE(3)),8,1.0,180,180
+Pdiag pointwise (SE(3)),8,1.0,180,180
+Pdiag finite (SE(3)),8,1.0,180,180
+Frame-weighted (SE(3)),15,0.0,0,180
+Phase scalar GP (SE(3)),15,0.0,0,180
+TP-GMM additive (SE(3)),15,1.0,180,180
+TP-GMM SE(3),15,1.0,180,180
+Full operator (SE(3)),15,1.0,180,180
+Pdiag pointwise (SE(3)),15,1.0,180,180
+Pdiag finite (SE(3)),15,1.0,180,180
+Frame-weighted (SE(3)),30,0.0,0,180
+Phase scalar GP (SE(3)),30,0.0,0,180
+TP-GMM additive (SE(3)),30,1.0,180,180
+TP-GMM SE(3),30,1.0,180,180
+Full operator (SE(3)),30,1.0,180,180
+Pdiag pointwise (SE(3)),30,1.0,180,180
+Pdiag finite (SE(3)),30,1.0,180,180

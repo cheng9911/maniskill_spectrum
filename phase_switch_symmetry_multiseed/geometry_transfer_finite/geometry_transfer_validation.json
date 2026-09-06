@@ -1,0 +1,775 @@
+{
+  "schema_version": 1,
+  "experiment": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/libero_relation_suite_finite/libero_relation_suite_experiment.json",
+  "experiment_sha256": "9eeaaf71ccb4514b8db5b884bc78dd70fd8439b04479cd56e3b6dd0b4536f07e",
+  "relation_output_root": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/libero_relation_suite_finite",
+  "profile_path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_multiseed/libero_relation_suite_finite/libero_relation_suite_profiles.npz",
+  "profile_sha256": "71d2cb685d7b5acfbd87fd213963ad2fc2d01afe01903413cb83bf9081b08bc5",
+  "rollout_root": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_libero_relation_suite_finite",
+  "pairs": [
+    {
+      "pair_key": "drawer_to_plate_push",
+      "source_task": "drawer_middle_open",
+      "target_task": "plate_front_push",
+      "family": "one_axis_sliding",
+      "claim": "rail/sliding du relevance transfers across articulated drawer and free plate push"
+    },
+    {
+      "pair_key": "knob_to_microwave_door",
+      "source_task": "stove_knob_turn",
+      "target_task": "microwave_door_revolute",
+      "family": "revolute_yaw",
+      "claim": "yaw-only relevance transfers across knob and hinged door"
+    },
+    {
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "source_task": "bowl_on_stove",
+      "target_task": "bowl_on_plate",
+      "family": "support_to_stacking",
+      "claim": "upright xyz placement transfers across support surfaces"
+    },
+    {
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "source_task": "bowl_on_stove",
+      "target_task": "cream_cheese_in_bowl",
+      "family": "support_to_container",
+      "claim": "upright xyz placement transfers across object and container geometry"
+    },
+    {
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "source_task": "bowl_on_stove",
+      "target_task": "wine_bottle_on_cabinet",
+      "family": "cross_object_support",
+      "claim": "upright xyz placement transfers across object identity and scene support"
+    }
+  ],
+  "method_order": [
+    "Ours transfer: source Pdiag N=30 + target nominal N=1",
+    "Frame-weighted target scratch",
+    "Phase scalar GP target scratch",
+    "Pdiag finite target scratch",
+    "TP-GMM SE(3) target scratch"
+  ],
+  "sample_sizes": [
+    3,
+    5,
+    8
+  ],
+  "repeats": 1,
+  "split_seed": 20260831,
+  "pdiag_target_scratch_config": {
+    "alpha_max": 1.25,
+    "n_basis": 8,
+    "basis_width": 0.12,
+    "smoothness_weight": 0.1,
+    "nominal_iterations": 1
+  },
+  "include_tpgmm": false,
+  "definition": {
+    "ours_transfer": "source N=30 Pdiag-finite alpha profile is frozen; target condition 0 is the only target nominal trajectory; target interventions are validation probes and are not used to re-identify alpha. The transferred law is reproduced through the finite SE(3) group action X = C0 Exp(diag(alpha) odot Log(T(c))) C0^-1 X0, not the small-intervention linearization.",
+    "m_transfer_correct": "source/fit active-phase alpha is thresholded at 0.5 and compared with the target task oracle selector.",
+    "e_task": "finite SE(3) task-space pose-trajectory MSE (metric-scaled) on target mixed contexts not used by target-scratch fits; ours uses no target intervention for fitting."
+  },
+  "fit_count": 180,
+  "fit_failure_count": 0,
+  "summary": [
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 3.175859547156625e-05,
+      "e_task_mean": 1.5241685015531332e-09,
+      "count": 15
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.13766969838414206,
+      "e_task_mean": 8.351633683682e-06,
+      "count": 15
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.13767131475459277,
+      "e_task_mean": 8.351768451808949e-06,
+      "count": 15
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.9333333333333333,
+      "e_alpha_mean": 0.007011227155513536,
+      "e_task_mean": 6.385363614991533e-07,
+      "count": 15
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 3.175859547156625e-05,
+      "e_task_mean": 1.5053030052610917e-09,
+      "count": 15
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1304472660243855,
+      "e_task_mean": 6.848860381863385e-06,
+      "count": 15
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1304488477013952,
+      "e_task_mean": 6.848991914647952e-06,
+      "count": 15
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.00037226960322893116,
+      "e_task_mean": 7.871473768542012e-08,
+      "count": 15
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 3.175859547156625e-05,
+      "e_task_mean": 1.5155353877737592e-09,
+      "count": 15
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.12658904962452816,
+      "e_task_mean": 6.109547784786465e-06,
+      "count": 15
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1265907672199827,
+      "e_task_mean": 6.109666747512127e-06,
+      "count": 15
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 9.765663611775401e-05,
+      "e_task_mean": 2.5861374167159473e-08,
+      "count": 15
+    }
+  ],
+  "by_pair": [
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.5214774024879558e-05,
+      "e_task_mean": 7.234621303541496e-10,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.08867805434628141,
+      "e_task_mean": 5.589423466685668e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.08867821663585052,
+      "e_task_mean": 5.589434931457206e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0023197595358992666,
+      "e_task_mean": 3.0079610062881697e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.5214774024879558e-05,
+      "e_task_mean": 6.797531352458093e-10,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09900393697702815,
+      "e_task_mean": 5.2590897979193225e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09900337437716038,
+      "e_task_mean": 5.259081341669607e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 3.457642226164037e-05,
+      "e_task_mean": 7.026478250735241e-09,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.5214774024879558e-05,
+      "e_task_mean": 7.11340693725435e-10,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.08173122147710554,
+      "e_task_mean": 4.387939473988426e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.08173155431250213,
+      "e_task_mean": 4.387964354137688e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "drawer_to_plate_push",
+      "family": "one_axis_sliding",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.769708058384116e-05,
+      "e_task_mean": 4.550006224047705e-09,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3555074041710175e-05,
+      "e_task_mean": 1.0004381841972617e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09055971902975302,
+      "e_task_mean": 7.419865927561005e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09055967358536499,
+      "e_task_mean": 7.419920476629944e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 6.989261107603263e-05,
+      "e_task_mean": 9.587047929597416e-09,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3555074041710175e-05,
+      "e_task_mean": 9.8787073716218e-10,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.10120595764990907,
+      "e_task_mean": 5.8078315692767834e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.10120530280758316,
+      "e_task_mean": 5.807865224836435e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.5674216676791556e-05,
+      "e_task_mean": 3.735842697560277e-09,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3555074041710175e-05,
+      "e_task_mean": 9.85685752128992e-10,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09813338091530022,
+      "e_task_mean": 5.322940885160643e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.09813286204842664,
+      "e_task_mean": 5.322981747652057e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "knob_to_microwave_door",
+      "family": "revolute_yaw",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 1.3924568075610321e-05,
+      "e_task_mean": 1.7873117986173838e-09,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.334104309708051e-05,
+      "e_task_mean": 1.9659949191718414e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.17613138855050167,
+      "e_task_mean": 9.509349227212803e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.17613330112864,
+      "e_task_mean": 9.509439423620781e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.6666666666666666,
+      "e_alpha_mean": 0.024451799164774926,
+      "e_task_mean": 1.7789168633926875e-06,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.334104309708051e-05,
+      "e_task_mean": 1.9456936494551647e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.15291268814950867,
+      "e_task_mean": 7.946361637221953e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.15291558852106188,
+      "e_task_mean": 7.946544080231301e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0003537378671713781,
+      "e_task_mean": 1.7176476608908044e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.334104309708051e-05,
+      "e_task_mean": 1.969272598186534e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.14725318318826022,
+      "e_task_mean": 6.667575761826853e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.14725641056017466,
+      "e_task_mean": 6.667771354340176e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_bowl_plate",
+      "family": "support_to_stacking",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 9.274923926992094e-05,
+      "e_task_mean": 3.00127072980874e-08,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.334104309708051e-05,
+      "e_task_mean": 1.9604236535822654e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1487977926075167,
+      "e_task_mean": 8.66943020412693e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.14880138080752356,
+      "e_task_mean": 8.669716840574919e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0017923671867553332,
+      "e_task_mean": 3.189178851674316e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.334104309708051e-05,
+      "e_task_mean": 1.9631081613510386e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.15106465332873303,
+      "e_task_mean": 8.116312229324203e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.15106777561399545,
+      "e_task_mean": 8.116559366054911e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0009827189572372205,
+      "e_task_mean": 1.448592124788524e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.334104309708051e-05,
+      "e_task_mean": 1.9889321775409218e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.14859907747927856,
+      "e_task_mean": 7.084360629592179e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1486021194088241,
+      "e_task_mean": 7.0845329374193246e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_cream_cheese_bowl",
+      "family": "support_to_container",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.0002304963627549012,
+      "e_task_mean": 5.3205612149937255e-08,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.334104309708051e-05,
+      "e_task_mean": 1.9705236204601473e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.18418153738665757,
+      "e_task_mean": 1.0570099592823592e-05,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 3,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.18418400161558487,
+      "e_task_mean": 1.0570330586761898e-05,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 3,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.006422317279062122,
+      "e_task_mean": 7.844639103772334e-07,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.334104309708051e-05,
+      "e_task_mean": 1.9500893430912668e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1480490940167486,
+      "e_task_mean": 7.114706675574666e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 5,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1480521971871751,
+      "e_task_mean": 7.1149095604475055e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 5,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.00047464055279762535,
+      "e_task_mean": 6.61873889108722e-08,
+      "count": 3
+    },
+    {
+      "method": "Ours transfer: source Pdiag N=30 + target nominal N=1",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 4.334104309708051e-05,
+      "e_task_mean": 1.9224457172869134e-09,
+      "count": 3
+    },
+    {
+      "method": "Frame-weighted target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.15722838506269618,
+      "e_task_mean": 7.084922173364227e-06,
+      "count": 3
+    },
+    {
+      "method": "Phase scalar GP target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 8,
+      "m_transfer_accuracy": 0.0,
+      "e_alpha_mean": 0.1572308897699859,
+      "e_task_mean": 7.08508334401139e-06,
+      "count": 3
+    },
+    {
+      "method": "Pdiag finite target scratch",
+      "pair_key": "bowl_stove_to_wine_cabinet",
+      "family": "cross_object_support",
+      "sample_size": 8,
+      "m_transfer_accuracy": 1.0,
+      "e_alpha_mean": 0.00013341592990449649,
+      "e_task_mean": 3.9751233365107624e-08,
+      "count": 3
+    }
+  ]
+}

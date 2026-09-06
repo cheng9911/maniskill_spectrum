@@ -113,14 +113,14 @@ conda run -n maniskill_download python -u -B \
 |---|---|---|---|---|
 | 17 | Planar push | 无旋转对称任务反驳"定制模型" | `collect_planar_push_rollouts.py`, `benchmark_planar_push.py` | `planar_push/planar_push_summary.json` |
 | 18 | LIBERO 抽屉探针 | 真实平移任务的单轴生成元（+TP-GMM projected 基线） | `collect/benchmark_libero_drawer_probe.py` | `libero_drawer/libero_drawer_summary.json` |
-| 19 | LIBERO 10 任务关系套件 | 跨 10 任务关系识别（+TP-GMM projected 基线） | `collect/benchmark_libero_relation_suite.py` | `libero_relation_suite/libero_relation_suite_summary.json` |
-| 20 | 跨任务迁移（5 对） | 冻结源 Pdiag 迁移 | `benchmark_geometry_transfer.py` | `geometry_transfer/geometry_transfer_validation.json` |
-| 21 | geometry transfer TP-GMM N=8 变体 | N=8 加 TP-GMM SE(3) 对照 | `benchmark_geometry_transfer.py`（tpgmm 变体） | `geometry_transfer_tpgmm_n8/geometry_transfer_validation.json` |
+| 19 | LIBERO 10 任务关系套件 | 跨 10 任务关系识别（+TP-GMM projected 基线） | `collect/benchmark_libero_relation_suite.py` | `libero_relation_suite_finite/libero_relation_suite_summary.json` |
+| 20 | 跨任务迁移（5 对） | 冻结源 Pdiag 迁移 | `benchmark_geometry_transfer.py` | `geometry_transfer_finite/geometry_transfer_validation.json` |
+| 21 | geometry transfer TP-GMM N=8 变体 | N=8 加 TP-GMM SE(3) 对照 | `benchmark_geometry_transfer.py`（tpgmm 变体） | `geometry_transfer_tpgmm_n8_finite/geometry_transfer_validation.json` |
 
 > **诚实性标注**：论文正文（`main.tex` L454–989）只覆盖 #1–#7、#10、#12 的 **SE(2) 部分**；
 > #8/#9/#11/#13 以及全部 D/E 组（#14–#21）是补充实验，有冻结结果但尚未写入正文。
-> 其中 LIBERO 数据（#18/#19）是**合成探针**（见 §7），geometry transfer（#20/#21）迁移预测是
-> **线性近似**（见 §7）。
+> 其中 LIBERO 数据（#18/#19）是**合成探针**（见 §7），geometry transfer（#20/#21）迁移预测与
+> 生成数据均采用**有限 SE(3) 实现**（见 §2.4、§7）。
 
 **全局 # ↔ 章节编号对照**（正文细节节沿用旧 E/S 标签，此处统一）：
 §4.1=#1、§4.2=#3、§4.3=#4、§4.4=#5+#6、§4.5=#7、§4.6=#10、§4.7=#12、§4.8=#11；
@@ -170,11 +170,15 @@ conda run -n maniskill_download python -u -B \
 ### 2.4 有限几何实现（finite realization）
 
 ```
-X̂ = C0 · Exp( P(s) · c ) · C0⁻¹ · X0(s)
+twist(c) = se3_log( se3_from_pose6(c) )
+X̂(s;c) = C0 · Exp( α(s) ⊙ twist(c) ) · C0⁻¹ · X0(s)
 ```
 
-其中 `C0`/`X0` 是逐进度的名义曲线/名义 socket 框架（`nominal_iterations=3` 迭代精化，
-只从 mixed 训练轨迹估计，zero 干预不参与拟合）。
+其中 `C0 = T(nominal)` 是任务名义框架、`X0(s)` 是逐进度名义曲线；`α(s) = P(s)`（对角剖面）
+作用在干预 `c` 的 **Lie 代数 twist** 上——先 `se3_log` 再逐分量缩放，与模型的 `_local_actions`
+完全一致，**不是** pose6 坐标逐分量缩放，也**不是** `X0 + α·c` 的线性近似。`C0`/`X0` 只从
+mixed 训练轨迹估计（zero 干预不参与拟合）。`nominal_iterations`：LIBERO 关系套件（#19）用
+1，抽屉探针（#18）与 SE(2) 主任务用 3。
 
 ### 2.5 进度网格 progress_grid(bins=25)
 
@@ -748,7 +752,7 @@ move/hold 活跃相位相关、哪些被抑制"？
 `prepare_libero_relation_suite_subsets.py`、`benchmark_libero_relation_suite.py`。
 任务规范在 `libero_relation_suite_specs.py`。
 
-**输出**：`libero_relation_suite/libero_relation_suite_summary.json`（67KB）。拟合 3780 / 0 失败。
+**输出**：`libero_relation_suite_finite/libero_relation_suite_summary.json`（65KB）。拟合 3780 / 0 失败。
 
 **M_relation 定义**：在活跃相位 move+hold 上取 max；每个任务"正确"当且仅当所有
 oracle 选中生成元 > 0.5 且所有被抑制生成元 < 0.5（阈值 0.5）。
@@ -764,30 +768,34 @@ oracle 选中生成元 > 0.5 且所有被抑制生成元 < 0.5（阈值 0.5）�
 
 | 模型 | M_relation | e_alpha（N=8/15/30） |
 |---|---:|---:|
-| **Pdiag finite** | **1.0 / 1.0 / 1.0** | 5.77e-4 / 5.08e-4 / 4.36e-4 |
-| Pdiag pointwise | 1.0 / 1.0 / 1.0 | ~1e-31 |
-| Full operator | 1.0 / 1.0 / 1.0 | 1.18e-6 / 1.6e-10 / 2.0e-11 |
-| TP-GMM additive | 1.0 / 1.0 / 1.0 | 2.09e-2 / 1.55e-2 / 3.60e-3 |
-| TP-GMM SE(3) | 1.0 / 1.0 / 1.0 | 1.82e-2 / 1.63e-2 / 6.14e-3 |
+| **Pdiag finite** | **1.0 / 1.0 / 1.0** | 1.99e-4 / 3.80e-5 / 3.54e-5 |
+| Pdiag pointwise | 1.0 / 1.0 / 1.0 | 5.14e-4 / 1.79e-4 / 1.87e-4 |
+| Full operator | 1.0 / 1.0 / 1.0 | 3.21e-3 / 2.36e-4 / 1.61e-4 |
+| TP-GMM additive | 1.0 / 1.0 / 1.0 | 1.04e-2 / 3.69e-3 / 3.62e-3 |
+| TP-GMM SE(3) | 1.0 / 1.0 / 1.0 | 1.06e-2 / 3.52e-3 / 3.78e-3 |
 | Frame-weighted | 0.0 / 0.0 / 0.0 | 0.123（不收敛） |
 | Phase scalar GP | 0.0 / 0.0 / 0.0 | 0.123（不收敛） |
 
 - by_task：**所有 10 个任务在 Pdiag finite 下 M_relation 都是 1.0**（每个 N）。
 - 帧级/标量模型无法表达逐生成元选择性（M_relation = 0，E_α 平在 0.123）。
+- 关键对照：生成数据改用**有限 SE(3) 实现**后，**Pdiag finite 是唯一正确设定（e_alpha 最低，
+  3.5e-5@N=30）**；线性算子模型（Pdiag pointwise / Full operator）在旧线性数据上曾退化为
+  ~1e-31 / ~1e-10 的"精确匹配"，如今显露出误设定，e_alpha 升到 1.87e-4 / 1.61e-4——印证
+  线性近似会系统性高估线性基线的可辨识性。
 
-**TP-GMM projected 基线**（`libero_relation_suite/libero_relation_suite_summary.json` 的 `tpgmm_projected`）：
+**TP-GMM projected 基线**（`libero_relation_suite_finite/libero_relation_suite_summary.json` 的 `tpgmm_projected`）：
 - 1080 fits，0 失败；TP-GMM 是 SE(2) 基线，只在 [du,dv,yaw] 投影上评估。
 - `M_relation_projected_overall` = **1.0**（TP-GMM additive 与 TP-GMM SE(2)，N=8/15/30 均 180/180）。
 - 诚实说明：这 10 个任务的 oracle 选择生成元都落在 [du,dv,yaw] 投影内，故 TP-GMM projected
   也能拿 M_relation 1.0；Pdiag finite 的增量价值在于是**全 SE(3)**，同时给出离面维
-  （dw/roll/pitch ≈ 1e-8）的近零泄漏，而 TP-GMM 无法表示离面生成元。
+  （dw/roll/pitch ≈ 1e-6–1e-5）的近零泄漏，而 TP-GMM 无法表示离面生成元。
 
 ### 5.7 S7 跨任务迁移（geometry transfer）
 
 **研究问题**：能否把源任务的 Pdiag 剖面**冻结**迁移到目标任务（只需重估目标名义曲线）？
 
 **脚本**：`benchmark_geometry_transfer.py`。
-**输出**：`geometry_transfer/geometry_transfer_validation.json`。拟合 180 / 0 失败；
+**输出**：`geometry_transfer_finite/geometry_transfer_validation.json`。拟合 180 / 0 失败；
 样本 N∈{3,5,8}、repeats 1、split_seed 20260831。
 
 **5 个迁移对（family）**：
@@ -799,35 +807,38 @@ oracle 选中生成元 > 0.5 且所有被抑制生成元 < 0.5（阈值 0.5）�
 
 **关键数字（summary，方法 × 样本量）**：
 
-| 方法 | m_transfer_acc | e_alpha_mean | heldout MSE |
+| 方法 | m_transfer_acc | e_alpha_mean | e_task_mean |
 |---|---:|---:|---:|
-| **Ours transfer**（源 Pdiag N=30 + 目标 nominal N=1） | **1.0** | **2.13e-4** | ~9.3e-9 |
-| Pdiag finite target scratch | 1.0 | 3.76e-3 / 9.19e-4 / 5.87e-4 | ~2–3e-7 |
-| Frame-weighted target scratch | 0.0 | 0.138 / 0.130 / 0.127 | ~6–8e-6 |
-| Phase scalar GP target scratch | 0.0 | 0.138 / 0.130 / 0.127 | ~6–8e-6 |
+| **Ours transfer**（源 Pdiag N=30 + 目标 nominal N=1） | **1.0** | **3.18e-5** | ~1.5e-9 |
+| Pdiag finite target scratch | 0.933 / 1.0 / 1.0 | 7.01e-3 / 3.72e-4 / 9.77e-5 | ~6.4e-7 / 7.9e-8 / 2.6e-8 |
+| Frame-weighted target scratch | 0.0 | 0.138 / 0.130 / 0.127 | ~8.4e-6 / 6.8e-6 / 6.1e-6 |
+| Phase scalar GP target scratch | 0.0 | 0.138 / 0.130 / 0.127 | ~8.4e-6 / 6.8e-6 / 6.1e-6 |
 
-- Ours transfer 在 N=3/5/8 下 m_transfer_acc 均 **1.0**，e_alpha 恒 2.13e-4（源剖面冻结，
-  与目标样本量无关）；目标 scratch 的 Pdiag 也能到 1.0 但 e_alpha 高一个数量级（需更多数据）。
-- by_pair：5 个迁移对全部 acc 1.0；e_alpha 分对：drawer→plate 1.35e-5、
-  knob→microwave 1.38e-5、bowl_stove→bowl_plate / bowl_plate→cream_cheese /
-  bowl_stove→wine_cabinet 均 3.45e-4。
+- Ours transfer 在 N=3/5/8 下 m_transfer_acc 均 **1.0**，e_alpha 恒 3.18e-5（源剖面冻结，
+  与目标样本量无关），e_task ~1.5e-9（有限实现下近乎精确复现）；目标 scratch 的 Pdiag finite
+  需 N=5 才到 acc 1.0（N=3 时 0.933、e_alpha 7.0e-3），且 e_alpha 比 Ours 高 1–2 个数量级——
+  印证"冻结源剖面 + 只重估目标名义"的样本效率优势。
+- by_pair：5 个迁移对全部 acc 1.0；e_alpha 分对：drawer→plate 1.52e-5、
+  knob→microwave 1.36e-5、bowl_stove→bowl_plate / bowl_stove→cream_cheese /
+  bowl_stove→wine_cabinet 均 4.33e-5。
 
-**#21 geometry transfer TP-GMM N=8 变体**（`geometry_transfer_tpgmm_n8/geometry_transfer_validation.json`）：
+**#21 geometry transfer TP-GMM N=8 变体**（`geometry_transfer_tpgmm_n8_finite/geometry_transfer_validation.json`）：
 - 75 fits；N=8 固定；在 #20 基础上新增 **TP-GMM SE(3) target scratch** 对照。
-- 结果（N=8，method → m_transfer_acc / e_alpha_mean / heldout MSE）：
-  - Ours transfer：**1.0** / 2.13e-4 / 9.28e-9
-  - Pdiag finite target scratch：1.0 / 7.42e-4 / 2.16e-7
-  - TP-GMM SE(3) target scratch：1.0 / **2.62e-2** / 3.44e-5
-  - Frame-weighted / Phase scalar GP scratch：0.0 / 0.128 / 6.26e-6
-- 解读：TP-GMM SE(3) 目标 scratch 虽能到 acc 1.0，但 e_alpha 高两个数量级（2.6e-2 vs 2.1e-4）、
-  heldout MSE 差约 3 个数量级——再次印证"冻结源剖面 + 重估目标名义"的样本效率优势。
+- 结果（N=8，method → m_transfer_acc / e_alpha_mean / e_task_mean）：
+  - Ours transfer：**1.0** / 3.18e-5 / 1.52e-9
+  - Pdiag finite target scratch：1.0 / 1.37e-4 / 3.96e-8
+  - TP-GMM SE(3) target scratch：0.933 / **7.39e-2** / 7.12e-6
+  - Frame-weighted / Phase scalar GP scratch：0.0 / 0.128 / 6.40e-6
+- 解读：有限实现下 TP-GMM SE(3) 目标 scratch 更差（acc 降到 0.933，e_alpha 高达 7.4e-2，
+  比 Ours 的 3.2e-5 高三个数量级）——再次印证"冻结源剖面 + 重估目标名义"的样本效率优势，
+  且有限实现使非有限基线的误设定更明显。
 
 **geometry transfer two-scene 变体**（`geometry_transfer/VALIDATION_geometry_transfer_two_scene.md`
-+ `geometry_transfer_two_scene_fewshot.csv`）：从 #20 抽出两个结构不同的目标场景
++ `geometry_transfer_two_scene_fewshot.csv`）：从旧（线性）#20 抽出两个结构不同的目标场景
 （`knob_to_microwave_door`：纯 revolute yaw；`bowl_stove_to_cream_cheese_bowl`：
-support/container 放置）做聚焦对照。Ours transfer 恒 1.0（e_alpha 1.38e-5 / 3.45e-4），
-Frame-weighted / Phase scalar GP scratch 恒 0.0，TP-GMM SE(3) scratch（N=8）e_alpha 3.29e-2。
-这是 #20 的聚焦呈现，**不是新实验**。
+support/container 放置）做聚焦对照。**注意**：该变体数字来自旧线性 #20，已被有限 SE(3) 重跑
+取代——对应有限 #20 的 by_pair 为 knob→microwave 1.36e-5、bowl→cream_cheese 4.33e-5
+（Ours transfer 恒 1.0）。这是 #20 的聚焦呈现，**不是新实验**，此处仅作溯源保留。
 
 ---
 
@@ -849,8 +860,8 @@ Frame-weighted / Phase scalar GP scratch 恒 0.0，TP-GMM SE(3) scratch（N=8）
 | 同时恢复多个选择性生成元 | M_multi 0.944→1.0 | `benchmark_se3_multigen.py` | `se3_multigen/multigen_summary.json` |
 | 非圆对称任务也成立 | M_oop 0.889→1.0，M_yaw 100% | `benchmark_planar_push.py` | `planar_push/planar_push_summary.json` |
 | 真实 LIBERO 平移 | M_prismatic 1.0，泄漏 ~1e-7 | `benchmark_libero_drawer_probe.py` | `libero_drawer/libero_drawer_summary.json` |
-| 跨 10 任务泛化 | M_relation 1.0（全部任务） | `benchmark_libero_relation_suite.py` | `libero_relation_suite/libero_relation_suite_summary.json` |
-| 跨任务迁移 | m_transfer_acc 1.0，e_alpha 2.13e-4 | `benchmark_geometry_transfer.py` | `geometry_transfer/geometry_transfer_validation.json` |
+| 跨 10 任务泛化 | M_relation 1.0（全部任务） | `benchmark_libero_relation_suite.py` | `libero_relation_suite_finite/libero_relation_suite_summary.json` |
+| 跨任务迁移 | m_transfer_acc 1.0，e_alpha 3.18e-5 | `benchmark_geometry_transfer.py` | `geometry_transfer_finite/geometry_transfer_validation.json` |
 
 ---
 
@@ -858,15 +869,16 @@ Frame-weighted / Phase scalar GP scratch 恒 0.0，TP-GMM SE(3) scratch（N=8）
 
 写作时务必如实标注以下三点（与代码/数据一致，勿过度声称）：
 
-1. **geometry transfer（#20/#21）用线性实现，不是有限 SE(3) 实现**：
-   `benchmark_geometry_transfer.py::_transfer_predict`（约 L139–142）用的是
-   `nominal_curve + context * profile` 的**线性**形式，而非 §2.4 的
-   `C0 Exp(P(s)c) C0⁻¹ X0`。迁移结论对"冻结 Pdiag 剖面"成立，但若论文声称迁移也走
-   有限几何实现，需改代码或改措辞。
+1. **geometry transfer（#20/#21）现已用有限 SE(3) 实现（已重跑）**：
+   `benchmark_geometry_transfer.py::_transfer_predict`（约 L145–171）用
+   `X = C0 Exp(α(s) ⊙ Log T(c)) C0⁻¹ X0` 的有限形式（与 §2.4、模型 `_local_actions` 一致），
+   生成数据同样用 `finite_pose6_at`。旧的线性实现（`nominal_curve + context * profile`）及对应
+   的 9.28e-9 heldout_prediction_mse 数字已废弃；迁移指标统一改用 e_task（任务空间 SE(3) metric MSE）。
 
 2. **LIBERO 数据（#18/#19）是合成的，不是真实 rollout，也不是学到的策略**：
-   `collect_libero_relation_suite.py`（约 L64–67）用 `object_pose_at = α·(nominal + selector·δ)`
-   的**合成状态级 qpos 插值**，通过 `set_free_body` / `set_articulated_joint` 直接写位姿，
+   `collect_libero_relation_suite.py`（约 L67–84）用
+   `finite_pose6_at = T(nominal) · Exp(α·selector ⊙ Log T(c))` 的**合成状态级位姿**，
+   通过 `set_free_body` / `set_articulated_joint` 直接写位姿，
    PHASE_CODES=(3,4,5,6)=reach/move/hold/retract。写作时称其为"LIBERO 任务几何/关系套件
    上的合成探针"，**不要**写成"在真实 LIBERO 上训练/评测策略"或"来自 LIBERO 演示"。
 

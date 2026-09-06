@@ -43,6 +43,12 @@ from phase_switch_se3_baselines import (
     SE3PhaseScalarGPModel,
     SE3SmoothFinitePDiagModel,
     SE3TPGMMModel,
+    pose6_from_se3_batched,
+    se3_exp_batched,
+    se3_from_pose6,
+    se3_from_pose6_batched,
+    se3_inverse,
+    se3_log,
     se3_to_metric,
     wrap_angle,
 )
@@ -136,10 +142,33 @@ def _metric_mse(prediction: np.ndarray, target: np.ndarray) -> float:
     return float(np.mean(se3_to_metric(residual) ** 2))
 
 
-def _transfer_predict(nominal_curve: np.ndarray, contexts: np.ndarray, profile: np.ndarray) -> np.ndarray:
-    prediction = nominal_curve[None, :, :] + contexts[:, None, :] * profile[None, :, :]
-    prediction[..., 3:] = wrap_angle(prediction[..., 3:])
-    return prediction
+def _transfer_predict(
+    nominal_curve: np.ndarray,
+    contexts: np.ndarray,
+    profile: np.ndarray,
+    nominal_frame_pose: np.ndarray,
+) -> np.ndarray:
+    """Finite SE(3) group reproduction, mirroring ``SE3SmoothFinitePDiagModel``.
+
+    ``X(s;c) = C0 Exp(diag(profile(s)) odot Log(T(c))) C0^-1 X0(s)`` with ``C0``
+    the target nominal frame and ``X0`` the target nominal trajectory (condition
+    0).  This is the finite realization of Method II-B, not the small-intervention
+    linearization ``X0 + c * profile``.
+    """
+    nominal_frame = se3_from_pose6(np.asarray(nominal_frame_pose, dtype=np.float64))
+    nominal_frame_inverse = se3_inverse(nominal_frame)
+    contexts = np.asarray(contexts, dtype=np.float64)
+    twists = np.asarray([se3_log(se3_from_pose6(c)) for c in contexts])
+    scaled = twists[:, None, :] * profile[None, :, :]
+    actions = se3_exp_batched(scaled.reshape(-1, 6)).reshape(
+        len(contexts), profile.shape[0], 4, 4
+    )
+    local_nominal = nominal_frame_inverse @ se3_from_pose6_batched(
+        np.asarray(nominal_curve, dtype=np.float64)
+    )
+    pred_local = np.einsum("csij,sjk->csik", actions, local_nominal)
+    pred_world = np.einsum("ij,csjk->csik", nominal_frame, pred_local)
+    return pose6_from_se3_batched(pred_world)
 
 
 def _make_target_scratch_models(
@@ -251,6 +280,9 @@ def main() -> None:
         source_active = source_profile[active_mask].max(axis=0)
         source_selector = (source_active > 0.5).astype(int)
         target_selector = np.asarray(specs[pair.target_task]["oracle_selector"], dtype=int)
+        target_nominal_pose6 = np.asarray(
+            specs[pair.target_task]["nominal_pose6"], dtype=np.float64
+        )
         assert np.array_equal(source_selector, target_selector), (
             pair.pair_key,
             source_selector.tolist(),
@@ -274,7 +306,10 @@ def main() -> None:
                 ):
                     heldout = np.setdiff1d(all_indices, train_indices)
                     transfer_prediction = _transfer_predict(
-                        nominal_curve, contexts[heldout], source_profile
+                        nominal_curve,
+                        contexts[heldout],
+                        source_profile,
+                        target_nominal_pose6,
                     )
                     rows.append(
                         dict(
@@ -296,7 +331,7 @@ def main() -> None:
                             fit_seconds=0.0,
                             m_transfer_correct=bool(transfer_correct),
                             e_alpha=transfer_e_alpha,
-                            heldout_prediction_mse=_metric_mse(
+                            e_task=_metric_mse(
                                 transfer_prediction, curves[heldout]
                             ),
                             **{
@@ -338,7 +373,7 @@ def main() -> None:
                                 fit_seconds=0.0,
                                 m_transfer_correct=False,
                                 e_alpha=np.nan,
-                                heldout_prediction_mse=np.nan,
+                                e_task=np.nan,
                                 **{
                                     f"alpha_active_{name}": np.nan
                                     for name in GENERATOR_NAMES
@@ -356,14 +391,14 @@ def main() -> None:
                             fit_success = True
                             fit_error = ""
                             m_correct = relation_correct(active, target_selector)
-                            heldout_mse = _metric_mse(prediction, curves[heldout])
+                            e_task = _metric_mse(prediction, curves[heldout])
                         except Exception as exc:
                             active = np.full(len(GENERATOR_NAMES), np.nan)
                             e_alpha = np.nan
                             fit_success = False
                             fit_error = repr(exc)
                             m_correct = False
-                            heldout_mse = np.nan
+                            e_task = np.nan
                         method_name = (
                             "TP-GMM SE(3) target scratch"
                             if model.name == "TP-GMM SE(3)"
@@ -389,7 +424,7 @@ def main() -> None:
                                 fit_seconds=time.perf_counter() - started,
                                 m_transfer_correct=bool(m_correct),
                                 e_alpha=e_alpha,
-                                heldout_prediction_mse=heldout_mse,
+                                e_task=e_task,
                                 **{
                                     f"alpha_active_{GENERATOR_NAMES[j]}": float(active[j])
                                     for j in range(len(GENERATOR_NAMES))
@@ -405,7 +440,7 @@ def main() -> None:
         .agg(
             m_transfer_accuracy=("m_transfer_correct", "mean"),
             e_alpha_mean=("e_alpha", "mean"),
-            heldout_prediction_mse_mean=("heldout_prediction_mse", "mean"),
+            e_task_mean=("e_task", "mean"),
             count=("m_transfer_correct", "count"),
         )
         .reset_index()
@@ -415,7 +450,7 @@ def main() -> None:
         .agg(
             m_transfer_accuracy=("m_transfer_correct", "mean"),
             e_alpha_mean=("e_alpha", "mean"),
-            heldout_prediction_mse_mean=("heldout_prediction_mse", "mean"),
+            e_task_mean=("e_task", "mean"),
             count=("m_transfer_correct", "count"),
         )
         .reset_index()
@@ -443,15 +478,19 @@ def main() -> None:
             "ours_transfer": (
                 "source N=30 Pdiag-finite alpha profile is frozen; target condition "
                 "0 is the only target nominal trajectory; target interventions are "
-                "validation probes and are not used to re-identify alpha."
+                "validation probes and are not used to re-identify alpha. The "
+                "transferred law is reproduced through the finite SE(3) group action "
+                "X = C0 Exp(diag(alpha) odot Log(T(c))) C0^-1 X0, not the "
+                "small-intervention linearization."
             ),
             "m_transfer_correct": (
                 "source/fit active-phase alpha is thresholded at 0.5 and compared "
                 "with the target task oracle selector."
             ),
-            "heldout_prediction_mse": (
-                "metric-scaled pose-trajectory MSE on target mixed contexts not used "
-                "by target-scratch fits; ours uses no target intervention for fitting."
+            "e_task": (
+                "finite SE(3) task-space pose-trajectory MSE (metric-scaled) on "
+                "target mixed contexts not used by target-scratch fits; ours uses no "
+                "target intervention for fitting."
             ),
         },
         "fit_count": int(len(fits)),
