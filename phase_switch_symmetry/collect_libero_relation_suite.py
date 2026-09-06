@@ -19,11 +19,8 @@ import numpy as np
 
 from collect_libero_drawer_probe import (
     intervention_rows_se3,
-    pose6_from_se3,
     pose_from_se3,
-    se3_exp,
     se3_from_pose6,
-    se3_log,
 )
 from libero_relation_suite_specs import (
     GENERATOR_BASIS,
@@ -64,24 +61,10 @@ def target_pose(spec, causal_delta: np.ndarray) -> np.ndarray:
     return pose_from_se3(se3_from_pose6(spec.nominal_pose6) @ se3_from_pose6(causal_delta))
 
 
-def finite_pose6_at(spec, causal_delta: np.ndarray, alpha: float) -> np.ndarray:
-    """Finite SE(3) realization of the controlled response.
-
-    Matches ``SE3SmoothFinitePDiagModel._predict_with`` at the oracle profile:
-    ``X = T(nominal) Exp((alpha * selector) odot Log(T(causal_delta)))``.  The
-    selector is applied to the Lie-algebra twist of the full intervention (not to
-    the pose6 coordinates), so the generated ground truth is exactly what the
-    finite model can reproduce with ``alpha = oracle``.
-    """
-    selector = np.asarray(spec.oracle_selector, dtype=np.float64)
-    twist = se3_log(se3_from_pose6(np.asarray(causal_delta, dtype=np.float64)))
-    scaled = (float(alpha) * selector) * twist
-    nominal_T = se3_from_pose6(np.asarray(spec.nominal_pose6, dtype=np.float64))
-    return pose6_from_se3(nominal_T @ se3_exp(scaled))
-
-
 def object_pose_at(spec, causal_delta: np.ndarray, alpha: float) -> np.ndarray:
-    return pose_from_se3(se3_from_pose6(finite_pose6_at(spec, causal_delta, alpha)))
+    nominal = np.asarray(spec.nominal_pose6, dtype=np.float64)
+    pose6 = alpha * (nominal + selected_delta(spec, causal_delta))
+    return pose_from_se3(se3_from_pose6(pose6))
 
 
 def set_free_body(sim, spec, pose: np.ndarray, initial_qpos: np.ndarray) -> None:
@@ -233,7 +216,10 @@ def collect_task_seed(spec, rows: list[dict], seed: int, args) -> Path:
                     alphas = np.ones(args.steps_per_phase)
                 for alpha in alphas:
                     pose = object_pose_at(spec, causal_delta, float(alpha))
-                    pose6 = finite_pose6_at(spec, causal_delta, float(alpha))
+                    pose6 = alpha * (
+                        np.asarray(spec.nominal_pose6, dtype=np.float64)
+                        + selected_delta(spec, causal_delta)
+                    )
                     if spec.free_joint_name is not None:
                         set_free_body(sim, spec, pose, initial_free_qpos)
                     elif spec.joint_name is not None:
