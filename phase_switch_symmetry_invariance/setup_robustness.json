@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "rerun": "phase_switch_symmetry_rollouts_invariance/base.h5",
+  "reference": "phase_switch_symmetry_rollouts/keyed_circular_phase_switch_physics_v2.h5",
+  "bins_per_phase": 25,
+  "common_conditions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "trajectory_level": {
+    "E_X_rms_mm_equiv": 48.08805948077788,
+    "E_X_max_mm_equiv": 171.4209055960945,
+    "e_end_mean_mm_equiv": 0.29970136571601685,
+    "e_end_max_mm_equiv": 0.6669610195226349,
+    "endpoint_xy_mean_mm": 0.29847979965264904,
+    "endpoint_xy_max_mm": 0.6662955384398299,
+    "endpoint_yaw_mean_deg": 0.03142942598165962,
+    "endpoint_yaw_max_deg": 0.08217849183866711,
+    "interpretation": "x/y in mm, yaw in deg at the shared endpoint.  Zero for a same-env deterministic rerun; nonzero when the two collections differ by setup (peg spawn) or execution-stack variant."
+  },
+  "law_level": {
+    "rho_alpha": 0.998878893317507,
+    "E_alpha_rms": 0.02298426767987292,
+    "D_alpha_inf": 0.07129100417052014,
+    "switch_s_0_5": {
+      "rerun": 0.5962383479259473,
+      "reference": 0.6027610216930509
+    },
+    "switch_s_0_5_spread": 0.006522673767103582,
+    "switch_status": {
+      "rerun": "detected",
+      "reference": "detected"
+    }
+  },
+  "contrast": {
+    "trajectory_deviates": true,
+    "law_stable": true,
+    "summary": "X_A(s) != X_B(s) whenever E_X_max > 0, but alpha_yaw(s) ~ alpha_ref(s) whenever rho ~ 1 and the absolute deviation is small."
+  }
+}

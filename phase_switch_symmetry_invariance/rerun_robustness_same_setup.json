@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "rerun": "phase_switch_symmetry_rollouts_invariance/base2.h5",
+  "reference": "phase_switch_symmetry_rollouts_invariance/base.h5",
+  "bins_per_phase": 25,
+  "common_conditions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "trajectory_level": {
+    "E_X_rms_mm_equiv": 0.0,
+    "E_X_max_mm_equiv": 0.0,
+    "e_end_mean_mm_equiv": 0.0,
+    "e_end_max_mm_equiv": 0.0,
+    "endpoint_xy_mean_mm": 0.0,
+    "endpoint_xy_max_mm": 0.0,
+    "endpoint_yaw_mean_deg": 0.0,
+    "endpoint_yaw_max_deg": 0.0,
+    "interpretation": "x/y in mm, yaw in deg at the shared endpoint.  Zero for a same-env deterministic rerun; nonzero when the two collections differ by setup (peg spawn) or execution-stack variant."
+  },
+  "law_level": {
+    "rho_alpha": 0.9999999999999999,
+    "E_alpha_rms": 0.0,
+    "D_alpha_inf": 0.0,
+    "switch_s_0_5": {
+      "rerun": 0.5962383479259473,
+      "reference": 0.5962383479259473
+    },
+    "switch_s_0_5_spread": 0.0,
+    "switch_status": {
+      "rerun": "detected",
+      "reference": "detected"
+    }
+  },
+  "contrast": {
+    "trajectory_deviates": false,
+    "law_stable": true,
+    "summary": "X_A(s) != X_B(s) whenever E_X_max > 0, but alpha_yaw(s) ~ alpha_ref(s) whenever rho ~ 1 and the absolute deviation is small."
+  }
+}

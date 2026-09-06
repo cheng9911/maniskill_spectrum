@@ -835,6 +835,82 @@ Frame-weighted / Phase scalar GP scratch 恒 0.0，TP-GMM SE(3) scratch（N=8）
 
 ---
 
+### 5.8 S8 控制器/规划器/速度不变性（回应 Major Concern 3）
+
+**研究问题**：§5.1/§4.1 识别到的"干预律"（α_yaw 的 0→1→0 相位结构）究竟是**任务物理**
+（keyed gate + 圆孔 bore 的硬几何约束），还是**演示者/控制器响应**的产物？若换一个控制器、
+换一个规划器、改轨迹速度，α_yaw(s) 是否仍一致？
+
+**方法**：同一 keyed fixture 上，分别用 6 个 agent 变体各自收集 9 条孤立干预轨迹
+（1 baseline + 4 yaw ±15/±30 + 4 translation ±15mm，`intervention_rows(0, seed)`），
+用完全相同的 `empirical_isolated_profile` 识别出各自的 α_yaw(s)，再两两比较：
+
+| 变体 | stiffness/damping | planner | speed（× 默认 0.5 限速） |
+|---|---:|---|---:|
+| base | 1e3 / 1e2 | screw（RRT 兜底） | 1.0 |
+| soft | 5e2 / 5e1 | screw | 1.0 |
+| stiff | 2e3 / 2e2 | screw | 1.0 |
+| rrt | 1e3 / 1e2 | **强制 RRTConnect** | 1.0 |
+| slow | 1e3 / 1e2 | screw | 0.7 |
+| fast | 1e3 / 1e2 | screw | 1.3 |
+
+刚度/阻尼经 `Panda.arm_stiffness` / `Panda.arm_damping` 类属性在 `gym.make` 前注入
+（`panda.py::_controller_configs` 惰性读取）；速度经 `joint_vel_limits`/`joint_acc_limits`
+缩放 mplib 限速；planner 经 `--planner rrt` 强制 `move_to_pose_with_RRTConnect`。
+
+**脚本**：`collect_controller_invariance.py`（参数化采集）、`benchmark_controller_invariance.py`
+（提取 α_yaw + 计算 ρ 矩阵）。
+**输出**：`phase_switch_symmetry_invariance/controller_invariance_summary.json`
++ `controller_invariance_figure.png/pdf` + `alpha_yaw_pearson_full.csv` 等。
+6 个变体均 9/9 条件成功（个别条件重试 1–2 次）。
+
+**关键数字**：
+
+1. **全剖面 ρ(α_yaw^A, α_yaw^B)**（min off-diagonal = 0.9903，绝大多数 ≥ 0.992）：
+
+   | | base | soft | stiff | rrt | slow | fast |
+   |---|---|---:|---:|---:|---:|---:|
+   | base | 1.000 | 0.998 | 1.000 | 0.992 | 1.000 | 1.000 |
+   | soft | | 1.000 | 0.998 | 0.996 | 0.999 | 0.997 |
+   | stiff | | | 1.000 | 0.992 | 1.000 | 1.000 |
+   | rrt | | | | 1.000 | 0.995 | 0.990 |
+   | slow | | | | | 1.000 | 0.999 |
+   | fast | | | | | | 1.000 |
+
+   平移剖面 ρ 亦 ≥ 0.987。
+
+2. **yaw 半衰减切换位置 s_0.5**（α_yaw 向下穿 0.5 处）：base 0.5962 / soft 0.5996 /
+   stiff 0.5962 / rrt 0.6102 / slow 0.5981 / fast 0.5949 → **spread = 0.0153**（≤1.5% 进度轴）。
+
+3. **分相位**（yaw）：有变化的两个相位高度一致——Align keyed ρ≥0.982、Unlock yaw ρ≥0.989；
+   两个近平坦相位（Enter key、Circular insert）α_yaw 方差≈0（std 0.0012 / 0.0004），
+   Pearson ρ 退化（分母≈0），但 pairwise max-abs deviation 仅 0.007 / 0.002，
+   即平坦结构本身也跨变体一致。
+
+**解读**：α_yaw 的 0→1→0 结构与切换位置对 PD 增益（0.5×–2×）、规划器（screw vs RRTConnect）、
+轨迹速度（0.7×–1.3×）都不敏感（ρ ≥ 0.99，切换位置漂移 <1.5% 进度轴），支持
+"relation-induced structure dominates controller-specific response"——即识别的相位相关
+生成元相关性是任务的几何关系本身，而非特定演示者/控制器的响应。
+
+**补充 1：采集是确定性的（不是非确定性）**。第二次独立运行 `base2`（与 base 完全相同配置）
+与 `base` **逐位一致**：max peg_pose 差 = 0.000e+00，step 数、episode seed 全同。
+故 §5.8 不存在"rerun 非确定性"问题——同 env + 同 seed 下轨迹逐位复现
+（脚本 `benchmark_rerun_robustness.py --rerun base2 --reference base` →
+`rerun_robustness_same_setup.json`：E_X^RMS=0，ρ=1.000000）。
+
+**补充 2：base 变体 vs 原 v2 的差异是任务设置变更，不是 rerun 噪声**。v2
+（`keyed_circular_phase_switch_physics_v2.h5`，2026-08-18 采集）早于 commit `9957bca`
+（2026-08-20），彼时 peg 在**桌面** spawn（`PEG_START = [-0.08, -0.18, 0.045]`）；当前
+env 把 peg 移到**高架 pedestal** spawn（`[-0.25, -0.18, 0.325]`）。因此 align 相位
+相差 ~170mm（纯属 spawn 位置变化），而 enter/unlock/insert 三相位一致到 <1mm
+（末端 xy 差 mean 0.30mm / max 0.67mm，yaw 0.03°/0.08°）。**即便如此**，α_yaw 仍跨设置
+稳定：base(pedestal) vs v2(table) → ρ = 0.9989、E_α^RMS = 0.023、D_α,∞ = 0.071、
+s_0.5 spread = 0.0065（`setup_robustness.json`）。这比"rerun 一致"更强：剖面不仅对
+controller/planner/speed 不变，对 peg-spawn 设置变更也不变。写作时把这一条表述为
+"setup-robustness"，**不要**表述为"rerun 非确定性"或"轨迹级随机波动"。
+
+---
+
 ## 6. 论文声明 ↔ 代码 ↔ 数字 对照总表
 
 | 论文声明 | 支持数字 | 代码位置（`phase_switch_symmetry/`） | 产物 JSON |
@@ -855,6 +931,7 @@ Frame-weighted / Phase scalar GP scratch 恒 0.0，TP-GMM SE(3) scratch（N=8）
 | 真实 LIBERO 平移 | M_prismatic 1.0，泄漏 ~1e-7 | `benchmark_libero_drawer_probe.py` | `libero_drawer/libero_drawer_summary.json` |
 | 跨 10 任务泛化 | M_relation 1.0（全部任务） | `benchmark_libero_relation_suite.py` | `libero_relation_suite/libero_relation_suite_summary.json` |
 | 跨任务迁移 | m_transfer_acc 1.0，e_alpha 2.13e-4 | `benchmark_geometry_transfer.py` | `geometry_transfer/geometry_transfer_validation.json` |
+| 干预律非控制器/规划器响应 | ρ(α_yaw) ≥ 0.99（6 变体两两），s_0.5 spread 0.0153 | `benchmark_controller_invariance.py` | `phase_switch_symmetry_invariance/controller_invariance_summary.json` |
 
 ---
 
@@ -883,6 +960,14 @@ Frame-weighted / Phase scalar GP scratch 恒 0.0，TP-GMM SE(3) scratch（N=8）
 
 4. **旧 v1 数据不得用于报告结果**：`phase_switch_symmetry_rollouts/provisional_v1/`
    仅作调试溯源，`VALIDATION.md` 明确"不得用于报告结果"。
+
+5. **§5.8 采集是确定性的；base vs v2 的差异是任务设置变更，不是非确定性**：第二次运行
+   `base2`（同配置）与 `base` 逐位一致（max peg_pose 差 0.000e+00），即同 env + 同 seed 下
+   轨迹确定性复现。原 v2（2026-08-18）早于 commit `9957bca`（2026-08-20），peg 在**桌面**
+   spawn（`PEG_START` [-0.08,-0.18,0.045]）；当前 env 在**高架 pedestal** spawn
+   （[-0.25,-0.18,0.325]）。故 base vs v2 的 align 相位差 ~170mm、末端 xy 差 ~0.3mm 是
+   spawn 设置变更所致，**不是**"轨迹级随机波动"。α_yaw 仍跨设置稳定（ρ=0.9989）。写作时
+   把 base-vs-v2 表述为"setup-robustness"，**不要**声称"PhysX 非确定性"或"rerun 噪声"。
 
 ---
 
