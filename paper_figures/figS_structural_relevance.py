@@ -33,6 +33,15 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 
+from common import (
+    COMP,
+    CONTROL,
+    GRAY_DARK,
+    GRID,
+    RELEVANCE_CMAP,
+    TEXT,
+)
+
 
 HERE = Path(__file__).resolve().parent
 DATA_ROOT = HERE.parent / "phase_switch_symmetry_multiseed"
@@ -49,20 +58,15 @@ EXPECTED_FITS = 18
 # high-end colorbar while leaving the learned relevance scale interpretable.
 ALPHA_MAX = 1.05
 
-# Two CVD-separated line colors for the counterfactual controls: the yaw-relevant
-# condition (keyed / heading-constrained) is blue, its gauge control (circular /
-# free-yaw) is orange.
-ACTIVE_COLOR = "#2a78d6"
-CONTROL_COLOR = "#eb6834"
+# Paper-wide color semantics (see common): the yaw-relevant condition
+# (keyed / heading-constrained) is blue (COMP), its gauge control (circular /
+# free-yaw) is vermilion (CONTROL).
+ACTIVE_COLOR = COMP
+CONTROL_COLOR = CONTROL
 
-# A light white->blue sequential ramp (not the deep standard "Blues"): low
-# relevance fades to near-white so the selective structure reads at a glance,
-# while 0.8..1.0 keeps gradation instead of collapsing to navy.
-_HEAT_BLUE = [
-    "#f7fafd", "#e7f0fa", "#d2e3f6", "#bcd4f1", "#a3c4ec",
-    "#88b3e6", "#6da2e0", "#5291d9", "#3d82d2", "#2a78d6",
-]
-HEAT_CMAP = mpl.colors.LinearSegmentedColormap.from_list("heat_blue", _HEAT_BLUE, N=256)
+# Relevance magnitude ramp (white -> indigo), shared with the Fig. 3 bubble
+# matrix and heatmap so both figures encode the same quantity with one color.
+HEAT_CMAP = RELEVANCE_CMAP
 
 
 def phase_relevance(
@@ -148,7 +152,7 @@ def style_heatmap(
     ax.tick_params(length=0, pad=3)
     for spine in ax.spines.values():
         spine.set_linewidth(0.45)
-        spine.set_color("0.45")
+        spine.set_color(GRAY_DARK)
     return image
 
 
@@ -162,7 +166,7 @@ def annotate_cells(
     for gi in gen_rows:
         for phase in range(4):
             value = matrix[gi, phase]
-            color = "0.97" if value > 0.78 else "0.15"
+            color = "white" if value >= 0.68 else TEXT
             ax.text(phase, gi, f"{value:.2f}", ha="center", va="center",
                     fontsize=5.7, color=color)
 
@@ -186,8 +190,8 @@ def style_yaw_profile(
         ax.text(s0, a0, label, ha=ha, va="bottom", fontsize=6.7,
                 color=color, zorder=4)
     for b in boundaries:
-        ax.axvline(b, color="0.86", lw=0.45, ls=(0, (2, 2)), zorder=1)
-    ax.axhline(0.0, color="0.86", lw=0.45, zorder=1)
+        ax.axvline(b, color=GRID, lw=0.45, ls=(0, (2, 2)), zorder=1)
+    ax.axhline(0.0, color=GRID, lw=0.45, zorder=1)
     ax.set_xlim(0.0, 1.0)
     ax.set_ylim(-0.03, 1.13)
     ax.set_xticks([0.0, 0.25, 0.5, 0.75, 1.0])
@@ -201,12 +205,12 @@ def style_yaw_profile(
     trans = ax.get_xaxis_transform()
     for center, name in zip(centers, phase_labels):
         ax.text(center, 0.975, name, ha="center", va="top",
-                transform=trans, fontsize=6.5, color="0.38", zorder=5)
+                transform=trans, fontsize=6.5, color=GRAY_DARK, zorder=5)
     for spine in ("top", "right"):
         ax.spines[spine].set_visible(False)
     for spine in ("left", "bottom"):
         ax.spines[spine].set_linewidth(0.5)
-        ax.spines[spine].set_color("0.45")
+        ax.spines[spine].set_color(GRAY_DARK)
 
 
 def write_source_data(
@@ -368,7 +372,7 @@ def main() -> None:
     cbar = fig.colorbar(image, cax=cbar_ax, orientation="vertical")
     cbar.set_ticks([0.0, 0.5, 1.0])
     cbar.set_ticklabels(["0", "0.5", "1.0"])
-    cbar.ax.tick_params(labelsize=6.5, length=2.0, width=0.45)
+    cbar.ax.tick_params(labelsize=6.5, length=2.0, width=0.45, colors=GRAY_DARK)
     cbar.outline.set_linewidth(0.45)
     cbar.ax.set_title(r"$\bar{\alpha}$", fontsize=7.0, pad=4)
 

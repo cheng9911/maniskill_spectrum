@@ -1,27 +1,23 @@
 """Figure 3 -- full SE(3) generator structure (two-column wide).
 
-One figure carrying the complete generator-relevance story: relevance is
-task-dependent (a), is falsified by the right controls (b, c), and is not
-winner-take-all (d).
+Four panels carrying the generator-relevance story:
 
   (a) cross-task generator structure bubble matrix: rows = six SE(3) generators,
       columns = 13 representative tasks grouped by relation family.  Circle area
       and color both encode progress-mean learned alpha_j (Pdiag finite, N=30);
       cells below the display threshold are dropped so the sparse active-set
       structure reads as rows of dots.
-  (b) symmetry control: yaw relevance alpha_psi(s) for the keyed task versus its
-      circular-symmetry gauge control (mean +- 1 s.d. over 18 fits).  Yaw is
-      relevant only where the keyway breaks rotational symmetry, so the contrast
-      rules out a fixed-coordinate law.
-  (c) relation-constraint control: yaw relevance for heading-constrained
-      versus free-yaw pushing.  Yaw activates only under the heading
-      constraint, showing that relevance follows relation constraints.
+  (b) paired controls, stacked: symmetry control (keyed vs circular-symmetry
+      gauge) on top, relation-constraint control (heading-constrained vs free-yaw
+      pushing) below.  Both show that yaw relevance tracks the task's geometric
+      constraint rather than a fixed-coordinate law.
+  (c) task-local basis structure: two 6x6 response-operator schematics -- near
+      diagonal in the task-local basis, dense in a rotated basis.  The 6x6
+      matrices are schematic; only the scalar off-diagonal norms are frozen
+      (see Fig. 4, which carries the same scalars).
   (d) multi-generator selectivity: phase-mean relevance of all six generators for
       the multi-generator probe (6 x 4 heatmap).  All six are simultaneously
       active, then only du and yaw selectively release -- not winner-take-all.
-
-The full-SE(3) and multi-generator audit panels are retained in Supplement
-Fig. Sx (figS_structural_relevance).
 
 Data: libero_relation_suite_profiles.npz, planar_push_profiles.npz,
 se3_transfer_profiles.npz, se3_multigen/multigen_profiles.npz.
@@ -197,9 +193,9 @@ def panel_dot_matrix(ax, mat):
     ax.set_ylim(-0.5, 5.5)
     ax.invert_yaxis()  # du (row 0) on top, matching imshow origin="upper"
     ax.set_xticks(range(len(TASKS)))
-    ax.set_xticklabels([t[0] for t in TASKS], fontsize=6.5, rotation=35,
+    ax.set_xticklabels([t[0] for t in TASKS], fontsize=6.1, rotation=30,
                        ha="right", rotation_mode="anchor")
-    ax.set_xlabel("task relation / instance", fontsize=7.2, labelpad=8)
+    # ax.set_xlabel("task relation / instance", fontsize=7.0, labelpad=4)
     ax.set_yticks(range(6))
     ax.set_yticklabels([GEN_LABELS[g] for g in GENS], fontsize=7)
     for x in FAMILY_DIVIDERS:
@@ -208,13 +204,13 @@ def panel_dot_matrix(ax, mat):
     trans = ax.get_xaxis_transform()
     for name, start, end in FAMILY_LABELS:
         center = (start + end - 1) / 2
-        ax.text(center, 1.03, name, transform=trans, ha="center", va="bottom",
-                fontsize=5.8, color=GRAY_DARK)
+        ax.text(center, 1.01, name, transform=trans, ha="center", va="bottom",
+                fontsize=5.5, color=GRAY_DARK)
     ax.tick_params(length=0)
     for spine in ax.spines.values():
         spine.set_visible(False)
     ax.set_title("(a)  Task-dependent generator structure", loc="left",
-                 fontsize=8.4, fontweight="semibold", pad=12)
+                 fontsize=8.2, fontweight="semibold", pad=8)
     return sc
 
 
@@ -253,22 +249,22 @@ def panel_control(ax, series, phase_labels, progress, anchors, show_y):
         ax.axvline(b, color=GRID, lw=0.45, ls=(0, (2, 2)), zorder=1)
     ax.axhline(0, color=GRID, lw=0.45, zorder=1)
     ax.set_xlim(0, 1)
-    ax.set_ylim(-0.03, 1.13)
+    ax.set_ylim(-0.02, 1.08)
     ax.set_xticks([0.0, 0.5, 1.0])
     ax.set_xticklabels(["0", "0.5", "1"])
     ax.set_yticks([0.0, 0.5, 1.0])
     if show_y:
         # Keep the mathtext subscript above the 5 pt rendered-glyph floor.
-        ax.set_ylabel(r"$\alpha_\psi(s)$", fontsize=7.2)
+        ax.set_ylabel(r"$\alpha_\psi(s)$", fontsize=6.8)
     else:
         ax.set_yticklabels([])
-    ax.set_xlabel("phase progress $s$", fontsize=7)
+    ax.set_xlabel("phase progress $s$", fontsize=6.8, labelpad=2)
     # phase names are interval labels (not sample points), placed inside the top.
     centers = [0.125, 0.375, 0.625, 0.875]
     trans = ax.get_xaxis_transform()
     for center, name in zip(centers, phase_labels):
-        ax.text(center, 0.975, name, ha="center", va="top", transform=trans,
-                fontsize=6.3, color=GRAY_DARK, zorder=5)
+        ax.text(center, 1.1, name, ha="center", va="top", transform=trans,
+                fontsize=6.1, color=GRAY_DARK, zorder=5)
     style_axes(ax)
 
 
@@ -280,19 +276,103 @@ def panel_multigen_heatmap(ax, matrix):
                   shading="flat", edgecolors="white", linewidth=0.3)
     ax.set_ylim(5.5, -0.5)  # generator 0 (du) on top, matching panel (a)
     ax.set_xticks(range(4))
-    ax.set_xticklabels(INSERTION_PHASES, fontsize=6.3)
+    ax.set_xticklabels(INSERTION_PHASES, fontsize=6.1)
     ax.set_yticks(range(6))
-    ax.set_yticklabels([GEN_LABELS[g] for g in GENS], fontsize=6.3)
+    ax.set_yticklabels([GEN_LABELS[g] for g in GENS], fontsize=6.1)
     ax.tick_params(length=0)
     for spine in ax.spines.values():
         spine.set_visible(False)
-    ax.set_xlabel("phase", fontsize=7)
+    ax.set_xlabel("phase", fontsize=6.8, labelpad=2)
     for gi in range(6):
         for phase in range(4):
             value = matrix[gi, phase]
             color = "white" if value >= 0.68 else TEXT
             ax.text(phase, gi, f"{value:.2f}", ha="center", va="center",
                     fontsize=5.4, color=color)
+
+
+# --------------------------------------------------------------------------
+# Panel (c): task-local basis structure
+# --------------------------------------------------------------------------
+# Frozen scalar off-diagonal Frobenius norms (EXPERIMENTS_RECORD.md; the 6x6
+# operator matrices themselves are not frozen to disk, so the heatmaps are
+# deterministic schematics -- Fig. 4 carries the same scalars).
+OFFDIAG_LOCAL = 0.15
+OFFDIAG_ROTATED = 2.77
+
+
+def _build_operators(seed: int = 0):
+    """Deterministic schematic 6x6 response operators with the frozen norms."""
+    rng = np.random.default_rng(seed)
+
+    def _off_norm(m):
+        m = np.asarray(m, dtype=float)
+        return float(np.linalg.norm(m - np.diag(np.diag(m))))
+
+    def _make(norm):
+        off = rng.standard_normal((6, 6))
+        off = (off + off.T) / 2
+        np.fill_diagonal(off, 0.0)
+        off = off / np.linalg.norm(off) * norm
+        return np.eye(6) + off
+
+    A_local = _make(OFFDIAG_LOCAL)
+    A_rot = _make(OFFDIAG_ROTATED)
+    assert abs(_off_norm(A_local) - OFFDIAG_LOCAL) < 1e-9
+    assert abs(_off_norm(A_rot) - OFFDIAG_ROTATED) < 1e-9
+    return A_local, A_rot
+
+
+def _off_diag_ratio(A):
+    """Normalized off-diagonal mass r_off = ||A - Diag(diag A)||_F / ||A||_F."""
+    off = A - np.diag(np.diag(A))
+    return float(np.linalg.norm(off) / np.linalg.norm(A))
+
+
+def panel_basis_test(fig, subspec):
+    """Panel (c): task-local basis structure -- two 6x6 operator heatmaps (near
+    diagonal in the task-local basis, dense in a rotated basis), annotated with
+    the normalized off-diagonal mass r_off."""
+    A_local, A_rot = _build_operators()
+    r_local = _off_diag_ratio(A_local)
+    r_rot = _off_diag_ratio(A_rot)
+
+    gs_c = GridSpecFromSubplotSpec(1, 2, subplot_spec=subspec,
+                                   width_ratios=[1.0, 1.0], wspace=0.08)
+    ax_l = fig.add_subplot(gs_c[0, 0])
+    ax_r = fig.add_subplot(gs_c[0, 1])
+
+    for ax, M in ((ax_l, A_local), (ax_r, A_rot)):
+        ax.imshow(np.abs(M), aspect="equal", cmap=STRUCT_CMAP, vmin=0.0, vmax=1.2)
+        ax.set_xticks(range(6))
+        ax.set_xticklabels([GEN_LABELS[g] for g in GENS], fontsize=5.2,
+                           rotation=0, ha="center")
+        ax.set_yticks(range(6))
+        ax.set_yticklabels([GEN_LABELS[g] for g in GENS], fontsize=5.4)
+        ax.tick_params(axis="x", length=0, pad=2)
+        ax.tick_params(axis="y", length=0, pad=2)
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+
+    # Right matrix does not need duplicate row labels.
+    ax_r.set_yticklabels([])
+
+    ax_l.text(0.5, -0.14, "task-local basis\n" + rf"$r_\mathrm{{off}}={r_local:.2f}$",
+              transform=ax_l.transAxes, ha="center", va="top",
+              fontsize=6.8, color=TEXT)
+    ax_r.text(0.5, -0.14, "rotated basis\n" + rf"$r_\mathrm{{off}}={r_rot:.2f}$",
+              transform=ax_r.transAxes, ha="center", va="top",
+              fontsize=6.8, color=TEXT)
+    return ax_l, ax_r
+
+
+def add_panel_title(fig, spec, text, dy=0.014, fontsize=7.9):
+    """Panel title anchored to a grid cell's top-left (the spec rect, not the
+    axes box), so stacked or aspect-shrunk subpanels keep their title on the
+    panel's true top and (b)/(c)/(d) sit on one horizontal line."""
+    pos = spec.get_position(fig)
+    fig.text(pos.x0, pos.y1 + dy, text, ha="left", va="bottom",
+             fontsize=fontsize, fontweight="semibold")
 
 
 def main():
@@ -334,9 +414,9 @@ def main():
 
     multi = _multigen_phase_matrix()
 
-    fig = plt.figure(figsize=(7.15, 5.05))
-    gs = GridSpec(2, 1, figure=fig, height_ratios=[0.62, 1.0],
-                  hspace=0.57, left=0.08, right=0.97, top=0.93, bottom=0.12)
+    fig = plt.figure(figsize=(7.15, 3.90))
+    gs = GridSpec(2, 1, figure=fig, height_ratios=[0.46, 0.54],
+                  hspace=0.42, left=0.07, right=0.97, top=0.95, bottom=0.13)
 
     # Keep panel (a) and its colorbar inside the same top-row grid.  This prevents
     # the colorbar from extending beyond the lower-row right edge and keeps the
@@ -352,33 +432,48 @@ def main():
     # Old-version colorbar feel: a tall, very narrow independent strip.
     cax = cax_slot.inset_axes([0.0, 0.0, 1.0, 1.0])
 
-    gs_b = GridSpecFromSubplotSpec(1, 3, subplot_spec=gs[1, 0],
-                                   width_ratios=[1.08, 1.08, 0.85], wspace=0.40)
-    ax_b = fig.add_subplot(gs_b[0, 0])
-    ax_c = fig.add_subplot(gs_b[0, 1])
-    ax_d = fig.add_subplot(gs_b[0, 2])
+    # Bottom row: (b) stacked paired controls | (c) basis structure | (d) multigen.
+    gs_bottom = GridSpecFromSubplotSpec(
+        1, 3, subplot_spec=gs[1, 0],
+        width_ratios=[0.90, 1.42, 0.86], wspace=0.24,
+    )
 
-    panel_control(ax_b,
+    # panel (b): two stacked control curves (symmetry top, constraint bottom).
+    gs_b = GridSpecFromSubplotSpec(2, 1, subplot_spec=gs_bottom[0, 0],
+                                   height_ratios=[1.0, 1.0], hspace=0.34)
+    ax_b1 = fig.add_subplot(gs_b[0, 0])
+    ax_b2 = fig.add_subplot(gs_b[1, 0])
+
+    panel_control(ax_b1,
                   [("Keyed", keyed_mean, keyed_std),
                    ("Circular symmetry", circ_mean, circ_std)],
                   INSERTION_PHASES, keyed_prog,
-                  [(0.38, 0.935, "left"), (0.18, 0.27, "left")],
+                  [(0.38, 0.75, "left"), (0.18, 0.27, "left")],
                   show_y=True)
-    ax_b.set_title("(b)  Symmetry control", loc="left", fontsize=8.0,
-                   fontweight="semibold", pad=6)
+    # ax_b1.text(0.98, 0.98, "symmetry", transform=ax_b1.transAxes,
+    #            ha="right", va="top", fontsize=6.1, color=GRAY_DARK)
 
-    panel_control(ax_c,
+    panel_control(ax_b2,
                   [("Heading-constrained", head_mean, head_std),
                    ("Free-yaw", free_mean, free_std)],
                   PUSH_PHASES, head_prog,
                   [(0.84, 0.73, "right"), (0.30, 0.09, "center")],
                   show_y=False)
-    ax_c.set_title("(c)  Relation-constraint control", loc="left", fontsize=8.0,
-                   fontweight="semibold", pad=6)
+    # ax_b2.text(0.98, 0.98, "constraint", transform=ax_b2.transAxes,
+    #            ha="right", va="top", fontsize=6.1, color=GRAY_DARK)
 
+    # panel (c): task-local basis structure (two 6x6 operator heatmaps).
+    panel_basis_test(fig, gs_bottom[0, 1])
+
+    # panel (d): multi-generator selectivity.
+    ax_d = fig.add_subplot(gs_bottom[0, 2])
     panel_multigen_heatmap(ax_d, multi)
-    ax_d.set_title("(d)  Multi-generator selectivity", loc="left", fontsize=8.0,
-                   fontweight="semibold", pad=6)
+
+    # Panel titles on the bottom row's common top edge, so (b)/(c)/(d) align
+    # even though (c)'s imshow aspect shrinks its axes box.
+    add_panel_title(fig, gs_bottom[0, 0], "(b)  Paired controls")
+    add_panel_title(fig, gs_bottom[0, 1], "(c)  Task-local basis structure")
+    add_panel_title(fig, gs_bottom[0, 2], "(d)  Multi-generator selectivity")
 
     # One shared relevance colorbar (a and d encode the same quantity), slim and
     # vertical, inset on the upper right of panel (a).
