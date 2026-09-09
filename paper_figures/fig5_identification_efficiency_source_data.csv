@@ -1,0 +1,46 @@
+panel,metric,model,sample_size,mean,sem,cell_count,protocol,pass_count,fit_count,recovery_rate
+a,generator_rmse,Pdiag finite,5,0.23402324414131748,0.028379708193713715,25,,,,
+a,generator_rmse,Pdiag finite,10,0.2319310804054028,0.028006094350818293,25,,,,
+a,generator_rmse,Pdiag finite,20,0.2206392426454269,0.03034783920147931,25,,,,
+a,generator_rmse,Pdiag finite,30,0.21822928398453162,0.07572706901186935,5,,,,
+a,generator_rmse,TP-GMM SE(2),5,0.2973248157243661,0.021824959978976793,25,,,,
+a,generator_rmse,TP-GMM SE(2),10,0.22058898451895903,0.024354405177964455,25,,,,
+a,generator_rmse,TP-GMM SE(2),20,0.22521513853776223,0.026213614671876117,25,,,,
+a,generator_rmse,TP-GMM SE(2),30,0.2097110107599791,0.0649357309443872,5,,,,
+a,generator_rmse,Full operator,5,0.4913191414721817,0.11570753894601134,25,,,,
+a,generator_rmse,Full operator,10,0.3383126832801422,0.04809516422003467,25,,,,
+a,generator_rmse,Full operator,20,0.2711408080538826,0.036581342648408316,25,,,,
+a,generator_rmse,Full operator,30,0.23296049273455727,0.08231885069056756,5,,,,
+a,generator_rmse,Generic RBF,5,0.3974992260213452,0.0650540622752547,25,,,,
+a,generator_rmse,Generic RBF,10,0.3183245114350961,0.04108614759043479,25,,,,
+a,generator_rmse,Generic RBF,20,0.2619951452937592,0.0348025006116071,25,,,,
+a,generator_rmse,Generic RBF,30,0.22891542069954282,0.08142297992169695,5,,,,
+b,task_error_mean_mm_equiv,Pdiag finite,5,2.7087826768898817,0.17769851277739596,25,,,,
+b,task_error_mean_mm_equiv,Pdiag finite,10,2.670259108364927,0.1727698195694246,25,,,,
+b,task_error_mean_mm_equiv,Pdiag finite,20,2.434391223750175,0.1312042864412265,25,,,,
+b,task_error_mean_mm_equiv,Pdiag finite,30,2.3855781623683336,0.30485075287860325,5,,,,
+b,task_error_mean_mm_equiv,TP-GMM SE(2),5,7.583068550500391,0.8284961814180907,25,,,,
+b,task_error_mean_mm_equiv,TP-GMM SE(2),10,4.4283680975429895,0.35686065999396677,25,,,,
+b,task_error_mean_mm_equiv,TP-GMM SE(2),20,3.7837952199194813,0.2529402471013801,25,,,,
+b,task_error_mean_mm_equiv,TP-GMM SE(2),30,3.4556683892794675,0.4405407294374451,5,,,,
+b,task_error_mean_mm_equiv,Full operator,5,4.109341696373443,0.8090854671443098,25,,,,
+b,task_error_mean_mm_equiv,Full operator,10,3.937149043479749,0.5657455779209783,25,,,,
+b,task_error_mean_mm_equiv,Full operator,20,3.2836577832428095,0.30490601531469325,25,,,,
+b,task_error_mean_mm_equiv,Full operator,30,3.074994646842822,0.5631502597157684,5,,,,
+b,task_error_mean_mm_equiv,Generic RBF,5,5.914604133863492,1.2572624104236934,25,,,,
+b,task_error_mean_mm_equiv,Generic RBF,10,5.2661615838310185,0.9180909493445772,25,,,,
+b,task_error_mean_mm_equiv,Generic RBF,20,4.020850645293711,0.43674653791613605,25,,,,
+b,task_error_mean_mm_equiv,Generic RBF,30,3.6296485866556987,0.7744190037050239,5,,,,
+c,complete_generator_law_recovery_rate,,3,,,,qualified,46,50,0.92
+c,complete_generator_law_recovery_rate,,3,,,,random,44,50,0.88
+c,complete_generator_law_recovery_rate,,5,,,,qualified,50,50,1.0
+c,complete_generator_law_recovery_rate,,5,,,,random,50,50,1.0
+c,complete_generator_law_recovery_rate,,8,,,,qualified,50,50,1.0
+c,complete_generator_law_recovery_rate,,8,,,,random,50,50,1.0
+c,complete_generator_law_recovery_rate,,10,,,,qualified,50,50,1.0
+c,complete_generator_law_recovery_rate,,10,,,,random,50,50,1.0
+c,complete_generator_law_recovery_rate,,15,,,,qualified,50,50,1.0
+c,complete_generator_law_recovery_rate,,15,,,,random,50,50,1.0
+c,complete_generator_law_recovery_rate,,20,,,,qualified,50,50,1.0
+c,complete_generator_law_recovery_rate,,20,,,,random,50,50,1.0
+c,complete_generator_law_recovery_rate,,30,,,,all,5,5,1.0
