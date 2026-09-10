@@ -98,7 +98,13 @@ def collect_se3(rows, output_path, seed, orientation, retries_per_condition,
                 episode_seed = seed + condition_id * 1009 + attempt_id
                 np.random.seed(episode_seed)
                 torch.manual_seed(episode_seed)
-                env.reset(seed=episode_seed, options={"causal_delta": row["causal_delta"]})
+                env.reset(
+                    seed=episode_seed,
+                    options={
+                        "causal_delta": row["causal_delta"],
+                        "pickup_position": row["pickup_position"],
+                    },
+                )
                 env.start_trace()
                 solver_error = None
                 stop_reason = "solver_returned"
@@ -132,6 +138,11 @@ def collect_se3(rows, output_path, seed, orientation, retries_per_condition,
                 group.attrs["attempt_id"] = attempt_id
                 group.attrs["episode_seed"] = episode_seed
                 write_episode(group, row, env.trace, solver_error, stop_reason=stop_reason)
+                group.attrs["pickup_id"] = row["pickup_id"]
+                group.create_dataset(
+                    "pickup_position",
+                    data=np.asarray(row["pickup_position"], dtype=np.float64),
+                )
                 manifest.append(
                     dict(
                         episode_id=episode_id,
@@ -239,8 +250,22 @@ def main():
             raise ValueError(f"unsupported generator: {generator}")
         if causal_delta.shape != (6,) or not np.isfinite(causal_delta).all():
             raise ValueError("every causal_delta must be a finite 6-vector")
+        # Pickup context: preserved through normalization so it reaches reset,
+        # HDF5, and JSON. Missing field falls back to the fixed pedestal.
+        pickup_position = np.asarray(
+            row.get("pickup_position", phase_switch_symmetry_env.PEDESTAL_POS),
+            dtype=np.float64,
+        )
+        if pickup_position.shape != (3,) or not np.isfinite(pickup_position).all():
+            raise ValueError("every pickup_position must be a finite 3-vector")
+        pickup_id = int(row.get("pickup_id", -1))
         normalized_rows.append(
-            dict(generator=generator, causal_delta=causal_delta.tolist())
+            dict(
+                generator=generator,
+                causal_delta=causal_delta.tolist(),
+                pickup_id=pickup_id,
+                pickup_position=pickup_position.tolist(),
+            )
         )
     rows = normalized_rows
     if args.smoke:

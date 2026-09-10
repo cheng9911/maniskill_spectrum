@@ -1,0 +1,117 @@
+[
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_jc_fix_3/data/chunk-000/file-000.parquet",
+    "bytes": 4982868,
+    "sha256": "8a080c4bef74a9fba0a4abbfe7c430afeaeaee96dc264b56f60f2a7bb3480959"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_jc_fix_3/meta/episodes/chunk-000/file-000.parquet",
+    "bytes": 331533,
+    "sha256": "23765a0c6554bd520a23ae44824f2915caaff94aa3fc504cb524c66c6fab4ddc"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_jc_fix_3/meta/info.json",
+    "bytes": 4267,
+    "sha256": "5df8eae83a8f648deef70308ebc133baa19c5fbe31a2692a95a67e987548be25"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_jc_fix_3/meta/tasks.parquet",
+    "bytes": 2195,
+    "sha256": "86a0ddb1c5585f4a887f062e6695f713514cbdec157f705419ddceaf48dae0e5"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/data/chunk-000/file-000.parquet",
+    "bytes": 1689336,
+    "sha256": "28ff85d1d17faca5f8269a23c10c04bf3f7d30be1ac982e3c3be24f236bfbcbf"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/data/chunk-000/file-001.parquet",
+    "bytes": 1211725,
+    "sha256": "7736e930331b70c274f166104594b80ab3a661984a6ee98714f1dec90288f869"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/data/chunk-000/file-002.parquet",
+    "bytes": 1048779,
+    "sha256": "6b290c4cecb50e604dc3fbb61fae94f73f11986210c88ff2f7bbe8cd42bb6355"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/data/chunk-000/file-003.parquet",
+    "bytes": 1634511,
+    "sha256": "88e1d238ad917690fc19d6c382cbdeeec2e62b1325bd8623899235ff6478bc37"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/data/chunk-000/file-004.parquet",
+    "bytes": 293359,
+    "sha256": "ef067971e2bdc103cc0b94dc2211e7a44615bdc5f71ad01471d1c8004e3e4c2c"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/data/chunk-000/file-005.parquet",
+    "bytes": 4482059,
+    "sha256": "6ac689070f9fcfb3c4fb602195b55ec091205577efdb6b5232ff802539ac6935"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/data/chunk-000/file-006.parquet",
+    "bytes": 380119,
+    "sha256": "ee86c0a326063375a5f84d843682cfe8adef215387a07c08aee1c29f08d3e448"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/meta/episodes/chunk-000/file-000.parquet",
+    "bytes": 87564,
+    "sha256": "0a389d80ce75282ae60b1357c6a860bebce07ecffd335c29c21c3825e8a398a0"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/meta/episodes/chunk-000/file-001.parquet",
+    "bytes": 81213,
+    "sha256": "a2f343297f579319d84db6391afdb3fe4b27a20e6380f2131d2733d9691fd50e"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/meta/episodes/chunk-000/file-002.parquet",
+    "bytes": 78359,
+    "sha256": "5763e748f62184492a150072019e6d8aa59323468c2ff939b55c88a07746eb4c"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/meta/episodes/chunk-000/file-003.parquet",
+    "bytes": 90366,
+    "sha256": "46fb5ff3e54fc62f495da2bfe88092c5a8287277d5394c270192848da1b4ea38"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/meta/episodes/chunk-000/file-004.parquet",
+    "bytes": 65897,
+    "sha256": "0b06ea698cddfcfb92f815355032c71250e1b7e52660ad40163da19c88c9d2af"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/meta/episodes/chunk-000/file-005.parquet",
+    "bytes": 196887,
+    "sha256": "50f2c4afe0a72ce849e676d6dc9b123af0639e50ed74077fc475caf6687ee394"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/meta/episodes/chunk-000/file-006.parquet",
+    "bytes": 65854,
+    "sha256": "7f96918db07d7190ca02a095d21369907e00770c1603ed0bfd081f3b77739655"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/meta/info.json",
+    "bytes": 4267,
+    "sha256": "2f643b4be6db5607eaba02bd88a57c0340191d571bc37f7078a02aadf2ac17d8"
+  },
+  {
+    "path": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/meta/tasks.parquet",
+    "bytes": 2321,
+    "sha256": "0c614cc3c097cad5bd332319f0ff9e8e8ca7f6a314a624a5c2b2c33234036496"
+  },
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_se3/circular_honest_seed_20260818.json",
+    "bytes": 44818,
+    "sha256": "d822511efb77bfb6aa2c0ef839732137d8a0e2fe35c419f2ac853ff964c3ae75"
+  },
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_se3/circular_honest_seed_20270818.json",
+    "bytes": 44177,
+    "sha256": "4258f9efb463aa9efe7ef5ee3734a0b7e6c06985a5d66466911bcb154d619ec8"
+  },
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_se3/circular_honest_seed_20280818.json",
+    "bytes": 45475,
+    "sha256": "5dcd1963f781976295fec5dd02191bf5ce1d0b0554e610501382e0f57cee734c"
+  }
+]

@@ -1,0 +1,178 @@
+{
+  "schema_version": 3,
+  "env_id": "CircularPhaseSwitchSE3-v1",
+  "generator_basis": [
+    "du",
+    "dv",
+    "dw",
+    "d_roll",
+    "d_pitch",
+    "d_yaw"
+  ],
+  "usage": "dev",
+  "socket_center": [
+    -0.15,
+    0.0
+  ],
+  "min_clearance_m": 0.1,
+  "pickup_positions": [
+    {
+      "pickup_id": 0,
+      "position": [
+        -0.25,
+        -0.18,
+        0.28
+      ]
+    },
+    {
+      "pickup_id": 1,
+      "position": [
+        -0.3,
+        -0.02,
+        0.28
+      ]
+    },
+    {
+      "pickup_id": 2,
+      "position": [
+        -0.2,
+        -0.3,
+        0.28
+      ]
+    }
+  ],
+  "tilt_conditions": [
+    {
+      "generator": "baseline",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.17453292519943295,
+        0.0
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "condition_id": 0,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "baseline",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 1,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.17453292519943295,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 2,
+      "pickup_id": 1,
+      "pickup_position": [
+        -0.3,
+        -0.02,
+        0.28
+      ],
+      "generator": "baseline",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 3,
+      "pickup_id": 1,
+      "pickup_position": [
+        -0.3,
+        -0.02,
+        0.28
+      ],
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.17453292519943295,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 4,
+      "pickup_id": 2,
+      "pickup_position": [
+        -0.2,
+        -0.3,
+        0.28
+      ],
+      "generator": "baseline",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 5,
+      "pickup_id": 2,
+      "pickup_position": [
+        -0.2,
+        -0.3,
+        0.28
+      ],
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.17453292519943295,
+        0.0
+      ]
+    }
+  ]
+}

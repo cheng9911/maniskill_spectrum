@@ -1,0 +1,5 @@
+model,predicted_terminal_response_deg,sd_over_seeds_deg,per_seed
+frozen law α_pitch(s),10.01829691184701,0.032111788776620555,"{20260910: 9.986901731879355, 20270910: 10.051080284942337, 20280910: 10.016908718719336}"
+baseline α≡0 (no transfer),0.0,,{}
+baseline α≡1 (instant identity),10.0,,{}
+real machine (hand axis),10.299727607946036,,{}

@@ -1,0 +1,23 @@
+{
+  "real_axis_response_deg": 10.299727607946036,
+  "real_episode_bootstrap_ci95_deg": [
+    9.59972073893457,
+    11.050197059275348
+  ],
+  "bootstrap_draws": 10000,
+  "simulation_terminal": "phase6 hand axis; paired nominal per seed",
+  "real_terminal": "0.5 second pre-release hand axis window with 0.2 second guard",
+  "interpretation": "Amplitude-matched, direction-agnostic terminal hand-axis response evidence",
+  "statistical_equivalence": "NOT_TESTED: no independently justified margin; no calibration/session error budget",
+  "limitations": [
+    "True physical tilt direction unknown; four simulated cardinal directions do not exhaust all directions",
+    "Terminal stages are proxies, not time-resolved phase correspondence",
+    "Human success labels user-confirmed; no failure-rate experiment",
+    "Three simulation seeds; bootstrap does not create new independent trials",
+    "Real bootstrap conditional on exchangeability within datasets, not calibrated uncertainty",
+    "Simulated planner explicitly uses socket tilt: this validates executed response, not autonomous law discovery or frozen law transfer"
+  ],
+  "sim_attempts": 15,
+  "sim_successes": 15,
+  "sim_with_terminal_phase": 15
+}

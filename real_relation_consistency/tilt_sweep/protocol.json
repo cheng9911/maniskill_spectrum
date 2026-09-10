@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-09-10T11:37:42.601321+00:00",
+  "context_manifest_sha256": "297a91c17b07e8a5f414eef08ca4c0c3ccd1a3185bb73e29cc461c6d5ed4ee07",
+  "seeds": [
+    20260910,
+    20270910,
+    20280910
+  ],
+  "retries_per_condition": 1,
+  "robot_init_qpos_noise": 0.01,
+  "task_anchor": [
+    -0.15,
+    0.0,
+    0.08
+  ],
+  "orientation_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "yaw_mode": "honest",
+  "usage": "train",
+  "scope": "Identify alpha_pitch(s) (cross-amplitude tilt response law) from a pitch sweep that excludes +-10 deg; freeze the law; then predict the +10 deg terminal axis response against the real machine's 10.30 deg. Not exact-axis matching; real tilt axis remains unknown.",
+  "model": "Pdiag finite (SE(3)) = SE3SmoothFinitePDiagModel; P(s)=alpha(s) realized by C0 Exp(diag(alpha(s)) Log(C0^-1 C)) C0^-1 X0(s)",
+  "failures": "Keep all attempts; missing phase6 explicitly recorded, no successful-retry selection",
+  "equivalence_margin_deg": null
+}

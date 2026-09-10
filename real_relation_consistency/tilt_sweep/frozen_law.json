@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "model": "Pdiag finite (SE(3)) = SE3SmoothFinitePDiagModel",
+  "finite_action": "C0 Exp(diag(alpha(s)) Log(C0^-1 C)) C0^-1 X0(s)",
+  "pitch_index": 4,
+  "generator_names": [
+    "du",
+    "dv",
+    "dw",
+    "roll",
+    "pitch",
+    "yaw"
+  ],
+  "seeds": [
+    20260910,
+    20270910,
+    20280910
+  ],
+  "holdout_amplitudes_deg": [
+    10.0,
+    -10.0
+  ],
+  "sweep_amplitudes_deg": [
+    0.0,
+    2.5,
+    -2.5,
+    5.0,
+    -5.0,
+    7.5,
+    -7.5,
+    12.5,
+    -12.5,
+    15.0,
+    -15.0
+  ],
+  "bins_per_phase": 25,
+  "pdiag_config": {
+    "alpha_max": 1.25,
+    "n_basis": 24,
+    "basis_width": 0.065,
+    "smoothness_weight": 0.1,
+    "nominal_iterations": 3
+  },
+  "alpha_pitch_terminal": [
+    1.0022325680611832,
+    1.008272860427117,
+    1.0051019074748462
+  ],
+  "alpha_pitch_terminal_mean": 1.0052024453210489,
+  "alpha_pitch_terminal_sd": 0.0030214009764310693,
+  "source_sha256": {
+    "identify_pitch_law.py": "22d16686123850f4a3e809acf5fc9a32972a7f66347cb65165b74cbffe10d518",
+    "phase_switch_se3_baselines.py": "d76bcf4041b32867a6f51da8600512888fffad92e031716ef26d5ae34612be43",
+    "benchmark_se3_transfer.py": "a786aaad09d2ccf2d3d2b137575e07600b28d4ba71ffcd99c1f6a53718498c45"
+  },
+  "data_sha256": {
+    "20260910": "ce450789bd47a60a83738383ca12e3da7d8f47bbcdc4ec08976f5e163d3bdc11",
+    "20270910": "d74d60709a6bea1892366c5f9a40598014717daf109d943e80a7a8395138f271",
+    "20280910": "66824fadb5ac41aec590b00758b127fe6edd3acdbc3e4fec8fc8c736501f26c1"
+  },
+  "software": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "scipy": "1.11.4",
+    "h5py": "3.16.0"
+  },
+  "per_seed": {
+    "20260910": {
+      "n_usable": 11,
+      "optimization_success": true,
+      "optimization_cost": 0.013032661021675706,
+      "optimization_nfev": 2,
+      "alpha_pitch_terminal": 1.0022325680611832
+    },
+    "20270910": {
+      "n_usable": 11,
+      "optimization_success": true,
+      "optimization_cost": 0.013397083965827408,
+      "optimization_nfev": 8,
+      "alpha_pitch_terminal": 1.008272860427117
+    },
+    "20280910": {
+      "n_usable": 11,
+      "optimization_success": true,
+      "optimization_cost": 0.014440302794402303,
+      "optimization_nfev": 2,
+      "alpha_pitch_terminal": 1.0051019074748462
+    }
+  }
+}

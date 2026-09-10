@@ -1,0 +1,410 @@
+{
+  "env_id": "CircularPhaseSwitchSE3-v1",
+  "task": "circular_phase_switch_se3_honest",
+  "seed": 20280910,
+  "orientation": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "retries_per_condition": 1,
+  "episodes": [
+    {
+      "episode_id": 0,
+      "condition_id": 0,
+      "attempt_id": 0,
+      "generator": "baseline",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 424,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 1,
+      "condition_id": 1,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.04363323129985824,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 429,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 2,
+      "condition_id": 2,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.04363323129985824,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 436,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 3,
+      "condition_id": 3,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.08726646259971647,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 428,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 4,
+      "condition_id": 4,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.08726646259971647,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 432,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 5,
+      "condition_id": 5,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1308996938995747,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 433,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 6,
+      "condition_id": 6,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.1308996938995747,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 439,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 7,
+      "condition_id": 7,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.2181661564992912,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 432,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 8,
+      "condition_id": 8,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.2181661564992912,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 452,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 9,
+      "condition_id": 9,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.2617993877991494,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 427,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 10,
+      "condition_id": 10,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.2617993877991494,
+        0.0
+      ],
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "steps": 455,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    }
+  ]
+}

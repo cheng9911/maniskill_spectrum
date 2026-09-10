@@ -1,0 +1,14 @@
+dataset,episode_index,data_frame,video_timestamp_s,image,terminal_tilt_deg
+insert_jc_fix_3,0,498,16.6,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_jc_fix_3_000.png,0.7732179994177961
+insert_jc_fix_3,10,484,227.63333333333335,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_jc_fix_3_010.png,5.073347222481267
+insert_jc_fix_3,20,471,418.1333333333333,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_jc_fix_3_020.png,3.581265825361774
+insert_jc_fix_3,30,467,607.1,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_jc_fix_3_030.png,1.1543570502059168
+insert_jc_fix_3,40,431,800.2333333333335,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_jc_fix_3_040.png,1.7872008671230044
+insert_jc_fix_3,49,588,93.96666666666667,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_jc_fix_3_049.png,3.39862457401541
+insert_10degree,0,1024,34.13333333333333,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_10degree_000.png,10.951095215939525
+insert_10degree,12,983,143.46666666666664,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_10degree_012.png,9.732017244144895
+insert_10degree,24,732,97.63333333333333,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_10degree_024.png,15.170252222985056
+insert_10degree,31,849,322.93333333333334,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_10degree_031.png,16.47593934907088
+insert_10degree,36,713,83.66666666666667,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_10degree_036.png,16.28382219698983
+insert_10degree,48,906,512.8666666666667,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_10degree_048.png,10.186931515585234
+insert_10degree,60,992,70.76666666666668,/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/video_spotcheck/insert_10degree_060.png,11.769129672214078

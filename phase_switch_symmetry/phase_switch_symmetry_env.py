@@ -461,6 +461,10 @@ class KeyedCircularPhaseSwitchSE3Env(KeyedCircularPhaseSwitchEnv):
         self.causal_delta = np.zeros(6, dtype=np.float64)
         self.socket_rpy = np.zeros(3, dtype=np.float64)  # [roll, pitch, yaw]
         self.socket_axis = self.insertion_axis.copy()
+        # Pickup context (initial-condition variation), separate from the hole
+        # relation intervention causal_delta. Defaults to the fixed pedestal so
+        # legacy manifests without the field are unchanged.
+        self.pickup_position = PEDESTAL_POS.copy()
 
     def _initialize_episode(self, env_idx: torch.Tensor, options: dict):
         with torch.device(self.device):
@@ -480,10 +484,40 @@ class KeyedCircularPhaseSwitchSE3Env(KeyedCircularPhaseSwitchEnv):
             roll, pitch, yaw = (float(causal_delta[3]), float(causal_delta[4]),
                                 float(causal_delta[5]))
 
-            # Peg start: FIXED grasp position on the elevated pedestal, axis
-            # aligned with Q (nominal). The tilt happens after grasp.
+            # Pickup context: read fresh from options each episode so a reset
+            # without the field restores the default (never inherits the previous
+            # episode's placement). Only x/y are open; the pedestal height is
+            # fixed at build time so z_top must equal PEDESTAL_POS[2].
+            pickup_position = (
+                PEDESTAL_POS.copy()
+                if options is None or options.get("pickup_position") is None
+                else np.asarray(options["pickup_position"], dtype=np.float64)
+            )
+            if pickup_position.shape != (3,) or not np.isfinite(pickup_position).all():
+                raise ValueError("pickup_position must be a finite 3-vector [x, y, z_top]")
+            if not np.isclose(pickup_position[2], PEDESTAL_POS[2]):
+                raise ValueError(
+                    "pickup_position z_top must equal PEDESTAL_POS[2] "
+                    "(only x/y pickup placement is supported)"
+                )
+            self.pickup_position = pickup_position.copy()
+
+            # Reposition the pedestal. Its collision/visual boxes are built at the
+            # LOCAL pose PEDESTAL_POS (actor at origin), so the actor world pose
+            # is the offset pickup_position - PEDESTAL_POS; with z_top pinned to
+            # PEDESTAL_POS[2] the z-component is zero.
+            self.pedestal.set_pose(
+                sapien.Pose(p=(pickup_position - PEDESTAL_POS).tolist())
+            )
+
+            # Peg start: grasp position on the pedestal at the pickup context,
+            # axis aligned with Q (nominal). The tilt happens after grasp.
             peg_pos = np.array(
-                [PEDESTAL_POS[0], PEDESTAL_POS[1], PEDESTAL_POS[2] + self._resting_height()],
+                [
+                    pickup_position[0],
+                    pickup_position[1],
+                    pickup_position[2] + self._resting_height(),
+                ],
                 dtype=np.float64,
             )
             peg_p = torch.tensor(

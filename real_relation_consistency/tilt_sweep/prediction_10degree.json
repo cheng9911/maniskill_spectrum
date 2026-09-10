@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "scope": "Frozen sim-law prediction in the simulation's own nominal geometry; the real machine contributes only its terminal hand-axis magnitude (direction-agnostic), not a real nominal trajectory or hole frame. Held-out +-10 deg is interpolation inside [-15, 15], validated against independently collected sim_10degree pitch trajectories.",
+  "frozen_law_sha256": "08bc517d29c80c4e59b92bde8c3d302af8b604dd9cdc02e8a55218e6927a7933",
+  "frozen_law_summary_sha256": "cf9a21e81453402b1e94bb94f108955071fab0a83dac6f62f2e95356f60a2942",
+  "real_csv_sha256": "556a1e0d243a53cb35241612b608f15dc39d23023a7d877247c8bba608ea7364",
+  "heldout_sim_dir": "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/sim_10degree",
+  "holdout_amplitude_deg": [
+    10.0,
+    -10.0
+  ],
+  "predicted_terminal_response_deg": {
+    "per_seed": {
+      "20260910": 9.986901731879355,
+      "20270910": 10.051080284942337,
+      "20280910": 10.016908718719336
+    },
+    "mean": 10.01829691184701,
+    "sd": 0.032111788776620555
+  },
+  "real_terminal_response_deg": {
+    "point": 10.299727607946036,
+    "bootstrap_ci95": [
+      9.59972073893457,
+      11.050197059275348
+    ],
+    "bootstrap_draws": 10000
+  },
+  "baselines_deg": {
+    "alpha_0": 0.0,
+    "alpha_1_identity": 10.0
+  },
+  "law_minus_real_deg": -0.2814306960990258,
+  "law_minus_identity_deg": 0.018296911847009767,
+  "heldout_validation": {
+    "note": "Independently collected sim +-10 deg pitch trajectories (sim_10degree, same env/geometry/pickup), held out of the identification sweep. Interpolation, not extrapolation.",
+    "predicted_peg_response_deg": {
+      "plus": 10.01829691184701,
+      "minus": 10.018296911437021
+    },
+    "actual_peg_response_mean_deg": {
+      "plus": 9.862776232264471,
+      "minus": 9.997917878887126
+    },
+    "actual_peg_response_per_seed_deg": {
+      "plus": {
+        "20260910": 10.041946791978743,
+        "20270910": 9.79423957924506,
+        "20280910": 9.752142325569606
+      },
+      "minus": {
+        "20260910": 9.766349031469227,
+        "20270910": 9.990697013144464,
+        "20280910": 10.236707592047686
+      }
+    },
+    "error_pred_minus_actual_deg": {
+      "plus": 0.1555206795825388,
+      "minus": 0.02037903254989537
+    }
+  },
+  "cross_amplitude_curve": {
+    "amplitudes_deg": [
+      -15.0,
+      -12.5,
+      -10.0,
+      -7.5,
+      -5.0,
+      -2.5,
+      0.0,
+      2.5,
+      5.0,
+      7.5,
+      10.0,
+      12.5,
+      15.0
+    ],
+    "predicted_response_deg": [
+      15.027445325931362,
+      12.52287112386331,
+      10.018296911437021,
+      7.513722690766433,
+      5.009148463933642,
+      2.504574232997259,
+      6.870639719924424e-07,
+      2.5045742330228524,
+      5.009148464036141,
+      7.513722690997079,
+      10.01829691184701,
+      12.5228711245039,
+      15.027445326853815
+    ],
+    "holdout_plus_prediction_deg": 10.01829691184701,
+    "holdout_minus_prediction_deg": 10.018296911437021
+  },
+  "interpretation": "The frozen sim law (identified on a pitch sweep excluding +-10 deg, applied in its own sim nominal geometry) predicts a ~10 deg terminal peg-axis response for a +-10 deg hole tilt (alpha_pitch -> 1 at insertion), close to the real machine's 10.30 deg hand-axis terminal response. Against independently collected held-out sim +-10 deg pitch trajectories the frozen law's predicted terminal peg response differs from the actual by +0.16 deg (plus) / 0.02 deg (minus). The real data is used only for the terminal magnitude, not to reconstruct real geometry. The terminal magnitude is near-degenerate (alpha_pitch -> 1); the non-degenerate evidence is the held-out +-10 deg interpolation error and the progress-resolved alpha_pitch(s) transient, which currently has simulation evidence only.",
+  "limitations": [
+    "Real tilt axis unknown; magnitude-only, direction-agnostic.",
+    "Real data used only for terminal magnitude; no real nominal trajectory or hole frame reconstructed, so this is not a real-geometry trajectory prediction.",
+    "Frozen law predicts peg pose in sim geometry; real metric is hand axis. The ~0.1-2 deg hand-peg gap is a SIMULATION measurement (sim_10degree), not a real-machine calibration of the hand-peg transform.",
+    "Terminal magnitude is physically forced toward the input amplitude (alpha_pitch -> 1).",
+    "Held-out +-10 deg is interpolation inside [-15, 15], not extrapolation; the model-output curve alone is not evidence of generalization.",
+    "alpha_pitch(s) transient shape has simulation evidence only; no real transient comparison.",
+    "Three simulation seeds; bootstrap is descriptive, not a population guarantee.",
+    "No independently justified equivalence margin; report gaps and intervals, no pass/fail."
+  ]
+}

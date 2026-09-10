@@ -1,0 +1,27 @@
+{
+  "event_rules": "Grip, maximum filtered height before sustained neighborhood entry, sustained neighborhood entry, terminal endpoint",
+  "real_n": 111,
+  "sim_n": 9,
+  "primary_radius_mm": 30,
+  "sensitivity_radii_mm": [
+    20,
+    30,
+    40
+  ],
+  "neighborhood_dwell_s": 0.15,
+  "terminal_reference": "Measured terminal TCP mean; retrospective position proxy, not calibrated hole or tip",
+  "inference": "Primary seed=-1: angle between group-mean axes in both domains; sim seed rows: paired diagnostics; real episode bootstrap only",
+  "height_filter": "Centered median, 0.2 s endpoint span: 7 real frames, 5 sim frames",
+  "dwell_samples": "ceil(0.15*rate)+1: real 6 frames (0.167 s), sim 4 frames (0.15 s)",
+  "limitations": [
+    "No contact labels inferred",
+    "Apex is a kinematic landmark, not guaranteed lift-controller completion",
+    "Endpoint-derived geometry and future apex require offline observations",
+    "Pickup context labels and real session pairing unavailable",
+    "Physical tilt axis unknown; magnitude comparison only",
+    "Axes use hand TCP, not calibrated peg axes",
+    "Progress differs from frozen-law four solver phases",
+    "Human demonstrations versus planner-generated trajectories: domain and policy confounded",
+    "Pooled gradual response does not establish within-episode gradual adaptation"
+  ]
+}

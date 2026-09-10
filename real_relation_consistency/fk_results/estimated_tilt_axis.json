@@ -1,0 +1,28 @@
+{
+  "frame": "robot base",
+  "from_dataset": "insert_jc_fix_3",
+  "to_dataset": "insert_10degree",
+  "upright_mean_upward_hand_axis": [
+    0.010243568827773596,
+    -0.013765510910984852,
+    0.9998527791665283
+  ],
+  "tilted_mean_upward_hand_axis": [
+    0.12770317093555944,
+    -0.1481677699260179,
+    0.9806825235967824
+  ],
+  "minimal_rotation_axis": [
+    0.753066078987323,
+    0.6579435210686612,
+    0.0013430422299106908
+  ],
+  "angle_deg": 10.299727607946027,
+  "rotation_vector_deg": [
+    7.756375484353394,
+    6.776639048420107,
+    0.013832969134048537
+  ],
+  "axis_xy_azimuth_deg": 41.143267117528985,
+  "meaning": "Minimal rotation taking group mean upward hand axis from upright to tilted; estimated response axis, not independent hole calibration; axial spin is unobserved by this axis-only metric."
+}

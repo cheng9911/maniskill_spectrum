@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-09-10T05:09:19.144153+00:00",
+  "context_manifest_sha256": "57c74d6f6f1ba593b880574fd09fae9aa7bcc008a97bdc2f8c8dc21a32508f73",
+  "seeds": [
+    20260910,
+    20270910,
+    20280910
+  ],
+  "retries_per_condition": 1,
+  "robot_init_qpos_noise": 0.01,
+  "task_anchor": [
+    -0.15,
+    0,
+    0.08
+  ],
+  "orientation_wxyz": [
+    1,
+    0,
+    0,
+    0
+  ],
+  "yaw_mode": "honest",
+  "scope": "Exploratory amplitude-matched terminal axis response; not exact axis matching or learned law transfer",
+  "real_data_already_analyzed": true,
+  "primary_metric": "Angle between normalized mean terminal axes in nominal and tilted conditions; each roll/pitch sign reported separately",
+  "sim_terminal": "All solver_phase==6 frames, per-episode unit-axis mean; also sensitivity using last frame and last 50 percent of phase6",
+  "real_terminal": "Existing fixed pre-release 0.5 second window ending 0.2 second before release",
+  "failures": "Keep all attempts; missing phase6 explicitly recorded, no successful-retry selection",
+  "equivalence_margin_deg": null,
+  "equivalence_margin_reason": "No independently justified calibration/tolerance budget supplied; report effect discrepancies and intervals, no equivalence pass/fail"
+}

@@ -1,0 +1,71 @@
+{
+  "insert_10degree": {
+    "n_recorded": 61,
+    "n_extracted": 61,
+    "mean_deg": 11.566511023464335,
+    "median_deg": 11.24270482787914,
+    "sd_deg": 2.0060486337907237,
+    "min_deg": 8.445335208888803,
+    "max_deg": 16.47593934907088,
+    "exploratory_episode_bootstrap_mean_ci95_deg": [
+      11.089268785496044,
+      12.074104907033224
+    ]
+  },
+  "insert_jc_fix_3": {
+    "n_recorded": 50,
+    "n_extracted": 50,
+    "mean_deg": 2.5598215322879896,
+    "median_deg": 2.3275046176529504,
+    "sd_deg": 1.2509013890024003,
+    "min_deg": 0.38837728907704305,
+    "max_deg": 5.073347222481267,
+    "exploratory_episode_bootstrap_mean_ci95_deg": [
+      2.2235418890072083,
+      2.9073291003381794
+    ]
+  },
+  "contrast": {
+    "mean_tilt_magnitude_difference_deg": 9.006689491176346,
+    "exploratory_episode_bootstrap_ci95_deg": [
+      8.407175687250234,
+      9.637640005584036
+    ],
+    "mean_axis_separation_deg": 10.299727607946036,
+    "mean_axis_separation_exploratory_ci95_deg": [
+      9.595445191340593,
+      11.023263042648336
+    ],
+    "magnitude_difference_over_reported_10deg": 0.9006689491176345,
+    "interpretation": "Descriptive terminal hand-axis contrast, not fitted alpha or equivalence test"
+  },
+  "sensitivity_difference_range_deg": [
+    8.97337619700195,
+    9.061239350463607
+  ],
+  "sensitivity_axis_separation_range_deg": [
+    10.260172590347352,
+    10.341480711680799
+  ],
+  "simulation": {
+    "n_tilt_attempts": 12,
+    "input_degrees": [
+      14.999999999999998
+    ],
+    "mean_output_tilt_deg": 14.964423195229683,
+    "mean_output_input_ratio": 0.9976282130153123,
+    "role": "Empirical simulated peg-axis response at +/-15 degrees, not a matched 10-degree trial or learned P"
+  },
+  "limitations": [
+    "Unverified terminal phase and success labels",
+    "Uncalibrated hand-to-peg axis alignment",
+    "Hole tilt direction and base-to-table leveling not supplied",
+    "Pickup-position and collection-session confounding; hole position fixed per user",
+    "Bootstrap treats episodes as exchangeable within a dataset; no cross-session inference",
+    "No full generator law or phase-dependent equivalence claim"
+  ],
+  "fk_checks": {
+    "max_urdf_mdh_difference": 4.996003610813204e-16,
+    "tested_configurations": 20
+  }
+}

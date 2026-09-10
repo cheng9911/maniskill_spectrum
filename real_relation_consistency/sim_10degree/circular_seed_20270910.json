@@ -1,0 +1,164 @@
+{
+  "env_id": "CircularPhaseSwitchSE3-v1",
+  "task": "circular_phase_switch_se3_honest",
+  "seed": 20270910,
+  "orientation": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "retries_per_condition": 1,
+  "episodes": [
+    {
+      "episode_id": 0,
+      "condition_id": 0,
+      "attempt_id": 0,
+      "generator": "baseline",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 425,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 1,
+      "condition_id": 1,
+      "attempt_id": 0,
+      "generator": "roll",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        -0.17453292519943295,
+        0.0,
+        0.0
+      ],
+      "steps": 433,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 2,
+      "condition_id": 2,
+      "attempt_id": 0,
+      "generator": "roll",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.17453292519943295,
+        0.0,
+        0.0
+      ],
+      "steps": 425,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 3,
+      "condition_id": 3,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.17453292519943295,
+        0.0
+      ],
+      "steps": 449,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    },
+    {
+      "episode_id": 4,
+      "condition_id": 4,
+      "attempt_id": 0,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.17453292519943295,
+        0.0
+      ],
+      "steps": 431,
+      "success": true,
+      "complete": true,
+      "stop_reason": "terminated",
+      "max_contact_force_N": 0.0,
+      "phases": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solver_error": null
+    }
+  ]
+}

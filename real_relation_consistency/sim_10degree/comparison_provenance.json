@@ -1,0 +1,30 @@
+[
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/sim_10degree/circular_seed_20260910.h5",
+    "sha256": "975289e3a154322fb31d78941915ae8d3cccbcb58eb748a89782399f9ed020c2"
+  },
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/sim_10degree/circular_seed_20270910.h5",
+    "sha256": "f0290f6cbc8e52f974d541bb63d58f38291943632759e5a257b66dc0a8ef0ece"
+  },
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/sim_10degree/circular_seed_20280910.h5",
+    "sha256": "cc89018d8a0c0dd312697aee99e10f6bd40ede4ca8e67aaf276a2b6eb7989073"
+  },
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/terminal_pose_per_episode.csv",
+    "sha256": "556a1e0d243a53cb35241612b608f15dc39d23023a7d877247c8bba608ea7364"
+  },
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/compare_10degree.py",
+    "sha256": "0e451aef2e1b49ba4e44c5431d13b61ee4f409b45cd5f7103b40ccaebf3bed0a"
+  },
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/sim_10degree/contexts.json",
+    "sha256": "57c74d6f6f1ba593b880574fd09fae9aa7bcc008a97bdc2f8c8dc21a32508f73"
+  },
+  {
+    "path": "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/sim_10degree/protocol.json",
+    "sha256": "69cc3c32d020f6f1d912f0f058e60036c04c91988a897db26f12ea1dc9eb98a0"
+  }
+]

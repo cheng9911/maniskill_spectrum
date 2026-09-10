@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "env_id": "CircularPhaseSwitchSE3-v1",
+  "generator_basis": [
+    "du",
+    "dv",
+    "dw",
+    "d_roll",
+    "d_pitch",
+    "d_yaw"
+  ],
+  "conditions": [
+    {
+      "condition_id": 0,
+      "generator": "baseline",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 1,
+      "generator": "roll",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        -0.17453292519943295,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 2,
+      "generator": "roll",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.17453292519943295,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 3,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.17453292519943295,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 4,
+      "generator": "pitch",
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.17453292519943295,
+        0.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "schema_version": 3,
+  "env_id": "CircularPhaseSwitchSE3-v1",
+  "generator_basis": [
+    "du",
+    "dv",
+    "dw",
+    "d_roll",
+    "d_pitch",
+    "d_yaw"
+  ],
+  "usage": "train",
+  "scope": "pitch-amplitude sweep for alpha_pitch(s) identification; +-10 deg held out",
+  "holdout_amplitudes_deg": [
+    10.0,
+    -10.0
+  ],
+  "pickup_position": [
+    -0.25,
+    -0.18,
+    0.28
+  ],
+  "amplitudes_deg": [
+    0.0,
+    2.5,
+    -2.5,
+    5.0,
+    -5.0,
+    7.5,
+    -7.5,
+    12.5,
+    -12.5,
+    15.0,
+    -15.0
+  ],
+  "conditions": [
+    {
+      "condition_id": 0,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "baseline",
+      "amplitude_deg": 0.0,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 1,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": 2.5,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.04363323129985824,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 2,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": -2.5,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.04363323129985824,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 3,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": 5.0,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.08726646259971647,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 4,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": -5.0,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.08726646259971647,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 5,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": 7.5,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1308996938995747,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 6,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": -7.5,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.1308996938995747,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 7,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": 12.5,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.2181661564992912,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 8,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": -12.5,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.2181661564992912,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 9,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": 15.0,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.2617993877991494,
+        0.0
+      ]
+    },
+    {
+      "condition_id": 10,
+      "pickup_id": 0,
+      "pickup_position": [
+        -0.25,
+        -0.18,
+        0.28
+      ],
+      "generator": "pitch",
+      "amplitude_deg": -15.0,
+      "causal_delta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.2617993877991494,
+        0.0
+      ]
+    }
+  ]
+}

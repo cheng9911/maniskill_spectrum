@@ -1,0 +1,54 @@
+{
+  "inputs": [
+    {
+      "path": "/home/rocos/sia/Sim/robomimic/dataset/local/force_heatmap_tools/franka_description-main/robots/fer/kinematics.yaml",
+      "sha256": "44326830a6773dd6611cdf9947045eeb3276ea4e3ca47a05272816c862c8e386",
+      "bytes": 831
+    },
+    {
+      "path": "/home/rocos/sia/Sim/robomimic/dataset/local/force_heatmap_tools/franka_description-main/end_effectors/franka_hand/franka_hand_arguments.xacro",
+      "sha256": "89967092cc53aae2945af0aa808113e072dc657d3ad6f16b749b26e0b6b5f006",
+      "bytes": 1322
+    },
+    {
+      "path": "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/analyze_fk.py",
+      "sha256": "0293f3ca35699b0ce1772b4791a1ee4327cc34d9e193359b9609b7e37e6307ea",
+      "bytes": 14543
+    },
+    {
+      "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_se3/circular_honest_seed_20260818.h5",
+      "sha256": "0240a5c558286343539d01f0029c88326d721041a7fe3f1253a17c9125d91451",
+      "bytes": 21417685
+    },
+    {
+      "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_se3/circular_honest_seed_20270818.h5",
+      "sha256": "02d5f20d6ad4459b8ae4cd433e78dce323cd2c83c3252db318e85da642b11bf5",
+      "bytes": 21025577
+    },
+    {
+      "path": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_se3/circular_honest_seed_20280818.h5",
+      "sha256": "2f7e8680eb82962e12f2b520c2c062645482ca470e400b55b1ca2689f0c6578f",
+      "bytes": 21971019
+    }
+  ],
+  "real_table_manifest": "../results/input_manifest.json",
+  "confirmed_by_user": {
+    "joint_channels": "state[:7]",
+    "gripper": "default Franka",
+    "task": "same circular peg hole",
+    "hole_tilt_deg": [
+      0,
+      10
+    ],
+    "three_positions": "initial peg pickup positions, not hole interventions",
+    "all_demonstrations_successful": true,
+    "hole_position_unchanged": true,
+    "grasp_method_unchanged": true,
+    "tilt_axis": "unknown",
+    "demonstration_error": "Human teaching variation acknowledged by user"
+  },
+  "fk": {
+    "max_urdf_mdh_difference": 4.996003610813204e-16,
+    "tested_configurations": 20
+  }
+}

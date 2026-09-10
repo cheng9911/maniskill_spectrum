@@ -1,0 +1,16 @@
+radius_mm,domain,condition,status,n
+20.0,real,tilted,ok,61
+20.0,real,upright,ok,50
+20.0,sim,pitch_minus,ok,3
+20.0,sim,pitch_plus,ok,3
+20.0,sim,upright,ok,3
+30.0,real,tilted,ok,61
+30.0,real,upright,ok,50
+30.0,sim,pitch_minus,ok,3
+30.0,sim,pitch_plus,ok,3
+30.0,sim,upright,ok,3
+40.0,real,tilted,ok,61
+40.0,real,upright,ok,50
+40.0,sim,pitch_minus,ok,3
+40.0,sim,pitch_plus,ok,3
+40.0,sim,upright,ok,3
