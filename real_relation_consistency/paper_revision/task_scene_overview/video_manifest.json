@@ -1,0 +1,34 @@
+[
+  {
+    "image": "frames/drawer_middle_open.png",
+    "video": "/home/rocos/sia/maniskill_spectrum/paper_video/segments/seg5_libero_drawer_middle_open.mp4",
+    "timestamp_s": 1.1199999999999999,
+    "duration_s": 1.6,
+    "evidence": "state-level probe",
+    "renderer": "paper_video/render_libero_scene_videos.py"
+  },
+  {
+    "image": "frames/plate_front_push.png",
+    "video": "/home/rocos/sia/maniskill_spectrum/paper_video/segments/seg5_libero_plate_front_push.mp4",
+    "timestamp_s": 1.1199999999999999,
+    "duration_s": 1.6,
+    "evidence": "state-level probe",
+    "renderer": "paper_video/render_libero_scene_videos.py"
+  },
+  {
+    "image": "frames/microwave_door_revolute.png",
+    "video": "/home/rocos/sia/maniskill_spectrum/paper_video/segments/seg5_libero_microwave_door_revolute.mp4",
+    "timestamp_s": 1.1199999999999999,
+    "duration_s": 1.6,
+    "evidence": "state-level probe",
+    "renderer": "paper_video/render_libero_scene_videos.py"
+  },
+  {
+    "image": "frames/bowl_on_stove.png",
+    "video": "/home/rocos/sia/maniskill_spectrum/paper_video/segments/seg5_libero_bowl_on_stove.mp4",
+    "timestamp_s": 1.1199999999999999,
+    "duration_s": 1.6,
+    "evidence": "state-level probe",
+    "renderer": "paper_video/render_libero_scene_videos.py"
+  }
+]

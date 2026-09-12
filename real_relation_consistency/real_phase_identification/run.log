@@ -1,0 +1,15 @@
+                                            n  detected  median_threshold_spread_s
+dataset         event                                                             
+insert_10degree assembly_region            61        61                   0.000000
+                axial_advance_candidate    61        55                   1.166667
+                grasp                      61        61                   0.000000
+                lift_clearance             61        61                   0.000000
+                release                    61        61                   0.000000
+                terminal_settle_candidate  61        54                   0.000000
+insert_jc_fix_3 assembly_region            50        50                   0.000000
+                axial_advance_candidate    50        49                   0.800000
+                grasp                      50        50                   0.000000
+                lift_clearance             50        50                   0.000000
+                release                    50        50                   0.000000
+                terminal_settle_candidate  50        49                   0.000000
+Flags {0: 101, 1: 5, 2: 5}

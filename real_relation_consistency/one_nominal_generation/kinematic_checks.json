@@ -1,0 +1,68 @@
+{
+  "E1_pickup": {
+    "samples": 451,
+    "duration_s": 15.0,
+    "max_sample_linear_speed_m_s": 0.07807583902141202,
+    "max_sample_angular_speed_deg_s": 3.7744642357255414
+  },
+  "E1_vertical": {
+    "samples": 901,
+    "duration_s": 30.0,
+    "max_sample_linear_speed_m_s": 0.08748832820106953,
+    "max_sample_angular_speed_deg_s": 16.339392133199837
+  },
+  "E1_tilt10": {
+    "samples": 901,
+    "duration_s": 30.0,
+    "max_sample_linear_speed_m_s": 0.08749879544658609,
+    "max_sample_angular_speed_deg_s": 16.3474938581043
+  },
+  "E2_pickup": {
+    "samples": 451,
+    "duration_s": 15.0,
+    "max_sample_linear_speed_m_s": 0.07807583902141202,
+    "max_sample_angular_speed_deg_s": 3.7744642357255414
+  },
+  "E2_vertical": {
+    "samples": 901,
+    "duration_s": 30.0,
+    "max_sample_linear_speed_m_s": 0.08748832820106953,
+    "max_sample_angular_speed_deg_s": 16.339392133199837
+  },
+  "E2_tilt10": {
+    "samples": 901,
+    "duration_s": 30.0,
+    "max_sample_linear_speed_m_s": 0.08749879544658609,
+    "max_sample_angular_speed_deg_s": 16.3474938581043
+  },
+  "E3_pickup": {
+    "samples": 451,
+    "duration_s": 15.0,
+    "max_sample_linear_speed_m_s": 0.07807583902141202,
+    "max_sample_angular_speed_deg_s": 3.7744642357255414
+  },
+  "E3_vertical": {
+    "samples": 901,
+    "duration_s": 30.0,
+    "max_sample_linear_speed_m_s": 0.08748832820106953,
+    "max_sample_angular_speed_deg_s": 16.339392133199837
+  },
+  "E3_tilt10": {
+    "samples": 901,
+    "duration_s": 30.0,
+    "max_sample_linear_speed_m_s": 0.08749879544658609,
+    "max_sample_angular_speed_deg_s": 16.3474938581043
+  },
+  "assembly_vertical": {
+    "samples": 451,
+    "duration_s": 15.0,
+    "max_sample_linear_speed_m_s": 0.08748832820107419,
+    "max_sample_angular_speed_deg_s": 16.339392133198967
+  },
+  "assembly_tilt10": {
+    "samples": 451,
+    "duration_s": 15.0,
+    "max_sample_linear_speed_m_s": 0.08749879544659075,
+    "max_sample_angular_speed_deg_s": 16.34749385810343
+  }
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "dataset": "insert_jc_fix_3",
+    "episode": 0,
+    "video": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_jc_fix_3/videos/observation.images.head/chunk-000/file-000.mp4",
+    "video_start_s": 5.5,
+    "clip_duration_s": 12.566666666666666,
+    "clip_start_frame": 165,
+    "fps": 30,
+    "source_duration_mismatch": false,
+    "events": {
+      "grasp": 195,
+      "lift_clearance": 240,
+      "assembly_region": 278,
+      "axial_advance_candidate": 372,
+      "terminal_settle_candidate": 390,
+      "release": 512
+    },
+    "clip": "clips/insert_jc_fix_3_000.mp4"
+  },
+  {
+    "dataset": "insert_jc_fix_3",
+    "episode": 10,
+    "video": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_jc_fix_3/videos/observation.images.head/chunk-000/file-000.mp4",
+    "video_start_s": 216.16666666666669,
+    "clip_duration_s": 12.933333333333334,
+    "clip_start_frame": 140,
+    "fps": 30,
+    "source_duration_mismatch": false,
+    "events": {
+      "grasp": 170,
+      "lift_clearance": 218,
+      "assembly_region": 261,
+      "axial_advance_candidate": null,
+      "terminal_settle_candidate": 408,
+      "release": 498
+    },
+    "clip": "clips/insert_jc_fix_3_010.mp4"
+  },
+  {
+    "dataset": "insert_jc_fix_3",
+    "episode": 20,
+    "video": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_jc_fix_3/videos/observation.images.head/chunk-000/file-000.mp4",
+    "video_start_s": 407.6,
+    "clip_duration_s": 12.0,
+    "clip_start_frame": 155,
+    "fps": 30,
+    "source_duration_mismatch": false,
+    "events": {
+      "grasp": 185,
+      "lift_clearance": 226,
+      "assembly_region": 263,
+      "axial_advance_candidate": 355,
+      "terminal_settle_candidate": 367,
+      "release": 485
+    },
+    "clip": "clips/insert_jc_fix_3_020.mp4"
+  },
+  {
+    "dataset": "insert_jc_fix_3",
+    "episode": 49,
+    "video": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_jc_fix_3/videos/observation.images.head/chunk-000/file-001.mp4",
+    "video_start_s": 78.9,
+    "clip_duration_s": 16.533333333333335,
+    "clip_start_frame": 136,
+    "fps": 30,
+    "source_duration_mismatch": false,
+    "events": {
+      "grasp": 166,
+      "lift_clearance": 197,
+      "assembly_region": 284,
+      "axial_advance_candidate": 319,
+      "terminal_settle_candidate": 540,
+      "release": 602
+    },
+    "clip": "clips/insert_jc_fix_3_049.mp4"
+  },
+  {
+    "dataset": "insert_10degree",
+    "episode": 0,
+    "video": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/videos/observation.images.head/chunk-000/file-000.mp4",
+    "video_start_s": 10.733333333333333,
+    "clip_duration_s": 24.866666666666667,
+    "clip_start_frame": 322,
+    "fps": 30,
+    "source_duration_mismatch": false,
+    "events": {
+      "grasp": 352,
+      "lift_clearance": 402,
+      "assembly_region": 560,
+      "axial_advance_candidate": null,
+      "terminal_settle_candidate": null,
+      "release": 1038
+    },
+    "clip": "clips/insert_10degree_000.mp4"
+  },
+  {
+    "dataset": "insert_10degree",
+    "episode": 12,
+    "video": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/videos/observation.images.head/chunk-000/file-001.mp4",
+    "video_start_s": 123.33333333333331,
+    "clip_duration_s": 21.6,
+    "clip_start_frame": 379,
+    "fps": 30,
+    "source_duration_mismatch": false,
+    "events": {
+      "grasp": 409,
+      "lift_clearance": 463,
+      "assembly_region": 549,
+      "axial_advance_candidate": 581,
+      "terminal_settle_candidate": 930,
+      "release": 997
+    },
+    "clip": "clips/insert_10degree_012.mp4"
+  },
+  {
+    "dataset": "insert_10degree",
+    "episode": 31,
+    "video": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/videos/observation.images.head/chunk-000/file-003.mp4",
+    "video_start_s": 302.3333333333333,
+    "clip_duration_s": 22.066666666666666,
+    "clip_start_frame": 231,
+    "fps": 30,
+    "source_duration_mismatch": false,
+    "events": {
+      "grasp": 261,
+      "lift_clearance": 355,
+      "assembly_region": 442,
+      "axial_advance_candidate": null,
+      "terminal_settle_candidate": null,
+      "release": 863
+    },
+    "clip": "clips/insert_10degree_031.mp4"
+  },
+  {
+    "dataset": "insert_10degree",
+    "episode": 60,
+    "video": "/home/rocos/sia/Sim/robomimic/dataset/data/SunJincheng/insert_10degree/videos/observation.images.head/chunk-000/file-006.mp4",
+    "video_start_s": 47.300000000000004,
+    "clip_duration_s": 24.933333333333334,
+    "clip_start_frame": 288,
+    "fps": 30,
+    "source_duration_mismatch": false,
+    "events": {
+      "grasp": 318,
+      "lift_clearance": 390,
+      "assembly_region": 472,
+      "axial_advance_candidate": 511,
+      "terminal_settle_candidate": 945,
+      "release": 1006
+    },
+    "clip": "clips/insert_10degree_060.mp4"
+  }
+]

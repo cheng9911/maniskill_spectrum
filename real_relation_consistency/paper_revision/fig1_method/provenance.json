@@ -1,0 +1,13 @@
+{
+  "source": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_baselines/phase_switch_baseline_profiles.csv",
+  "sha256": "dfa8fef6ce02e1a0d3c3d7e2cfcef4056ba9bca60f50941d81b18b3ef929d087",
+  "filter": "model == 'Pdiag finite'",
+  "channels": [
+    "g_translation",
+    "g_yaw"
+  ],
+  "n": 100,
+  "curve_status": "single archived fit; no confidence band inferred",
+  "diagram_status": "schematic, not measured execution",
+  "new_experiments": 0
+}

@@ -1,0 +1,11 @@
+{
+  "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/fk_results/trajectories/insert_jc_fix_3_000.npz": "5fe0be63e73f14c4a7bd80a127f7f5f2c7713c5a373f2d75c27bed24244710bd",
+  "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/real_predictive_transfer/geometry.json": "395ee61b8607d19b164533c3b59da0df4da955cafe3e230ee3a7d507f9be7b0a",
+  "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/tilt_sweep/frozen_law.npz": "08bc517d29c80c4e59b92bde8c3d302af8b604dd9cdc02e8a55218e6927a7933",
+  "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/predict_real_transfer.py": "ebd98846fa91310f5f1ffeb217e938a7cdfd7d8fa299fd7a4fb0d7c2c34d0932",
+  "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/analyze_event_alignment.py": "8d8716012663fb0ece9c55a4514c2206102133fd5d4e8e46cae45118fac1a947",
+  "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/generate_one_nominal.py": "dbe385d548f440a9db89bfeac161b25ec2b286a28d40b01d2a1fe5d724d17710",
+  "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/tilt_sweep/circular_seed_20260910.h5": "ce450789bd47a60a83738383ca12e3da7d8f47bbcdc4ec08976f5e163d3bdc11",
+  "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/tilt_sweep/circular_seed_20270910.h5": "d74d60709a6bea1892366c5f9a40598014717daf109d943e80a7a8395138f271",
+  "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/tilt_sweep/circular_seed_20280910.h5": "66824fadb5ac41aec590b00758b127fe6edd3acdbc3e4fec8fc8c736501f26c1"
+}

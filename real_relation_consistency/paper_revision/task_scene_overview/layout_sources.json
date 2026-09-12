@@ -1,0 +1,117 @@
+[
+  {
+    "image": "keyed_3.png",
+    "crop_normalized_xyxy": [
+      0.36,
+      0.41494927288428973,
+      0.68,
+      0.6250507271157103
+    ],
+    "display_box": null
+  },
+  {
+    "image": "circular_3.png",
+    "crop_normalized_xyxy": [
+      0.36,
+      0.3949492728842897,
+      0.68,
+      0.6050507271157103
+    ],
+    "display_box": null
+  },
+  {
+    "image": "keyed_3.png",
+    "crop_normalized_xyxy": [
+      0.2,
+      0.2502219529173118,
+      0.87,
+      0.7197780470826882
+    ],
+    "display_box": null
+  },
+  {
+    "image": "keyed_4.png",
+    "crop_normalized_xyxy": [
+      0.2,
+      0.2502219529173118,
+      0.87,
+      0.7197780470826882
+    ],
+    "display_box": null
+  },
+  {
+    "image": "keyed_5.png",
+    "crop_normalized_xyxy": [
+      0.2,
+      0.2502219529173118,
+      0.87,
+      0.7197780470826882
+    ],
+    "display_box": null
+  },
+  {
+    "image": "keyed_6.png",
+    "crop_normalized_xyxy": [
+      0.2,
+      0.2502219529173118,
+      0.87,
+      0.7197780470826882
+    ],
+    "display_box": null
+  },
+  {
+    "image": "drawer_middle_open.png",
+    "crop_normalized_xyxy": [
+      0,
+      0.2895850043541967,
+      1,
+      0.9904149956458033
+    ],
+    "display_box": [
+      0.1,
+      0.1860864935381158,
+      0.37,
+      0.8133213576512455
+    ]
+  },
+  {
+    "image": "planar_heading.png",
+    "crop_normalized_xyxy": [
+      0.15,
+      0.26218875326564756,
+      0.9,
+      0.7878112467343525
+    ],
+    "display_box": null
+  },
+  {
+    "image": "microwave_door_revolute.png",
+    "crop_normalized_xyxy": [
+      0,
+      0.2895850043541967,
+      1,
+      0.9904149956458033
+    ],
+    "display_box": [
+      0.51,
+      0.2574304722794531,
+      0.45,
+      0.8133213576512455
+    ]
+  },
+  {
+    "image": "bowl_on_stove.png",
+    "crop_normalized_xyxy": [
+      0,
+      0.2895850043541967,
+      1,
+      0.9904149956458033
+    ],
+    "display_box": [
+      0.35,
+      0.4143872255103952,
+      0.36,
+      0.4566014639445589
+    ]
+  }
+]

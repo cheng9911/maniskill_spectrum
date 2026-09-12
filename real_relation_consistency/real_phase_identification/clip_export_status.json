@@ -1,0 +1,58 @@
+[
+  {
+    "dataset": "insert_jc_fix_3",
+    "episode": 0,
+    "status": "clip_ready",
+    "path": "clips/insert_jc_fix_3_000.mp4",
+    "bytes": 422609
+  },
+  {
+    "dataset": "insert_jc_fix_3",
+    "episode": 10,
+    "status": "clip_ready",
+    "path": "clips/insert_jc_fix_3_010.mp4",
+    "bytes": 368679
+  },
+  {
+    "dataset": "insert_jc_fix_3",
+    "episode": 20,
+    "status": "clip_ready",
+    "path": "clips/insert_jc_fix_3_020.mp4",
+    "bytes": 331247
+  },
+  {
+    "dataset": "insert_jc_fix_3",
+    "episode": 49,
+    "status": "clip_ready",
+    "path": "clips/insert_jc_fix_3_049.mp4",
+    "bytes": 515042
+  },
+  {
+    "dataset": "insert_10degree",
+    "episode": 0,
+    "status": "clip_ready",
+    "path": "clips/insert_10degree_000.mp4",
+    "bytes": 763706
+  },
+  {
+    "dataset": "insert_10degree",
+    "episode": 12,
+    "status": "clip_ready",
+    "path": "clips/insert_10degree_012.mp4",
+    "bytes": 602535
+  },
+  {
+    "dataset": "insert_10degree",
+    "episode": 31,
+    "status": "clip_ready",
+    "path": "clips/insert_10degree_031.mp4",
+    "bytes": 618646
+  },
+  {
+    "dataset": "insert_10degree",
+    "episode": 60,
+    "status": "clip_ready",
+    "path": "clips/insert_10degree_060.mp4",
+    "bytes": 753564
+  }
+]

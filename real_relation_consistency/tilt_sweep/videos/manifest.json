@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "env_id": "CircularPhaseSwitchSE3-v1",
+  "task_anchor": [
+    -0.15,
+    0.0,
+    0.08
+  ],
+  "pickup_position": [
+    -0.25,
+    -0.18,
+    0.28
+  ],
+  "orientation": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "seed": 20260910,
+  "fps": 20.0,
+  "max_frames": 0,
+  "solver": "solve_se3(align_yaw=0.0)",
+  "note": "Visualization only; not part of the frozen identification protocol.",
+  "source_sha256": {
+    "render_tilt_videos.py": "eab1e87e4df0b31fc93ae7b0581c26d2139c90469ed8729bc4528157deb0dc3a",
+    "phase_switch_symmetry_env.py": "cacc9ec546ecd267a0efd4b8c96aef9f09dccdfb56b2d6fa63278d5462ee79f7",
+    "collect_phase_switch_rotated.py": "19b08acc5d7d1a952ffdd0194a30d127f79f6957d02132df70a06372b4d054f9"
+  },
+  "videos": [
+    {
+      "amplitude_deg": 0.0,
+      "frames": 433,
+      "mp4": "pitch_plus_0deg.mp4",
+      "final_frame_png": "pitch_plus_0deg_final.png"
+    },
+    {
+      "amplitude_deg": 10.0,
+      "frames": 430,
+      "mp4": "pitch_plus_10deg.mp4",
+      "final_frame_png": "pitch_plus_10deg_final.png"
+    },
+    {
+      "amplitude_deg": -10.0,
+      "frames": 446,
+      "mp4": "pitch_minus_10deg.mp4",
+      "final_frame_png": "pitch_minus_10deg_final.png"
+    },
+    {
+      "amplitude_deg": 15.0,
+      "frames": 429,
+      "mp4": "pitch_plus_15deg.mp4",
+      "final_frame_png": "pitch_plus_15deg_final.png"
+    },
+    {
+      "amplitude_deg": -15.0,
+      "frames": 458,
+      "mp4": "pitch_minus_15deg.mp4",
+      "final_frame_png": "pitch_minus_15deg_final.png"
+    }
+  ]
+}

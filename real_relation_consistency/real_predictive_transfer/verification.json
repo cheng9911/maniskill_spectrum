@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "calibration_n": 13,
+  "evaluation_n": 48,
+  "metric_rows": 1728,
+  "recomputed_metric_max_difference_deg": 8.404388296412435e-13,
+  "checks": [
+    "Split disjointness",
+    "No missing evaluation episodes or radius/method/segment combinations",
+    "Quaternion and axis consistency",
+    "Independent atan2 metric recomputation",
+    "No-adaptation identity",
+    "Homogeneous SE3 action equality",
+    "Pivot nullspace invariance",
+    "Single-generator scalar/diagonal equivalence",
+    "All input provenance hashes match"
+  ]
+}

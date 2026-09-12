@@ -1,0 +1,13 @@
+mode_id,segment,k_pitch_mean,k_pitch_std,k_spin_abs_mean,n_conditions
+lift_early,free approach,-0.0038,0.0822,0.2973,60
+lift_early,enter,0.7161,0.4328,0.3357,60
+lift_early,insert,0.9865,0.2815,0.7581,60
+lift_late,free approach,-0.0030,0.0816,0.1710,60
+lift_late,enter,0.3223,0.4472,0.2991,60
+lift_late,insert,0.9957,0.0552,0.1650,60
+diagonal_early,free approach,-0.0009,0.0175,0.0941,60
+diagonal_early,enter,0.7238,0.4099,0.1621,60
+diagonal_early,insert,1.0210,0.3917,0.6376,60
+diagonal_late,free approach,-0.0001,0.0197,0.0707,60
+diagonal_late,enter,0.3176,0.4345,0.1533,60
+diagonal_late,insert,1.0059,0.0553,0.1977,60

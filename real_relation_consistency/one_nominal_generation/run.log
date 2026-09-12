@@ -1,0 +1,134 @@
+{
+  "episode": 0,
+  "common_entry": [
+    0.566467335859354,
+    0.03318134491138655,
+    0.20569448064220877
+  ],
+  "conditions": [
+    {
+      "pickup_id": "E1",
+      "object_translation_from_reference_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "grasp_tcp_base_m": [
+        0.5810494213906102,
+        -0.08207384008602746,
+        0.13073200439287455
+      ],
+      "approach_tcp_base_m": [
+        0.5810494213906102,
+        -0.08207384008602746,
+        0.18073200439287457
+      ]
+    },
+    {
+      "pickup_id": "E2",
+      "object_translation_from_reference_m": [
+        0.02,
+        0.0,
+        0.0
+      ],
+      "grasp_tcp_base_m": [
+        0.6010494213906102,
+        -0.08207384008602746,
+        0.13073200439287455
+      ],
+      "approach_tcp_base_m": [
+        0.6010494213906102,
+        -0.08207384008602746,
+        0.18073200439287457
+      ]
+    },
+    {
+      "pickup_id": "E3",
+      "object_translation_from_reference_m": [
+        0.0,
+        0.02,
+        0.0
+      ],
+      "grasp_tcp_base_m": [
+        0.5810494213906102,
+        -0.062073840086027454,
+        0.13073200439287455
+      ],
+      "approach_tcp_base_m": [
+        0.5810494213906102,
+        -0.062073840086027454,
+        0.18073200439287457
+      ]
+    }
+  ],
+  "alpha_start": 0.0,
+  "alpha_end": 1.0052024453210489,
+  "qa": {
+    "E1_pickup": {
+      "samples": 451,
+      "duration_s": 15.0,
+      "max_sample_linear_speed_m_s": 0.07807583902141202,
+      "max_sample_angular_speed_deg_s": 3.7744642357255414
+    },
+    "E1_vertical": {
+      "samples": 901,
+      "duration_s": 30.0,
+      "max_sample_linear_speed_m_s": 0.08748832820106953,
+      "max_sample_angular_speed_deg_s": 16.339392133199837
+    },
+    "E1_tilt10": {
+      "samples": 901,
+      "duration_s": 30.0,
+      "max_sample_linear_speed_m_s": 0.08749879544658609,
+      "max_sample_angular_speed_deg_s": 16.3474938581043
+    },
+    "E2_pickup": {
+      "samples": 451,
+      "duration_s": 15.0,
+      "max_sample_linear_speed_m_s": 0.07807583902141202,
+      "max_sample_angular_speed_deg_s": 3.7744642357255414
+    },
+    "E2_vertical": {
+      "samples": 901,
+      "duration_s": 30.0,
+      "max_sample_linear_speed_m_s": 0.08748832820106953,
+      "max_sample_angular_speed_deg_s": 16.339392133199837
+    },
+    "E2_tilt10": {
+      "samples": 901,
+      "duration_s": 30.0,
+      "max_sample_linear_speed_m_s": 0.08749879544658609,
+      "max_sample_angular_speed_deg_s": 16.3474938581043
+    },
+    "E3_pickup": {
+      "samples": 451,
+      "duration_s": 15.0,
+      "max_sample_linear_speed_m_s": 0.07807583902141202,
+      "max_sample_angular_speed_deg_s": 3.7744642357255414
+    },
+    "E3_vertical": {
+      "samples": 901,
+      "duration_s": 30.0,
+      "max_sample_linear_speed_m_s": 0.08748832820106953,
+      "max_sample_angular_speed_deg_s": 16.339392133199837
+    },
+    "E3_tilt10": {
+      "samples": 901,
+      "duration_s": 30.0,
+      "max_sample_linear_speed_m_s": 0.08749879544658609,
+      "max_sample_angular_speed_deg_s": 16.3474938581043
+    },
+    "assembly_vertical": {
+      "samples": 451,
+      "duration_s": 15.0,
+      "max_sample_linear_speed_m_s": 0.08748832820107419,
+      "max_sample_angular_speed_deg_s": 16.339392133198967
+    },
+    "assembly_tilt10": {
+      "samples": 451,
+      "duration_s": 15.0,
+      "max_sample_linear_speed_m_s": 0.08749879544659075,
+      "max_sample_angular_speed_deg_s": 16.34749385810343
+    }
+  }
+}

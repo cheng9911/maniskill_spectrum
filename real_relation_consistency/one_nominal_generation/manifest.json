@@ -1,0 +1,208 @@
+{
+  "status": "Offline Cartesian candidates; not execution validated",
+  "nominal_dataset": "insert_jc_fix_3",
+  "nominal_episode": 0,
+  "nominal_frame_events": {
+    "grip_frame": 195,
+    "apex_frame": 270,
+    "near_target_frame": 320,
+    "terminal_frame": 505,
+    "grip_to_apex_s": 2.5,
+    "apex_to_near_s": 1.6666666666666667,
+    "near_to_terminal_s": 6.166666666666667,
+    "lift_height_m": 0.07496247624933422,
+    "terminal_x_m": 0.519968425826775,
+    "terminal_y_m": 0.11910582108800609,
+    "terminal_z_m": 0.14048993710737698,
+    "near_frame_solver_phase": null,
+    "apex_frame_solver_phase": null
+  },
+  "common_entry_tcp_m": [
+    0.566467335859354,
+    0.03318134491138655,
+    0.20569448064220877
+  ],
+  "common_entry_quaternion_xyzw": [
+    0.70991337031345,
+    0.7015780249469046,
+    -0.061631245321775364,
+    -0.003587640155599836
+  ],
+  "conditions": [
+    {
+      "pickup_id": "E1",
+      "object_translation_from_reference_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "grasp_tcp_base_m": [
+        0.5810494213906102,
+        -0.08207384008602746,
+        0.13073200439287455
+      ],
+      "approach_tcp_base_m": [
+        0.5810494213906102,
+        -0.08207384008602746,
+        0.18073200439287457
+      ]
+    },
+    {
+      "pickup_id": "E2",
+      "object_translation_from_reference_m": [
+        0.02,
+        0.0,
+        0.0
+      ],
+      "grasp_tcp_base_m": [
+        0.6010494213906102,
+        -0.08207384008602746,
+        0.13073200439287455
+      ],
+      "approach_tcp_base_m": [
+        0.6010494213906102,
+        -0.08207384008602746,
+        0.18073200439287457
+      ]
+    },
+    {
+      "pickup_id": "E3",
+      "object_translation_from_reference_m": [
+        0.0,
+        0.02,
+        0.0
+      ],
+      "grasp_tcp_base_m": [
+        0.5810494213906102,
+        -0.062073840086027454,
+        0.13073200439287455
+      ],
+      "approach_tcp_base_m": [
+        0.5810494213906102,
+        -0.062073840086027454,
+        0.18073200439287457
+      ]
+    }
+  ],
+  "geometry": {
+    "method": "Calibration TCP minimal-axis + fixed 10 degree + rank-2 effective-pivot least squares",
+    "calibration_episodes": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "evaluation_episodes": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      23,
+      24,
+      26,
+      27,
+      28,
+      29,
+      31,
+      32,
+      33,
+      34,
+      36,
+      37,
+      38,
+      39,
+      41,
+      42,
+      43,
+      44,
+      46,
+      47,
+      48,
+      49,
+      51,
+      52,
+      53,
+      54,
+      56,
+      57,
+      58,
+      59
+    ],
+    "axis_base": [
+      0.718243282619339,
+      0.6957307841874243,
+      0.009233791536946413
+    ],
+    "input_angle_deg": 10,
+    "observed_calibration_angle_deg": 10.697380929022293,
+    "effective_pivot_base_m": [
+      0.5297221770096379,
+      0.10220337272904487,
+      0.07998759377607263
+    ],
+    "nominal_terminal_center_m": [
+      0.517104881097202,
+      0.11439242129083049,
+      0.14301606016597398
+    ],
+    "pivot_fit_rms_mm": 10.686962599364376,
+    "matrix_rank": 2,
+    "limitations": [
+      "Response-derived geometry, not independent hole calibration",
+      "Fixed grasp and fixed physical pivot assumed",
+      "Pivot component along rotation axis is unobservable and gauge fixed",
+      "All real data were explored previously; split is retrospective",
+      "Source law identified on peg poses, target evaluated on hand axes under fixed grasp"
+    ]
+  },
+  "rate_hz": 30,
+  "assembly_duration_s": 15,
+  "coordinate_frame": "Franka robot base",
+  "quaternion_order": "xyzw",
+  "position_unit": "m",
+  "pickup_method": "Independent quintic Cartesian waypoint connectors; no obstacle or IK solving",
+  "nominal_retiming": "Global quintic frame clock, endpoint speed zero; internal geometric corners retained",
+  "gripper_semantics": "Stage labels only: close_gripper_event requests closure; no physical aperture/force command encoded",
+  "common_entry_note": "Nominal height apex; not independently established contact/pre-insertion pose",
+  "law_start_alpha": 0.0,
+  "law_end_alpha": 1.0052024453210489,
+  "law_refit": false,
+  "real_geometry_calibration_episodes": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60
+  ]
+}

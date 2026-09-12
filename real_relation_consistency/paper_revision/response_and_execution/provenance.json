@@ -1,0 +1,71 @@
+{
+  "sources": {
+    "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/multimodal_task_law/id_core.json": "bf9658639a238a268edbccc753628a0787cbf1f0cee8f3def094a3247c758f5c",
+    "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/multimodal_task_law/ex_core.json": "59a6a4469a09075b2bcb219257717b28052e6ac90dddd7d0d57f14ae4f3ec100",
+    "/home/rocos/sia/maniskill_spectrum/real_relation_consistency/multimodal_task_law/protocol.json": "28397aea955b9cd961537e724cd153e6d2682fa6a1fa201519e3b53fbac844ca"
+  },
+  "response_count": 240,
+  "nominal_count": 20,
+  "blocks": 5,
+  "execution_count": 240,
+  "new_simulation_runs": 0,
+  "strict_hold_verified": false,
+  "summary": [
+    {
+      "method": "no_adapt",
+      "label": "No adaptation",
+      "n": 60,
+      "env_success": 29,
+      "endpoint_pass": 4,
+      "endpoint_rate": 0.06666666666666667,
+      "mean_axis_deg": 3.239748785356895,
+      "mean_lateral_mm": 9.333410647669451,
+      "no_completion": "NR",
+      "axial_extension": "NR",
+      "full_target_completion": "measured",
+      "hold_validation": "not available"
+    },
+    {
+      "method": "rigid",
+      "label": "Rigid transform",
+      "n": 60,
+      "env_success": 55,
+      "endpoint_pass": 49,
+      "endpoint_rate": 0.8166666666666667,
+      "mean_axis_deg": 2.0332644311670114,
+      "mean_lateral_mm": 1.641041193202456,
+      "no_completion": "NR",
+      "axial_extension": "NR",
+      "full_target_completion": "measured",
+      "hold_validation": "not available"
+    },
+    {
+      "method": "source",
+      "label": "Frozen source law",
+      "n": 60,
+      "env_success": 59,
+      "endpoint_pass": 58,
+      "endpoint_rate": 0.9666666666666667,
+      "mean_axis_deg": 0.9257827520791402,
+      "mean_lateral_mm": 1.7490912735487583,
+      "no_completion": "NR",
+      "axial_extension": "NR",
+      "full_target_completion": "measured",
+      "hold_validation": "not available"
+    },
+    {
+      "method": "target",
+      "label": "Target-trained law",
+      "n": 60,
+      "env_success": 58,
+      "endpoint_pass": 57,
+      "endpoint_rate": 0.95,
+      "mean_axis_deg": 0.9559240840687263,
+      "mean_lateral_mm": 1.7352545893283862,
+      "no_completion": "NR",
+      "axial_extension": "NR",
+      "full_target_completion": "measured",
+      "hold_validation": "not available"
+    }
+  ]
+}

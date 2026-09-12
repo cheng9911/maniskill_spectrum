@@ -1,0 +1,98 @@
+[33;1m2026-09-12 18:50:39,763 - mani_skill  - WARNING - No initial pose set for actor builder of peg_pedestal, setting to default pose q=[1,0,0,0], p=[0,0,0]. Not setting reasonable initial poses may slow down simulation, see https://github.com/haosulab/ManiSkill/issues/421.[0m
+[pilot] lift_early block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=360 success=True assembly_complete=True max_contact=37.124 split=train
+[pilot] lift_early block=1 cond=0 (+0 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=36.526 split=train
+[pilot] lift_early block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=2.188 split=train
+[pilot] lift_early block=0 cond=1 (-7.5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.876 split=train
+[pilot] lift_early block=1 cond=1 (-7.5 deg) attempt=0
+  steps=370 success=True assembly_complete=True max_contact=56.252 split=train
+[pilot] lift_early block=2 cond=1 (-7.5 deg) attempt=0
+screw plan failed
+  steps=368 success=True assembly_complete=True max_contact=3.021 split=train
+[pilot] lift_early block=0 cond=2 (+7.5 deg) attempt=0
+screw plan failed
+  steps=387 success=True assembly_complete=True max_contact=41.855 split=train
+[pilot] lift_early block=1 cond=2 (+7.5 deg) attempt=0
+  steps=371 success=True assembly_complete=True max_contact=45.370 split=train
+[pilot] lift_early block=2 cond=2 (+7.5 deg) attempt=0
+screw plan failed
+  steps=376 success=True assembly_complete=True max_contact=37.789 split=train
+[pilot] lift_late block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=356 success=True assembly_complete=True max_contact=1.095 split=train
+[pilot] lift_late block=1 cond=0 (+0 deg) attempt=0
+  steps=347 success=True assembly_complete=True max_contact=1.388 split=train
+[pilot] lift_late block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=348 success=True assembly_complete=True max_contact=1.280 split=train
+[pilot] lift_late block=0 cond=1 (-7.5 deg) attempt=0
+screw plan failed
+  steps=385 success=True assembly_complete=True max_contact=1.230 split=train
+[pilot] lift_late block=1 cond=1 (-7.5 deg) attempt=0
+  steps=368 success=True assembly_complete=True max_contact=40.123 split=train
+[pilot] lift_late block=2 cond=1 (-7.5 deg) attempt=0
+screw plan failed
+  steps=381 success=True assembly_complete=True max_contact=1.468 split=train
+[pilot] lift_late block=0 cond=2 (+7.5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.243 split=train
+[pilot] lift_late block=1 cond=2 (+7.5 deg) attempt=0
+  steps=373 success=True assembly_complete=True max_contact=2.771 split=train
+[pilot] lift_late block=2 cond=2 (+7.5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.982 split=train
+[pilot] diagonal_early block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=331 success=True assembly_complete=True max_contact=51.922 split=train
+[pilot] diagonal_early block=1 cond=0 (+0 deg) attempt=0
+  steps=329 success=True assembly_complete=True max_contact=19.767 split=train
+[pilot] diagonal_early block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=332 success=True assembly_complete=True max_contact=47.570 split=train
+[pilot] diagonal_early block=0 cond=1 (-7.5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=17.250 split=train
+[pilot] diagonal_early block=1 cond=1 (-7.5 deg) attempt=0
+  steps=341 success=True assembly_complete=True max_contact=34.296 split=train
+[pilot] diagonal_early block=2 cond=1 (-7.5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=0.864 split=train
+[pilot] diagonal_early block=0 cond=2 (+7.5 deg) attempt=0
+screw plan failed
+  steps=347 success=True assembly_complete=True max_contact=2.591 split=train
+[pilot] diagonal_early block=1 cond=2 (+7.5 deg) attempt=0
+  steps=353 success=True assembly_complete=True max_contact=17.422 split=train
+[pilot] diagonal_early block=2 cond=2 (+7.5 deg) attempt=0
+screw plan failed
+  steps=347 success=True assembly_complete=True max_contact=34.944 split=train
+[pilot] diagonal_late block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=328 success=True assembly_complete=True max_contact=1.240 split=train
+[pilot] diagonal_late block=1 cond=0 (+0 deg) attempt=0
+  steps=321 success=True assembly_complete=True max_contact=1.334 split=train
+[pilot] diagonal_late block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=329 success=True assembly_complete=True max_contact=1.118 split=train
+[pilot] diagonal_late block=0 cond=1 (-7.5 deg) attempt=0
+screw plan failed
+  steps=350 success=True assembly_complete=True max_contact=1.228 split=train
+[pilot] diagonal_late block=1 cond=1 (-7.5 deg) attempt=0
+  steps=346 success=True assembly_complete=True max_contact=2.538 split=train
+[pilot] diagonal_late block=2 cond=1 (-7.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.205 split=train
+[pilot] diagonal_late block=0 cond=2 (+7.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=34.543 split=train
+[pilot] diagonal_late block=1 cond=2 (+7.5 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=0.379 split=train
+[pilot] diagonal_late block=2 cond=2 (+7.5 deg) attempt=0
+screw plan failed
+  steps=351 success=True assembly_complete=True max_contact=1.217 split=train
+[pilot] done: 36 jobs, 36 episodes, 36/36 success

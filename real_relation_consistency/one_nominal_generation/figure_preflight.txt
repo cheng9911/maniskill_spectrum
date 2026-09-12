@@ -1,0 +1,31 @@
+Nature Figure Static Preflight
+source: real_relation_consistency/generate_one_nominal.py
+backend: python
+
+[PASS] SOURCE-SYNTAX: Python source parses successfully
+[PASS] FONT-FAMILY: A publication-safe sans-serif family is configured
+  - sans-serif
+[PASS] FONT-SIZE: All detected text sizes are at least 5 pt (minimum 5.5 pt)
+[PASS] FONT-GLYPH-FLOOR: No mathtext superscript/subscript expression detected
+[PASS] LEGEND-LABEL-CASE: Detected literal legend labels start with display-style capitalization
+[PASS] COLOR-MAP: No rainbow/jet/hsv color mapping detected
+[PASS] EDITABLE-TEXT: SVG and PDF editable-text settings are configured
+[PASS] EXPORT-VECTOR: Both SVG and PDF exports are present
+[PASS] EXPORT-RASTER: TIFF raster export is present
+[PASS] RASTER-DPI: A raster export of at least 600 dpi is configured
+  - 600
+[PASS] FINAL-WIDTH: Detected width 180.0 mm matches a common journal column width
+[PASS] DATA-SAMPLING: No high-confidence row-sampling operation detected
+[PASS] DATA-EXCLUSION: No high-confidence missing-data exclusion detected
+[PASS] DEMO-DATA: No obvious simulated-data generator detected
+[PASS] LOG-GUARD: No logarithmic transform or axis detected
+[PASS] INTERP-MONOTONIC: NumPy interpolation has an explicit monotonicity/reordering safeguard
+  - np.diff(t)>0
+[PASS] UNCERTAINTY-ENCODING: No stochastic aggregate requiring a variability audit was inferred
+[PASS] ROTATION-ANCHOR: No rotated Matplotlib text detected
+[PASS] ANNOTATION-WORKAROUND: No high-risk hard-coded label height or opaque white text mask detected
+[PASS] BACKEND-EXCLUSIVE: No obvious cross-backend plotting reference found for python
+
+summary: 20 pass, 0 warn, 0 fail
+verdict: READY FOR VISUAL QA
+note: static preflight does not validate statistics, source-data truth, or rendered appearance

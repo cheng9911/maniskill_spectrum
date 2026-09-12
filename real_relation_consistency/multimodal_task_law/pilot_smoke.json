@@ -1,0 +1,30 @@
+{
+  "stage": "pilot",
+  "protocol_sha256": "3fc54814117ec1e4fc2fb2ccc3437cc56dfdc97773f04159eac279867ef46ade",
+  "seed_base": 20260818,
+  "retries_per_condition": 1,
+  "job_count": 1,
+  "episodes": [
+    {
+      "episode_id": 0,
+      "stage": "pilot",
+      "mode_id": "lift_early",
+      "yaw_mode": "",
+      "block_id": 0,
+      "condition_index": 0,
+      "split": "train",
+      "attempt_id": 0,
+      "pitch_deg": 0.0,
+      "initial_state_seed": 20260818,
+      "planner_seed": 20260818,
+      "episode_seed": 20260818,
+      "initial_qpos_hash": "0d8aea488c36d53f2907c46c22a2f3080fae948c53a80b4c12a4c7c4c446d74e",
+      "steps": 360,
+      "success": true,
+      "assembly_complete": false,
+      "stop_reason": "EpisodeFinished(terminated)",
+      "max_contact_force_N": 37.12411028277729,
+      "solver_error": null
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "content_sha256": "e41770a3dd37ce0944c84da54a0380fc9b001f37d89306a8e1d189990e3595f6",
+  "core_blocks": 5,
+  "events": {
+    "E0": {
+      "desc": "common post-grasp start state (after the shared lift)"
+    },
+    "E1": {
+      "axial_gt": 0.065,
+      "desc": "peg centre first persistently inside the pre-registered hole-opening neighbourhood",
+      "lateral_lt": 0.02,
+      "persist_steps": 3
+    },
+    "E2": {
+      "desc": "peg lowest geometric point crosses the hole-opening plane inside the lateral channel",
+      "lateral_lt": 0.015,
+      "tip_axial_le": 0.065
+    },
+    "E3": {
+      "axial_le": 0.072,
+      "desc": "actual axial depth reaches the achievable terminal depth and stays within the success ball",
+      "hold_steps": 10,
+      "note": "the shared terminal control does not dwell; hold is measured as trailing consecutive-success steps (diagnostic)"
+    },
+    "segments": [
+      {
+        "from": "E0",
+        "id": "free_approach",
+        "n": 50,
+        "to": "E1"
+      },
+      {
+        "from": "E1",
+        "id": "enter",
+        "n": 50,
+        "to": "E2"
+      },
+      {
+        "from": "E2",
+        "id": "insert",
+        "n": 50,
+        "to": "E3"
+      }
+    ]
+  },
+  "identify": {
+    "fit_config": {
+      "alpha_max": 1.25,
+      "basis_width": 0.065,
+      "n_basis": 24,
+      "nominal_iterations": 3,
+      "smoothness_weight": 0.1
+    },
+    "fits": "per (mode, block) independently; 4 x 5 = 20 frozen pitch models",
+    "parameterization": "scalar alpha_pitch(s) only; xi=(0,0,0,0,theta,0) for C=C0 Exp(theta e_pitch)",
+    "test_condition_count": 4,
+    "train_condition_count": 9
+  },
+  "mode_ids": [
+    "lift_early",
+    "lift_late",
+    "diagonal_early",
+    "diagonal_late"
+  ],
+  "mode_params": {
+    "diagonal_early": {
+      "alignment_mode": "early",
+      "path_mode": "diagonal"
+    },
+    "diagonal_late": {
+      "alignment_mode": "late",
+      "path_mode": "diagonal"
+    },
+    "lift_early": {
+      "alignment_mode": "early",
+      "path_mode": "lift"
+    },
+    "lift_late": {
+      "alignment_mode": "late",
+      "path_mode": "lift"
+    }
+  },
+  "pilot_blocks": 3,
+  "pilot_pitch_deg": [
+    0.0,
+    -7.5,
+    7.5
+  ],
+  "pitch_deg": [
+    0.0,
+    -2.5,
+    2.5,
+    -5.0,
+    5.0,
+    -7.5,
+    7.5,
+    -10.0,
+    10.0,
+    -12.5,
+    12.5,
+    -15.0,
+    15.0
+  ],
+  "schema_version": "1.0",
+  "seed": {
+    "base": 20260818,
+    "initial_state_stride": 100003,
+    "note": "initial_state_seed = base + block*initial_state_stride (shared within block); planner_seed = initial_state_seed + planner_stride*(mode_index*len(conditions)+condition_index) + attempt",
+    "planner_stride": 1009
+  },
+  "solver": {
+    "FINAL": 0.06,
+    "HIGH_Z": 0.22,
+    "PRE_ENTRY": 0.125,
+    "note": "early aligns at HIGH_Z, late aligns at PRE_ENTRY; terminal insert control is identical across modes"
+  },
+  "strict_success": {
+    "axis_angle_rad": 0.05,
+    "depth_le": 0.072,
+    "hold_steps": 15,
+    "lateral_error_m": 0.01,
+    "note": "depth threshold calibrated after pilot (solver reaches ~0.070-0.072, not 0.060); hold measured as trailing consecutive-success steps since the shared terminal control does not dwell"
+  },
+  "task": {
+    "control_mode": "pd_joint_pos",
+    "env_id": "CircularPhaseSwitchSE3-v1",
+    "gripper_force_limit": 150.0,
+    "gripper_stiffness": 2500.0,
+    "orientation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pickup_position": [
+      -0.25,
+      -0.18,
+      0.28
+    ],
+    "robot_init_qpos_noise": 0.01,
+    "sim_backend": "physx_cpu",
+    "task_anchor": [
+      -0.15,
+      0.0,
+      0.08
+    ]
+  },
+  "test_pitch_deg": [
+    -5.0,
+    5.0,
+    -10.0,
+    10.0
+  ],
+  "title": "Mode dependence and transferability of task-relation responses",
+  "train_pitch_deg": [
+    0.0,
+    -2.5,
+    2.5,
+    -7.5,
+    7.5,
+    -12.5,
+    12.5,
+    -15.0,
+    15.0
+  ],
+  "yaw_blocks": 5,
+  "yaw_deg": [
+    0.0,
+    -15.0,
+    15.0,
+    -30.0,
+    30.0
+  ],
+  "yaw_mode_ids": [
+    "yaw_fixed",
+    "yaw_follow"
+  ],
+  "yaw_test_deg": [
+    -30.0,
+    30.0
+  ],
+  "yaw_train_deg": [
+    0.0,
+    -15.0,
+    15.0
+  ]
+}

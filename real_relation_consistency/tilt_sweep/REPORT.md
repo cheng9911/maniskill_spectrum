@@ -69,6 +69,7 @@
 - `prediction_10degree.csv` / `.json` / `.png` / `.pdf` / `.svg`：预测表、留出校验、跨幅度曲线与 α_pitch(s) 图。
 - `heldout_10degree.csv`：逐 seed 留出 ±10° 预测 vs 实际 vs 误差。
 - `smoke_seed_20260910.h5`：冒烟产物（非正式）。
+- `videos/pitch_{plus,minus}_{0,10,15}deg.mp4` + `*_final.png`：与真机倾斜视频平行的仿真可视化（`render_tilt_videos.py` 回放同一 `solve_se3`，渲染相机 512×512；仅供展示，非冻结协议一部分）。
 
 ## 复现
 
@@ -95,6 +96,12 @@ done
 # 4. 预测 + 留出校验 + 对照（去掉 -s）
 /home/rocos/miniconda3/envs/maniskill_download/bin/python \
   real_relation_consistency/predict_10degree.py
+
+# 5. 渲染仿真倾斜视频（可视化，非冻结协议）
+/home/rocos/miniconda3/envs/maniskill_download/bin/python -s \
+  phase_switch_symmetry/render_tilt_videos.py \
+  --amplitudes 0.0 10.0 -10.0 15.0 -15.0 \
+  --out-dir real_relation_consistency/tilt_sweep/videos
 ```
 
 输出 HDF5 为写模式，复现前先复制现有产物或另选目录，避免覆盖。

@@ -1,0 +1,732 @@
+[33;1m2026-09-12 18:54:11,586 - mani_skill  - WARNING - No initial pose set for actor builder of peg_pedestal, setting to default pose q=[1,0,0,0], p=[0,0,0]. Not setting reasonable initial poses may slow down simulation, see https://github.com/haosulab/ManiSkill/issues/421.[0m
+[core] lift_early block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=360 success=True assembly_complete=True max_contact=37.124 split=train
+[core] lift_early block=1 cond=0 (+0 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=36.526 split=train
+[core] lift_early block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=2.188 split=train
+[core] lift_early block=3 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=358 success=True assembly_complete=True max_contact=29.523 split=train
+[core] lift_early block=4 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=39.202 split=train
+[core] lift_early block=0 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=359 success=True assembly_complete=True max_contact=43.669 split=train
+[core] lift_early block=1 cond=1 (-2.5 deg) attempt=0
+  steps=356 success=True assembly_complete=True max_contact=2.722 split=train
+[core] lift_early block=2 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=359 success=True assembly_complete=True max_contact=1.013 split=train
+[core] lift_early block=3 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=358 success=True assembly_complete=True max_contact=44.164 split=train
+[core] lift_early block=4 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=359 success=True assembly_complete=True max_contact=27.302 split=train
+[core] lift_early block=0 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=369 success=True assembly_complete=True max_contact=25.636 split=train
+[core] lift_early block=1 cond=2 (+2.5 deg) attempt=0
+  steps=367 success=True assembly_complete=True max_contact=42.680 split=train
+[core] lift_early block=2 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=367 success=True assembly_complete=True max_contact=44.800 split=train
+[core] lift_early block=3 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=368 success=True assembly_complete=True max_contact=6.825 split=train
+[core] lift_early block=4 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=369 success=True assembly_complete=True max_contact=40.980 split=train
+[core] lift_early block=0 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=363 success=True assembly_complete=True max_contact=16.086 split=test
+[core] lift_early block=1 cond=3 (-5 deg) attempt=0
+  steps=362 success=True assembly_complete=True max_contact=48.428 split=test
+[core] lift_early block=2 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=363 success=True assembly_complete=True max_contact=1.609 split=test
+[core] lift_early block=3 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=369 success=True assembly_complete=True max_contact=10.650 split=test
+[core] lift_early block=4 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=1.481 split=test
+[core] lift_early block=0 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=380 success=True assembly_complete=True max_contact=43.484 split=test
+[core] lift_early block=1 cond=4 (+5 deg) attempt=0
+  steps=370 success=True assembly_complete=True max_contact=38.969 split=test
+[core] lift_early block=2 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=383 success=True assembly_complete=True max_contact=36.645 split=test
+[core] lift_early block=3 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=385 success=True assembly_complete=True max_contact=44.056 split=test
+[core] lift_early block=4 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=383 success=True assembly_complete=True max_contact=34.001 split=test
+[core] lift_early block=0 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=33.059 split=train
+[core] lift_early block=1 cond=5 (-7.5 deg) attempt=0
+  steps=368 success=True assembly_complete=True max_contact=55.097 split=train
+[core] lift_early block=2 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=368 success=True assembly_complete=True max_contact=2.776 split=train
+[core] lift_early block=3 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=370 success=True assembly_complete=True max_contact=22.838 split=train
+[core] lift_early block=4 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.934 split=train
+[core] lift_early block=0 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=387 success=True assembly_complete=True max_contact=41.854 split=train
+[core] lift_early block=1 cond=6 (+7.5 deg) attempt=0
+  steps=372 success=True assembly_complete=True max_contact=42.163 split=train
+[core] lift_early block=2 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=377 success=True assembly_complete=True max_contact=43.854 split=train
+[core] lift_early block=3 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=376 success=True assembly_complete=True max_contact=1.791 split=train
+[core] lift_early block=4 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=387 success=True assembly_complete=True max_contact=41.825 split=train
+[core] lift_early block=0 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=375 success=True assembly_complete=True max_contact=36.559 split=test
+[core] lift_early block=1 cond=7 (-10 deg) attempt=0
+  steps=380 success=True assembly_complete=True max_contact=46.510 split=test
+[core] lift_early block=2 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=378 success=True assembly_complete=True max_contact=43.850 split=test
+[core] lift_early block=3 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=384 success=True assembly_complete=True max_contact=40.515 split=test
+[core] lift_early block=4 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=381 success=True assembly_complete=True max_contact=43.009 split=test
+[core] lift_early block=0 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=382 success=True assembly_complete=True max_contact=43.791 split=test
+[core] lift_early block=1 cond=8 (+10 deg) attempt=0
+  steps=384 success=True assembly_complete=True max_contact=39.288 split=test
+[core] lift_early block=2 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=381 success=True assembly_complete=True max_contact=41.220 split=test
+[core] lift_early block=3 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=385 success=True assembly_complete=True max_contact=27.819 split=test
+[core] lift_early block=4 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=388 success=True assembly_complete=True max_contact=36.883 split=test
+[core] lift_early block=0 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=393 success=True assembly_complete=True max_contact=42.034 split=train
+[core] lift_early block=1 cond=9 (-12.5 deg) attempt=0
+  steps=382 success=True assembly_complete=True max_contact=5.822 split=train
+[core] lift_early block=2 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=393 success=True assembly_complete=True max_contact=4.124 split=train
+[core] lift_early block=3 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=394 success=True assembly_complete=True max_contact=4.412 split=train
+[core] lift_early block=4 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=388 success=True assembly_complete=True max_contact=29.460 split=train
+[core] lift_early block=0 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=384 success=True assembly_complete=True max_contact=29.577 split=train
+[core] lift_early block=1 cond=10 (+12.5 deg) attempt=0
+  steps=380 success=True assembly_complete=True max_contact=47.122 split=train
+[core] lift_early block=2 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=384 success=True assembly_complete=True max_contact=1.499 split=train
+[core] lift_early block=3 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=384 success=True assembly_complete=True max_contact=0.913 split=train
+[core] lift_early block=4 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=382 success=True assembly_complete=True max_contact=0.225 split=train
+[core] lift_early block=0 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=387 success=True assembly_complete=True max_contact=8.164 split=train
+[core] lift_early block=1 cond=11 (-15 deg) attempt=0
+  steps=393 success=True assembly_complete=True max_contact=3.040 split=train
+[core] lift_early block=2 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=395 success=True assembly_complete=True max_contact=37.672 split=train
+[core] lift_early block=3 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=388 success=True assembly_complete=True max_contact=36.757 split=train
+[core] lift_early block=4 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=388 success=True assembly_complete=True max_contact=37.741 split=train
+[core] lift_early block=0 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=395 success=True assembly_complete=True max_contact=28.070 split=train
+[core] lift_early block=1 cond=12 (+15 deg) attempt=0
+  steps=384 success=True assembly_complete=True max_contact=45.980 split=train
+[core] lift_early block=2 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=390 success=True assembly_complete=True max_contact=31.927 split=train
+[core] lift_early block=3 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=394 success=True assembly_complete=True max_contact=20.856 split=train
+[core] lift_early block=4 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=393 success=True assembly_complete=True max_contact=25.870 split=train
+[core] lift_late block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=356 success=True assembly_complete=True max_contact=1.095 split=train
+[core] lift_late block=1 cond=0 (+0 deg) attempt=0
+  steps=347 success=True assembly_complete=True max_contact=1.388 split=train
+[core] lift_late block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=348 success=True assembly_complete=True max_contact=1.280 split=train
+[core] lift_late block=3 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=355 success=True assembly_complete=True max_contact=1.232 split=train
+[core] lift_late block=4 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=349 success=True assembly_complete=True max_contact=0.853 split=train
+[core] lift_late block=0 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=357 success=True assembly_complete=True max_contact=1.689 split=train
+[core] lift_late block=1 cond=1 (-2.5 deg) attempt=0
+  steps=356 success=True assembly_complete=True max_contact=1.599 split=train
+[core] lift_late block=2 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=364 success=True assembly_complete=True max_contact=1.029 split=train
+[core] lift_late block=3 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=364 success=True assembly_complete=True max_contact=1.132 split=train
+[core] lift_late block=4 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=364 success=True assembly_complete=True max_contact=1.440 split=train
+[core] lift_late block=0 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=355 success=True assembly_complete=True max_contact=1.742 split=train
+[core] lift_late block=1 cond=2 (+2.5 deg) attempt=0
+  steps=360 success=True assembly_complete=True max_contact=1.424 split=train
+[core] lift_late block=2 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=355 success=True assembly_complete=True max_contact=1.316 split=train
+[core] lift_late block=3 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=364 success=True assembly_complete=True max_contact=1.807 split=train
+[core] lift_late block=4 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=354 success=True assembly_complete=True max_contact=1.260 split=train
+[core] lift_late block=0 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.109 split=test
+[core] lift_late block=1 cond=3 (-5 deg) attempt=0
+  steps=361 success=True assembly_complete=True max_contact=2.222 split=test
+[core] lift_late block=2 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=370 success=True assembly_complete=True max_contact=1.137 split=test
+[core] lift_late block=3 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=369 success=True assembly_complete=True max_contact=13.328 split=test
+[core] lift_late block=4 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.265 split=test
+[core] lift_late block=0 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=366 success=True assembly_complete=True max_contact=1.522 split=test
+[core] lift_late block=1 cond=4 (+5 deg) attempt=0
+  steps=363 success=True assembly_complete=True max_contact=0.500 split=test
+[core] lift_late block=2 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=366 success=True assembly_complete=True max_contact=1.503 split=test
+[core] lift_late block=3 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=374 success=True assembly_complete=True max_contact=1.515 split=test
+[core] lift_late block=4 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=367 success=True assembly_complete=True max_contact=1.424 split=test
+[core] lift_late block=0 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=385 success=True assembly_complete=True max_contact=1.230 split=train
+[core] lift_late block=1 cond=5 (-7.5 deg) attempt=0
+  steps=368 success=True assembly_complete=True max_contact=40.123 split=train
+[core] lift_late block=2 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=381 success=True assembly_complete=True max_contact=1.468 split=train
+[core] lift_late block=3 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=380 success=True assembly_complete=True max_contact=1.143 split=train
+[core] lift_late block=4 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=383 success=True assembly_complete=True max_contact=1.156 split=train
+[core] lift_late block=0 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.243 split=train
+[core] lift_late block=1 cond=6 (+7.5 deg) attempt=0
+  steps=373 success=True assembly_complete=True max_contact=2.771 split=train
+[core] lift_late block=2 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.869 split=train
+[core] lift_late block=3 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=372 success=True assembly_complete=True max_contact=1.074 split=train
+[core] lift_late block=4 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.035 split=train
+[core] lift_late block=0 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=381 success=True assembly_complete=True max_contact=1.422 split=test
+[core] lift_late block=1 cond=7 (-10 deg) attempt=0
+  steps=375 success=True assembly_complete=True max_contact=1.873 split=test
+[core] lift_late block=2 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=377 success=True assembly_complete=True max_contact=1.184 split=test
+[core] lift_late block=3 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=376 success=True assembly_complete=True max_contact=42.253 split=test
+[core] lift_late block=4 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=379 success=True assembly_complete=True max_contact=33.584 split=test
+[core] lift_late block=0 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=376 success=True assembly_complete=True max_contact=1.221 split=test
+[core] lift_late block=1 cond=8 (+10 deg) attempt=0
+  steps=384 success=True assembly_complete=True max_contact=2.089 split=test
+[core] lift_late block=2 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=378 success=True assembly_complete=True max_contact=1.400 split=test
+[core] lift_late block=3 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=378 success=True assembly_complete=True max_contact=1.151 split=test
+[core] lift_late block=4 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=376 success=True assembly_complete=True max_contact=1.006 split=test
+[core] lift_late block=0 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=383 success=True assembly_complete=True max_contact=1.483 split=train
+[core] lift_late block=1 cond=9 (-12.5 deg) attempt=0
+  steps=386 success=True assembly_complete=True max_contact=1.528 split=train
+[core] lift_late block=2 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=382 success=True assembly_complete=True max_contact=1.857 split=train
+[core] lift_late block=3 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=382 success=True assembly_complete=True max_contact=1.015 split=train
+[core] lift_late block=4 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=383 success=True assembly_complete=True max_contact=1.540 split=train
+[core] lift_late block=0 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=373 success=True assembly_complete=True max_contact=1.531 split=train
+[core] lift_late block=1 cond=10 (+12.5 deg) attempt=0
+  steps=387 success=True assembly_complete=True max_contact=2.028 split=train
+[core] lift_late block=2 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=374 success=True assembly_complete=True max_contact=1.532 split=train
+[core] lift_late block=3 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=374 success=True assembly_complete=True max_contact=1.672 split=train
+[core] lift_late block=4 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=371 success=True assembly_complete=True max_contact=1.693 split=train
+[core] lift_late block=0 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=392 success=True assembly_complete=True max_contact=1.317 split=train
+[core] lift_late block=1 cond=11 (-15 deg) attempt=0
+  steps=387 success=True assembly_complete=True max_contact=0.777 split=train
+[core] lift_late block=2 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=392 success=True assembly_complete=True max_contact=1.436 split=train
+[core] lift_late block=3 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=393 success=True assembly_complete=True max_contact=38.323 split=train
+[core] lift_late block=4 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=391 success=True assembly_complete=True max_contact=1.145 split=train
+[core] lift_late block=0 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=384 success=True assembly_complete=True max_contact=1.933 split=train
+[core] lift_late block=1 cond=12 (+15 deg) attempt=0
+  steps=381 success=True assembly_complete=True max_contact=1.576 split=train
+[core] lift_late block=2 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=381 success=True assembly_complete=True max_contact=1.582 split=train
+[core] lift_late block=3 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=389 success=True assembly_complete=True max_contact=33.203 split=train
+[core] lift_late block=4 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=384 success=True assembly_complete=True max_contact=2.198 split=train
+[core] diagonal_early block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=331 success=True assembly_complete=True max_contact=53.160 split=train
+[core] diagonal_early block=1 cond=0 (+0 deg) attempt=0
+  steps=329 success=True assembly_complete=True max_contact=20.026 split=train
+[core] diagonal_early block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=332 success=True assembly_complete=True max_contact=48.514 split=train
+[core] diagonal_early block=3 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=337 success=True assembly_complete=True max_contact=31.952 split=train
+[core] diagonal_early block=4 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=331 success=True assembly_complete=True max_contact=56.299 split=train
+[core] diagonal_early block=0 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=334 success=True assembly_complete=True max_contact=2.162 split=train
+[core] diagonal_early block=1 cond=1 (-2.5 deg) attempt=0
+  steps=330 success=True assembly_complete=True max_contact=62.131 split=train
+[core] diagonal_early block=2 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=335 success=True assembly_complete=True max_contact=22.177 split=train
+[core] diagonal_early block=3 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=334 success=True assembly_complete=True max_contact=46.072 split=train
+[core] diagonal_early block=4 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=334 success=True assembly_complete=True max_contact=3.256 split=train
+[core] diagonal_early block=0 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=342 success=True assembly_complete=True max_contact=46.990 split=train
+[core] diagonal_early block=1 cond=2 (+2.5 deg) attempt=0
+  steps=339 success=True assembly_complete=True max_contact=41.207 split=train
+[core] diagonal_early block=2 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=45.769 split=train
+[core] diagonal_early block=3 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=331 success=True assembly_complete=True max_contact=39.856 split=train
+[core] diagonal_early block=4 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=342 success=True assembly_complete=True max_contact=45.027 split=train
+[core] diagonal_early block=0 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=341 success=True assembly_complete=True max_contact=1.364 split=test
+[core] diagonal_early block=1 cond=3 (-5 deg) attempt=0
+  steps=339 success=True assembly_complete=True max_contact=5.766 split=test
+[core] diagonal_early block=2 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=342 success=True assembly_complete=True max_contact=0.997 split=test
+[core] diagonal_early block=3 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=44.889 split=test
+[core] diagonal_early block=4 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=341 success=True assembly_complete=True max_contact=2.142 split=test
+[core] diagonal_early block=0 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=38.014 split=test
+[core] diagonal_early block=1 cond=4 (+5 deg) attempt=0
+  steps=346 success=True assembly_complete=True max_contact=4.873 split=test
+[core] diagonal_early block=2 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=342 success=True assembly_complete=True max_contact=39.811 split=test
+[core] diagonal_early block=3 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=342 success=True assembly_complete=True max_contact=16.871 split=test
+[core] diagonal_early block=4 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=48.418 split=test
+[core] diagonal_early block=0 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=342 success=True assembly_complete=True max_contact=1.745 split=train
+[core] diagonal_early block=1 cond=5 (-7.5 deg) attempt=0
+  steps=341 success=True assembly_complete=True max_contact=34.421 split=train
+[core] diagonal_early block=2 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=344 success=True assembly_complete=True max_contact=33.767 split=train
+[core] diagonal_early block=3 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=1.278 split=train
+[core] diagonal_early block=4 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=342 success=True assembly_complete=True max_contact=2.472 split=train
+[core] diagonal_early block=0 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=347 success=True assembly_complete=True max_contact=4.250 split=train
+[core] diagonal_early block=1 cond=6 (+7.5 deg) attempt=0
+  steps=353 success=True assembly_complete=True max_contact=16.719 split=train
+[core] diagonal_early block=2 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=347 success=True assembly_complete=True max_contact=33.465 split=train
+[core] diagonal_early block=3 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=347 success=True assembly_complete=True max_contact=42.033 split=train
+[core] diagonal_early block=4 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=347 success=True assembly_complete=True max_contact=2.312 split=train
+[core] diagonal_early block=0 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=348 success=True assembly_complete=True max_contact=46.575 split=test
+[core] diagonal_early block=1 cond=7 (-10 deg) attempt=0
+  steps=344 success=True assembly_complete=True max_contact=5.351 split=test
+[core] diagonal_early block=2 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=348 success=True assembly_complete=True max_contact=44.688 split=test
+[core] diagonal_early block=3 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=354 success=True assembly_complete=True max_contact=39.083 split=test
+[core] diagonal_early block=4 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=348 success=True assembly_complete=True max_contact=48.681 split=test
+[core] diagonal_early block=0 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=42.722 split=test
+[core] diagonal_early block=1 cond=8 (+10 deg) attempt=0
+  steps=354 success=True assembly_complete=True max_contact=15.410 split=test
+[core] diagonal_early block=2 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=354 success=True assembly_complete=True max_contact=35.387 split=test
+[core] diagonal_early block=3 cond=8 (+10 deg) attempt=0
+screw plan failed
+screw plan failed
+  steps=347 success=True assembly_complete=True max_contact=40.738 split=test
+[core] diagonal_early block=4 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=45.165 split=test
+[core] diagonal_early block=0 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=363 success=True assembly_complete=True max_contact=1.560 split=train
+[core] diagonal_early block=1 cond=9 (-12.5 deg) attempt=0
+  steps=359 success=True assembly_complete=True max_contact=34.643 split=train
+[core] diagonal_early block=2 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=363 success=True assembly_complete=True max_contact=1.891 split=train
+[core] diagonal_early block=3 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=363 success=True assembly_complete=True max_contact=2.353 split=train
+[core] diagonal_early block=4 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=363 success=True assembly_complete=True max_contact=1.948 split=train
+[core] diagonal_early block=0 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=364 success=True assembly_complete=True max_contact=28.142 split=train
+[core] diagonal_early block=1 cond=10 (+12.5 deg) attempt=0
+  steps=354 success=True assembly_complete=True max_contact=23.910 split=train
+[core] diagonal_early block=2 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=366 success=True assembly_complete=True max_contact=34.163 split=train
+[core] diagonal_early block=3 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=358 success=True assembly_complete=True max_contact=2.444 split=train
+[core] diagonal_early block=4 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=363 success=True assembly_complete=True max_contact=27.287 split=train
+[core] diagonal_early block=0 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=355 success=True assembly_complete=True max_contact=43.576 split=train
+[core] diagonal_early block=1 cond=11 (-15 deg) attempt=0
+  steps=353 success=True assembly_complete=True max_contact=24.459 split=train
+[core] diagonal_early block=2 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=357 success=True assembly_complete=True max_contact=41.987 split=train
+[core] diagonal_early block=3 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=357 success=True assembly_complete=True max_contact=42.558 split=train
+[core] diagonal_early block=4 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=356 success=True assembly_complete=True max_contact=0.725 split=train
+[core] diagonal_early block=0 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=355 success=True assembly_complete=True max_contact=1.574 split=train
+[core] diagonal_early block=1 cond=12 (+15 deg) attempt=0
+  steps=358 success=True assembly_complete=True max_contact=26.640 split=train
+[core] diagonal_early block=2 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=358 success=True assembly_complete=True max_contact=37.194 split=train
+[core] diagonal_early block=3 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=355 success=True assembly_complete=True max_contact=18.638 split=train
+[core] diagonal_early block=4 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=355 success=True assembly_complete=True max_contact=26.401 split=train
+[core] diagonal_late block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=328 success=True assembly_complete=True max_contact=1.286 split=train
+[core] diagonal_late block=1 cond=0 (+0 deg) attempt=0
+  steps=321 success=True assembly_complete=True max_contact=1.334 split=train
+[core] diagonal_late block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=329 success=True assembly_complete=True max_contact=1.118 split=train
+[core] diagonal_late block=3 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=327 success=True assembly_complete=True max_contact=1.328 split=train
+[core] diagonal_late block=4 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=328 success=True assembly_complete=True max_contact=1.130 split=train
+[core] diagonal_late block=0 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=336 success=True assembly_complete=True max_contact=1.368 split=train
+[core] diagonal_late block=1 cond=1 (-2.5 deg) attempt=0
+  steps=329 success=True assembly_complete=True max_contact=1.514 split=train
+[core] diagonal_late block=2 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=337 success=True assembly_complete=True max_contact=1.352 split=train
+[core] diagonal_late block=3 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=337 success=True assembly_complete=True max_contact=1.171 split=train
+[core] diagonal_late block=4 cond=1 (-2.5 deg) attempt=0
+screw plan failed
+  steps=336 success=True assembly_complete=True max_contact=1.677 split=train
+[core] diagonal_late block=0 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=336 success=True assembly_complete=True max_contact=1.439 split=train
+[core] diagonal_late block=1 cond=2 (+2.5 deg) attempt=0
+  steps=332 success=True assembly_complete=True max_contact=1.656 split=train
+[core] diagonal_late block=2 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=336 success=True assembly_complete=True max_contact=1.198 split=train
+[core] diagonal_late block=3 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=336 success=True assembly_complete=True max_contact=1.374 split=train
+[core] diagonal_late block=4 cond=2 (+2.5 deg) attempt=0
+screw plan failed
+  steps=336 success=True assembly_complete=True max_contact=1.633 split=train
+[core] diagonal_late block=0 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=340 success=True assembly_complete=True max_contact=1.216 split=test
+[core] diagonal_late block=1 cond=3 (-5 deg) attempt=0
+  steps=336 success=True assembly_complete=True max_contact=1.537 split=test
+[core] diagonal_late block=2 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=342 success=True assembly_complete=True max_contact=1.605 split=test
+[core] diagonal_late block=3 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=341 success=True assembly_complete=True max_contact=2.203 split=test
+[core] diagonal_late block=4 cond=3 (-5 deg) attempt=0
+screw plan failed
+  steps=340 success=True assembly_complete=True max_contact=1.593 split=test
+[core] diagonal_late block=0 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=1.866 split=test
+[core] diagonal_late block=1 cond=4 (+5 deg) attempt=0
+  steps=339 success=True assembly_complete=True max_contact=1.683 split=test
+[core] diagonal_late block=2 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=342 success=True assembly_complete=True max_contact=1.479 split=test
+[core] diagonal_late block=3 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=1.627 split=test
+[core] diagonal_late block=4 cond=4 (+5 deg) attempt=0
+screw plan failed
+  steps=343 success=True assembly_complete=True max_contact=1.629 split=test
+[core] diagonal_late block=0 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=350 success=True assembly_complete=True max_contact=1.228 split=train
+[core] diagonal_late block=1 cond=5 (-7.5 deg) attempt=0
+  steps=346 success=True assembly_complete=True max_contact=2.538 split=train
+[core] diagonal_late block=2 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.205 split=train
+[core] diagonal_late block=3 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.467 split=train
+[core] diagonal_late block=4 cond=5 (-7.5 deg) attempt=0
+screw plan failed
+  steps=350 success=True assembly_complete=True max_contact=1.939 split=train
+[core] diagonal_late block=0 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=34.543 split=train
+[core] diagonal_late block=1 cond=6 (+7.5 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=0.379 split=train
+[core] diagonal_late block=2 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=351 success=True assembly_complete=True max_contact=1.217 split=train
+[core] diagonal_late block=3 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=349 success=True assembly_complete=True max_contact=1.154 split=train
+[core] diagonal_late block=4 cond=6 (+7.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.977 split=train
+[core] diagonal_late block=0 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=348 success=True assembly_complete=True max_contact=1.289 split=test
+[core] diagonal_late block=1 cond=7 (-10 deg) attempt=0
+  steps=344 success=True assembly_complete=True max_contact=1.454 split=test
+[core] diagonal_late block=2 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=349 success=True assembly_complete=True max_contact=1.035 split=test
+[core] diagonal_late block=3 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=348 success=True assembly_complete=True max_contact=33.310 split=test
+[core] diagonal_late block=4 cond=7 (-10 deg) attempt=0
+screw plan failed
+  steps=347 success=True assembly_complete=True max_contact=1.319 split=test
+[core] diagonal_late block=0 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=359 success=True assembly_complete=True max_contact=44.239 split=test
+[core] diagonal_late block=1 cond=8 (+10 deg) attempt=0
+  steps=350 success=True assembly_complete=True max_contact=0.000 split=test
+[core] diagonal_late block=2 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.411 split=test
+[core] diagonal_late block=3 cond=8 (+10 deg) attempt=0
+screw plan failed
+screw plan failed
+  steps=355 success=True assembly_complete=True max_contact=1.757 split=test
+[core] diagonal_late block=4 cond=8 (+10 deg) attempt=0
+screw plan failed
+  steps=359 success=True assembly_complete=True max_contact=37.917 split=test
+[core] diagonal_late block=0 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.368 split=train
+[core] diagonal_late block=1 cond=9 (-12.5 deg) attempt=0
+  steps=349 success=True assembly_complete=True max_contact=0.676 split=train
+[core] diagonal_late block=2 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=353 success=True assembly_complete=True max_contact=1.300 split=train
+[core] diagonal_late block=3 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=354 success=True assembly_complete=True max_contact=55.745 split=train
+[core] diagonal_late block=4 cond=9 (-12.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.461 split=train
+[core] diagonal_late block=0 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.846 split=train
+[core] diagonal_late block=1 cond=10 (+12.5 deg) attempt=0
+  steps=353 success=True assembly_complete=True max_contact=1.508 split=train
+[core] diagonal_late block=2 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=353 success=True assembly_complete=True max_contact=1.717 split=train
+[core] diagonal_late block=3 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=364 success=True assembly_complete=True max_contact=1.823 split=train
+[core] diagonal_late block=4 cond=10 (+12.5 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.840 split=train
+[core] diagonal_late block=0 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=360 success=True assembly_complete=True max_contact=1.419 split=train
+[core] diagonal_late block=1 cond=11 (-15 deg) attempt=0
+  steps=359 success=True assembly_complete=True max_contact=0.688 split=train
+[core] diagonal_late block=2 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=360 success=True assembly_complete=True max_contact=1.158 split=train
+[core] diagonal_late block=3 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=52.572 split=train
+[core] diagonal_late block=4 cond=11 (-15 deg) attempt=0
+screw plan failed
+  steps=359 success=True assembly_complete=True max_contact=1.367 split=train
+[core] diagonal_late block=0 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=352 success=True assembly_complete=True max_contact=1.976 split=train
+[core] diagonal_late block=1 cond=12 (+15 deg) attempt=0
+  steps=357 success=True assembly_complete=True max_contact=1.768 split=train
+[core] diagonal_late block=2 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=354 success=True assembly_complete=True max_contact=1.447 split=train
+[core] diagonal_late block=3 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=359 success=True assembly_complete=True max_contact=1.643 split=train
+[core] diagonal_late block=4 cond=12 (+15 deg) attempt=0
+screw plan failed
+  steps=353 success=True assembly_complete=True max_contact=1.824 split=train
+[core] done: 260 jobs, 260 episodes, 260/260 success

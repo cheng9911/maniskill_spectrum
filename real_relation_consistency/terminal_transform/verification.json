@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": [
+    "All three full transforms map their mean TCP poses exactly",
+    "Rigid inverse round trip",
+    "Axis-only alternatives map axis and position",
+    "Saved numeric matrices agree",
+    "All provenance hashes match"
+  ]
+}

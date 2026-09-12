@@ -1,0 +1,172 @@
+[33;1m2026-09-12 18:54:22,523 - mani_skill  - WARNING - No initial pose set for actor builder of peg_pedestal, setting to default pose q=[1,0,0,0], p=[0,0,0]. Not setting reasonable initial poses may slow down simulation, see https://github.com/haosulab/ManiSkill/issues/421.[0m
+[yaw] yaw_fixed block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=360 success=True assembly_complete=True max_contact=37.124 split=train
+[yaw] yaw_fixed block=1 cond=0 (+0 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=36.526 split=train
+[yaw] yaw_fixed block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=2.188 split=train
+[yaw] yaw_fixed block=3 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=358 success=True assembly_complete=True max_contact=29.523 split=train
+[yaw] yaw_fixed block=4 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=39.202 split=train
+[yaw] yaw_fixed block=0 cond=1 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=2.135 split=train
+[yaw] yaw_fixed block=1 cond=1 (+0 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=29.421 split=train
+[yaw] yaw_fixed block=2 cond=1 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=1.507 split=train
+[yaw] yaw_fixed block=3 cond=1 (+0 deg) attempt=0
+screw plan failed
+  steps=358 success=True assembly_complete=True max_contact=32.292 split=train
+[yaw] yaw_fixed block=4 cond=1 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=33.667 split=train
+[yaw] yaw_fixed block=0 cond=2 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=34.104 split=train
+[yaw] yaw_fixed block=1 cond=2 (+0 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=38.626 split=train
+[yaw] yaw_fixed block=2 cond=2 (+0 deg) attempt=0
+screw plan failed
+  steps=363 success=True assembly_complete=True max_contact=35.761 split=train
+[yaw] yaw_fixed block=3 cond=2 (+0 deg) attempt=0
+screw plan failed
+  steps=358 success=True assembly_complete=True max_contact=29.522 split=train
+[yaw] yaw_fixed block=4 cond=2 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=39.201 split=train
+[yaw] yaw_fixed block=0 cond=3 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=2.134 split=train
+[yaw] yaw_fixed block=1 cond=3 (+0 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=35.261 split=train
+[yaw] yaw_fixed block=2 cond=3 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=1.507 split=train
+[yaw] yaw_fixed block=3 cond=3 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=52.098 split=train
+[yaw] yaw_fixed block=4 cond=3 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=33.664 split=train
+[yaw] yaw_fixed block=0 cond=4 (+0 deg) attempt=0
+screw plan failed
+  steps=363 success=True assembly_complete=True max_contact=34.114 split=train
+[yaw] yaw_fixed block=1 cond=4 (+0 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=17.091 split=train
+[yaw] yaw_fixed block=2 cond=4 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=2.026 split=train
+[yaw] yaw_fixed block=3 cond=4 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=55.227 split=train
+[yaw] yaw_fixed block=4 cond=4 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=39.198 split=train
+[yaw] yaw_follow block=0 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=2.133 split=train
+[yaw] yaw_follow block=1 cond=0 (+0 deg) attempt=0
+  steps=355 success=True assembly_complete=True max_contact=23.567 split=train
+[yaw] yaw_follow block=2 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=1.706 split=train
+[yaw] yaw_follow block=3 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=358 success=True assembly_complete=True max_contact=32.292 split=train
+[yaw] yaw_follow block=4 cond=0 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=33.662 split=train
+[yaw] yaw_follow block=0 cond=1 (+0 deg) attempt=0
+screw plan failed
+  steps=361 success=True assembly_complete=True max_contact=38.080 split=train
+[yaw] yaw_follow block=1 cond=1 (+0 deg) attempt=0
+  steps=358 success=True assembly_complete=True max_contact=46.432 split=train
+[yaw] yaw_follow block=2 cond=1 (+0 deg) attempt=0
+screw plan failed
+  steps=364 success=True assembly_complete=True max_contact=48.471 split=train
+[yaw] yaw_follow block=3 cond=1 (+0 deg) attempt=0
+screw plan failed
+  steps=362 success=True assembly_complete=True max_contact=27.443 split=train
+[yaw] yaw_follow block=4 cond=1 (+0 deg) attempt=0
+screw plan failed
+  steps=369 success=True assembly_complete=True max_contact=39.320 split=train
+[yaw] yaw_follow block=0 cond=2 (+0 deg) attempt=0
+screw plan failed
+screw plan failed
+screw plan failed
+IK Failed! Distance 1.126316 is greater than threshold 0.001000.
+  solver exception: RuntimeError('motion planning failed')
+  steps=346 success=False assembly_complete=False max_contact=0.000 split=train
+[yaw] yaw_follow block=1 cond=2 (+0 deg) attempt=0
+  steps=357 success=True assembly_complete=True max_contact=56.811 split=train
+[yaw] yaw_follow block=2 cond=2 (+0 deg) attempt=0
+screw plan failed
+screw plan failed
+screw plan failed
+IK Failed! Distance 2.524524 is greater than threshold 0.001000.
+  solver exception: RuntimeError('motion planning failed')
+  steps=462 success=False assembly_complete=False max_contact=1.641 split=train
+[yaw] yaw_follow block=3 cond=2 (+0 deg) attempt=0
+screw plan failed
+screw plan failed
+  steps=1500 success=False assembly_complete=False max_contact=0.000 split=train
+[yaw] yaw_follow block=4 cond=2 (+0 deg) attempt=0
+screw plan failed
+screw plan failed
+screw plan failed
+IK Failed! Distance 0.066034 is greater than threshold 0.001000.
+  solver exception: RuntimeError('motion planning failed')
+  steps=545 success=False assembly_complete=False max_contact=0.000 split=train
+[yaw] yaw_follow block=0 cond=3 (+0 deg) attempt=0
+screw plan failed
+  steps=373 success=True assembly_complete=True max_contact=37.897 split=train
+[yaw] yaw_follow block=1 cond=3 (+0 deg) attempt=0
+  steps=370 success=True assembly_complete=True max_contact=42.521 split=train
+[yaw] yaw_follow block=2 cond=3 (+0 deg) attempt=0
+screw plan failed
+  steps=376 success=True assembly_complete=True max_contact=45.544 split=train
+[yaw] yaw_follow block=3 cond=3 (+0 deg) attempt=0
+screw plan failed
+  steps=375 success=True assembly_complete=True max_contact=52.196 split=train
+[yaw] yaw_follow block=4 cond=3 (+0 deg) attempt=0
+screw plan failed
+  steps=378 success=True assembly_complete=True max_contact=41.041 split=train
+[yaw] yaw_follow block=0 cond=4 (+0 deg) attempt=0
+screw plan failed
+screw plan failed
+screw plan failed
+IK Failed! Distance 0.116907 is greater than threshold 0.001000.
+  solver exception: RuntimeError('motion planning failed')
+  steps=541 success=False assembly_complete=False max_contact=0.000 split=train
+[yaw] yaw_follow block=1 cond=4 (+0 deg) attempt=0
+screw plan failed
+screw plan failed
+screw plan failed
+IK Failed! Distance 0.915509 is greater than threshold 0.001000.
+  solver exception: RuntimeError('motion planning failed')
+  steps=676 success=False assembly_complete=False max_contact=0.000 split=train
+[yaw] yaw_follow block=2 cond=4 (+0 deg) attempt=0
+screw plan failed
+screw plan failed
+screw plan failed
+IK Failed! Cannot find valid solution.
+  solver exception: RuntimeError('motion planning failed')
+  steps=447 success=False assembly_complete=False max_contact=2.223 split=train
+[yaw] yaw_follow block=3 cond=4 (+0 deg) attempt=0
+screw plan failed
+screw plan failed
+screw plan failed
+screw plan failed
+  steps=921 success=False assembly_complete=False max_contact=149.804 split=train
+[yaw] yaw_follow block=4 cond=4 (+0 deg) attempt=0
+screw plan failed
+screw plan failed
+  steps=399 success=True assembly_complete=True max_contact=3.496 split=train
+[yaw] done: 50 jobs, 50 episodes, 42/50 success

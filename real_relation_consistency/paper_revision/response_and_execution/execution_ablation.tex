@@ -1,0 +1,21 @@
+% Requires booktabs. NR = not run; do not replace NR by zero.
+\begin{table*}[t]
+\centering
+\caption{Execution outcomes under the available terminal-completion setting. Missing ablation arms are explicitly marked NR.}
+\label{tab:mode_execution_ablation}
+\small
+\begin{tabular}{lccccc}
+\toprule
+Method & No completion & Axial extension only & Full-target completion & Axis error ($^\circ$) & Lateral error (mm) \\
+\midrule
+No adaptation & NR & NR & 4/60 (6.7\%) & 3.24 & 9.33 \\
+Rigid transform & NR & NR & 49/60 (81.7\%) & 2.03 & 1.64 \\
+Frozen source law & NR & NR & 58/60 (96.7\%) & 0.93 & 1.75 \\
+Target-trained law & NR & NR & 57/60 (95.0\%) & 0.96 & 1.74 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\textwidth}\footnotesize
+Each method is evaluated on three target modes, four held-out pitch conditions and five blocks (60 runs). Entries report endpoint-criterion attainment, requiring lateral error $\leq10$ mm, axis error $\leq0.05$ rad, and axial coordinate $\leq0.072$ m. The 15-step hold criterion cannot be verified from the stored terminal summaries. Error means include failed runs. The available pipeline plans between generated waypoints and appends the full target pose. NR denotes an unmeasured arm, not failure. Target-trained law uses target training interventions and is a reference comparator.
+\end{minipage}
+\end{table*}

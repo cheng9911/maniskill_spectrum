@@ -1,0 +1,13 @@
+dataset,event,n,detected,median_threshold_spread_s
+insert_10degree,assembly_region,61,61,0.0
+insert_10degree,axial_advance_candidate,61,55,1.1666666666666667
+insert_10degree,grasp,61,61,0.0
+insert_10degree,lift_clearance,61,61,0.0
+insert_10degree,release,61,61,0.0
+insert_10degree,terminal_settle_candidate,61,54,0.0
+insert_jc_fix_3,assembly_region,50,50,0.0
+insert_jc_fix_3,axial_advance_candidate,50,49,0.8
+insert_jc_fix_3,grasp,50,50,0.0
+insert_jc_fix_3,lift_clearance,50,50,0.0
+insert_jc_fix_3,release,50,50,0.0
+insert_jc_fix_3,terminal_settle_candidate,50,49,0.0

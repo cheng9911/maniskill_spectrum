@@ -1,0 +1,107 @@
+[
+  {
+    "image": "frames/keyed_3.png",
+    "source": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_rotated/rotated_Q1_seed_20260818.h5",
+    "episode": 7,
+    "frame": 294,
+    "solver_phase": 3,
+    "peg_center_local_z": 0.12464199960231781,
+    "key_top_local_z": 0.09565848909689656,
+    "gate_bottom_z": 0.053,
+    "clearance_margin": -0.04265848909689656,
+    "camera_eye": [
+      -0.08999999403953551,
+      -0.2399999985098839,
+      0.3849999982118607
+    ],
+    "camera_target": [
+      -0.3499999940395355,
+      0.10000000149011612,
+      0.15499999821186067
+    ]
+  },
+  {
+    "image": "frames/keyed_4.png",
+    "source": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_rotated/rotated_Q1_seed_20260818.h5",
+    "episode": 7,
+    "frame": 357,
+    "solver_phase": 4,
+    "peg_center_local_z": 0.10275352001190186,
+    "key_top_local_z": 0.07387487699048065,
+    "gate_bottom_z": 0.053,
+    "clearance_margin": -0.02087487699048065,
+    "camera_eye": [
+      -0.08999999403953551,
+      -0.2399999985098839,
+      0.3849999982118607
+    ],
+    "camera_target": [
+      -0.3499999940395355,
+      0.10000000149011612,
+      0.15499999821186067
+    ]
+  },
+  {
+    "image": "frames/keyed_5.png",
+    "source": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_rotated/rotated_Q1_seed_20260818.h5",
+    "episode": 7,
+    "frame": 501,
+    "solver_phase": 5,
+    "peg_center_local_z": 0.07664854824542999,
+    "key_top_local_z": 0.04815495295915043,
+    "gate_bottom_z": 0.053,
+    "clearance_margin": 0.004845047040849572,
+    "camera_eye": [
+      -0.08999999403953551,
+      -0.2399999985098839,
+      0.3849999982118607
+    ],
+    "camera_target": [
+      -0.3499999940395355,
+      0.10000000149011612,
+      0.15499999821186067
+    ]
+  },
+  {
+    "image": "frames/keyed_6.png",
+    "source": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_rotated/rotated_Q1_seed_20260818.h5",
+    "episode": 7,
+    "frame": 515,
+    "solver_phase": 6,
+    "peg_center_local_z": 0.07174527645111084,
+    "key_top_local_z": 0.04312347350045523,
+    "gate_bottom_z": 0.053,
+    "clearance_margin": 0.00987652649954477,
+    "camera_eye": [
+      -0.08999999403953551,
+      -0.2399999985098839,
+      0.3849999982118607
+    ],
+    "camera_target": [
+      -0.3499999940395355,
+      0.10000000149011612,
+      0.15499999821186067
+    ]
+  },
+  {
+    "image": "frames/circular_3.png",
+    "source": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_rotated/circular_honest_seed_20260818.h5",
+    "episode": 6,
+    "frame": 299,
+    "solver_phase": 3,
+    "peg_center_local_z": 0.12435179948806763,
+    "key_top_local_z": null,
+    "gate_bottom_z": 0.053,
+    "clearance_margin": null,
+    "camera_eye": [
+      -0.08999999403953551,
+      -0.2399999985098839,
+      0.3849999982118607
+    ],
+    "camera_target": [
+      -0.3499999940395355,
+      0.10000000149011612,
+      0.15499999821186067
+    ]
+  }
+]

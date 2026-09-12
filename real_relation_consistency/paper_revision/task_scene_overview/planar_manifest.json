@@ -1,0 +1,17 @@
+{
+  "source": "/home/rocos/sia/maniskill_spectrum/phase_switch_symmetry_rollouts_planar_push/heading_push_seed_20260818.h5",
+  "episode": "episode_11",
+  "frame": 310,
+  "solver_phase": 5,
+  "goal_heading": true,
+  "causal_delta": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.5235987755982988
+  ],
+  "evidence": "closed-loop simulation replay",
+  "execution": "guided grasp-and-slide, not non-prehensile point pushing"
+}

@@ -1,0 +1,11 @@
+yaw_mode,yaw_deg,success,assembly_complete,n
+yaw_fixed,0.0,5,5,5
+yaw_fixed,-15.0,5,5,5
+yaw_fixed,15.0,5,5,5
+yaw_fixed,-30.0,5,5,5
+yaw_fixed,30.0,5,5,5
+yaw_follow,0.0,5,5,5
+yaw_follow,-15.0,5,5,5
+yaw_follow,15.0,1,1,5
+yaw_follow,-30.0,5,5,5
+yaw_follow,30.0,1,1,5

@@ -1,0 +1,5 @@
+method,label,n,env_success,endpoint_pass,endpoint_rate,mean_axis_deg,mean_lateral_mm,no_completion,axial_extension,full_target_completion,hold_validation
+no_adapt,No adaptation,60,29,4,0.06666666666666667,3.239748785356895,9.333410647669451,NR,NR,measured,not available
+rigid,Rigid transform,60,55,49,0.8166666666666667,2.0332644311670114,1.641041193202456,NR,NR,measured,not available
+source,Frozen source law,60,59,58,0.9666666666666667,0.9257827520791402,1.7490912735487583,NR,NR,measured,not available
+target,Target-trained law,60,58,57,0.95,0.9559240840687263,1.7352545893283862,NR,NR,measured,not available

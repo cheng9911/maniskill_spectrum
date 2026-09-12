@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "title": "The relation law P_r(s) is the transferable object",
+  "resolution": "1920x1080",
+  "fps": 30,
+  "segments": [
+    {
+      "id": "few_shot_collection",
+      "file": "seg1_fewshot.mp4",
+      "seconds": 10.5
+    },
+    {
+      "id": "identify_P_r(s)",
+      "file": "seg2_identify_matrix.mp4",
+      "seconds": 16.0
+    },
+    {
+      "id": "what_P_r(s)_does",
+      "file": "seg3_multi_intervention.mp4",
+      "seconds": 12.5
+    },
+    {
+      "id": "real_robot_transfer",
+      "file": "seg4_real_transfer.mp4",
+      "seconds": 24.0
+    },
+    {
+      "id": "breadth_libevo",
+      "file": "seg5_breadth.mp4",
+      "seconds": 3.0
+    },
+    {
+      "id": "conclusion",
+      "file": "seg6_conclusion.mp4",
+      "seconds": 4.0
+    }
+  ]
+}

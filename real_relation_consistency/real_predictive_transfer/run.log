@@ -1,0 +1,114 @@
+{
+  "method": "Calibration TCP minimal-axis + fixed 10 degree + rank-2 effective-pivot least squares",
+  "calibration_episodes": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60
+  ],
+  "evaluation_episodes": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    14,
+    16,
+    17,
+    18,
+    19,
+    21,
+    22,
+    23,
+    24,
+    26,
+    27,
+    28,
+    29,
+    31,
+    32,
+    33,
+    34,
+    36,
+    37,
+    38,
+    39,
+    41,
+    42,
+    43,
+    44,
+    46,
+    47,
+    48,
+    49,
+    51,
+    52,
+    53,
+    54,
+    56,
+    57,
+    58,
+    59
+  ],
+  "axis_base": [
+    0.718243282619339,
+    0.6957307841874243,
+    0.009233791536946413
+  ],
+  "input_angle_deg": 10,
+  "observed_calibration_angle_deg": 10.697380929022293,
+  "effective_pivot_base_m": [
+    0.5297221770096379,
+    0.10220337272904487,
+    0.07998759377607263
+  ],
+  "nominal_terminal_center_m": [
+    0.517104881097202,
+    0.11439242129083049,
+    0.14301606016597398
+  ],
+  "pivot_fit_rms_mm": 10.686962599364376,
+  "matrix_rank": 2,
+  "limitations": [
+    "Response-derived geometry, not independent hole calibration",
+    "Fixed grasp and fixed physical pivot assumed",
+    "Pivot component along rotation axis is unobservable and gauge fixed",
+    "All real data were explored previously; split is retrospective",
+    "Source law identified on peg poses, target evaluated on hand axes under fixed grasp"
+  ]
+}
+                          axis_rmse_deg                position_rmse_mm               
+                                   mean  median    std             mean  median    std
+method        segment                                                                 
+Event ramp    Apex to end         4.935   4.735  1.635           26.649  25.281  7.615
+              Near to end         3.673   3.391  1.679           14.491  13.614  3.688
+              Whole               5.120   5.210  1.230           30.647  28.150  9.588
+Frozen law    Apex to end         5.374   5.323  1.482           26.711  25.313  7.757
+              Near to end         3.656   3.383  1.670           14.487  13.631  3.693
+              Whole               5.598   5.724  1.289           30.108  27.790  9.558
+Identity      Apex to end         4.825   4.964  1.378           27.279  26.157  7.598
+              Near to end         3.673   3.391  1.679           14.491  13.614  3.688
+              Whole               6.626   6.505  1.149           35.604  33.028  9.683
+No adaptation Apex to end        10.992  10.818  2.376           30.180  28.826  7.793
+              Near to end        11.229  10.551  2.300           19.836  20.258  4.415
+              Whole               9.639   9.378  1.969           32.339  29.783  9.179
+Matching:                   min    median       max
+split                                    
+Calibration  0.425381  1.596353  4.377994
+Evaluation   0.401827  1.959249  6.606652
+PASS: frozen law unchanged; all 48 evaluation episodes scored under all 3 radii.

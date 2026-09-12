@@ -1,0 +1,12 @@
+{
+  "E1_vertical": "PASS: 901 samples, exact common assembly, monotone time, valid quaternion, gripper event",
+  "E1_tilt10": "PASS: 901 samples, exact common assembly, monotone time, valid quaternion, gripper event",
+  "E2_vertical": "PASS: 901 samples, exact common assembly, monotone time, valid quaternion, gripper event",
+  "E2_tilt10": "PASS: 901 samples, exact common assembly, monotone time, valid quaternion, gripper event",
+  "E3_vertical": "PASS: 901 samples, exact common assembly, monotone time, valid quaternion, gripper event",
+  "E3_tilt10": "PASS: 901 samples, exact common assembly, monotone time, valid quaternion, gripper event",
+  "finite_SE3": "PASS",
+  "common_start": "PASS: alpha(0)=0 without forcing",
+  "provenance": "PASS",
+  "execution_validation": "NOT PERFORMED: IK, collisions, controller dynamics and physical grasp"
+}

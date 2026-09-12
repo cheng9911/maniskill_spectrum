@@ -1,0 +1,57 @@
+{
+  "protocol_sha256": "e41770a3dd37ce0944c84da54a0380fc9b001f37d89306a8e1d189990e3595f6",
+  "results": [
+    {
+      "success": false,
+      "depth": 0.09422569601532131,
+      "lateral_mm": 20.663859417393418,
+      "axis_err_deg": 1.0643041955768935,
+      "steps": 711,
+      "solver_error": null,
+      "source": "lift_early",
+      "target": "lift_late",
+      "block": 0,
+      "theta_deg": -5.0,
+      "method": "no_adapt"
+    },
+    {
+      "success": true,
+      "depth": 0.07165103412490262,
+      "lateral_mm": 1.478542509220013,
+      "axis_err_deg": 1.1746418461936297,
+      "steps": 680,
+      "solver_error": "EpisodeFinished",
+      "source": "lift_early",
+      "target": "lift_late",
+      "block": 0,
+      "theta_deg": -5.0,
+      "method": "rigid"
+    },
+    {
+      "success": true,
+      "depth": 0.07139057931682882,
+      "lateral_mm": 1.7292090310377741,
+      "axis_err_deg": 0.3318885500852928,
+      "steps": 666,
+      "solver_error": "EpisodeFinished",
+      "source": "lift_early",
+      "target": "lift_late",
+      "block": 0,
+      "theta_deg": -5.0,
+      "method": "source"
+    },
+    {
+      "success": true,
+      "depth": 0.07139677858053255,
+      "lateral_mm": 1.708999746217768,
+      "axis_err_deg": 0.3494003280239857,
+      "steps": 665,
+      "solver_error": "EpisodeFinished",
+      "source": "lift_early",
+      "target": "lift_late",
+      "block": 0,
+      "theta_deg": -5.0,
+      "method": "target"
+    }
+  ]
+}

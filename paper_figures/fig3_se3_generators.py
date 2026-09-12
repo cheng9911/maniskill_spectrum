@@ -11,10 +11,9 @@ Four panels carrying the generator-relevance story:
       gauge) on top, relation-constraint control (heading-constrained vs free-yaw
       pushing) below.  Both show that yaw relevance tracks the task's geometric
       constraint rather than a fixed-coordinate law.
-  (c) task-local basis structure: two 6x6 response-operator schematics -- near
-      diagonal in the task-local basis, dense in a rotated basis.  The 6x6
-      matrices are schematic; only the scalar off-diagonal norms are frozen
-      (see Fig. 4, which carries the same scalars).
+  (c) empirical task-local basis structure: signed 6x6 response matrices from
+      keyed insert-phase trajectories, estimated over 18 N=30 fits. Both input
+      and output coordinates are rotated. See rebuild_fig3_basis.py.
   (d) multi-generator selectivity: phase-mean relevance of all six generators for
       the multi-generator probe (6 x 4 heatmap).  All six are simultaneously
       active, then only du and yaw selectively release -- not winner-take-all.
@@ -104,6 +103,9 @@ PUSH_PHASES = ("reach", "push", "align", "retract")
 # matrix (a) and multi-generator heatmap (d) encode the same quantity, so they
 # deliberately share this one ramp and one colorbar.
 STRUCT_CMAP = RELEVANCE_CMAP
+BASIS_CMAP = mpl.colors.LinearSegmentedColormap.from_list(
+    "signed_response", ["#287C83", "#A3CDCF", "#F7F7FA", "#9890CF", "#4437A8"], N=257
+)
 
 
 def _bubble_text_color(value):
@@ -255,7 +257,7 @@ def panel_control(ax, series, phase_labels, progress, anchors, show_y):
     ax.set_yticks([0.0, 0.5, 1.0])
     if show_y:
         # Keep the mathtext subscript above the 5 pt rendered-glyph floor.
-        ax.set_ylabel(r"$\alpha_\psi(s)$", fontsize=6.8)
+        ax.set_ylabel(r"$\alpha_\psi(s)$", fontsize=8.0)
     else:
         ax.set_yticklabels([])
     ax.set_xlabel("phase progress $s$", fontsize=6.8, labelpad=2)
@@ -294,33 +296,18 @@ def panel_multigen_heatmap(ax, matrix):
 # --------------------------------------------------------------------------
 # Panel (c): task-local basis structure
 # --------------------------------------------------------------------------
-# Frozen scalar off-diagonal Frobenius norms (EXPERIMENTS_RECORD.md; the 6x6
-# operator matrices themselves are not frozen to disk, so the heatmaps are
-# deterministic schematics -- Fig. 4 carries the same scalars).
-OFFDIAG_LOCAL = 0.15
-OFFDIAG_ROTATED = 2.77
-
-
-def _build_operators(seed: int = 0):
-    """Deterministic schematic 6x6 response operators with the frozen norms."""
-    rng = np.random.default_rng(seed)
-
-    def _off_norm(m):
-        m = np.asarray(m, dtype=float)
-        return float(np.linalg.norm(m - np.diag(np.diag(m))))
-
-    def _make(norm):
-        off = rng.standard_normal((6, 6))
-        off = (off + off.T) / 2
-        np.fill_diagonal(off, 0.0)
-        off = off / np.linalg.norm(off) * norm
-        return np.eye(6) + off
-
-    A_local = _make(OFFDIAG_LOCAL)
-    A_rot = _make(OFFDIAG_ROTATED)
-    assert abs(_off_norm(A_local) - OFFDIAG_LOCAL) < 1e-9
-    assert abs(_off_norm(A_rot) - OFFDIAG_ROTATED) < 1e-9
-    return A_local, A_rot
+def _build_operators():
+    """Load measured insert-phase operators; never fall back to a schematic."""
+    path = HERE / "fig3_basis_empirical.npz"
+    if not path.exists():
+        raise FileNotFoundError("Run paper_figures/rebuild_fig3_basis.py first")
+    with np.load(path) as data:
+        matrices = data["mean"][:, 3].copy()
+        Q = data["Q"]
+    if matrices.shape != (2, 6, 6) or not np.isfinite(matrices).all():
+        raise ValueError("Invalid empirical basis matrices")
+    np.testing.assert_allclose(matrices[1], Q.T @ matrices[0] @ Q, atol=2e-10)
+    return tuple(matrices)
 
 
 def _off_diag_ratio(A):
@@ -330,9 +317,7 @@ def _off_diag_ratio(A):
 
 
 def panel_basis_test(fig, subspec):
-    """Panel (c): task-local basis structure -- two 6x6 operator heatmaps (near
-    diagonal in the task-local basis, dense in a rotated basis), annotated with
-    the normalized off-diagonal mass r_off."""
+    """Signed empirical operators; rows=output, columns=input, insert phase."""
     A_local, A_rot = _build_operators()
     r_local = _off_diag_ratio(A_local)
     r_rot = _off_diag_ratio(A_rot)
@@ -343,7 +328,7 @@ def panel_basis_test(fig, subspec):
     ax_r = fig.add_subplot(gs_c[0, 1])
 
     for ax, M in ((ax_l, A_local), (ax_r, A_rot)):
-        ax.imshow(np.abs(M), aspect="equal", cmap=STRUCT_CMAP, vmin=0.0, vmax=1.2)
+        im = ax.imshow(M, aspect="equal", cmap=BASIS_CMAP, vmin=-1.05, vmax=1.05)
         ax.set_xticks(range(6))
         ax.set_xticklabels([GEN_LABELS[g] for g in GENS], fontsize=5.2,
                            rotation=0, ha="center")
@@ -359,10 +344,17 @@ def panel_basis_test(fig, subspec):
 
     ax_l.text(0.5, -0.14, "task-local basis\n" + rf"$r_\mathrm{{off}}={r_local:.2f}$",
               transform=ax_l.transAxes, ha="center", va="top",
-              fontsize=6.8, color=TEXT)
+              fontsize=7.2, color=TEXT)
     ax_r.text(0.5, -0.14, "rotated basis\n" + rf"$r_\mathrm{{off}}={r_rot:.2f}$",
               transform=ax_r.transAxes, ha="center", va="top",
-              fontsize=6.8, color=TEXT)
+              fontsize=7.2, color=TEXT)
+    ax_l.text(0, 1.08, "Empirical response · insert phase", transform=ax_l.transAxes,
+              fontsize=6.2, color=TEXT)
+    cax = ax_l.inset_axes([0.15, -0.50, 1.70, 0.045])
+    cbar = fig.colorbar(im, cax=cax, orientation="horizontal", ticks=[-1, 0, 1])
+    cbar.ax.tick_params(labelsize=5.5, length=0)
+    cbar.outline.set_visible(False)
+    cbar.set_label("Signed response coefficient", fontsize=6.2, labelpad=1)
     return ax_l, ax_r
 
 
